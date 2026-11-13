@@ -78,12 +78,45 @@
   .search-row{display:flex;gap:8px}
   .search-row input[type="search"]{flex:1;background:var(--panel);border:1px solid var(--line2);color:var(--ink);border-radius:8px;padding:10px 14px;font:inherit;font-size:15px;min-width:0}
   .search-row input::placeholder{color:var(--ink3)}
-  .filters{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
-  .filters .flabel{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);align-self:center;margin-right:2px}
   .chip{border:1px solid var(--line2);background:transparent;color:var(--ink2);border-radius:999px;padding:7px 15px;font-size:13.5px;font-weight:600;min-height:44px}
   .chip[aria-pressed="true"]{background:#e8eef7;color:#0a1220;border-color:#e8eef7}
   .chip .n{font-family:"IBM Plex Mono",monospace;font-size:11.5px;opacity:.75}
-  .count-line{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink3);margin-top:8px}
+  .count-line{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink3);margin:0}
+
+  /* Filter bar + popup (bottom sheet on mobile, dropdown on desktop) */
+  .filter-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:10px}
+  .filter-wrap{position:relative}
+  .filters-btn{border:1px solid var(--line2);background:var(--panel);color:var(--ink);border-radius:8px;padding:8px 14px;font-size:14.5px;font-weight:600;display:inline-flex;align-items:center;gap:8px;min-height:44px;max-width:100%}
+  .filters-btn:hover{border-color:var(--blue)}
+  .filters-btn .fb-label{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .filters-btn .fb-chev{color:var(--ink3);transition:transform .18s;flex:0 0 auto}
+  .filters-btn[aria-expanded="true"] .fb-chev{transform:rotate(180deg)}
+  .filters-btn.has-filters{border-color:#8a6420;background:#241b08;color:#f5cf8a}
+  .fbackdrop{position:fixed;inset:0;background:rgba(3,6,12,.62);z-index:55;opacity:0;visibility:hidden;transition:opacity .25s ease,visibility 0s .25s}
+  .fbackdrop.open{opacity:1;visibility:visible;transition:opacity .25s ease}
+  .fsheet{position:fixed;left:0;right:0;bottom:0;z-index:56;background:var(--bg2);border-top:1px solid var(--line2);border-radius:16px 16px 0 0;max-height:84vh;overflow:auto;padding:6px 18px 0;transform:translateY(103%);visibility:hidden;transition:transform .28s ease,visibility 0s .28s}
+  .fsheet.open{transform:none;visibility:visible;transition:transform .28s ease}
+  @media(min-width:700px){
+    .fbackdrop{background:transparent}
+    .fsheet{position:absolute;left:0;right:auto;bottom:auto;top:calc(100% + 8px);width:350px;max-width:calc(100vw - 36px);border:1px solid var(--line2);border-radius:12px;max-height:min(70vh,560px);box-shadow:0 18px 44px rgba(0,0,0,.5);transform:translateY(-6px);opacity:0;transition:transform .18s ease,opacity .18s ease,visibility 0s .18s}
+    .fsheet.open{transform:none;opacity:1;transition:transform .18s ease,opacity .18s ease}
+  }
+  .fsheet-head{display:flex;align-items:center;gap:10px;padding:10px 0 4px}
+  .fsheet-head h3{font-family:"Barlow Condensed",sans-serif;font-size:23px;letter-spacing:.04em;margin:0;font-weight:700}
+  .fsheet-x{margin-left:auto;background:none;border:1px solid var(--line2);border-radius:8px;color:var(--ink2);width:44px;height:44px;min-height:44px;display:grid;place-items:center;font-size:15px;padding:0}
+  .fsheet-x:hover{color:#fff;border-color:var(--blue)}
+  .fgroup{margin-top:10px}
+  .fgroup h4{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin:0 0 4px}
+  .fopt{display:flex;align-items:center;gap:11px;min-height:44px;padding:7px 10px;border-radius:8px;cursor:pointer;color:var(--ink2);font-size:15px}
+  .fopt:hover{background:var(--panel)}
+  .fopt:has(input:checked){background:var(--panel);color:var(--ink);font-weight:600}
+  .fopt input[type="radio"]{appearance:none;-webkit-appearance:none;width:20px;height:20px;min-height:20px;border:2px solid var(--line2);border-radius:50%;flex:0 0 20px;margin:0;background:transparent;cursor:pointer;padding:0}
+  .fopt input[type="radio"]:checked{border-color:var(--amber);background:var(--amber);box-shadow:inset 0 0 0 4.5px var(--bg2)}
+  .fopt input[type="radio"]:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+  .fopt .fopt-n{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink3)}
+  .fsheet-foot{position:sticky;bottom:0;background:var(--bg2);border-top:1px solid var(--line);margin-top:14px;padding:12px 0 calc(12px + env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .fsheet-foot .btn-clear{background:none;border:none;color:var(--ink2);font:inherit;font-weight:600;padding:8px 6px;min-height:44px;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+  .fsheet-foot .btn-clear:hover{color:#fff}
 
   /* Groups & cards */
   .group{margin-top:22px}
@@ -339,26 +372,46 @@
     <div class="search-row">
       <input type="search" id="search" placeholder="Search reports — try “Hormuz”, “Qeshm”, “Starshield”…" aria-label="Search reports">
     </div>
-    <div class="filters" role="group" aria-label="Filter by theater">
-      <span class="flabel">Theater</span>
-      <button class="chip tchip" data-theater="all" aria-pressed="true" type="button">All theaters</button>
-      <button class="chip tchip" data-theater="iran-gulf" aria-pressed="false" type="button">Iran / Gulf <span class="n">12</span></button>
-      <button class="chip tchip" data-theater="russia-ukraine" aria-pressed="false" type="button">Russia–Ukraine <span class="n">1</span></button>
-      <button class="chip tchip" data-theater="china-taiwan" aria-pressed="false" type="button">China–Taiwan <span class="n">1</span></button>
-      <button class="chip tchip" data-theater="israel-gaza-lebanon" aria-pressed="false" type="button">Israel–Gaza–Lebanon <span class="n">0</span></button>
-      <button class="chip tchip" data-theater="north-korea" aria-pressed="false" type="button">North Korea <span class="n">1</span></button>
-      <button class="chip tchip" data-theater="cyber-homeland" aria-pressed="false" type="button">Cyber / Homeland <span class="n">3</span></button>
+    <div class="filter-bar">
+      <div class="filter-wrap">
+        <button class="filters-btn" id="btnFilters" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="filterSheet">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18l-7 8v5.2L10 20v-6.8L3 5z"/></svg>
+          <span class="fb-label" id="filtersBtnLabel">Filters</span>
+          <span class="fb-chev" aria-hidden="true">▾</span>
+        </button>
+        <div class="fsheet" id="filterSheet" role="dialog" aria-label="Filter reports" aria-hidden="true">
+          <div class="fsheet-head">
+            <h3>Filters</h3>
+            <button class="fsheet-x" id="btnCloseFilters" type="button" aria-label="Close filters">✕</button>
+          </div>
+          <div class="fgroup" role="radiogroup" aria-label="Theater">
+            <h4>Theater</h4>
+            <label class="fopt"><input type="radio" name="f-theater" value="all" checked><span>All theaters</span></label>
+            <label class="fopt"><input type="radio" name="f-theater" value="iran-gulf"><span>Iran / Gulf</span><span class="fopt-n">12</span></label>
+            <label class="fopt"><input type="radio" name="f-theater" value="russia-ukraine"><span>Russia–Ukraine</span><span class="fopt-n">1</span></label>
+            <label class="fopt"><input type="radio" name="f-theater" value="china-taiwan"><span>China–Taiwan</span><span class="fopt-n">1</span></label>
+            <label class="fopt"><input type="radio" name="f-theater" value="israel-gaza-lebanon"><span>Israel–Gaza–Lebanon</span><span class="fopt-n">0</span></label>
+            <label class="fopt"><input type="radio" name="f-theater" value="north-korea"><span>North Korea</span><span class="fopt-n">1</span></label>
+            <label class="fopt"><input type="radio" name="f-theater" value="cyber-homeland"><span>Cyber / Homeland</span><span class="fopt-n">3</span></label>
+          </div>
+          <div class="fgroup" role="radiogroup" aria-label="Severity">
+            <h4>Severity</h4>
+            <label class="fopt"><input type="radio" name="f-sev" value="all" checked><span>All</span><span class="fopt-n">18</span></label>
+            <label class="fopt"><input type="radio" name="f-sev" value="critical"><span>Critical</span><span class="fopt-n">0</span></label>
+            <label class="fopt"><input type="radio" name="f-sev" value="high"><span>High</span><span class="fopt-n">6</span></label>
+            <label class="fopt"><input type="radio" name="f-sev" value="medium"><span>Medium</span><span class="fopt-n">11</span></label>
+            <label class="fopt"><input type="radio" name="f-sev" value="low"><span>Low</span><span class="fopt-n">1</span></label>
+          </div>
+          <div class="fsheet-foot">
+            <button class="btn-clear" id="btnClearFilters" type="button">Clear all</button>
+            <button class="btn amber" id="btnApplyFilters" type="button">Show results</button>
+          </div>
+        </div>
+      </div>
+      <p class="count-line" id="countLine">Showing 18 of 18 reports</p>
     </div>
+    <div class="fbackdrop" id="filterBackdrop" aria-hidden="true"></div>
     <p class="theater-empty-note" id="israelEmptyNote" hidden>No clean verified Nov 11–12 US-threat item was found, so this theater is intentionally empty.</p>
-    <div class="filters" role="group" aria-label="Filter by severity">
-      <span class="flabel">Severity</span>
-      <button class="chip" data-sev="all" aria-pressed="true" type="button">All <span class="n">18</span></button>
-      <button class="chip" data-sev="critical" aria-pressed="false" type="button">Critical <span class="n">0</span></button>
-      <button class="chip" data-sev="high" aria-pressed="false" type="button">High <span class="n">6</span></button>
-      <button class="chip" data-sev="medium" aria-pressed="false" type="button">Medium <span class="n">11</span></button>
-      <button class="chip" data-sev="low" aria-pressed="false" type="button">Low <span class="n">1</span></button>
-    </div>
-    <p class="count-line" id="countLine">Showing 18 of 18 reports</p>
   </section>
 
   <main id="groups"></main>
@@ -1094,24 +1147,87 @@ function closeDetail(){ document.getElementById("scrimDetail").classList.remove(
 
 /* Wiring */
 document.getElementById("search").addEventListener("input", function(e){ query = e.target.value.trim().toLowerCase(); render(); });
-var chips = document.querySelectorAll(".chip[data-sev]");
-chips.forEach(function(ch){
-  ch.addEventListener("click", function(){
-    chips.forEach(function(c){ c.setAttribute("aria-pressed","false"); });
-    ch.setAttribute("aria-pressed","true");
-    sevFilter = ch.getAttribute("data-sev");
-    render();
+/* Filter popup — pending selection applies only on "Show results" */
+var SEV_NAMES = {critical:"Critical", high:"High", medium:"Medium", low:"Low"};
+var btnFilters = document.getElementById("btnFilters");
+var filtersBtnLabel = document.getElementById("filtersBtnLabel");
+var fSheet = document.getElementById("filterSheet");
+var fBackdrop = document.getElementById("filterBackdrop");
+var btnApplyFilters = document.getElementById("btnApplyFilters");
+function pendingSel(){
+  var t = document.querySelector("input[name='f-theater']:checked");
+  var s = document.querySelector("input[name='f-sev']:checked");
+  return { theater: t ? t.value : "all", sev: s ? s.value : "all" };
+}
+function pendingCount(){
+  var p = pendingSel();
+  var n = 0;
+  REPORTS.forEach(function(r){
+    if(p.theater!=="all" && r.theater!==p.theater) return;
+    if(p.sev!=="all" && r.severity!==p.sev) return;
+    if(query){
+      var hay = (r.title+" "+r.summary+" "+r.category+" "+r.confidence+" "+(THEATER_NAMES[r.theater]||"")).toLowerCase();
+      if(hay.indexOf(query)===-1) return;
+    }
+    n++;
   });
+  return n;
+}
+function updateApplyLabel(){
+  var n = pendingCount();
+  btnApplyFilters.textContent = "Show " + n + " result" + (n===1 ? "" : "s");
+}
+function syncFilterRadios(){
+  document.querySelectorAll("input[name='f-theater']").forEach(function(r){ r.checked = r.value===theaterFilter; });
+  document.querySelectorAll("input[name='f-sev']").forEach(function(r){ r.checked = r.value===sevFilter; });
+  updateApplyLabel();
+}
+function updateFiltersBtn(){
+  var parts = [];
+  if(theaterFilter!=="all") parts.push(THEATER_NAMES[theaterFilter]);
+  if(sevFilter!=="all") parts.push(SEV_NAMES[sevFilter]);
+  filtersBtnLabel.textContent = parts.length ? parts.join(" · ") : "Filters";
+  btnFilters.classList.toggle("has-filters", parts.length>0);
+}
+function openFilters(){
+  syncFilterRadios();
+  fSheet.classList.add("open");
+  fSheet.setAttribute("aria-hidden","false");
+  fBackdrop.classList.add("open");
+  btnFilters.setAttribute("aria-expanded","true");
+  if(window.innerWidth<700) document.body.style.overflow = "hidden";
+  document.getElementById("btnCloseFilters").focus({preventScroll:true});
+}
+function closeFilters(){
+  fSheet.classList.remove("open");
+  fSheet.setAttribute("aria-hidden","true");
+  fBackdrop.classList.remove("open");
+  btnFilters.setAttribute("aria-expanded","false");
+  document.body.style.overflow = "";
+}
+btnFilters.addEventListener("click", function(){
+  if(fSheet.classList.contains("open")) closeFilters(); else openFilters();
 });
-var tchips = document.querySelectorAll(".chip[data-theater]");
-tchips.forEach(function(ch){
-  ch.addEventListener("click", function(){
-    tchips.forEach(function(c){ c.setAttribute("aria-pressed","false"); });
-    ch.setAttribute("aria-pressed","true");
-    theaterFilter = ch.getAttribute("data-theater");
-    render();
-  });
+document.getElementById("btnCloseFilters").addEventListener("click", closeFilters);
+fBackdrop.addEventListener("click", closeFilters);
+document.getElementById("btnClearFilters").addEventListener("click", function(){
+  document.querySelectorAll("input[name='f-theater']").forEach(function(r){ r.checked = r.value==="all"; });
+  document.querySelectorAll("input[name='f-sev']").forEach(function(r){ r.checked = r.value==="all"; });
+  updateApplyLabel();
 });
+btnApplyFilters.addEventListener("click", function(){
+  var p = pendingSel();
+  theaterFilter = p.theater;
+  sevFilter = p.sev;
+  updateFiltersBtn();
+  closeFilters();
+  render();
+});
+fSheet.querySelectorAll("input[type='radio']").forEach(function(r){
+  r.addEventListener("change", updateApplyLabel);
+});
+document.addEventListener("keydown", function(e){ if(e.key==="Escape") closeFilters(); });
+updateFiltersBtn();
 document.getElementById("btnCloseDetail").addEventListener("click", closeDetail);
 document.getElementById("scrimDetail").addEventListener("click", function(e){ if(e.target===this) closeDetail(); });
 document.addEventListener("keydown", function(e){ if(e.key==="Escape"){ closeDetail(); } });
