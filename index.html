@@ -363,8 +363,8 @@
   </section>
 
   <section class="stats" aria-label="Archive summary">
-    <div class="stat"><b id="statTotal">37</b><span>Archived reports</span></div>
-    <div class="stat"><b style="font-size:21px;padding-top:5px" id="statLatest">Nov 14 · 5:16 AM CT</b><span>Latest report timestamp (Central Time)</span></div>
+    <div class="stat"><b id="statTotal">39</b><span>Archived reports</span></div>
+    <div class="stat"><b style="font-size:21px;padding-top:5px" id="statLatest">Nov 14 · 10:30 AM CT</b><span>Latest report timestamp (Central Time)</span></div>
     <div class="stat"><b><span class="crit">0</span> <span style="color:var(--ink3)">/</span> <span class="high">9</span></b><span>Critical / High severity</span></div>
   </section>
 
@@ -387,7 +387,7 @@
           <div class="fgroup" role="radiogroup" aria-label="Theater">
             <h4>Theater</h4>
             <label class="fopt"><input type="radio" name="f-theater" value="all" checked><span>All theaters</span></label>
-            <label class="fopt"><input type="radio" name="f-theater" value="iran-gulf"><span>Iran / Gulf</span><span class="fopt-n">24</span></label>
+            <label class="fopt"><input type="radio" name="f-theater" value="iran-gulf"><span>Iran / Gulf</span><span class="fopt-n">26</span></label>
             <label class="fopt"><input type="radio" name="f-theater" value="russia-ukraine"><span>Russia–Ukraine</span><span class="fopt-n">2</span></label>
             <label class="fopt"><input type="radio" name="f-theater" value="china-taiwan"><span>China–Taiwan</span><span class="fopt-n">2</span></label>
             <label class="fopt"><input type="radio" name="f-theater" value="israel-gaza-lebanon"><span>Israel–Gaza–Lebanon</span><span class="fopt-n">0</span></label>
@@ -396,10 +396,10 @@
           </div>
           <div class="fgroup" role="radiogroup" aria-label="Severity">
             <h4>Severity</h4>
-            <label class="fopt"><input type="radio" name="f-sev" value="all" checked><span>All</span><span class="fopt-n">37</span></label>
+            <label class="fopt"><input type="radio" name="f-sev" value="all" checked><span>All</span><span class="fopt-n">39</span></label>
             <label class="fopt"><input type="radio" name="f-sev" value="critical"><span>Critical</span><span class="fopt-n">0</span></label>
             <label class="fopt"><input type="radio" name="f-sev" value="high"><span>High</span><span class="fopt-n">9</span></label>
-            <label class="fopt"><input type="radio" name="f-sev" value="medium"><span>Medium</span><span class="fopt-n">26</span></label>
+            <label class="fopt"><input type="radio" name="f-sev" value="medium"><span>Medium</span><span class="fopt-n">28</span></label>
             <label class="fopt"><input type="radio" name="f-sev" value="low"><span>Low</span><span class="fopt-n">2</span></label>
           </div>
           <div class="fsheet-foot">
@@ -408,7 +408,7 @@
           </div>
         </div>
       </div>
-      <p class="count-line" id="countLine">Showing 37 of 37 reports</p>
+      <p class="count-line" id="countLine">Showing 39 of 39 reports</p>
     </div>
     <div class="fbackdrop" id="filterBackdrop" aria-hidden="true"></div>
     <p class="theater-empty-note" id="israelEmptyNote" hidden>No clean verified Nov 11–13 US-threat item was found, so this theater is intentionally empty.</p>
@@ -692,6 +692,22 @@ var THEATER_NAMES = {
 };
 var REPORTS = [
 {
+  id:"iran-2026-11-14-coalition-drones-riyadh-south",
+  ts:"2026-11-14T16:30:00Z",
+  group:"Saturday, November 14, 2026",
+  theater:"iran-gulf",
+  severity:"medium",
+  category:"Drones / Interceptions — Saudi Arabia",
+  title:"Saudi-led coalition says it intercepted and destroyed two Houthi one-way attack drones in Riyadh and the southern region, Saturday Nov 14",
+  summary:"The Saudi-led coalition said it intercepted and destroyed two one-way attack drones launched by the Houthis, one in the Riyadh region and one in the kingdom's southern region, on Saturday. Coalition spokesman Maj. Gen. Turki al-Maliki announced the interceptions in a statement posted on X. No casualties, damage, or flight/airport effects were reported. This is distinct from the coalition's Thursday Nov 12 interceptions (Riyadh + Eastern Province, already on the dashboard) and does NOT confirm the Houthis' separate Friday Nov 13 claims about Riyadh's airport or an oil pumping station, which remain unverified.",
+  confidence:"High that the coalition made this announcement — QNA + Reuters syndication + ISW Nov 14 update citing the coalition spokesperson's X post. The interception itself is the coalition's account — no independent verification of wreckage or damage published.",
+  flag:"Coalition account only — no independent verification of wreckage or damage",
+  sources:[
+    {name:"QNA via Fana News", date:"Nov 14, 2026", url:"https://www.fananews.com/language/en/coalition-says-it-engaged-and-destroyed-two-uavs/"},
+    {name:"Devdiscourse (Reuters syndication)", date:"Nov 14, 2026", url:"https://www.devdiscourse.com/article/international/4006989-saudi-led-coalition-says-it-destroyed-houthi-drones-launched-towards-riyadh-southern-region"}
+  ]
+},
+{
   id:"iran-2026-11-14-trump-hold-off",
   ts:"2026-11-14T11:16:00Z",
   group:"Saturday, November 14, 2026",
@@ -704,6 +720,21 @@ var REPORTS = [
   flag:"Possible hold-off — not a decision to end the campaign",
   sources:[
     {name:"Reuters", date:"Nov 14, 2026", url:"https://www.reuters.com/world/middle-east/trump-tells-advisers-he-may-hold-off-iran-attacks-barring-new-provocations-2026-11-14/"}
+  ]
+},
+{
+  id:"us-2026-11-13-embassy-saudi-security-alert",
+  ts:"2026-11-13T22:00:00Z",
+  group:"Friday, November 13, 2026",
+  theater:"iran-gulf",
+  severity:"medium",
+  category:"Security Alert / Saudi Arabia",
+  title:"US Mission to Saudi Arabia issues countrywide Security Alert: Americans urged to exercise heightened vigilance amid increased Houthi attack threat and Iranian efforts to target US government officials; extreme caution at Saudi airports",
+  summary:"The US Mission to Saudi Arabia issued a countrywide Security Alert dated November 13 warning that Americans in the Middle East should exercise heightened vigilance “due to the increased threat of armed attacks by Iranian-supported Houthis and Iranian efforts to target U.S. government officials in the region.” The alert notes Houthi attacks on Saudi civilian airports and critical infrastructure have caused civilian casualties and severe travel disruptions, warns of potential attacks, airspace closures, flight cancellations and travel disruptions, and says US government employees now require Chief of Mission authorization to use any airport in Saudi Arabia. It restates the October 23 ordered departure of non-emergency US government employees and family members. The State Department Travel Advisory level is unchanged (Level 3, “Reconsider Travel”). The alert followed the Houthis' November 13 claims of drone strikes on Riyadh's King Khalid International Airport and an East-West Pipeline pumping station, and their ballistic-missile claims against Saudi forces in Jazan.",
+  confidence:"High — the original source is the US Embassy site itself. The threat warning is the embassy's own assessment, not an independently verified incident; the underlying Houthi claims remain unverified.",
+  flag:"Embassy assessment — underlying Houthi claims remain unverified",
+  sources:[
+    {name:"US Mission to Saudi Arabia — US Embassy", date:"Nov 13, 2026", url:"https://sa.usembassy.gov/security-alert-u-s-mission-to-saudi-arabia-november-13-2026/"}
   ]
 },
 {
