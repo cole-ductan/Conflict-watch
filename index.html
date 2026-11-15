@@ -450,7 +450,7 @@
           <div class="fgroup" role="radiogroup" aria-label="Theater">
             <h4>Theater</h4>
             <label class="fopt"><input type="radio" name="f-theater" value="all" checked><span>All theaters</span></label>
-            <label class="fopt"><input type="radio" name="f-theater" value="iran-gulf"><span>Iran / Gulf</span><span class="fopt-n">32</span></label>
+            <label class="fopt"><input type="radio" name="f-theater" value="iran-gulf"><span>Iran / Gulf</span><span class="fopt-n">33</span></label>
             <label class="fopt"><input type="radio" name="f-theater" value="russia-ukraine"><span>Russia–Ukraine</span><span class="fopt-n">2</span></label>
             <label class="fopt"><input type="radio" name="f-theater" value="china-taiwan"><span>China–Taiwan</span><span class="fopt-n">2</span></label>
             <label class="fopt"><input type="radio" name="f-theater" value="israel-gaza-lebanon"><span>Israel–Gaza–Lebanon</span><span class="fopt-n">0</span></label>
@@ -459,17 +459,17 @@
           </div>
           <div class="fgroup" role="radiogroup" aria-label="Severity">
             <h4>Severity</h4>
-            <label class="fopt"><input type="radio" name="f-sev" value="all" checked><span>All</span><span class="fopt-n">45</span></label>
+            <label class="fopt"><input type="radio" name="f-sev" value="all" checked><span>All</span><span class="fopt-n">46</span></label>
             <label class="fopt"><input type="radio" name="f-sev" value="critical"><span>Critical</span><span class="fopt-n">0</span></label>
             <label class="fopt"><input type="radio" name="f-sev" value="high"><span>High</span><span class="fopt-n">12</span></label>
-            <label class="fopt"><input type="radio" name="f-sev" value="medium"><span>Medium</span><span class="fopt-n">31</span></label>
+            <label class="fopt"><input type="radio" name="f-sev" value="medium"><span>Medium</span><span class="fopt-n">32</span></label>
             <label class="fopt"><input type="radio" name="f-sev" value="low"><span>Low</span><span class="fopt-n">2</span></label>
           </div>
           <div class="fgroup" role="radiogroup" aria-label="Status">
             <h4>Status</h4>
-            <label class="fopt"><input type="radio" name="f-status" value="all" checked><span>All reports</span><span class="fopt-n">45</span></label>
+            <label class="fopt"><input type="radio" name="f-status" value="all" checked><span>All reports</span><span class="fopt-n">46</span></label>
             <label class="fopt"><input type="radio" name="f-status" value="verified"><span>Verified</span><span class="fopt-n">40</span></label>
-            <label class="fopt"><input type="radio" name="f-status" value="unverified"><span>Unverified</span><span class="fopt-n">5</span></label>
+            <label class="fopt"><input type="radio" name="f-status" value="unverified"><span>Unverified</span><span class="fopt-n">6</span></label>
           </div>
           <div class="fsheet-foot">
             <button class="btn-clear" id="btnClearFilters" type="button">Clear all</button>
@@ -1551,6 +1551,29 @@ var REPORTS = [
 ];
 
 var UNVERIFIED = [
+  {
+    "id": "unverified-2026-11-14-tanker-mines",
+    "ts": "2026-11-14T18:45:00Z",
+    "group": "Saturday, November 14, 2026",
+    "theater": "iran-gulf",
+    "severity": "medium",
+    "category": "Strait of Hormuz / Shipping",
+    "status": "unverified",
+    "title": "Iran's navy and IRGC claim three oil tankers caught fire after striking mines in the Strait of Hormuz",
+    "headline": "Tanker mine claim",
+    "simple": "Iran's navy and Revolutionary Guard said three oil tankers caught fire after hitting mines near the Strait of Hormuz on Saturday — but no ship names, no flags, no positions, and nobody independent has confirmed it.",
+    "claimBy": "IRGC Navy + Iranian conventional navy, Sat Nov 14 (via state broadcaster, Tasnim, Mehr)",
+    "claimText": "Two tankers (one a supertanker) exploded and caught fire after striking a naval mine on an unauthorised route in the south of the Strait of Hormuz; a third tanker in a “prohibited zone” east of the strait caught fire and stopped after striking a mine.",
+    "summary": "Iran's navy and the IRGC Navy said Saturday that three oil tankers caught fire after striking naval mines in and near the Strait of Hormuz — two in the south of the strait, one of them a supertanker, and a third in a “prohibited zone” east of the strait. The claim named no ships, gave no flags or positions, and UKMTO has issued no incident notice matching it. It is distinct from Friday's single LNG/LPG-carrier mine claim, though it belongs to the same claim family.",
+    "whyUnverified": "Reuters could not immediately verify; UKMTO had not confirmed; the US military says it cleared the main shipping routes of mines; ISW-CTP sees no indicators Iran has re-mined the strait; a Nov 15 DeepDraft check found no vessel names, IMO numbers, flags, or new UKMTO incident notice. Distinct from Friday's single LNG/LPG-carrier mine claim, same claim family.",
+    "sources": [
+      {
+        "name": "Life News Agency (CNA/Reuters + Al Arabiya/Reuters + Tasnim + Mehr)",
+        "date": "Nov 14, 2026",
+        "url": "https://lifenewsagency.com/iran-says-three-oil-tankers-caught-fire-after-striking-mines-in-strait-of-hormuz/"
+      }
+    ]
+  },
   {
     "id": "unverified-2026-11-13-houthi-jazan",
     "ts": "2026-11-13T20:53:00Z",
