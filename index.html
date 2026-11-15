@@ -456,6 +456,47 @@
     .mainnav.open{display:flex}
     .mainnav a{width:100%}
   }
+  /* Compact brief rows — a collapsed brief shows only the keyword title + threat level;
+     the date is the day-group section title above the rows. Nothing expands inline. */
+  .cards{display:flex;flex-direction:column;gap:8px}
+  .card{display:flex;align-items:center;gap:12px;padding:10px 14px;cursor:default}
+  .card .sev{flex:0 0 auto}
+  .card h4.pe-headline{flex:1 1 auto;min-width:0;font-size:22px;line-height:1.12;margin:0}
+  .card .details-toggle{flex:0 0 auto}
+  .card .unread{margin-left:0}
+  @media(max-width:560px){
+    .card{flex-wrap:wrap;row-gap:8px}
+    .card h4.pe-headline{flex:1 1 calc(100% - 140px);font-size:20px}
+    .card .details-toggle{margin-left:auto}
+  }
+
+  /* Full-page brief popout — the image-brief-mockup layout, restored as the detail modal.
+     Scoped to #scrimDetail so the signup modal keeps its existing styling. */
+  #scrimDetail{align-items:center;padding:18px}
+  #scrimDetail .modal{max-width:920px;max-height:94vh;border-radius:14px;padding:0;position:relative}
+  #scrimDetail .modal-close{position:absolute;top:12px;right:12px;float:none;z-index:3;background:var(--panel)}
+  @media(max-width:699px){
+    #scrimDetail{padding:0;align-items:stretch}
+    #scrimDetail .modal{max-height:100dvh;height:100dvh;border-radius:0;border-left:0;border-right:0}
+  }
+  .pop-accent{height:3px;background:var(--amber)}
+  .brief-pop{padding:26px 30px 32px}
+  @media(max-width:699px){.brief-pop{padding:20px 18px 28px}}
+  .pop-refrow{display:flex;justify-content:space-between;gap:8px 14px;flex-wrap:wrap;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px;padding-right:104px}
+  .pop-sevrow{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:12px}
+  .pop-sevrow .cat::before{content:"— ";color:var(--amber)}
+  .brief-pop h3.pop-keyword{font-family:"Barlow Condensed",sans-serif;font-size:clamp(32px,5.4vw,46px);line-height:1.02;font-weight:700;letter-spacing:.01em;text-transform:uppercase;margin:0 0 10px;color:var(--ink)}
+  .pop-orig{margin:0 0 8px}
+  .pop-orig .orig-label{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:3px}
+  .pop-orig .orig-text{font-size:17.5px;line-height:1.4;font-weight:600;color:var(--ink)}
+  .pop-dateline{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink3);letter-spacing:.03em;border-bottom:1px solid var(--line);padding-bottom:14px;margin:0 0 2px}
+  .brief-pop h5.pop-sec{display:flex;align-items:center;gap:10px;margin:22px 0 8px}
+  .brief-pop h5.pop-sec::after{content:"";flex:1;height:1px;background:var(--line)}
+  .brief-pop .simple-box{margin-bottom:0}
+  .brief-pop .src-note{font-size:12.5px;color:var(--ink3);line-height:1.5;margin:6px 0 0}
+  .brief-pop .conf{margin-top:20px}
+  .pop-foot{border-top:1px solid var(--line);margin-top:24px;padding-top:12px;display:flex;justify-content:space-between;gap:8px 14px;flex-wrap:wrap;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+
   @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -1974,41 +2015,11 @@ var BAB_IMAGERY_HTML = "<h5>Why this matters</h5>"
 
 function cardHTML(r){
   var st = statusOf(r);
-  var time = fmtCT.format(new Date(r.ts)) + " CT";
-  var catLabel = (THEATER_NAMES[r.theater] ? THEATER_NAMES[r.theater]+" · " : "") + r.category;
   var h = "<article class='card"+(st==="unverified"?" is-unverified":"")+(readSet[r.id]?" read":"")+"' data-id='"+esc(r.id)+"'>";
-  h += "<span class='card-top'><span class='sev "+esc(r.severity)+"'>"+esc(r.severity)+"</span><span class='status-badge "+st+"'>"+(st==="unverified"?"Unverified":"Verified")+"</span><span class='cat'>"+esc(catLabel)+"</span>"+(showUnread?"<span class='unread' aria-hidden='true'></span>":"")+"</span>";
+  h += "<span class='sev "+esc(r.severity)+"'>"+esc(r.severity)+"</span>";
   h += "<h4 class='pe-headline'>"+esc(r.headline || r.title)+"</h4>";
-  h += "<p class='card-subtitle'>"+esc(r.title)+"</p>";
-  h += "<div class='simple-box'><span class='sb-label'>In plain English</span><p>"+linkify(r.simple || r.summary)+"</p></div>";
-  h += "<button type='button' class='details-toggle' data-details='"+esc(r.id)+"' aria-expanded='false'>Click here for details — full brief <span class='dt-arrow' aria-hidden='true'>▾</span></button>";
-  h += "<div class='details-body' id='details-"+esc(r.id)+"' hidden>";
-  if(st==="unverified" && r.claimBy){
-    h += "<div class='claim-box'><p><b>Claimed by</b><span class='claim-text'>"+esc(r.claimBy)+"</span></p><p><b>The claim</b><span class='claim-text'>"+linkify(r.claimText || "")+"</span></p></div>";
-  }
-  h += "<div class='full-body'><p>"+linkify(r.summary)+"</p>";
-  if(r.sections){
-    r.sections.forEach(function(s){
-      h += "<h5>"+esc(s.h)+"</h5><ul>";
-      s.items.forEach(function(it){ h += "<li>"+linkify(it)+"</li>"; });
-      h += "</ul>";
-    });
-  }
-  h += "</div>";
-  if(r.imagery){ h += BAB_IMAGERY_HTML; }
-  if(st==="unverified" && r.whyUnverified){
-    h += "<div class='claim-box'><p><b>Why this is unverified</b>"+esc(r.whyUnverified)+"</p></div>";
-  }
-  if(r.flag){ h += "<span class='flag'>⚠ "+esc(r.flag)+"</span>"; }
-  if(r.confidence){ h += "<div class='conf'><b>Confidence</b><p>"+esc(r.confidence)+"</p></div>"; }
-  h += "<div class='sources'><span class='src-label'>Source"+(r.sources.length>1?"s":"")+"</span><ul class='src-list'>";
-  r.sources.forEach(function(s){
-    h += "<li><a href='"+esc(s.url)+"' target='_blank' rel='noopener'>"+esc(s.name)+" ↗</a><span class='pub'>"+esc(s.date)+"</span></li>";
-  });
-  h += "</ul>";
-  if(r.sourceNote){ h += "<p class='src-note'>"+esc(r.sourceNote)+"</p>"; }
-  h += "</div></div>";
-  h += "<span class='meta'><span>"+time+"</span><span>"+r.sources.length+" source"+(r.sources.length===1?"":"s")+"</span></span>";
+  if(showUnread){ h += "<span class='unread' aria-hidden='true'></span>"; }
+  h += "<button type='button' class='details-toggle' data-details='"+esc(r.id)+"' aria-haspopup='dialog'>Click here for details — full brief <span class='dt-arrow' aria-hidden='true'>↗</span></button>";
   h += "</article>";
   return h;
 }
@@ -2061,32 +2072,60 @@ function render(){
   if(typeof syncTilesUI === "function") syncTilesUI();
 }
 
-function openDetail(r){
-  readSet[r.id] = true;
-  var body = document.getElementById("detailBody");
-  var catLabel = (THEATER_NAMES[r.theater] ? THEATER_NAMES[r.theater]+" · " : "") + r.category;
-  var html = "<div class='card-top'><span class='sev "+esc(r.severity)+"'>"+esc(r.severity)+"</span><span class='cat'>"+esc(catLabel)+"</span></div>";
-  html += "<h3 id='dTitle'>"+esc(r.title)+"</h3>";
-  html += "<p class='mtime'>"+fmtFull.format(new Date(r.ts))+(r.origin ? " · Origin: "+esc(r.origin) : "")+"</p>";
-  html += "<p>"+esc(r.summary)+"</p>";
+var lastDetailBtn = null;
+function briefHTML(r){
+  var st = statusOf(r);
+  var h = "<div class='pop-accent' aria-hidden='true'></div><div class='brief-pop'>";
+  h += "<div class='pop-refrow'><span>"+esc(r.group)+"</span><span>"+esc(THEATER_NAMES[r.theater] || "")+"</span></div>";
+  h += "<div class='pop-sevrow'><span class='sev "+esc(r.severity)+"'>"+esc(r.severity)+"</span><span class='status-badge "+st+"'>"+(st==="unverified"?"Unverified":"Verified")+"</span><span class='cat'>"+esc(r.category)+"</span></div>";
+  h += "<h3 class='pop-keyword' id='dTitle'>"+esc(r.headline || r.title)+"</h3>";
+  h += "<p class='pop-orig'><span class='orig-label'>Original headline</span><span class='orig-text'>"+esc(r.title)+"</span></p>";
+  h += "<p class='pop-dateline'>"+fmtFull.format(new Date(r.ts))+(r.origin ? " · Origin: "+esc(r.origin) : "")+" · "+r.sources.length+" source"+(r.sources.length===1?"":"s")+"</p>";
+  if(st==="unverified" && r.claimBy){
+    h += "<div class='claim-box'><p><b>Claimed by</b><span class='claim-text'>"+esc(r.claimBy)+"</span></p><p><b>The claim</b><span class='claim-text'>"+linkify(r.claimText || "")+"</span></p></div>";
+  }
+  h += "<h5 class='pop-sec'>In plain English</h5><div class='simple-box'><p>"+linkify(r.simple || r.summary)+"</p></div>";
+  h += "<h5 class='pop-sec'>Full brief</h5><div class='full-body'><p>"+linkify(r.summary)+"</p>";
   if(r.sections){
     r.sections.forEach(function(s){
-      html += "<h5>"+esc(s.h)+"</h5><ul>";
-      s.items.forEach(function(it){ html += "<li>"+esc(it)+"</li>"; });
-      html += "</ul>";
+      h += "<h5>"+esc(s.h)+"</h5><ul>";
+      s.items.forEach(function(it){ h += "<li>"+linkify(it)+"</li>"; });
+      h += "</ul>";
     });
   }
-  html += "<div class='conf'><b>Confidence</b><p>"+esc(r.confidence)+"</p></div>";
-  html += "<h5>Sources — open on the original publisher</h5><ul class='src-list'>";
+  h += "</div>";
+  if(r.imagery){ h += BAB_IMAGERY_HTML; }
+  if(st==="unverified" && r.whyUnverified){
+    h += "<div class='claim-box'><p><b>Why this is unverified</b>"+esc(r.whyUnverified)+"</p></div>";
+  }
+  if(r.flag){ h += "<span class='flag'>⚠ "+esc(r.flag)+"</span>"; }
+  if(r.confidence){ h += "<div class='conf'><b>Confidence</b><p>"+esc(r.confidence)+"</p></div>"; }
+  h += "<h5 class='pop-sec'>Sources — open on the original publisher</h5><ul class='src-list'>";
   r.sources.forEach(function(s){
-    html += "<li><a href='"+esc(s.url)+"' target='_blank' rel='noopener'>"+esc(s.name)+" ↗</a><span class='pub'>"+esc(s.date)+"</span></li>";
+    h += "<li><a href='"+esc(s.url)+"' target='_blank' rel='noopener'>"+esc(s.name)+" ↗</a><span class='pub'>"+esc(s.date)+"</span></li>";
   });
-  html += "</ul>";
-  body.innerHTML = html;
-  document.getElementById("scrimDetail").classList.add("open");
-  render();
+  h += "</ul>";
+  if(r.sourceNote){ h += "<p class='src-note'>"+esc(r.sourceNote)+"</p>"; }
+  h += "<div class='pop-foot'><span>Conflict Ready USA</span><span>End of brief</span></div>";
+  h += "</div>";
+  return h;
 }
-function closeDetail(){ document.getElementById("scrimDetail").classList.remove("open"); }
+function openDetail(r){
+  readSet[r.id] = true;
+  var row = document.querySelector(".card[data-id='" + r.id + "']");
+  if(row) row.classList.add("read");
+  document.getElementById("detailBody").innerHTML = briefHTML(r);
+  var modal = document.querySelector("#scrimDetail .modal");
+  if(modal) modal.scrollTop = 0;
+  document.getElementById("scrimDetail").classList.add("open");
+  document.body.style.overflow = "hidden";
+  document.getElementById("btnCloseDetail").focus({preventScroll:true});
+}
+function closeDetail(){
+  document.getElementById("scrimDetail").classList.remove("open");
+  document.body.style.overflow = "";
+  if(lastDetailBtn){ lastDetailBtn.focus({preventScroll:true}); lastDetailBtn = null; }
+}
 
 /* Wiring */
 document.getElementById("search").addEventListener("input", function(e){ query = e.target.value.trim().toLowerCase(); render(); });
@@ -2230,18 +2269,15 @@ document.getElementById("groups").addEventListener("click", function(e){
   if(term){ openTerm(term.getAttribute("data-term"), term); return; }
   var dt = e.target.closest(".details-toggle");
   if(dt){
-    var body = document.getElementById("details-" + dt.getAttribute("data-details"));
-    if(body){
-      var open = body.hidden;
-      body.hidden = !open;
-      dt.setAttribute("aria-expanded", open ? "true" : "false");
-      if(open){
-        readSet[dt.getAttribute("data-details")] = true;
-        var card = dt.closest(".card");
-        if(card) card.classList.add("read");
-      }
-    }
+    var id = dt.getAttribute("data-details");
+    var found = null;
+    ALL_REPORTS.forEach(function(x){ if(x.id===id) found = x; });
+    if(found){ lastDetailBtn = dt; openDetail(found); }
   }
+});
+document.getElementById("detailBody").addEventListener("click", function(e){
+  var term = e.target.closest(".term");
+  if(term){ openTerm(term.getAttribute("data-term"), term); }
 });
 var termPop = document.getElementById("termPop");
 var termScrim = document.getElementById("termScrim");
