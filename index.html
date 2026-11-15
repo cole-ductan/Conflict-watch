@@ -245,8 +245,6 @@
   .tier ul{margin:12px 0 16px;padding-left:19px;color:var(--ink2);font-size:14.5px}
   .tier li{margin-bottom:6px}
   .tier .btn{width:100%;justify-content:center;text-decoration:none}
-  .pro-cta{display:flex;flex-direction:column;gap:10px}
-  .pro-err{color:#ffc4bd}
 
   .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
   .trust{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
@@ -652,7 +650,7 @@
         </div>
       </div>
       <span class="guide-status">Both guides free with signup — sent by email</span>
-      <p style="margin-bottom:14px">Sign up for the free Daily Briefing and both guides will be sent to you by email — and the three free downloads appear right on this page the moment you join.</p>
+      <p style="margin-bottom:14px">Sign up for the free Daily Briefing and both guides will be sent to you by email. Signup is still interim: joining opens a pre-addressed email in your mail app — there is no automated form on this page yet.</p>
       <button class="btn amber js-briefing" type="button">Sign up free to get both guides</button>
     </div>
   </section>
@@ -703,7 +701,7 @@
         <div class="price">$0</div>
         <ul>
           <li>Daily morning briefing by email</li>
-          <li>Both free guides with signup — 90-Day Ready Guide (8 pages, what to have) and Emergency Disaster Training &amp; Education (21 pages, how to do it), sent by email, plus three free downloads right on this page after you join</li>
+          <li>Both free guides with signup — 90-Day Ready Guide (8 pages, what to have) and Emergency Disaster Training &amp; Education (21 pages, how to do it), sent by email (no download link)</li>
           <li>Full archive on this page — search and severity filters</li>
           <li>Confidence labels and source links on every report</li>
           <li>This page runs no display ads; the free briefing may carry one clearly labeled sponsor line — that's the trade for free</li>
@@ -720,14 +718,10 @@
           <li>Ad-free, always — no ads and no sponsored placements in Pro alerts, summaries, or the weekly brief</li>
           <li>Founding rate locked for the first 100 members — the price never rises for you</li>
         </ul>
-        <div class="pro-cta">
-          <button class="btn amber" type="button" data-checkout="monthly">Start Pro — $5 / month</button>
-          <button class="btn" type="button" data-checkout="annual">Start Pro — $50 / year</button>
-        </div>
-        <p class="signup-note pro-err" id="proErr" role="alert" style="display:none"></p>
+        <a class="btn amber" href="mailto:cole.ductan@gmail.com?subject=Conflict%20Ready%20USA%20Pro%20—%20founding%20member&body=I%20want%20a%20founding%20Pro%20spot%20at%20%245%2Fmo.%20Please%20send%20my%20payment%20link%20when%20checkout%20opens.%0A%0AName%3A%0AEmail%20for%20alerts%3A">Reserve a founding spot</a>
       </div>
     </div>
-    <p class="signup-note" style="margin-top:10px">Checkout is live — your card is charged today and Pro alerts start immediately. Founding rate locked for the first 100 members: the price never rises for you as long as you stay subscribed. Cancel anytime from the link in any Pro email.</p>
+    <p class="signup-note" style="margin-top:10px">Founding reservations are open now and charged nothing today. When checkout opens, founding members get the payment link first and keep the $5/mo (or $50/yr) rate for as long as they stay subscribed.</p>
   </section>
 
   <section class="sect" id="shop" aria-label="Preparedness shopping list">
@@ -2310,36 +2304,6 @@ crWireSignup(
   document.getElementById("signupErr"),
   document.getElementById("signupDownloads")
 );
-
-/* Pro checkout — POSTs to the Conflict Ready Worker, redirects to Stripe */
-var CHECKOUT_API = "https://conflict-ready.conflict-ready-usa.workers.dev/api/checkout";
-document.querySelectorAll("[data-checkout]").forEach(function(btn){
-  btn.addEventListener("click", function(){
-    var plan = btn.getAttribute("data-checkout") === "annual" ? "annual" : "monthly";
-    var errBox = document.getElementById("proErr");
-    if(errBox){ errBox.style.display = "none"; errBox.textContent = ""; }
-    var orig = btn.textContent;
-    btn.disabled = true;
-    btn.textContent = "Starting checkout…";
-    fetch(CHECKOUT_API, {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({price: plan})
-    }).then(function(res){
-      return res.json().catch(function(){ return null; });
-    }).then(function(data){
-      if(data && data.url){
-        window.location.href = data.url;
-      } else {
-        throw new Error((data && (data.error || data.message)) || "Couldn't start checkout.");
-      }
-    }).catch(function(err){
-      if(errBox){ errBox.textContent = (err && err.message) || "Couldn't start checkout. Please try again."; errBox.style.display = "block"; }
-      btn.disabled = false;
-      btn.textContent = orig;
-    });
-  });
-});
 render();
 </script>
 <script>
