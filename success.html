@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="dark" />
+<link rel="icon" href="data:," />
+<title>Welcome to Alert Pro — Conflict Ready USA</title>
+<style>
+  :root{
+    --bg:#090f1b;
+    --bg-2:#0d1626;
+    --card:#101a2e;
+    --card-2:#0f1a2f;
+    --line:rgba(255,255,255,.09);
+    --line-strong:rgba(245,158,11,.28);
+    --text:#eef2f7;
+    --muted:#9fb0c3;
+    --muted-2:#7d90a8;
+    --amber:#f59e0b;
+    --amber-2:#fbbf24;
+    --amber-dark:#92400e;
+    --green:#22c55e;
+    --red:#f87171;
+    --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family: Inter, ui-sans-system, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; -webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  /* header */
+  .site-header{
+    border-bottom:1px solid var(--line);
+    background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+  }
+  .header-inner{
+    max-width:880px;margin:0 auto;padding:18px 20px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .brand-mark{
+    width:40px;height:40px;border-radius:10px;background:#1a1203;border:1px solid var(--line-strong);
+    display:grid;place-items:center;flex:0 0 auto;
+  }
+  .brand-text{line-height:1}
+  .brand-name{font-weight:800;letter-spacing:.08em;font-size:15px;text-transform:uppercase}
+  .brand-name span{color:var(--amber)}
+  .brand-sub{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:5px;font-weight:600}
+  .header-link{
+    font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;
+    border:1px solid var(--line);padding:10px 14px;border-radius:999px;min-height:40px;display:inline-flex;align-items:center;
+  }
+  .header-link:hover{color:var(--text);border-color:rgba(255,255,255,.2)}
+
+  .wrap{max-width:880px;margin:0 auto;padding:28px 20px 56px}
+  @media(min-width:720px){.wrap{padding-top:44px}}
+
+  /* states */
+  .state{display:none}
+  .state.active{display:block}
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:20px;
+    overflow:hidden;
+  }
+  .card-top{padding:28px 24px 0}
+  @media(min-width:640px){.card-top{padding:36px 36px 0}}
+  .card-body{padding:20px 24px 28px}
+  @media(min-width:640px){.card-body{padding:22px 36px 36px}}
+
+  .icon-badge{
+    width:56px;height:56px;border-radius:999px;display:grid;place-items:center;margin-bottom:18px;
+  }
+  .icon-badge.success{background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.35);color:#4ade80}
+  .icon-badge.error{background:rgba(248,113,113,.10);border:1px solid rgba(248,113,113,.30);color:#fca5a5}
+  .icon-badge.loading{background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.30);color:var(--amber-2)}
+
+  .eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);font-weight:700;margin:0 0 10px}
+  h1{font-size:32px;line-height:1.05;letter-spacing:-.02em;margin:0;font-weight:800}
+  @media(min-width:640px){h1{font-size:40px}}
+  .lede{color:var(--muted);font-size:16px;line-height:1.6;margin:14px 0 0;max-width:620px}
+  .lede strong{color:var(--text)}
+
+  /* downloads */
+  .downloads{margin-top:26px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--bg-2)}
+  .downloads-head{
+    display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
+    padding:14px 16px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.02)
+  }
+  .downloads-head h2{font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin:0;font-weight:700}
+  .pill{font-size:12px;font-weight:700;color:#111827;background:var(--amber);padding:6px 10px;border-radius:999px;white-space:nowrap}
+  .pill-outline{background:transparent;color:var(--amber-2);border:1px solid var(--line-strong)}
+  .dl-row{
+    display:flex;align-items:center;gap:14px;padding:16px;
+    border-bottom:1px solid var(--line);
+  }
+  .dl-row:last-child{border-bottom:none}
+  .dl-icon{
+    width:44px;height:44px;border-radius:10px;background:#171006;border:1px solid rgba(245,158,11,.22);
+    display:grid;place-items:center;flex:0 0 auto;color:var(--amber-2);font-size:11px;font-weight:800;letter-spacing:.06em
+  }
+  .dl-main{flex:1;min-width:0}
+  .dl-name{font-weight:700;font-size:15px;line-height:1.3;word-break:break-word}
+  .dl-meta{color:var(--muted);font-size:13px;margin-top:3px;line-height:1.4}
+  .dl-btn{
+    flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    background:var(--amber);color:#111827;text-decoration:none;font-weight:800;font-size:14px;
+    padding:11px 16px;border-radius:10px;min-height:44px;border:1px solid var(--amber);
+    white-space:nowrap;
+  }
+  .dl-btn:hover{background:var(--amber-2)}
+  @media(max-width:560px){
+    .dl-row{flex-wrap:wrap}
+    .dl-btn{width:100%}
+  }
+
+  .notes{
+    display:grid;gap:12px;margin-top:20px;
+  }
+  @media(min-width:640px){.notes{grid-template-columns:1fr 1fr}}
+  .note{
+    border:1px solid var(--line);border-radius:12px;padding:16px;background:rgba(255,255,255,.02)
+  }
+  .note h3{margin:0 0 6px;font-size:13px;letter-spacing:.02em}
+  .note p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}
+
+  .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;
+    padding:12px 20px;border-radius:12px;font-weight:700;font-size:15px;text-decoration:none;border:1px solid transparent;cursor:pointer
+  }
+  .btn-primary{background:var(--amber);color:#111827;border-color:var(--amber)}
+  .btn-primary:hover{background:var(--amber-2)}
+  .btn-secondary{background:transparent;color:var(--text);border-color:var(--line)}
+  .btn-secondary:hover{border-color:rgba(255,255,255,.25)}
+
+  .error-detail{
+    margin-top:18px;border:1px solid rgba(248,113,113,.25);background:rgba(248,113,113,.06);
+    border-radius:12px;padding:14px 16px;color:#fecaca;font-size:14px;line-height:1.6;display:none
+  }
+  .error-detail.show{display:block}
+
+  /* loading */
+  .spinner{width:22px;height:22px;border-radius:50%;border:3px solid rgba(245,158,11,.25);border-top-color:var(--amber);animation:spin .8s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media(prefers-reduced-motion: reduce){.spinner{animation:none}}
+
+  .footer{
+    max-width:880px;margin:0 auto;padding:0 20px 32px;color:var(--muted-2);font-size:13px;line-height:1.6;
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid transparent
+  }
+  .footer a{color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+  .small{font-size:13px;color:var(--muted)}
+  .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;word-break:break-all;color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="https://conflictreadyusa.com" aria-label="Conflict Ready USA home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+      </span>
+      <span class="brand-text">
+        <span class="brand-name">Conflict Ready <span>USA</span></span>
+        <span class="brand-sub" style="display:block">Alert Pro</span>
+      </span>
+    </a>
+    <a class="header-link" href="https://conflictreadyusa.com">← Back to dashboard</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- LOADING -->
+  <section id="state-loading" class="state active" aria-live="polite">
+    <div class="card">
+      <div class="card-top">
+        <div class="icon-badge loading"><div class="spinner" aria-hidden="true"></div></div>
+        <p class="eyebrow">Confirming your purchase</p>
+        <h1>Verifying your checkout…</h1>
+        <p class="lede">Hang tight — we're confirming your payment and unlocking your Pro downloads.</p>
+      </div>
+      <div class="card-body">
+        <p class="small" id="loading-detail">Contacting the secure checkout server…</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUCCESS -->
+  <section id="state-success" class="state" aria-live="polite">
+    <div class="card">
+      <div class="card-top">
+        <div class="icon-badge success">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <p class="eyebrow">Payment confirmed • Alert Pro active</p>
+        <h1>Welcome to Alert Pro</h1>
+        <p class="lede">You're all set. Your Pro library is unlocked below — download everything now and keep it offline-ready. <strong>Your welcome email is on its way</strong> with these same links and your receipt.</p>
+      </div>
+      <div class="card-body">
+        <div class="downloads" id="downloads-box">
+          <div class="downloads-head">
+            <h2>Your Pro downloads</h2>
+            <span class="pill">Links work for 30 days</span>
+          </div>
+          <div id="downloads-list"></div>
+        </div>
+
+        <div class="notes">
+          <div class="note">
+            <h3>⏱ Links expire in 30 days</h3>
+            <p>These are signed, private links. Download the files to your device or drive — don't rely on the links staying live. You can request fresh links anytime from your welcome email.</p>
+          </div>
+          <div class="note">
+            <h3>📚 How to open .ZIM files</h3>
+            <p>Wikipedia and Wikivoyage come as ZIM files. Open them free with <strong style="color:var(--text)">Kiwix</strong> on phone, tablet, or desktop — no internet needed after download.</p>
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="https://conflictreadyusa.com">Go to your dashboard →</a>
+          <a class="btn btn-secondary" href="https://conflictreadyusa.com">Back to Conflict Ready USA</a>
+        </div>
+        <p class="small" style="margin-top:16px">Need help? Reply to your welcome email and we'll sort it out.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ERROR -->
+  <section id="state-error" class="state" aria-live="polite">
+    <div class="card">
+      <div class="card-top">
+        <div class="icon-badge error">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        </div>
+        <p class="eyebrow" style="color:#fca5a5">Checkout not completed</p>
+        <h1>We couldn't unlock Pro yet</h1>
+        <p class="lede" id="error-lede">Your checkout didn't complete, so we can't show your download links. This usually means the payment wasn't finished, the session expired, or the subscription isn't active yet.</p>
+      </div>
+      <div class="card-body">
+        <div class="error-detail" id="error-detail"></div>
+        <div class="notes" style="grid-template-columns:1fr">
+          <div class="note">
+            <h3>What to do next</h3>
+            <p>Head back to the dashboard and try checkout again. If you were charged but still see this page, wait a minute and refresh — Stripe can take a few seconds to confirm — or check your email for the welcome message with your links.</p>
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://conflictreadyusa.com">Try again on the dashboard →</a>
+          <button class="btn btn-secondary" id="retry-btn" type="button">Retry verification</button>
+        </div>
+        <p class="mono" id="session-echo" style="margin-top:18px"></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span>Conflict Ready USA — Stay informed. Stay ready.</span>
+  <span><a href="https://conflictreadyusa.com">conflictreadyusa.com</a></span>
+</footer>
+
+<script>
+(function(){
+  var WORKER = 'https://conflict-ready.conflict-ready-usa.workers.dev';
+  var DASHBOARD = 'https://conflictreadyusa.com';
+
+  var elLoading = document.getElementById('state-loading');
+  var elSuccess = document.getElementById('state-success');
+  var elError = document.getElementById('state-error');
+  var elDownloadsList = document.getElementById('downloads-list');
+  var elErrorDetail = document.getElementById('error-detail');
+  var elErrorLede = document.getElementById('error-lede');
+  var elSessionEcho = document.getElementById('session-echo');
+  var elLoadingDetail = document.getElementById('loading-detail');
+  var retryBtn = document.getElementById('retry-btn');
+
+  function show(state){
+    elLoading.classList.toggle('active', state==='loading');
+    elSuccess.classList.toggle('active', state==='success');
+    elError.classList.toggle('active', state==='error');
+    window.scrollTo(0,0);
+  }
+
+  function getSessionId(){
+    try{
+      var params = new URLSearchParams(window.location.search);
+      return params.get('session_id') || params.get('sessionId') || '';
+    }catch(e){ return ''; }
+  }
+
+  function fileExt(name){
+    if(!name) return 'FILE';
+    var m = String(name).match(/\.([a-z0-9]+)(?:\s|\(|$)/i);
+    if(m) return m[1].toUpperCase().slice(0,4);
+    if(/zim/i.test(name)) return 'ZIM';
+    if(/zip/i.test(name)) return 'ZIP';
+    return 'FILE';
+  }
+
+  function formatSize(size){
+    if(size == null || size === '') return '';
+    if(typeof size === 'number'){
+      if(size >= 1024*1024*1024) return (size/(1024*1024*1024)).toFixed(2)+' GB';
+      if(size >= 1024*1024) return (size/(1024*1024)).toFixed(1)+' MB';
+      if(size >= 1024) return (size/1024).toFixed(1)+' KB';
+      return size+' B';
+    }
+    return String(size);
+  }
+
+  function describeDownload(d){
+    var name = (d && d.name) ? String(d.name) : 'Pro download';
+    var lower = name.toLowerCase();
+    if(lower.indexOf('wikipedia')!==-1) return 'Full offline encyclopedia — read without internet in Kiwix.';
+    if(lower.indexOf('wikivoyage')!==-1) return 'Offline travel guides — Pro-only. Open in Kiwix.';
+    if(lower.indexOf('gutenberg')!==-1 || lower.indexOf('farming')!==-1) return 'Farming & self-sufficiency bundle from Project Gutenberg.';
+    if(lower.indexOf('fema')!==-1 || lower.indexOf('checklist')!==-1) return 'FEMA preparedness checklists — print and keep with your kit.';
+    return 'Included with Alert Pro.';
+  }
+
+  function renderDownloads(downloads){
+    elDownloadsList.innerHTML = '';
+    downloads.forEach(function(d){
+      if(!d || !d.url) return;
+      var row = document.createElement('div');
+      row.className = 'dl-row';
+
+      var icon = document.createElement('div');
+      icon.className = 'dl-icon';
+      icon.textContent = fileExt(d.name || d.url);
+      icon.setAttribute('aria-hidden','true');
+
+      var main = document.createElement('div');
+      main.className = 'dl-main';
+      var nameEl = document.createElement('div');
+      nameEl.className = 'dl-name';
+      nameEl.textContent = d.name || 'Download';
+      var metaEl = document.createElement('div');
+      metaEl.className = 'dl-meta';
+      var sizeStr = formatSize(d.size);
+      var desc = describeDownload(d);
+      metaEl.textContent = sizeStr ? (sizeStr + '  •  ' + desc) : desc;
+
+      main.appendChild(nameEl);
+      main.appendChild(metaEl);
+
+      var btn = document.createElement('a');
+      btn.className = 'dl-btn';
+      btn.href = d.url;
+      btn.setAttribute('download','');
+      btn.setAttribute('rel','noopener');
+      btn.innerHTML = 'Download <span aria-hidden="true">↓</span>';
+
+      row.appendChild(icon);
+      row.appendChild(main);
+      row.appendChild(btn);
+      elDownloadsList.appendChild(row);
+    });
+  }
+
+  function showError(message, detail, sessionId){
+    if(message) elErrorLede.textContent = message;
+    if(detail){
+      elErrorDetail.textContent = detail;
+      elErrorDetail.classList.add('show');
+    } else {
+      elErrorDetail.classList.remove('show');
+      elErrorDetail.textContent = '';
+    }
+    elSessionEcho.textContent = sessionId ? ('Session: ' + sessionId) : 'No checkout session found in this link.';
+    show('error');
+  }
+
+  function verify(){
+    var sessionId = getSessionId();
+    show('loading');
+    if(elLoadingDetail) elLoadingDetail.textContent = 'Contacting the secure checkout server…';
+
+    if(!sessionId){
+      showError(
+        'This link is missing its checkout session, so we can\'t verify a purchase. If you just paid, use the link in your welcome email or return to the dashboard.',
+        'Missing session_id in the page URL. Start checkout again from the dashboard to get a fresh success link.',
+        ''
+      );
+      return;
+    }
+
+    var url = WORKER + '/api/pro-token?session_id=' + encodeURIComponent(sessionId);
+
+    fetch(url, { method:'GET', headers:{ 'Accept':'application/json' } })
+      .then(function(res){
+        return res.text().then(function(text){
+          var data = null;
+          try{ data = text ? JSON.parse(text) : null; }catch(e){}
+          return { status: res.status, okHttp: res.ok, data: data, raw: text };
+        });
+      })
+      .then(function(result){
+        var data = result.data || {};
+        var downloads = Array.isArray(data.downloads) ? data.downloads.filter(function(d){ return d && d.url; }) : [];
+
+        if(data.ok === true && data.tier === 'pro' && downloads.length){
+          renderDownloads(downloads);
+          show('success');
+          return;
+        }
+
+        // Error cases: not paid, not active, invalid session, etc.
+        var serverMsg = data.error || data.message || data.detail || '';
+        var friendly = 'Your checkout didn\'t complete, so we can\'t show your download links. This usually means the payment wasn\'t finished or the subscription isn\'t active yet.';
+        if(/not paid|unpaid|incomplete|payment/i.test(serverMsg)) friendly = 'Stripe shows this checkout hasn\'t been paid yet. Complete the payment on the dashboard and you\'ll be sent back here with your links.';
+        else if(/not active|subscription/i.test(serverMsg)) friendly = 'Your payment went through but your subscription isn\'t active yet. Give it a minute and retry, or check your welcome email — it carries the same download links.';
+        else if(/not found|invalid|expired/i.test(serverMsg)) friendly = 'This checkout session wasn\'t found or has expired. Start a fresh checkout from the dashboard to get a new success link.';
+
+        var detail = serverMsg ? ('Server said: ' + serverMsg + (result.status ? ' (HTTP ' + result.status + ')' : '')) : ('The server didn\'t confirm Pro access for this session' + (result.status ? ' (HTTP ' + result.status + ')' : '') + '.');
+        showError(friendly, detail, sessionId);
+      })
+      .catch(function(err){
+        showError(
+          'We couldn\'t reach the checkout server to verify your purchase. Check your connection and retry — if you were charged, your welcome email will also contain your download links.',
+          'Network error while calling /api/pro-token. ' + (err && err.message ? err.message : ''),
+          sessionId
+        );
+      });
+  }
+
+  if(retryBtn) retryBtn.addEventListener('click', verify);
+  verify();
+})();
+</script>
+</body>
+</html>

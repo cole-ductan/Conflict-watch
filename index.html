@@ -190,6 +190,18 @@
   .signup-note{margin-top:10px;font-size:13px;color:var(--ink3)}
   .signup-ok{display:none;margin-top:12px;border:1px solid #274a34;background:#0d2018;color:#c4e6d2;border-radius:8px;padding:11px 13px;font-size:14px}
   .signup-ok.show{display:block}
+  .signup-err{display:none;margin-top:12px;border:1px solid #6e2a22;background:#2a100d;color:#ffc4bd;border-radius:8px;padding:11px 13px;font-size:14px}
+  .signup-err.show{display:block}
+  .signup-form .btn[disabled]{opacity:.55;cursor:wait}
+  .signup-downloads{display:none;margin-top:12px;border:1px solid var(--line2);background:var(--panel2);border-radius:8px;padding:12px 14px}
+  .signup-downloads.show{display:block}
+  .signup-downloads .dl-head{margin:0 0 8px;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+  .signup-downloads ul{margin:0;padding:0;list-style:none}
+  .signup-downloads li{padding:7px 0;border-top:1px solid var(--line)}
+  .signup-downloads li:first-child{border-top:0;padding-top:0}
+  .signup-downloads a{font-weight:600;text-decoration:none;font-size:14.5px}
+  .signup-downloads a:hover{text-decoration:underline}
+  .signup-downloads .dl-size{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink3)}
 
   .guide{border:1px solid #274a34;background:linear-gradient(180deg,#0d2018,#0e1a2e);border-radius:var(--radius);padding:20px}
   .guide h3{font-family:"Barlow Condensed",sans-serif;font-size:28px;margin:0 0 4px;letter-spacing:.03em;line-height:1.05}
@@ -233,6 +245,8 @@
   .tier ul{margin:12px 0 16px;padding-left:19px;color:var(--ink2);font-size:14.5px}
   .tier li{margin-bottom:6px}
   .tier .btn{width:100%;justify-content:center;text-decoration:none}
+  .pro-cta{display:flex;flex-direction:column;gap:10px}
+  .pro-err{color:#ffc4bd}
 
   .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
   .trust{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
@@ -578,8 +592,10 @@
         <input type="email" id="signupEmail" required placeholder="you@example.com" aria-label="Email address for the free daily briefing" autocomplete="email">
         <button class="btn amber" type="submit">Join free</button>
       </form>
-      <p class="signup-note">Joining opens a pre-addressed email in your mail app — send it and you're on the list for the briefing and both free guides. One briefing a day, unsubscribe any time by replying “stop.” Your address is used for the briefing and guides only, never sold.</p>
+      <p class="signup-note">One briefing a day, unsubscribe any time by replying “stop.” Your address is used for the briefing and guides only, never sold.</p>
       <div class="signup-ok" id="signupOk" role="status"></div>
+      <div class="signup-err" id="signupErr" role="alert"></div>
+      <div class="signup-downloads" id="signupDownloads"></div>
     </div>
   </section>
 
@@ -636,7 +652,7 @@
         </div>
       </div>
       <span class="guide-status">Both guides free with signup — sent by email</span>
-      <p style="margin-bottom:14px">Sign up for the free Daily Briefing and both guides will be sent to you by email. Signup is still interim: joining opens a pre-addressed email in your mail app — there is no automated form on this page yet.</p>
+      <p style="margin-bottom:14px">Sign up for the free Daily Briefing and both guides will be sent to you by email — and the three free downloads appear right on this page the moment you join.</p>
       <button class="btn amber js-briefing" type="button">Sign up free to get both guides</button>
     </div>
   </section>
@@ -687,7 +703,7 @@
         <div class="price">$0</div>
         <ul>
           <li>Daily morning briefing by email</li>
-          <li>Both free guides with signup — 90-Day Ready Guide (8 pages, what to have) and Emergency Disaster Training &amp; Education (21 pages, how to do it), sent by email (no download link)</li>
+          <li>Both free guides with signup — 90-Day Ready Guide (8 pages, what to have) and Emergency Disaster Training &amp; Education (21 pages, how to do it), sent by email, plus three free downloads right on this page after you join</li>
           <li>Full archive on this page — search and severity filters</li>
           <li>Confidence labels and source links on every report</li>
           <li>This page runs no display ads; the free briefing may carry one clearly labeled sponsor line — that's the trade for free</li>
@@ -704,10 +720,14 @@
           <li>Ad-free, always — no ads and no sponsored placements in Pro alerts, summaries, or the weekly brief</li>
           <li>Founding rate locked for the first 100 members — the price never rises for you</li>
         </ul>
-        <a class="btn amber" href="mailto:cole.ductan@gmail.com?subject=Conflict%20Ready%20USA%20Pro%20—%20founding%20member&body=I%20want%20a%20founding%20Pro%20spot%20at%20%245%2Fmo.%20Please%20send%20my%20payment%20link%20when%20checkout%20opens.%0A%0AName%3A%0AEmail%20for%20alerts%3A">Reserve a founding spot</a>
+        <div class="pro-cta">
+          <button class="btn amber" type="button" data-checkout="monthly">Start Pro — $5 / month</button>
+          <button class="btn" type="button" data-checkout="annual">Start Pro — $50 / year</button>
+        </div>
+        <p class="signup-note pro-err" id="proErr" role="alert" style="display:none"></p>
       </div>
     </div>
-    <p class="signup-note" style="margin-top:10px">Founding reservations are open now and charged nothing today. When checkout opens, founding members get the payment link first and keep the $5/mo (or $50/yr) rate for as long as they stay subscribed.</p>
+    <p class="signup-note" style="margin-top:10px">Checkout is live — your card is charged today and Pro alerts start immediately. Founding rate locked for the first 100 members: the price never rises for you as long as you stay subscribed. Cancel anytime from the link in any Pro email.</p>
   </section>
 
   <section class="sect" id="shop" aria-label="Preparedness shopping list">
@@ -809,8 +829,10 @@
         <input type="email" id="signupEmailM" required placeholder="you@example.com" aria-label="Email address for the free daily briefing" autocomplete="email">
         <button class="btn amber" type="submit">Join free</button>
       </form>
-      <p class="signup-note">Joining opens a pre-addressed email in your mail app — send it and you're on the list for the briefing and both free guides. One briefing a day, unsubscribe any time by replying “stop.” Your address is used for the briefing and guides only, never sold.</p>
+      <p class="signup-note">One briefing a day, unsubscribe any time by replying “stop.” Your address is used for the briefing and guides only, never sold.</p>
       <div class="signup-ok" id="signupOkM" role="status"></div>
+      <div class="signup-err" id="signupErrM" role="alert"></div>
+      <div class="signup-downloads" id="signupDownloadsM"></div>
     </div>
   </div>
 </div>
@@ -2221,18 +2243,102 @@ termScrim.addEventListener("click", closeTerm);
 document.addEventListener("keydown", function(e){ if(e.key==="Escape") closeTerm(); });
 syncTilesUI();
 
-/* Signup */
-document.getElementById("signupForm").addEventListener("submit", function(e){
-  e.preventDefault();
-  var em = document.getElementById("signupEmail").value.trim();
-  if(!em) return;
-  var body = encodeURIComponent("Please add me to the free Conflict Ready USA daily briefing and send both free guides — the 90-Day Ready Guide (8 pages) and Emergency Disaster Training & Education (21 pages).\n\nMy email: " + em);
-  var a = document.createElement("a");
-  a.href = "mailto:cole.ductan@gmail.com?subject=" + encodeURIComponent("Subscribe — Conflict Ready USA Daily Briefing") + "&body=" + body;
-  document.body.appendChild(a); a.click(); a.remove();
-  var ok = document.getElementById("signupOk");
-  ok.textContent = "Your mail app should now open with a pre-addressed signup email — just press Send and you're on the list for the briefing and both free guides, sent by email. Nothing was charged and nothing else was sent.";
-  ok.classList.add("show");
+/* Signup — POSTs to the Conflict Ready Worker */
+var SIGNUP_API = "https://conflict-ready.conflict-ready-usa.workers.dev/api/signup";
+function crWireSignup(form, emailInput, okBox, errBox, dlBox){
+  if(!form || !emailInput || !okBox || !errBox || !dlBox) return;
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var em = emailInput.value.trim();
+    if(!em) return;
+    var btn = form.querySelector("button[type='submit']");
+    okBox.classList.remove("show"); okBox.textContent = "";
+    errBox.classList.remove("show"); errBox.textContent = "";
+    dlBox.classList.remove("show"); dlBox.innerHTML = "";
+    if(btn){ btn.disabled = true; btn.textContent = "Joining…"; }
+    fetch(SIGNUP_API, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({email: em})
+    }).then(function(res){
+      return res.json().catch(function(){ return null; });
+    }).then(function(data){
+      if(data && data.ok){
+        okBox.textContent = "You're signed up as a Free Watcher. Your welcome email — with both free guides — is on its way to " + em + ".";
+        okBox.classList.add("show");
+        if(data.downloads && data.downloads.length){
+          var head = document.createElement("p");
+          head.className = "dl-head";
+          head.textContent = "While you wait — three free downloads";
+          dlBox.appendChild(head);
+          var ul = document.createElement("ul");
+          data.downloads.forEach(function(d){
+            if(!d || !d.url) return;
+            var li = document.createElement("li");
+            var a = document.createElement("a");
+            a.href = d.url;
+            a.textContent = d.name || "Download";
+            li.appendChild(a);
+            if(d.size){
+              var s = document.createElement("span");
+              s.className = "dl-size";
+              s.textContent = " · " + d.size;
+              li.appendChild(s);
+            }
+            ul.appendChild(li);
+          });
+          dlBox.appendChild(ul);
+          dlBox.classList.add("show");
+        }
+        form.reset();
+      } else {
+        errBox.textContent = (data && (data.error || data.message)) || "Something went wrong signing you up. Please check your email address and try again.";
+        errBox.classList.add("show");
+      }
+    }).catch(function(){
+      errBox.textContent = "Couldn't reach the signup service. Check your connection and try again.";
+      errBox.classList.add("show");
+    }).then(function(){
+      if(btn){ btn.disabled = false; btn.textContent = "Join free"; }
+    });
+  });
+}
+crWireSignup(
+  document.getElementById("signupForm"),
+  document.getElementById("signupEmail"),
+  document.getElementById("signupOk"),
+  document.getElementById("signupErr"),
+  document.getElementById("signupDownloads")
+);
+
+/* Pro checkout — POSTs to the Conflict Ready Worker, redirects to Stripe */
+var CHECKOUT_API = "https://conflict-ready.conflict-ready-usa.workers.dev/api/checkout";
+document.querySelectorAll("[data-checkout]").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    var plan = btn.getAttribute("data-checkout") === "annual" ? "annual" : "monthly";
+    var errBox = document.getElementById("proErr");
+    if(errBox){ errBox.style.display = "none"; errBox.textContent = ""; }
+    var orig = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = "Starting checkout…";
+    fetch(CHECKOUT_API, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({price: plan})
+    }).then(function(res){
+      return res.json().catch(function(){ return null; });
+    }).then(function(data){
+      if(data && data.url){
+        window.location.href = data.url;
+      } else {
+        throw new Error((data && (data.error || data.message)) || "Couldn't start checkout.");
+      }
+    }).catch(function(err){
+      if(errBox){ errBox.textContent = (err && err.message) || "Couldn't start checkout. Please try again."; errBox.style.display = "block"; }
+      btn.disabled = false;
+      btn.textContent = orig;
+    });
+  });
 });
 render();
 </script>
@@ -2478,18 +2584,15 @@ render();
     });
   });
 
-  document.getElementById("signupFormM").addEventListener("submit", function(e){
-    e.preventDefault();
-    var em = document.getElementById("signupEmailM").value.trim();
-    if(!em) return;
-    var body = encodeURIComponent("Please add me to the free Conflict Ready USA daily briefing and send both free guides — the 90-Day Ready Guide (8 pages) and Emergency Disaster Training & Education (21 pages).\n\nMy email: " + em);
-    var a = document.createElement("a");
-    a.href = "mailto:cole.ductan@gmail.com?subject=" + encodeURIComponent("Subscribe — Conflict Ready USA Daily Briefing") + "&body=" + body;
-    document.body.appendChild(a); a.click(); a.remove();
-    var ok = document.getElementById("signupOkM");
-    ok.textContent = "Your mail app should now open with a pre-addressed signup email — just press Send and you're on the list for the briefing and both free guides, sent by email. Nothing was charged and nothing else was sent.";
-    ok.classList.add("show");
-  });
+  if(window.crWireSignup){
+    window.crWireSignup(
+      document.getElementById("signupFormM"),
+      document.getElementById("signupEmailM"),
+      document.getElementById("signupOkM"),
+      document.getElementById("signupErrM"),
+      document.getElementById("signupDownloadsM")
+    );
+  }
 })();
 </script>
 </body>
