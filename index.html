@@ -282,6 +282,69 @@
   }
   @media(max-width:400px){.sig{display:none}}
 
+
+  /* Plain-English card restructure, tiles, unverified, term popups */
+  :root{--amber-ink:#f5cf8a;--amber-bg:#241b08;--amber-line:#8a6420}
+  .card{cursor:default}
+  .card h4.pe-headline{font-family:"Barlow Condensed",sans-serif;font-size:27px;line-height:1.08;font-weight:600;letter-spacing:.015em;margin:0 0 5px}
+  .card-subtitle{margin:0 0 12px;font-size:13.5px;line-height:1.45;color:var(--ink2)}
+  .card .card-subtitle,.card .simple-box p,.card .full-body p,.card .claim-box p,.card .conf p{display:block;-webkit-line-clamp:unset;-webkit-box-orient:unset;overflow:visible}
+  .status-badge{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:5px;font-weight:500}
+  .status-badge.verified{background:#0d2018;color:#8fe0b8;border:1px solid #1f5c3d}
+  .status-badge.unverified{background:var(--amber-bg);color:var(--amber-ink);border:1px dashed var(--amber-line)}
+  .simple-box{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin-bottom:12px}
+  .simple-box .sb-label{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:5px}
+  .simple-box p{margin:0;font-size:15px;line-height:1.55;color:var(--ink)}
+  .details-toggle{display:inline-flex;align-items:center;gap:7px;background:transparent;color:var(--blue);border:1px solid var(--line2);border-radius:8px;padding:8px 14px;font-size:14px;font-weight:600;cursor:pointer;min-height:44px}
+  .details-toggle:hover{border-color:var(--blue);color:#9cc3f2}
+  .details-toggle .dt-arrow{font-size:12px;transition:transform .15s ease}
+  .details-toggle[aria-expanded="true"] .dt-arrow{transform:rotate(180deg)}
+  .details-body{margin-top:12px}
+  .details-body[hidden]{display:none}
+  .full-body p{margin:0 0 10px;font-size:14.5px;line-height:1.6;color:var(--ink2)}
+  .full-body p:last-child{margin-bottom:0}
+  .details-body h5{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);margin:16px 0 6px}
+  .details-body ul{margin:4px 0 10px;padding-left:20px}
+  .details-body li{color:var(--ink2);font-size:14.5px;line-height:1.55;margin-bottom:5px}
+  .claim-box{border:1px dashed var(--amber-line);background:rgba(36,27,8,.45);border-radius:8px;padding:11px 14px;margin-bottom:12px;font-size:13.5px}
+  .claim-box p{margin:0 0 6px;color:var(--ink2);line-height:1.5;font-size:13.5px}
+  .claim-box p:last-child{margin-bottom:0}
+  .claim-box b{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:2px;font-weight:500}
+  .claim-box .claim-text{color:var(--ink)}
+  .card .conf{margin-top:12px}
+  .card .sources{margin-top:12px}
+  .card .sources .src-label{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:4px}
+  .card .src-note{font-size:12.5px;color:var(--ink3);line-height:1.5;margin:6px 0 0}
+  .card.is-unverified{border:1px dashed var(--amber-line);background:linear-gradient(180deg,#181207,var(--panel))}
+  .card.is-unverified h4.pe-headline{color:var(--amber-ink)}
+  .term{background:none;border:0;padding:0;min-height:0;cursor:pointer;color:#9cc3f2;font:inherit;font-weight:600;border-bottom:1px dotted var(--blue);text-decoration:none}
+  .term:hover,.term:focus-visible{color:#c6defa;border-bottom-style:solid;outline:none}
+  .tile-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+  @media(max-width:720px){.tile-grid{grid-template-columns:repeat(2,1fr)}}
+  .tile{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;cursor:pointer;text-align:left;color:var(--ink);min-height:56px;width:100%}
+  .tile:hover{border-color:var(--line2)}
+  .tile .tile-name{font-size:14.5px;font-weight:600;line-height:1.3}
+  .tile .tile-sub{display:block;font-size:11.5px;font-weight:400;color:var(--ink3);margin-top:1px}
+  .tile .tile-count{font-family:"IBM Plex Mono",monospace;font-size:19px;font-weight:500;color:var(--ink2);line-height:1}
+  .tile[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#0a1220}
+  .tile[aria-pressed="true"] .tile-count{color:#0a1220}
+  .tile[aria-pressed="true"] .tile-sub{color:#43536b}
+  .tile.tile-unverified{border:1px dashed var(--amber-line);background:var(--amber-bg)}
+  .tile.tile-unverified .tile-name{color:var(--amber-ink)}
+  .tile.tile-unverified .tile-count{color:var(--amber-ink)}
+  .tile.tile-unverified[aria-pressed="true"]{background:var(--amber);border:1px dashed var(--amber);color:#1a1204}
+  .tile.tile-unverified[aria-pressed="true"] .tile-name,.tile.tile-unverified[aria-pressed="true"] .tile-count{color:#1a1204}
+  .tile.tile-unverified[aria-pressed="true"] .tile-sub{color:#5c4718}
+  .tip-line{font-size:13px;color:var(--ink3);margin:8px 0 0}
+  .term-scrim{position:fixed;inset:0;background:rgba(3,6,12,.55);z-index:60}
+  .term-scrim[hidden],.term-pop[hidden]{display:none}
+  .term-pop{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom));width:min(560px,calc(100% - 24px));z-index:61;background:linear-gradient(180deg,#12233f,#0e1a2e);border:1px solid var(--line2);border-left:4px solid var(--amber);border-radius:10px;padding:16px 18px 14px;box-shadow:0 18px 50px rgba(0,0,0,.55)}
+  .term-pop .tp-kicker{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:3px}
+  .term-pop h4{margin:0 34px 6px 0;font-family:"Barlow Condensed",sans-serif;font-size:24px;letter-spacing:.04em;font-weight:600;line-height:1.1}
+  .term-pop p{margin:0;font-size:14.5px;line-height:1.55;color:var(--ink2)}
+  .term-pop .tp-close{position:absolute;top:8px;right:8px;width:40px;height:40px;min-height:40px;background:var(--panel);color:var(--ink);border:1px solid var(--line2);border-radius:8px;font-size:16px;cursor:pointer;line-height:1}
+  @media(prefers-reduced-motion:no-preference){.term-pop{animation:termrise .22s ease-out}@keyframes termrise{from{transform:translate(-50%,14px);opacity:0}to{transform:translate(-50%,0);opacity:1}}}
+
   /* Multi-page navigation */
   .mainnav{max-width:1060px;margin:0 auto;padding:0 18px 10px;display:flex;gap:4px;flex-wrap:wrap}
   .mainnav a{color:var(--ink2);text-decoration:none;font-weight:600;font-size:14.5px;padding:10px 13px;border-radius:8px;min-height:44px;display:inline-flex;align-items:center}
@@ -363,9 +426,9 @@
   </section>
 
   <section class="stats" aria-label="Archive summary">
-    <div class="stat"><b id="statTotal">39</b><span>Archived reports</span></div>
+    <div class="stat"><b id="statTotal">40</b><span>Archived reports</span></div>
     <div class="stat"><b style="font-size:21px;padding-top:5px" id="statLatest">Nov 14 · 10:30 AM CT</b><span>Latest report timestamp (Central Time)</span></div>
-    <div class="stat"><b><span class="crit">0</span> <span style="color:var(--ink3)">/</span> <span class="high">9</span></b><span>Critical / High severity</span></div>
+    <div class="stat"><b><span class="crit">0</span> <span style="color:var(--ink3)">/</span> <span class="high">12</span></b><span>Critical / High severity</span></div>
   </section>
 
   <section class="controls" aria-label="Search and filter">
@@ -387,7 +450,7 @@
           <div class="fgroup" role="radiogroup" aria-label="Theater">
             <h4>Theater</h4>
             <label class="fopt"><input type="radio" name="f-theater" value="all" checked><span>All theaters</span></label>
-            <label class="fopt"><input type="radio" name="f-theater" value="iran-gulf"><span>Iran / Gulf</span><span class="fopt-n">26</span></label>
+            <label class="fopt"><input type="radio" name="f-theater" value="iran-gulf"><span>Iran / Gulf</span><span class="fopt-n">32</span></label>
             <label class="fopt"><input type="radio" name="f-theater" value="russia-ukraine"><span>Russia–Ukraine</span><span class="fopt-n">2</span></label>
             <label class="fopt"><input type="radio" name="f-theater" value="china-taiwan"><span>China–Taiwan</span><span class="fopt-n">2</span></label>
             <label class="fopt"><input type="radio" name="f-theater" value="israel-gaza-lebanon"><span>Israel–Gaza–Lebanon</span><span class="fopt-n">0</span></label>
@@ -396,11 +459,17 @@
           </div>
           <div class="fgroup" role="radiogroup" aria-label="Severity">
             <h4>Severity</h4>
-            <label class="fopt"><input type="radio" name="f-sev" value="all" checked><span>All</span><span class="fopt-n">39</span></label>
+            <label class="fopt"><input type="radio" name="f-sev" value="all" checked><span>All</span><span class="fopt-n">45</span></label>
             <label class="fopt"><input type="radio" name="f-sev" value="critical"><span>Critical</span><span class="fopt-n">0</span></label>
-            <label class="fopt"><input type="radio" name="f-sev" value="high"><span>High</span><span class="fopt-n">9</span></label>
-            <label class="fopt"><input type="radio" name="f-sev" value="medium"><span>Medium</span><span class="fopt-n">28</span></label>
+            <label class="fopt"><input type="radio" name="f-sev" value="high"><span>High</span><span class="fopt-n">12</span></label>
+            <label class="fopt"><input type="radio" name="f-sev" value="medium"><span>Medium</span><span class="fopt-n">31</span></label>
             <label class="fopt"><input type="radio" name="f-sev" value="low"><span>Low</span><span class="fopt-n">2</span></label>
+          </div>
+          <div class="fgroup" role="radiogroup" aria-label="Status">
+            <h4>Status</h4>
+            <label class="fopt"><input type="radio" name="f-status" value="all" checked><span>All reports</span><span class="fopt-n">45</span></label>
+            <label class="fopt"><input type="radio" name="f-status" value="verified"><span>Verified</span><span class="fopt-n">40</span></label>
+            <label class="fopt"><input type="radio" name="f-status" value="unverified"><span>Unverified</span><span class="fopt-n">5</span></label>
           </div>
           <div class="fsheet-foot">
             <button class="btn-clear" id="btnClearFilters" type="button">Clear all</button>
@@ -408,8 +477,10 @@
           </div>
         </div>
       </div>
-      <p class="count-line" id="countLine">Showing 39 of 39 reports</p>
+      <p class="count-line" id="countLine">Showing 40 of 40 reports</p>
     </div>
+    <div class="tile-grid" id="tileGrid" role="group" aria-label="Filter by conflict or status"></div>
+    <p class="tip-line">Tip: tap any highlighted term — in the plain-English brief or the full brief — for a quick definition.</p>
     <div class="fbackdrop" id="filterBackdrop" aria-hidden="true"></div>
     <p class="theater-empty-note" id="israelEmptyNote" hidden>No clean verified Nov 11–13 US-threat item was found, so this theater is intentionally empty.</p>
   </section>
@@ -681,6 +752,14 @@
   </div>
 </div>
 
+<div class="term-scrim" id="termScrim" hidden></div>
+<div class="term-pop" id="termPop" role="dialog" aria-modal="false" aria-labelledby="termTitle" hidden>
+  <span class="tp-kicker">Term — tap outside to close</span>
+  <h4 id="termTitle"></h4>
+  <p id="termDef"></p>
+  <button type="button" class="tp-close" id="termClose" aria-label="Close definition">✕</button>
+</div>
+
 <script>
 var THEATER_NAMES = {
   "iran-gulf":"Iran / Gulf",
@@ -692,6 +771,23 @@ var THEATER_NAMES = {
 };
 var REPORTS = [
 {
+  id:"iran-2026-11-15-coalition-missiles-riyadh-east",
+  ts:"2026-11-15T03:12:00Z",
+  group:"Sunday, November 15, 2026",
+  theater:"iran-gulf",
+  severity:"medium",
+  category:"Missiles / Interceptions — Saudi Arabia",
+  title:"Saudi-led coalition says it intercepted two Houthi ballistic missiles toward Riyadh and three drones in the Eastern Province, Sunday Nov 15",
+  headline:"Missiles downed over Riyadh",
+  simple:"Saudi Arabia says its air defenses stopped two ballistic missiles aimed at the capital, Riyadh, and three drones over the oil-rich Eastern Province. Nobody was hurt and nothing was damaged, according to the coalition. The Houthis have been stepping up attacks on Saudi Arabia in recent days.",
+  summary:"The Saudi-led coalition said on Sunday it intercepted two Houthi ballistic missiles launched toward the Saudi capital Riyadh and three drones in the kingdom's oil-rich Eastern Province. Coalition spokesman Maj. Gen. Turki al-Maliki confirmed the interceptions in a statement published on X. No casualties or damage were reported. Context: the Houthis have intensified attacks on the Saudi capital in recent days — a Houthi attack last week damaged an administrative building of state oil company Saudi Aramco in Riyadh's financial hub, and the Eastern Province, which holds most of the kingdom's oil and gas reserves, has been subject to multiple Houthi attacks in recent weeks. This is distinct from the coalition's Saturday Nov 14 interceptions (two drones, Riyadh and the southern region) already on the dashboard, and does NOT confirm the Houthis' separate unverified Nov 13 claims about Riyadh's King Khalid International Airport or an East-West Pipeline pumping station.",
+  confidence:"High that the coalition made this announcement — Reuters original reporting the coalition statement and the spokesperson's X post. The interception itself is the coalition's account — no independent verification of wreckage or damage published.",
+  flag:"Coalition account only — no independent verification of wreckage or damage",
+  sources:[
+    {name:"Reuters", date:"Nov 15, 2026", url:"https://www.reuters.com/world/middle-east/saudi-led-coalition-intercepts-missiles-towards-riyadh-drones-eastern-province-2026-11-15/"}
+  ]
+},
+{
   id:"iran-2026-11-14-coalition-drones-riyadh-south",
   ts:"2026-11-14T16:30:00Z",
   group:"Saturday, November 14, 2026",
@@ -699,6 +795,8 @@ var REPORTS = [
   severity:"medium",
   category:"Drones / Interceptions — Saudi Arabia",
   title:"Saudi-led coalition says it intercepted and destroyed two Houthi one-way attack drones in Riyadh and the southern region, Saturday Nov 14",
+  headline:"Drones downed over Riyadh",
+  simple:"Saudi Arabia says its air defenses shot down two attack drones launched by the Houthis — one near the capital, Riyadh, and one in the south of the country. According to the coalition, nobody was hurt and nothing was damaged.",
   summary:"The Saudi-led coalition said it intercepted and destroyed two one-way attack drones launched by the Houthis, one in the Riyadh region and one in the kingdom's southern region, on Saturday. Coalition spokesman Maj. Gen. Turki al-Maliki announced the interceptions in a statement posted on X. No casualties, damage, or flight/airport effects were reported. This is distinct from the coalition's Thursday Nov 12 interceptions (Riyadh + Eastern Province, already on the dashboard) and does NOT confirm the Houthis' separate Friday Nov 13 claims about Riyadh's airport or an oil pumping station, which remain unverified.",
   confidence:"High that the coalition made this announcement — QNA + Reuters syndication + ISW Nov 14 update citing the coalition spokesperson's X post. The interception itself is the coalition's account — no independent verification of wreckage or damage published.",
   flag:"Coalition account only — no independent verification of wreckage or damage",
@@ -715,6 +813,8 @@ var REPORTS = [
   severity:"medium",
   category:"Diplomacy / US statements",
   title:"Trump tells advisers he may hold off on Iran attacks barring new provocations",
+  headline:"Trump may pause attacks",
+  simple:"President Trump has told his advisers he may hold off on new attacks on Iran unless Iran or the Houthis do something new first. A third US aircraft carrier is still heading to the region, and his briefers told him more strikes probably would not change Iran's demands.",
   summary:"President Trump told senior advisers he may hold off on Iran strikes if there is no new provocation from Tehran or the Houthis, after consulting Saudi Arabia and Turkey. A third carrier is moving into the region, and intelligence briefed to him says further strikes would not shift Iran's demands; the briefing also covered munitions stockpiles. Context: this follows the Nov 12 “doesn't need a deal” reversal and the Nov 9 pause — it is reported here as a possible hold-off, not a decision to end the campaign.",
   confidence:"High — Reuters exclusive based on three sources, with a White House statement.",
   flag:"Possible hold-off — not a decision to end the campaign",
@@ -730,6 +830,8 @@ var REPORTS = [
   severity:"medium",
   category:"Security Alert / Saudi Arabia",
   title:"US Mission to Saudi Arabia issues countrywide Security Alert: Americans urged to exercise heightened vigilance amid increased Houthi attack threat and Iranian efforts to target US government officials; extreme caution at Saudi airports",
+  headline:"Embassy alert: Saudi Arabia",
+  simple:"The US Embassy in Saudi Arabia has told Americans there to be extra careful. It says the Houthis have been attacking Saudi airports and infrastructure, and US government staff now need special permission to use any airport in the country.",
   summary:"The US Mission to Saudi Arabia issued a countrywide Security Alert dated November 13 warning that Americans in the Middle East should exercise heightened vigilance “due to the increased threat of armed attacks by Iranian-supported Houthis and Iranian efforts to target U.S. government officials in the region.” The alert notes Houthi attacks on Saudi civilian airports and critical infrastructure have caused civilian casualties and severe travel disruptions, warns of potential attacks, airspace closures, flight cancellations and travel disruptions, and says US government employees now require Chief of Mission authorization to use any airport in Saudi Arabia. It restates the October 23 ordered departure of non-emergency US government employees and family members. The State Department Travel Advisory level is unchanged (Level 3, “Reconsider Travel”). The alert followed the Houthis' November 13 claims of drone strikes on Riyadh's King Khalid International Airport and an East-West Pipeline pumping station, and their ballistic-missile claims against Saudi forces in Jazan.",
   confidence:"High — the original source is the US Embassy site itself. The threat warning is the embassy's own assessment, not an independently verified incident; the underlying Houthi claims remain unverified.",
   flag:"Embassy assessment — underlying Houthi claims remain unverified",
@@ -745,6 +847,8 @@ var REPORTS = [
   severity:"high",
   category:"Homeland / Air traffic",
   title:"FAA orders nationwide ground stop for all US airports after telecom outage hits all 22 Air Route Traffic Control Centers",
+  headline:"All US flights grounded",
+  simple:"The FAA stopped every flight in the United States on Friday afternoon after a telecom failure hit the centers that guide planes between airports. More than 10,000 flights were delayed and 2,500 canceled. Officials say there is no sign this was an attack — the cause is still being investigated.",
   summary:"The FAA's Air Traffic Control System Command Center ordered a nationwide ground stop at 3:54 p.m. ET / 2:54 p.m. CT on Friday, “due to extraordinary circumstances and for reasons of safety,” after a communications failure hit the centers that guide planes between airports. The FAA said on X there had been “a temporary telecommunications outage” and “out of an abundance of caution all flights have been halted. Every flight has been accounted for.” As of 6 p.m. ET, more than 10,000 flights were delayed and 2,500 canceled in the US (FlightAware). The stop remained in effect through the evening, with departures allowed only in coordination with the command center as centers recover (ATCSCC, 5:46 p.m. ET). Homeland Security Secretary Markwayne Mullin said there is “no indication… this was a threat to the United States” and “no reason to believe as of right now that this was a nefarious attack.” The cause is under investigation and is not presented here as a cyberattack or sabotage. It is only the third nationwide departure halt in history, after 9/11 and the Jan 2023 NOTAM outage, and no connection to the separate Microsoft 365 outage has been established.",
   confidence:"High that the FAA ordered the ground stop and that officials said no attack is indicated (FAA statements; delay and cancellation figures from FlightAware as reported); the cause is under investigation and unknown.",
   flag:"Cause under investigation — officials say no indication of an attack",
@@ -760,6 +864,8 @@ var REPORTS = [
   severity:"medium",
   category:"Missiles — Saudi Arabia / Jazan",
   title:"Houthis claim two ballistic missiles fired at Saudi forces in Jazan; separate claims on Riyadh airport and East-West Pipeline",
+  headline:"Jazan claims reported",
+  simple:"The Houthis say they fired two ballistic missiles at Saudi forces in Jazan, in southwest Saudi Arabia, and in a separate claim say they hit Riyadh's main airport and an oil pipeline pumping station. Saudi Arabia has confirmed none of it, so all of these are claims only — not confirmed strikes.",
   summary:"Yemen's Iran-aligned Houthis said Friday they fired two ballistic missiles at what they described as concentrations of Saudi forces in Al-Tuwal, Jazan province, hours after Saudi civil defence issued an all-clear for the province. In a separate statement they also claimed strikes on Riyadh's King Khalid International Airport and a pumping station on the East-West Pipeline. Saudi Arabia has not confirmed any of the claims, and Reuters notes it is unclear whether the claimed Jazan attack relates to the civil-defence alerts issued there earlier Friday. Jazan hosts a 400,000 bpd Aramco refinery. This is distinct from the Nov 12 Houthi drone claims already in this archive — new date, new weapon type, new target. The claims are reported as claims only, never as a confirmed strike.",
   confidence:"High that the Houthis made the claims (Reuters wire; Times of Israel and Jerusalem Post reporting corroborates the claim). Low that any strike hit or caused damage — no Saudi statement, no interception or casualty report.",
   flag:"Claim only — Saudi Arabia has not confirmed any strike or damage",
@@ -776,6 +882,8 @@ var REPORTS = [
   severity:"medium",
   category:"Diplomacy / Israel–US",
   title:"Mossad director Roman Gofman in Washington as Netanyahu presses Trump to resume Iran war",
+  headline:"Israel presses for strikes",
+  simple:"Israel's spy chief is in Washington while Prime Minister Netanyahu pushes President Trump to restart the war on Iran. So far Trump has said no, preferring the naval blockade and economic pressure. No new strike has been decided.",
   summary:"Axios reported that Mossad director Roman Gofman — one of Netanyahu's closest confidants, in the role since June — is in Washington on Friday for talks with senior Trump administration officials about the Iran war, meeting CIA Director John Ratcliffe and expected to travel to Miami to meet White House envoy Steve Witkoff. Axios, citing three sources, says Netanyahu is pressing Trump to resume military operations against Iran; a US official says Trump has so far turned that down, backing the naval blockade and economic pressure approach favoured by Saudi Arabia, Qatar and the UAE. The reporting is corroborated by CNN and The Jerusalem Post. CNN adds that Netanyahu has even considered a unilateral Israeli strike on Iran, which would still need Trump's approval. No decision to resume strikes has been announced and there is no new strike.",
   confidence:"High — Axios via three sources, corroborated by CNN and The Jerusalem Post.",
   flag:"No new strike — no decision to resume strikes announced",
@@ -792,6 +900,8 @@ var REPORTS = [
   severity:"high",
   category:"Missiles / Drones — Bahrain",
   title:"IRGC claims strike on US early-warning radar in Bahrain; CENTCOM says claim false, two drones shot down",
+  headline:"US denies radar hit",
+  simple:"Iran's IRGC claimed it hit a US radar station in Bahrain. CENTCOM says that is false — American forces shot down two Iranian drones headed toward Bahrain, and nothing was damaged.",
   summary:"Iran's Revolutionary Guards said on Friday they targeted a US early-warning radar in Bahrain, in retaliation for what they described as an air attack on a telecommunications tower in Iran's southern Sirik county, Hormozgan province, according to Iranian state media. Reuters reports it as the first such claim of an attack on American military assets in a Gulf country since early September. No immediate comment came from the US or Bahrain on the radar claim itself. US Central Command then said American forces shot down two IRGC one-way attack drones headed toward Bahrain, with no injuries or damage, directly rejecting the IRGC's claim that its Aerospace Force had targeted and destroyed the radar. The IRGC radar strike is a claim only — no US or Bahrain confirmation, no damage details, and no independent verification — and is not presented here as a confirmed strike.",
   confidence:"High that the IRGC made the claim and that CENTCOM made its statement; Low that a strike on the radar actually occurred or caused damage.",
   flag:"Radar strike is an IRGC claim only — CENTCOM says false",
@@ -809,6 +919,8 @@ var REPORTS = [
   severity:"medium",
   category:"Exercises / Pacific",
   title:"China stages large, unannounced Pacific drills in 'silent intimidation' of Taiwan",
+  headline:"China drills near Taiwan",
+  simple:"China held a huge, unannounced military exercise around Taiwan and across the western Pacific, with more than 100 ships at one point, according to a Taiwan security official. Taiwan calls it “silent intimidation.” The numbers come from Taiwan officials and have not been independently confirmed.",
   summary:"Reuters (Taipei, Nov 13) reported that China carried out a large, unannounced military exercise across the western Pacific and around Taiwan in early November. A senior Taiwan security official said China's military and coast guard at one point massed more than 100 vessels; the drills included simulated attacks on other militaries and cities including Taiwan's; and a Chinese submarine launched an intercontinental ballistic missile from the Yellow Sea into the Chinese mainland during the drills. The deployment was larger than “Justice Mission 2025,” China's last formally named Taiwan drills nearly a year ago. The scale has decreased this week: around 70 vessels operating within the first island chain on Friday, and the Liaoning carrier strike group remains operating east of the Philippines. Xi Jinping gave a major Taiwan policy speech Thursday urging peaceful “reunification,” with no mention of force. China's defence ministry did not respond to a request for comment; China calls the carrier deployment “routine” exercises not directed at any country. The vessel counts and the submarine ICBM launch are attributed to anonymous Taiwan security officials and are not independently verified by Reuters.",
   confidence:"High that Reuters reported the Taiwan officials' account; the details are Taiwan-official claims, not independently confirmed facts.",
   flag:"Vessel counts and ICBM launch are Taiwan-official claims — not independently verified",
@@ -824,6 +936,8 @@ var REPORTS = [
   severity:"medium",
   category:"Nuclear / IAEA",
   title:"IAEA: Iran says nuclear-monitoring talks cannot resume amid US military threats",
+  headline:"Nuclear inspections stalled",
+  simple:"Iran has told the UN's nuclear watchdog, the IAEA, that it cannot restart inspection talks while the US is threatening to attack. The watchdog says it still does not know where one Iranian enrichment plant is or whether it holds nuclear material — a gap it calls a proliferation concern.",
   summary:"The IAEA's confidential quarterly report says Iran told the agency this month that discussions on resuming inspections “cannot proceed” amid “a series of persistent, explicit, and public threats by the President of the United States… to commit further acts of armed aggression,” particularly against nuclear facilities. The IAEA calls the lack of information about Iran's atomic sites and material “a matter of proliferation concern” needing urgent action; it does not know the Isfahan Fuel Enrichment Plant's exact location, safeguards status, or whether it contains nuclear material. Iran reaffirmed its “firm commitment to resume full implementation of its safeguards obligations” when conditions permit. Bushehr (inspected Sept 12–15) is the only facility inspected since June 2025; the last verified 60%-enriched stockpile figure is 440.9 kg (June 13, 2025). No evidence Iran has produced a weapon is reported.",
   confidence:"High that the IAEA's confidential quarterly report contains these statements as reported; the positions are attributed to Iran and to the IAEA respectively.",
   flag:"Monitoring gap — IAEA lacks the Isfahan plant's location and safeguards status",
@@ -840,6 +954,8 @@ var REPORTS = [
   severity:"medium",
   category:"Cyber / Espionage",
   title:"Unit42: China-linked AI-agent breaches of 10 organisations, including US defence-related targets",
+  headline:"AI hacks: 10 groups",
+  simple:"Security researchers say China-linked hackers used an AI hacking tool to break into 10 organisations, including US defence-related targets and chip companies. This happened in August and September and is only being reported now — it is not a new attack.",
   summary:"Palo Alto Networks' Unit42 reported that Chinese-speaking hackers used the open-source Cairn AI penetration-testing framework, paired with the DeepSeek and Zhipu GLM models, to run 25 operations against at least 19 organisations in August–September 2026, achieving unauthorised access or data retrieval at 10 of them — including seven semiconductor and advanced-manufacturing targets, three defence-related targets (including a space-technology company and a policy think tank) and four human-rights and civil-society groups. Unit42 assesses with moderate confidence that this is a China-linked intelligence-collection effort, tracked as CL-STA-1238. This is a retrospective disclosure of August–September activity, not a new incident.",
   confidence:"Moderate — Unit42 assesses with moderate confidence that this is a China-linked effort (CL-STA-1238); the operation counts and target breakdown are Unit42's reporting.",
   flag:"Retrospective disclosure (Aug–Sep 2026) — not a new incident",
@@ -855,6 +971,8 @@ var REPORTS = [
   severity:"medium",
   category:"Diplomacy / US statements",
   title:"Trump: US 'doesn't need a deal' with Iran; Vance pulled off the Iran file; 'three days' claim",
+  headline:"Trump: no deal needed",
+  simple:"President Trump says the US “doesn't need a deal” with Iran anymore, and he has taken Vice President Vance off the Iran negotiations. He also claimed the US could destroy Iran's energy, bridges and factories in three days. His claims about holding Iran's money and controlling the Strait of Hormuz are his own words, not confirmed facts.",
   summary:"In a morning Truth Social post, President Trump said “We don't need a deal with Iran. Those days have long since passed! We've got their money, Hundreds of Billions of Dollars, and we've got their Strait!” and directed Vice President JD Vance — who had been leading the Iran negotiations — to focus “his complete and total attention” on alleged crime and corruption in Democratic-run cities and states. Later Thursday, in a Hugh Hewitt radio interview, Trump took a more bellicose line: “We control the Gulf in terms of the Hormuz Strait. We control it, totally control it,” said it would “absolutely” be “a defeat” to leave office with the current Iranian regime still in power, and said he could destroy Iran's energy infrastructure, bridges and manufacturing facilities in three days (“In one day their energy is gone. In one day their bridges are gone. And in one day their manufacturing capability is gone”), while holding off further large-scale strikes at the request of Gulf states. Context: a sharp reversal from Monday Nov 9, when Trump called the war “militarily effectively over” and said further strikes were “quite unlikely”; Vance had opened a communications channel with Iranian security chief Mohsen Rezaei. The morning post and the interview are both reported here — mixed messages within the same day. The “hundreds of billions” and “we've got their Strait” claims are Trump's own claims, not independently verified facts.",
   confidence:"High that Trump made the statements (Reuters, CNN, WSJ plus the Truth Social post itself).",
   flag:"Trump's 'hundreds of billions' and 'we've got their Strait' are his own claims",
@@ -871,6 +989,8 @@ var REPORTS = [
   severity:"medium",
   category:"Missiles / Drones — Saudi Arabia",
   title:"Houthis claim strikes on Saudi oil infrastructure; coalition says drones intercepted",
+  headline:"Oil strikes claimed",
+  simple:"The Houthis say they attacked Saudi oil sites, an airport and an airbase on Thursday. The Saudi-led coalition says it shot down two drones, and Saudi Arabia has not confirmed any damage — so the claimed hits are unverified.",
   summary:"Houthi military spokesperson Yahya Saree claimed on Telegram that the group attacked a pumping station on Saudi Arabia's East-West Pipeline, an oil facility in Yanbu on the Red Sea, the Aramco headquarters in Riyadh, a military cargo plane at Sharurah airport, and Khamis Mushait airbase (claimed “direct hit”). The Saudi-led coalition said it intercepted and destroyed two drones (Eastern Region and Riyadh area) on Thursday; Saudi authorities have NOT confirmed any damage or disruption. Separately on Thursday, the UN Security Council unanimously extended Yemen-related sanctions for one more year.",
   confidence:"High that the Houthis made these claims and that the coalition announced Thursday interceptions; Low that any claimed strike caused damage — no Saudi confirmation and no independent verification.",
   flag:"No Saudi confirmation of damage — claimed strikes unverified",
@@ -887,6 +1007,8 @@ var REPORTS = [
   severity:"high",
   category:"Strikes / Unattributed",
   title:"'Enemy strike' hits Sirik and the IRGC Shahid Rahbari Naval Base",
+  headline:"Strike hits Sirik",
+  simple:"Iranian state news says an “enemy” strike hit Sirik, a coastal town in southern Iran on the Strait of Hormuz, near an IRGC naval base. Iran has not proven who carried it out, and the US has not confirmed it struck anything there.",
   summary:"Iranian state news agency IRNA reported on Thursday that Sirik County, Hormozgan province (southern Iran, on the Strait of Hormuz / Gulf of Oman coast) was hit by an “enemy” strike that was “military in nature.” Sirik is home to the IRGC Navy's Shahid Rahbari Naval Base. IRNA gave no details on damage or casualties. Attribution: it is NOT confirmed this was a US strike — no CENTCOM or US confirmation has surfaced and no Reuters or AP wire attributes it to the US; some outlets characterised it as a US strike, while The Times reported IRNA's account without independently attributing it to the US. “US struck Shahid Rahbari” is not presented here as confirmed fact. Context: the last US attack on Iran was a week earlier (the Qeshm air-defence strike, Nov 6).",
   confidence:"High that IRNA reported a strike; Low to Medium that it was a US strike.",
   flag:"NOT confirmed as a US strike — no CENTCOM confirmation",
@@ -903,6 +1025,8 @@ var REPORTS = [
   severity:"medium",
   category:"Cyber / FBI",
   title:"Iran-based Handala Hack Team claims hack of FBI Director Kash Patel's personal email",
+  headline:"FBI chief's email hacked",
+  simple:"Hackers got into FBI Director Kash Patel's personal email and posted photos and old documents online. The FBI says no classified or government systems were touched. A group called Handala, based in Iran, claims it did it — the FBI has not blamed any country.",
   summary:"The FBI confirmed “malicious actors” targeted Director Kash Patel's personal email account; the Iran-based Handala Hack Team claimed responsibility and posted photos and documents online. No classified systems were breached and no government or classified data was compromised — the stolen material was personal (photos, travel details, older messages from about 2011–2022). The US State Department offers up to $10 million for information identifying Handala members. The FBI did NOT attribute the attack to a specific country; Handala's claim is the group's own claim, not independently verified attribution.",
   confidence:"High that the FBI confirmed the targeting and that Handala claimed it; Low to Medium that Handala is state-directed.",
   flag:"FBI did not attribute to a country — Handala claim is unverified attribution",
@@ -918,6 +1042,8 @@ var REPORTS = [
   severity:"low",
   category:"Cyber / Crypto theft",
   title:"DOJ and FBI disrupt North Korean 'FaceStealer' crypto-theft scheme; $1.2 billion Binance seizure",
+  headline:"Crypto theft ring busted",
+  simple:"US agents shut down a North Korean scheme that used fake video calls to steal more than $400 million in crypto, and separately froze $1.2 billion stolen from the Binance exchange. The frozen money has not been recovered or handed back yet — that process is ongoing.",
   summary:"The US Department of Justice announced coordinated actions against North Korean government schemes to fund the regime through cryptocurrency theft: (1) seizure of cloud infrastructure behind “FaceStealer,” a social-engineering scheme the FBI says stole more than $400 million in crypto over about 18 months using hijacked accounts and fake Zoom/Teams video calls playing secretly recorded webcam footage and deepfakes of known contacts; the FBI seized more than 900 victim webcam videos under a federal warrant and published FLASH alert AC-111226-MS; (2) court-authorized seizure and restraint of more than $1.2 billion in crypto stolen from Binance on or about Oct 29, 2026 — part of $2.7 billion-plus frozen so far — attributed by the FBI to North Korean military hackers it calls TraderTraitor, who stole $6 billion-plus. The two actions are separate; FaceStealer did NOT cause the Binance theft. The $1.2 billion is a court-authorized seizure and restraint within an ongoing freeze, with forfeiture proceedings ongoing — it is not presented here as recovered or forfeited.",
   confidence:"High — US Department of Justice press release, with FBI figures attributed to the FBI.",
   flag:"$1.2bn is seizure/restraint in an ongoing freeze — not recovered or forfeited",
@@ -934,6 +1060,8 @@ var REPORTS = [
   severity:"medium",
   category:"Diplomacy / Battlefield comms",
   title:"Putin meets US envoys Witkoff and Kushner; Starshield over Ukraine reportedly limited",
+  headline:"Putin meets US envoys",
+  simple:"President Putin met Trump's envoys in Moscow and agreed in principle to let Europeans join the next Ukraine peace talks. Separately, Ukraine says its military satellite internet over the front line is being slowed — Kyiv suspects US pressure, but that is unconfirmed.",
   summary:"President Vladimir Putin met US envoys Steve Witkoff and Jared Kushner in Moscow on Nov 12 and agreed in principle to let European representatives join the next round of Ukraine peace talks, Witkoff said after the meeting via Reuters. Putin warned that sending Western troops into Ukraine after a peace deal would trigger a resumption of the war. Separately, President Volodymyr Zelenskyy said Nov 12 that Starshield (military Starlink) service over Ukraine was being systematically limited to 161 km/h, affecting the whole front line; Kyiv officials told the Financial Times they suspect deliberate US pressure in the peace talks; the US offered no explanation.",
   confidence:"High that the Moscow meeting and the European-representatives agreement were reported by Reuters; the Starshield limitation is Zelenskyy's statement, and the 'deliberate US pressure' reading is Kyiv officials' suspicion as reported to the FT — not a US-confirmed fact.",
   flag:"Starshield 'US pressure' is Kyiv's suspicion — unconfirmed",
@@ -950,6 +1078,8 @@ var REPORTS = [
   severity:"medium",
   category:"Espionage / UK ally",
   title:"Two men convicted in UK of spying for Iran — convictions only, no sentences yet",
+  headline:"Spying convictions in UK",
+  simple:"A UK court has convicted two men of spying for Iran, targeting journalists and a lawyer. They have not been sentenced yet — that happens on December 17.",
   summary:"Mostafa Sepahvand, 41, and Farhad Javadi Manesh, 46, were convicted on Nov 12 at Woolwich Crown Court of assisting a foreign intelligence service on behalf of Iran / the IRGC. Their targets were Iran International journalists and a UK lawyer. Sentencing is set for Dec 17, 2026 at the Old Bailey — no sentences have been imposed. This report covers the convictions only.",
   confidence:"High — convictions reported by Reuters, the Crown Prosecution Service, and the Metropolitan Police on Nov 12. Any sentence figures circulating elsewhere are not from these sources; sentencing has not happened.",
   flag:"Convictions only — sentencing is Dec 17, 2026; no sentences imposed",
@@ -967,6 +1097,8 @@ var REPORTS = [
   severity:"medium",
   category:"Deterrent / Naval",
   title:"North Korea vows 'sustained and accelerated' war-deterrent development",
+  headline:"North Korea vows buildup",
+  simple:"North Korea says it will keep building up its war deterrent — its word for the forces meant to scare off an attack — and will answer what it calls growing US naval threats. This is a statement, not an attack.",
   summary:"North Korea said Nov 12 (KCNA, via Reuters) it will pursue 'sustained and accelerated development' of its war deterrent and 'respond with action' to what it called growing naval threats from the US and its allies, after Kim Jong Un inspected a naval base under construction on the east coast. Background: ISW (Nov 11) assesses North Korea may be building two new large surface combatants that could carry sea-launched ballistic missiles; Kim Yo Jong said Nov 4 North Korea sees 'no need' for dialogue with the US; and the FBI attributed the Oct 29 $6.3bn Binance crypto heist to North Korean hackers (Nov 1).",
   confidence:"High that KCNA published the statement as reported by Reuters; the shipbuilding assessment is ISW's analysis (Nov 11), labeled as such. No launch or attack occurred on Nov 11–12.",
   flag:"Statement and capability development — no attack",
@@ -983,6 +1115,8 @@ var REPORTS = [
   severity:"medium",
   category:"Diplomacy / Conditions",
   title:"Iran's 'seven conditions' — a labeled reconstruction, not an official list",
+  headline:"Iran's seven conditions",
+  simple:"Iran keeps talking about “seven conditions” for ending the war — things like ending the US naval blockade and lifting sanctions. But no official numbered list exists; the version going around is pieced together by news outlets from themes Iranian officials have raised.",
   summary:"Iranian officials have repeatedly referred to seven conditions for ending the war, but no verbatim numbered official list has been published, and no $30bn figure appears in reputable reporting of the conditions. The list below is a reconstruction from the themes multiple outlets report — it is not a quoted official text. The themes: (1) end the war on all fronts, including Lebanon and Yemen; (2) full lifting of the US naval blockade; (3) release of frozen Iranian assets (amount unspecified in the list itself); (4) lifting of sanctions, including oil sanctions; (5) withdrawal of US forces from the region / an end to US threats and interference; (6) war reparations; (7) recognition of the Iran–Oman maritime corridor / an end to US attacks on Iranian territory. Grouping and wording vary by outlet.",
   confidence:"High that no verbatim official numbered list exists in reputable reporting — outlets presenting the conditions describe them as a reconstruction. The $12bn figure sometimes attached to the conditions belongs to the Sept 25, 2026 seven-day roadmap (see that report), not to this list.",
   flag:"Reconstruction — not a quoted official list; no $30bn figure",
@@ -999,6 +1133,8 @@ var REPORTS = [
   severity:"high",
   category:"Threats / Retaliation warning",
   title:"Iran warns it could hit US bases in Europe if attacked again",
+  headline:"Iran warns Europe bases",
+  simple:"A senior Iranian commander warns that if the US attacks again, Iran could strike US bases in Europe if planes flew from them to hit Iran. He also says there are no talks with Washington right now. This is a warning, not an attack.",
   summary:"Iranian security chief Mohsen Rezaei said if the US attacks again, Iran would hit US bases nearby and also distant bases, including bases in European countries if aircraft took off from them to strike Iran. Deputy Chief of General Staff Amir Kioumars Heydari made a similar warning Nov 11 on IRIB. Rezaei also said there are currently no negotiations with Washington, Iran will not let a single particle of its enriched uranium leave the country, and Iran has set seven conditions before it reopens the Strait of Hormuz.",
   confidence:"High that the remarks were made as reported; the threat itself is a statement of intent, not a confirmed attack or plan.",
   flag:"Statement of intent — not a confirmed attack",
@@ -1016,6 +1152,8 @@ var REPORTS = [
   severity:"medium",
   category:"Blockade / CENTCOM",
   title:"US expands pressure beyond the sea: Task Force Iron Gate, land routes and Caspian",
+  headline:"Pressure expands to land",
+  simple:"The US says it is widening its campaign against Iran beyond the sea — watching land borders and the Caspian Sea to stop weapons and sanctioned goods moving. A new unit, Task Force Iron Gate, runs the effort. CENTCOM says the sea blockade has blocked more than $25 billion in Iranian oil sales — that figure is CENTCOM's claim.",
   summary:"US Central Command said US forces are maintaining commercial shipping access through the Strait of Hormuz while enforcing a naval blockade against Iranian ports, and are expanding the campaign to land borders and the Caspian Sea to stop the IRGC moving advanced weapons, dual-use tech, sanctioned materials and revenue. Task Force Iron Gate was announced Nov 7. CENTCOM said the naval blockade had prevented Iran exporting more than $25 billion in crude oil in recent months. Iran's military dismissed the initiative, per CBS News reporting.",
   confidence:"High for the CENTCOM statement itself (published Nov 11, 2026); the $25bn figure is CENTCOM's claim, labeled as such.",
   flag:"$25bn figure is a CENTCOM claim",
@@ -1031,6 +1169,8 @@ var REPORTS = [
   severity:"medium",
   category:"Diplomacy",
   title:"Possible Vance–Rezaei talks reported, but no meeting confirmed; accounts conflict",
+  headline:"Talks rumored, none confirmed",
+  simple:"One report says Vice President Vance was considering face-to-face talks with Iran's security chief, Mohsen Rezaei. Rezaei denies any negotiations are happening. The two accounts conflict, and no meeting has been confirmed.",
   summary:"The Wall Street Journal, via Entekhab's rolling report, said US Vice-President JD Vance was considering face-to-face talks with Iranian security chief Mohsen Rezaei. No meeting date has been set; the talks were described as preliminary. Possible confidence-building steps floated were looser US blockade restrictions and passage of 25 tankers through Hormuz — proposals, not agreements. Rezaei, in a separate interview, denied negotiations with Washington are underway and rejected reports of a planned Vance meeting. The two accounts conflict; do not read this as a meeting agreed.",
   confidence:"Mixed — the WSJ report exists, Rezaei's denial exists, no meeting is confirmed.",
   flag:"Conflicting accounts — no meeting confirmed",
@@ -1046,6 +1186,8 @@ var REPORTS = [
   severity:"high",
   category:"Strait of Hormuz / Shipping",
   title:"Strait of Hormuz shipping pressure continues; competing claims, not verified",
+  headline:"Hormuz shipping under pressure",
+  simple:"Ships are still being attacked near the Strait of Hormuz, the narrow waterway a huge share of the world's oil passes through. Iran claims two giant oil tankers exploded overnight — that part has not been confirmed by anyone independent.",
   summary:"UK Maritime Trade Operations reported two attacks on commercial vessels on Nov 10 and another on Nov 11. An IRGC Navy statement claimed two supertankers suffered explosions while using a southern route through Hormuz overnight, carrying more than four million barrels of oil. The USS Theodore Roosevelt carrier strike group is heading towards the Northern Arabian Sea. Brent futures for January fell 1.54% to $91.22 a barrel. UAE airspace remains operational; EASA conflict-zone advisories for Iran, UAE, Bahrain, Kuwait, Qatar and Oman are valid until Nov 16 unless revised. Etihad cancelled flights to Dammam and Riyadh until Nov 19; flights to Riyadh and Abha suspended until Nov 16.",
   confidence:"Low-to-moderate for the tanker-explosion claim — it is an IRGC claim, not independently verified. Competing US/Iran claims are labeled as competing claims.",
   flag:"Unverified — IRGC tanker claim not independently confirmed",
@@ -1062,6 +1204,8 @@ var REPORTS = [
   severity:"medium",
   category:"Diplomacy / Strait of Hormuz",
   title:"Iran says formal response sent to U.S. through Qatar",
+  headline:"Iran replies via Qatar",
+  simple:"Iran says it has sent a formal reply to the US through Qatar, and claims it has an understanding with Oman on how ships would pass through the Strait of Hormuz. There is no confirmed agreement and no ceasefire.",
   summary:"Iranian negotiator Mohammad Bagher Qalibaf says Tehran delivered a response to Washington via Qatar and claims an understanding with Oman on a proposed Strait of Hormuz transit mechanism. No confirmed agreement or ceasefire.",
   confidence:"Mixed: high for public remarks; moderate to low for claimed diplomatic progress",
   origin:"ChatGPT Iran War Early Warning automation",
@@ -1102,6 +1246,8 @@ var REPORTS = [
   severity:"medium",
   category:"G7 declaration / A2/AD",
   title:"G7: China's activities east of Taiwan 'threaten regional stability' — strongest unified statement to date",
+  headline:"G7 warns over Taiwan",
+  simple:"The G7 — the group of seven major democracies — issued its strongest joint warning yet about China's military activity east of Taiwan, saying it threatens shipping and regional stability. China has been running exercises designed to block outside forces from helping Taiwan in a crisis.",
   summary:"The G7 foreign ministers' joint declaration, published late Nov 11 in Paris, said China's increasingly assertive activities east of Taiwan 'threaten regional stability, freedom of navigation and the safety of international shipping' — the strongest unified G7 statement on this to date. Context: Taiwan Defence Minister Wellington Koo said Nov 10 that China is conducting anti-access/area-denial (A2/AD) exercises in the Western Pacific with the Liaoning carrier group, aimed at blocking outside (US/allied) forces from intervening in a Taiwan crisis. On Nov 12, Taiwan's defence ministry detected a 29-aircraft J-16-led joint combat-readiness patrol around Taiwan, and Xi Jinping said reunification would 'certainly' be achieved.",
   confidence:"High that the G7 declaration was published as quoted; the A2/AD characterization is Taiwan's defence minister's assessment, attributed as such. No invasion or blockade was declared on Nov 11–12.",
   flag:"Pressure campaign + formal G7 warning — no attack",
@@ -1119,6 +1265,8 @@ var REPORTS = [
   severity:"medium",
   category:"Maritime / Tanker strike",
   title:"UKMTO-verified strike on tanker MT Dominica Prosperity off Ras Al-Khaimah",
+  headline:"Tanker ablaze off UAE",
+  simple:"A tanker was hit by an unknown projectile off the coast of the UAE and caught fire — an attack logged by UKMTO. All 22 crew members got off safely. Nobody knows who fired it, and no group has claimed it.",
   summary:"UKMTO Warning 204-26 records an attack at 1800 UTC on Nov 11, about 14 nautical miles northwest of Ras Al-Khaimah, UAE. The Joint Maritime Information Center identified the vessel as the Liberia-flagged crude tanker MT Dominica Prosperity (IMO 9395496); an unknown projectile struck its engine-room area, causing a fire. All 22 crew (19 Indian nationals) were safely evacuated by the UAE Coast Guard; no injuries were reported. Attribution to Iran is NOT established — Reuters and UKMTO describe an “unidentified projectile” and no party has claimed it, so this is not presented here as an Iranian strike.",
   confidence:"High that UKMTO and the Joint Maritime Information Center recorded the attack and the evacuation as described; attribution is not established.",
   flag:"Attribution NOT established — unidentified projectile, no party has claimed it",
@@ -1135,6 +1283,8 @@ var REPORTS = [
   severity:"high",
   category:"Force protection / Europe",
   title:"US moves tanker aircraft out of RAF Mildenhall after Iran-linked threat",
+  headline:"Jets leave UK base",
+  simple:"The US moved 10 refueling tanker planes and 3 Osprey aircraft out of RAF Mildenhall in England after a threat linked to Iran, spreading them across Germany, Spain and Scotland. The base went to its second-highest alert level. The threat itself has not been publicly detailed, and no attack happened.",
   summary:"The US moved aircraft out of RAF Mildenhall, England, on Monday Nov 9 after a threat linked to Iran. CNN flight-tracking analysis: 10 KC-135 Stratotankers relocated — 4 to Spangdahlem, Germany, 1 to Ramstein, Germany, 4 to Morón, Spain, 1 to Glasgow Prestwick, Scotland — and 3 CV-22B Ospreys to nearby RAF Lakenheath. Mildenhall and Lakenheath were raised to FPCON Charlie, the second-highest force protection level, used when intelligence indicates a terrorist act is likely. The Wall Street Journal first reported the move, citing people familiar with the matter; the US Air Force did not confirm the move was an evacuation, saying aircraft rotate between installations for training and real-world requirements and declining further comment on operations security. Secretary of State Marco Rubio, asked Nov 10 about Iran planning attacks on Americans, said: “We dealt with it by moving people away from the threat.” The nature of the threat has not been publicly detailed, and no attack is confirmed.",
   confidence:"High that the aircraft moved and FPCON was raised (flight tracking + WSJ + CNN + a US official confirming enhanced force protection at both bases). Moderate that the threat was Iranian — that link comes from sources familiar with the matter, not an official public attribution. The threat itself is unverified in public.",
   flag:"Threat not publicly detailed — no attack confirmed",
@@ -1173,6 +1323,8 @@ var REPORTS = [
   severity:"high",
   category:"Threats / US officials",
   title:"Treasury Secretary Bessent moved to a military base after Iranian threats",
+  headline:"Bessent moved to base",
+  simple:"Treasury Secretary Scott Bessent has moved out of his Washington home onto a US military base after Iranian threats against his life. Bessent runs the US sanctions campaign against Iran. No attack happened — this was a protective move, and the base was not named.",
   summary:"US Treasury Secretary Scott Bessent recently moved from his Washington, DC residence to a US military base after Iranian threats against his life, two people familiar with the matter said Nov 10. The New York Times first reported the move; Reuters and USA Today then reported it, and a Treasury spokesperson confirmed the relocation, saying Bessent “will not be deterred by the Iranian regime's threats.” Bessent has led the US sanctions and economic pressure campaign against Iran, dubbed Operation Economic Outcast, since August. A senior intelligence official warned in a memo seen by Reuters late in October that Iranian plots against US personnel and American citizens had reached an advanced stage. The severity of the threats was not immediately clear, and the location of the base was not disclosed. Security concerns rose after a photo of Bessent's Georgetown home was published, allowing it to be geolocated. Separately, FBI Director Kash Patel announced Nov 10 that the Justice Department had indicted three Iranian-backed operatives suspected of being behind nearly 20 plots across the US and Europe.",
   confidence:"High that Bessent moved and Treasury confirmed it. Moderate that the plots are Iranian and “advanced” — that rests on unnamed sources and a memo described by Reuters, not a public indictment naming Bessent as a target. The DOJ indictment of three operatives is a separate reported fact, not proof of a plot against Bessent specifically.",
   flag:"No attack occurred — protective move; base location not disclosed",
@@ -1209,6 +1361,8 @@ var REPORTS = [
   severity:"medium",
   category:"Cyber / IRGC attribution",
   title:"France attributes supermarket refrigeration cyberattack to IRGC unit Shahid Kaveh",
+  headline:"France blames Iran hackers",
+  simple:"France says an IRGC cyber unit hacked supermarket refrigeration systems across about 700 stores in October, spoiling food worth tens of millions of euros. French prosecutors want arrest warrants for the unit's leaders. Iran denies it.",
   summary:"On the night of Oct 11–12, attackers took remote control of Danfoss/Dixell refrigeration controllers at about 700 French retail sites (Casino, Leclerc, Coopérative U, Metro, Carrefour, Intermarché, plus small butchers, abattoirs and food plants), pushed defrost settings to high temperatures (up to 50°C) and deactivated alarms — food losses in the tens of millions of euros and roughly 15–20 fires were reported. On Nov 9–10, France's cyber crisis coordination centre (ANSSI, DGSE, DGSI, DGA, COMCYBER) attributed the attack to Shahid Kaveh, an offensive cyber unit of the IRGC's Electronic and Cyber Centre. The Paris prosecutor opened a judicial investigation and sought international arrest warrants for the unit's head and two deputies. Iran's Foreign Ministry rejected the allegations. Boundaries: France did NOT attribute the Nov 2–3 refrigeration wave in Belgium, Estonia, Ireland, Finland, Luxembourg, Netherlands and Sweden, nor the Nov 1–2 incident at French blood-service cold stores — those are not presented here as Iranian. US link: the same IRGC unit was previously linked to industrial-controller attacks on US water utilities, and US agencies (CISA, FBI, HHS, USDA, DOT) issued a joint advisory around Nov 10 on industrial refrigeration controllers and cold-chain monitoring.",
   confidence:"High that France made this attribution (ANSSI-led cyber crisis coordination centre, Nov 9–10); the attribution is a government claim, not a court finding.",
   flag:"French government attribution — not a court finding; Iran rejects the allegations",
@@ -1225,6 +1379,8 @@ var REPORTS = [
   severity:"medium",
   category:"Diplomacy / NATO demands",
   title:"Russia circulates Nov 10 document demanding NATO rollback to 1997, end of US nuclear-sharing in Europe, UK/France barred from extending nuclear protection",
+  headline:"Russia demands NATO rollback",
+  simple:"Russia is demanding that NATO pull its forces out of every country that joined after 1997 — including Poland and the Baltic states — and stop US nuclear weapons being based in Europe. These are negotiating demands in a document, not agreed policy.",
   summary:"During the Abu Dhabi talks, Russian negotiators circulated an unsigned non-paper dated Nov 10 demanding NATO withdraw its forces and military infrastructure from every country that joined after 1997 (Poland, the Baltics, Romania, Finland, among others), a permanent ban on further NATO enlargement including Ukraine, an end to US nuclear-sharing arrangements in Europe, and a bar on Britain and France extending their nuclear deterrents to protect other European allies. It also demands an end to Western arms supplies to Ukraine and a halt to NATO military activity in Ukraine, Eastern Europe, the South Caucasus and Central Asia; in return Russia would accept Ukraine joining the EU outside its common defence arrangements and would retain occupied territory. Presidential aide Yuri Ushakov publicly confirmed on Nov 12 that Russia is returning to its December 2021 security demands. The document is an initial negotiating position, not an agreed plan — no European government sat at the Abu Dhabi table. The document is dated Nov 10; the New York Times reported it on Nov 13.",
   confidence:"High that the document exists and was circulated — the New York Times obtained a copy, two sources confirmed its authenticity, the Telegraph independently reported the same contents, and Ushakov's Nov 12 statement corroborates. The demands are Russian positions, not agreed outcomes.",
   flag:"Russian demands — a negotiating position, not agreed policy",
@@ -1241,6 +1397,8 @@ var REPORTS = [
   severity:"medium",
   category:"Strikes / Pause",
   title:"Trump pauses new major strikes on Iran 'for the time being' — blockade stays; explicitly not a ceasefire",
+  headline:"Strikes paused, blockade stays",
+  simple:"President Trump says the US will hold off on new major strikes on Iran “for the time being,” after Gulf countries asked him to. The naval blockade of Iran's ports stays in place, and Trump stresses this is not a ceasefire — US forces stay “locked and loaded.”",
   summary:"After meeting Qatari Prime Minister Sheikh Mohammed bin Abdulrahman Al Thani at the White House on Nov 9, President Trump said the US would hold off on new/fresh major strikes on Iran 'for the time being,' at the behest of Qatar, Saudi Arabia, the UAE, Bahrain and Kuwait — but the US naval blockade of Iranian ports stays in place. This is explicitly NOT a ceasefire: Trump said US forces remain 'locked and loaded' and ready to resume strikes.",
   confidence:"High that Trump made the statement as reported (AnewZ Nov 10; Reuters via HeadlinesXtra Nov 10). The pause is a stated intention, not an agreement — Iran has not accepted it as a ceasefire and the blockade continues.",
   flag:"Pause, not a ceasefire — blockade continues",
@@ -1256,6 +1414,8 @@ var REPORTS = [
   severity:"medium",
   category:"Statements / Rhetoric",
   title:"Ghalibaf warns of a 'dark age'; Rezaei — not Ghalibaf — tells the US to 'surrender'",
+  headline:"Tehran warns “dark age”",
+  simple:"Iran's parliament speaker warns America and its allies are headed for a “dark age” unless Washington drops its “Israel First” mindset. A different Iranian official, Mohsen Rezaei, is the one who told the US to “surrender” — an earlier version of this report credited the wrong man, and that has been corrected.",
   summary:"Parliament Speaker Mohammad Bagher Ghalibaf posted on X on Nov 9: “Unless Washington drops the 'Israel First' mindset, America and its allies are headed straight for a dark age.” He also wrote that Israelis are working to drag the US into 'an endless war with Iran, a quagmire that no president… could escape.' Ghalibaf did NOT use the word 'surrender.' That word was Mohsen Rezaei's, also on X on Nov 9: “Time to SURRENDER to the seven conditions Iran has repeatedly set out.” Earlier versions of this archive attributed 'surrender' to Ghalibaf; that attribution was wrong and has been corrected.",
   confidence:"High — both X posts are quoted verbatim by multiple outlets (Press TV, Middle East Monitor, ABNA for Ghalibaf; Fox News and others quoting @ir_rezaee for Rezaei).",
   flag:"Corrected Nov 12: 'surrender' reassigned from Ghalibaf to Rezaei",
@@ -1271,6 +1431,8 @@ var REPORTS = [
   severity:"low",
   category:"Homeland impact / Wisconsin",
   title:"Wisconsin prices: gas below $4 and falling; grocery outlook is +2.3%, not double digits",
+  headline:"Wisconsin gas under $4",
+  simple:"Wisconsin gas averaged $3.92 a gallon on Nov 9 and has kept falling — $3.78 by Nov 12 — though that is still about a dollar above a year ago. On groceries, the official outlook is a 2.3% rise in 2026, not the double-digit jumps some trackers claim.",
   summary:"Wisconsin regular gas averaged $3.92/gal on Nov 9 (AAA), down from a $4.52 peak on Oct 24 — prices fell during the week of the strike pause, partly on the winter-blend changeover and tanker passage deals. AAA's Wisconsin average checked Nov 12 was $3.78, versus $2.82 a year ago. On food, the USDA projects overall grocery prices will rise 2.3% in 2026 (beef/veal +8.7%, fresh vegetables +5.8%). Higher household-cost figures circulating in some trackers ($5–15/month; food +10–15%) could not be traced to any source and are not published here.",
   confidence:"High for the AAA gas figures and the USDA projections as reported by the Milwaukee Journal Sentinel. The year-on-year gas rise is real but cannot be attributed to the Iran conflict alone.",
   flag:"Sourced figures only — unsourced tracker estimates excluded",
@@ -1288,6 +1450,8 @@ var REPORTS = [
   severity:"medium",
   category:"Maritime / Navigation systems",
   title:"IRGC strike on navigation systems on Oman's Didamar Island",
+  headline:"Oman navigation tower hit",
+  simple:"Someone attacked the radar and radio tower on Didamar Island, a tiny uninhabited Omani island beside a key shipping lane. Iran says its navy destroyed “enemy navigation systems” there; Oman says the navigation aids were not struck. What actually got damaged is disputed.",
   summary:"Navigation and communications equipment (radar on a roughly 25-metre tower, radio gear) on Didamar Island — Little Quoin Island, uninhabited Omani territory off Musandam, beside the southern shipping corridor — was attacked. Iranian state media claimed on Nov 10 that the IRGC Navy destroyed “enemy navigation systems” guiding unauthorised southern-route transits. Reuters reported on Nov 11 that three sources confirmed the attack, with video showing smoke rising from the island and Copernicus Sentinel-2 imagery dated Nov 8 showing scorch marks near the radar and radio equipment. Contested: a senior Omani official told The Maritime Executive the navigational aids were NOT struck, and an Omani Coast Guard official confirmed only an explosion; Iran's claim of destruction is not independently verified, and damage was likely limited.",
   confidence:"High that an attack or explosion occurred on the island; Low to Medium on Iran's destruction claim.",
   flag:"Contested — Oman says the navigational aids were NOT struck",
@@ -1304,6 +1468,8 @@ var REPORTS = [
   severity:"medium",
   category:"Blockade / CENTCOM",
   title:"CENTCOM disables bulk carrier M/V Huda for violating the Iran blockade",
+  headline:"Blockade runner disabled",
+  simple:"CENTCOM says it fired on the back of a cargo ship to stop it after the crew kept ignoring warnings not to run the blockade of Iran. The ship was disabled, not sunk, and the crew had been told to leave the targeted area first.",
   summary:"CENTCOM said US aircraft fired precision munitions at the stern of the St. Kitts-flagged M/V Huda in the Gulf of Oman after the crew ignored repeated warnings and attempted to violate the naval blockade against Iran multiple times; the crew was directed to abandon targeted spaces first; the vessel was disabled, not sunk. UKMTO recorded the incident about 18 nautical miles east of Khor Fakkan (Warning 198-26). CENTCOM said 147 commercial vessels have been redirected since July and 5 merchant ships disabled for refusing to comply.",
   confidence:"High that CENTCOM made this statement; the blockade-violation account is CENTCOM's claim, not independently verified.",
   flag:"Blockade-violation account is CENTCOM's claim — not independently verified",
@@ -1319,6 +1485,8 @@ var REPORTS = [
   severity:"medium",
   category:"Missiles / Range limit",
   title:"Iran lifts self-imposed 2,000-km ballistic missile range limit",
+  headline:"Missile range limit lifted",
+  simple:"Iran says it has dropped its self-imposed limit that kept its missiles under 2,000 km of range. That is a policy change only — there is no evidence Iran has actually built or tested a missile that flies farther than that.",
   summary:"IRGC spokesman Brig. Gen. Hossein Mohebbi confirmed Iran has abandoned its 2,000-km ballistic missile range cap — “That restriction has been lifted for us” — following Supreme Leader Khamenei's order to answer threats “without geographical limits”. The old 2017 cap covered the Arabian Peninsula, the Levant, most of Egypt and parts of Greece and the Balkans; lifting it is the capability underpinning Rezaei's Nov 11 threat to strike US bases in Europe. Caveat: there is no evidence Iran possesses or has demonstrated a missile beyond 2,000 km — this is a lifted policy cap only, not a demonstrated capability.",
   confidence:"High that the announcement was made (Associated Press original; corroborated by Tasnim, ISNA, Mehr, Times of Israel and Iran International). Low on the capability — no missile beyond 2,000 km has been demonstrated.",
   flag:"Policy cap lifted — no missile beyond 2,000 km demonstrated",
@@ -1334,6 +1502,8 @@ var REPORTS = [
   severity:"high",
   category:"US strikes / Qeshm Island",
   title:"Second, separate US strike on Qeshm air defences — Trump confirms it himself",
+  headline:"Second Qeshm strike confirmed",
+  simple:"US forces struck Iranian air defenses on Qeshm Island on Nov 6 — a second, separate strike from the one on Nov 2. President Trump confirmed it himself, calling it “minor” and saying the system was knocked out in minutes.",
   summary:"On Nov 6, US forces conducted a second, separate strike on Iranian air defences on Qeshm Island — distinct from the Nov 2 strike. President Trump confirmed it himself on Nov 6, en route to Mar-a-Lago: US forces conducted 'minor' strikes and destroyed 'a little' Iranian anti-aircraft system, 'knocked it out in about 15 minutes, maybe five.' Tasnim reported two missiles struck Qeshm.",
   confidence:"High — the strike was confirmed by the President himself and reported by ISW's Iran Update (Nov 7) and the New York Post (Nov 7). This is a separate event from the Nov 2 Qeshm strike; the two are listed separately and should not be conflated.",
   flag:"Second strike — separate from Nov 2",
@@ -1350,6 +1520,8 @@ var REPORTS = [
   severity:"high",
   category:"US strikes / Qeshm Island",
   title:"US strikes IRGC missile launcher on Qeshm Island after missile fired at US aircraft",
+  headline:"US strikes Qeshm launcher",
+  simple:"On the night of Nov 2–3, US planes struck an IRGC missile launcher on Qeshm Island, in the Strait of Hormuz, after a missile was fired at a US aircraft. US officials call it a defensive strike. CENTCOM has made no public statement about it.",
   summary:"On the night of Nov 2–3, US aircraft struck an IRGC surface-to-air missile launcher/system on Qeshm Island after a missile was fired at a US aircraft over the Strait of Hormuz. US officials described the strike as defensive. CENTCOM made no public statement. A second, separate strike on Qeshm air defences followed on Nov 6 (see that report).",
   confidence:"High — reported by NBC (citing US officials), ABC, AP, and RFE/RL (Nov 3). Iranian state media later claimed a further strike on the night of Nov 8; that date does not match the US-official Nov 2 / Nov 6 dates and is treated as unverified.",
   flag:"Defensive strike per US officials — CENTCOM made no public statement",
@@ -1366,6 +1538,8 @@ var REPORTS = [
   severity:"medium",
   category:"Diplomacy / Roadmap",
   title:"Iran's seven-day roadmap (Sept 25) — the $12bn plan; since superseded by a two-day plan",
+  headline:"Iran's seven-day peace plan",
+  simple:"Back in September, Iran offered a seven-day plan to end the war: the US would lift its blockade and sanctions and release about $12 billion in frozen Iranian money, and the Strait of Hormuz would reopen on day 6. Trump reportedly rejected it, and Iran has since replaced it with a faster two-day plan.",
   summary:"Al Jazeera reported on Sept 25, 2026 that Iran had submitted a seven-day roadmap to end the war and was awaiting Washington's response. Under that plan, Washington would lift its naval blockade of Iranian ports, waive sanctions on Iranian oil sales, release an estimated $12bn in frozen Iranian assets, and observe a regional ceasefire including Lebanon and Yemen; the Strait of Hormuz would reopen on day 6 and talks would start on day 7. The Wall Street Journal reported Trump rejected the plan. Tehran has since superseded the seven-day plan with a two-day plan (FM Abbas Araghchi, Nov 2): the US takes specified steps on day 1, and Iran reopens Hormuz on day 2.",
   confidence:"High that Al Jazeera reported the plan on Sept 25, 2026 — this report was previously dated Nov 11 in this archive and has been corrected; the $12bn figure belongs to this Sept 25 roadmap (and the June Islamabad MoU), not to any November list. The Trump rejection is WSJ reporting. The two-day successor plan is Araghchi's statement of Nov 2, reported Nov 3.",
   flag:"Corrected Nov 12: date fixed from Nov 11 to Sept 25, 2026",
@@ -1376,8 +1550,179 @@ var REPORTS = [
 }
 ];
 
+var UNVERIFIED = [
+  {
+    "id": "unverified-2026-11-13-houthi-jazan",
+    "ts": "2026-11-13T20:53:00Z",
+    "group": "Friday, November 13, 2026",
+    "theater": "iran-gulf",
+    "severity": "medium",
+    "category": "Missiles — Saudi Arabia / Jazan",
+    "status": "unverified",
+    "title": "Houthis claim two ballistic missiles fired at Saudi forces in Jazan",
+    "headline": "Missile claim: Jazan",
+    "simple": "The Houthis say they fired two ballistic missiles at Saudi soldiers in Jazan, in the southwest of Saudi Arabia near the Yemen border. Saudi Arabia has not confirmed that anything was hit.",
+    "claimBy": "The Houthis (Yemen), via their military spokesman's statement",
+    "claimText": "“We fired two ballistic missiles at concentrations of Saudi forces in Al-Tuwal, Jazan province.”",
+    "summary": "Yemen's Iran-aligned Houthis said Friday they fired two ballistic missiles at what they described as concentrations of Saudi forces in Al-Tuwal, Jazan province, hours after Saudi civil defence issued an all-clear for the province. Saudi Arabia has not confirmed any of the claims, and Reuters notes it is unclear whether the claimed Jazan attack relates to the civil-defence alerts issued there earlier Friday. Jazan hosts a 400,000 bpd Aramco refinery.",
+    "whyUnverified": "Saudi Arabia has issued no statement, and there is no interception report, casualty report, or independent confirmation that any missile was fired or landed. Only the claim itself is corroborated.",
+    "sources": [
+      {
+        "name": "Reuters via KWSN",
+        "date": "Nov 13, 2026",
+        "url": "https://kwsn.com/2026/11/13/yemens-houthis-say-they-fired-missiles-at-saudi-forces-in-jazan/"
+      },
+      {
+        "name": "Israel.com",
+        "date": "Nov 13, 2026",
+        "url": "https://www.israel.com/news/houthis-claim-two-ballistic-missiles-fired-at-saudi-forces-in-jazan"
+      }
+    ]
+  },
+  {
+    "id": "unverified-2026-11-13-riyadh-airport",
+    "ts": "2026-11-13T20:53:00Z",
+    "group": "Friday, November 13, 2026",
+    "theater": "iran-gulf",
+    "severity": "medium",
+    "category": "Drones — Riyadh / Energy infrastructure",
+    "status": "unverified",
+    "title": "Houthis claim strikes on Riyadh's King Khalid International Airport and an East-West Pipeline pumping station",
+    "headline": "Airport strike claimed",
+    "simple": "In a separate claim the same day, the Houthis said they hit Riyadh's main international airport and a pumping station on a major Saudi oil pipeline. No damage has been shown, and Saudi Arabia has not confirmed either claim.",
+    "claimBy": "The Houthis (Yemen), in a separate statement the same day",
+    "claimText": "Claimed drone strikes on King Khalid International Airport in Riyadh and a pumping station on the East-West Pipeline.",
+    "summary": "In a separate statement, the Houthis also claimed strikes on Riyadh's King Khalid International Airport and a pumping station on the East-West Pipeline. The claims were part of the backdrop to the US Embassy's countrywide Security Alert issued the same day. The Saudi-led coalition's Saturday Nov 14 interception announcement does NOT confirm these claims — it covers two drones intercepted that day, with no airport or pipeline effects reported.",
+    "whyUnverified": "No Saudi confirmation, no damage or casualty reporting, and no airport disruption was recorded. The coalition's Nov 14 statement does not mention either target.",
+    "sources": [
+      {
+        "name": "Reuters via KWSN",
+        "date": "Nov 13, 2026",
+        "url": "https://kwsn.com/2026/11/13/yemens-houthis-say-they-fired-missiles-at-saudi-forces-in-jazan/"
+      }
+    ]
+  },
+  {
+    "id": "unverified-2026-11-13-radar-destroyed",
+    "ts": "2026-11-13T20:15:00Z",
+    "group": "Friday, November 13, 2026",
+    "theater": "iran-gulf",
+    "severity": "high",
+    "category": "Missiles / Drones — Bahrain",
+    "status": "unverified",
+    "title": "IRGC claims it destroyed a US early-warning radar in Bahrain — CENTCOM disputes it",
+    "headline": "Radar claim disputed",
+    "simple": "Iran's IRGC says it destroyed a US radar station in Bahrain. CENTCOM says that never happened — US forces shot down the incoming drones before they reached anything.",
+    "claimBy": "The IRGC (Iran's Islamic Revolutionary Guard Corps), via Iranian state media",
+    "claimText": "The IRGC Aerospace Force “targeted and destroyed” a US early-warning radar in Bahrain, in retaliation for an air attack on a telecommunications tower in Sirik county.",
+    "summary": "US Central Command (CENTCOM) said American forces shot down two IRGC one-way attack drones headed toward Bahrain, with no injuries or damage, directly rejecting the radar-destruction claim. No immediate comment came from Bahrain on the radar claim itself.",
+    "whyUnverified": "The claim is directly disputed by CENTCOM, and there is no US or Bahraini confirmation and no published damage evidence. Published here as a claim only — the verified report on this exchange is listed in this same day's reports.",
+    "sources": [
+      {
+        "name": "Reuters",
+        "date": "Nov 13, 2026",
+        "url": "https://www.reuters.com/world/middle-east/irans-guards-say-they-targeted-us-early-warning-radar-bahrain-2026-11-13/"
+      },
+      {
+        "name": "Associated Press",
+        "date": "Nov 13, 2026",
+        "url": "https://apnews.com/article/iran-us-bahrain-radar-strait-hormuz-5d73a23b5b8647d2515c35b267b36c08"
+      }
+    ]
+  },
+  {
+    "id": "unverified-2026-11-12-tanker-explosions",
+    "ts": "2026-11-12T22:28:00Z",
+    "group": "Thursday, November 12, 2026",
+    "theater": "iran-gulf",
+    "severity": "high",
+    "category": "Strait of Hormuz / Shipping",
+    "status": "unverified",
+    "title": "IRGC claims two supertankers exploded in the Strait of Hormuz overnight",
+    "headline": "Tanker explosion claim",
+    "simple": "Iran's IRGC navy says two supertankers blew up while passing through the Strait of Hormuz overnight, carrying more than four million barrels of oil between them. Nobody outside Iran's military has confirmed any explosion.",
+    "claimBy": "The IRGC Navy (Iran), in an official statement",
+    "claimText": "Two supertankers “suffered explosions” while using a southern route through the Strait of Hormuz, carrying more than four million barrels of oil.",
+    "summary": "UKMTO did record attacks on other commercial vessels on Nov 10 and Nov 11 — but no tanker explosion. Oil markets moved on the wider shipping pressure the same day: Brent futures for January fell 1.54% to $91.22 a barrel.",
+    "whyUnverified": "The explosions are reported only by the IRGC. UKMTO's incident log for those dates records attacks on other vessels, and no shipping company, insurer, or independent outlet has confirmed a supertanker explosion.",
+    "sources": [
+      {
+        "name": "Dubai Standard",
+        "date": "Nov 12, 2026 roundup",
+        "url": "https://www.dubaistandard.com/us-israel-iran-war-key-updates-uae-residents-need-to-know-on-november-12-2026/"
+      }
+    ]
+  },
+  {
+    "id": "unverified-2026-11-08-strike-claim",
+    "ts": "2026-11-08T06:00:00Z",
+    "group": "Sunday, November 8, 2026",
+    "theater": "iran-gulf",
+    "severity": "high",
+    "category": "US strikes / Qeshm Island",
+    "status": "unverified",
+    "title": "Iranian state media claims a further US strike on the night of Nov 8",
+    "headline": "Nov 8 strike questioned",
+    "simple": "Iranian state media claimed the US struck again on the night of Nov 8, on Qeshm Island in the Strait of Hormuz. That date doesn't line up with the strikes US officials have described, and no one independent has confirmed it happened.",
+    "claimBy": "Iranian state media",
+    "claimText": "A further US strike took place on the night of Nov 8.",
+    "summary": "Context: on the night of Nov 2–3, US aircraft struck an IRGC surface-to-air missile launcher on Qeshm Island after a missile was fired at a US aircraft over the Strait of Hormuz, per US officials. A second, separate strike on Qeshm air defences followed on Nov 6, confirmed by the President himself.",
+    "whyUnverified": "The claimed Nov 8 date does not match the US-official Nov 2 / Nov 6 strike dates, and no US official, wire service, or independent outlet has confirmed a Nov 8 strike.",
+    "sourceNote": "These sources cover the confirmed Nov 2 and Nov 6 strikes. The Nov 8 claim itself is recorded in the Nov 2 Qeshm Island report on this dashboard, which flags it as unverified.",
+    "sources": [
+      {
+        "name": "RFE/RL",
+        "date": "Nov 3, 2026",
+        "url": "https://www.rferl.org/a/33889371.html"
+      },
+      {
+        "name": "ISW — Iran Update",
+        "date": "Nov 7, 2026",
+        "url": "https://understandingwar.org/research/middle-east/iran-update-november-7-2026/"
+      }
+    ]
+  }
+];
+var ALL_REPORTS = REPORTS.concat(UNVERIFIED);
+
+var GLOSSARY = {
+  "Strait of Hormuz": "The narrow waterway between Iran and Oman linking the Persian Gulf to the open sea. Roughly a fifth of the world's oil supply passes through it, which is why any fighting there moves global energy prices.",
+  "Houthis": "An Iran-aligned armed movement that controls much of northern Yemen, including the capital, Sanaa. They have attacked Red Sea shipping and fired missiles and drones at Saudi Arabia.",
+  "IRGC": "The Islamic Revolutionary Guard Corps — Iran's powerful parallel military force, separate from the regular army. It runs Iran's missile program and its Gulf naval forces, and is designated a terrorist organization by the US.",
+  "CENTCOM": "US Central Command — the US military headquarters responsible for the Middle East and Central Asia. Its statements are the US military's official account of events in the region.",
+  "UKMTO": "UK Maritime Trade Operations — a Royal Navy-run reporting center that logs attacks and suspicious activity reported by merchant ships in the Gulf, the Red Sea, and the Indian Ocean.",
+  "blockade": "A naval blockade uses warships to stop ships reaching or leaving a country's ports. Here it means US naval forces intercepting shipping to and from Iran to enforce sanctions and pressure Tehran.",
+  "ballistic missiles": "Missiles launched high into the air — partly out of the atmosphere — that then fall on their target under gravity. They are fast, hard to intercept, and can carry large warheads over long distances.",
+  "one-way attack drones": "Cheap drones built to fly into a target and explode — sometimes called kamikaze or suicide drones. They are used in large numbers because they cost far less than the missiles used to shoot them down.",
+  "carrier strike group": "A US Navy battle group built around an aircraft carrier, with escort warships and support vessels. Moving one toward a region is a visible show of force and a warning signal.",
+  "EASA": "The European Union Aviation Safety Agency. It issues conflict-zone advisories telling European airlines which airspace is unsafe to fly through.",
+  "IAEA": "The International Atomic Energy Agency — the UN's nuclear watchdog. It inspects nuclear sites around the world to check countries are not building nuclear weapons.",
+  "NATO": "The North Atlantic Treaty Organization — a military alliance of the US, Canada, and most of Europe. An attack on one member is treated as an attack on all."
+};
+
+var TERM_KEYS = {
+  "UK Maritime Trade Operations":"UKMTO",
+  "Strait of Hormuz":"Strait of Hormuz",
+  "one-way attack drones":"one-way attack drones",
+  "one-way attack drone":"one-way attack drones",
+  "ballistic missiles":"ballistic missiles",
+  "ballistic missile":"ballistic missiles",
+  "carrier strike group":"carrier strike group",
+  "Houthis":"Houthis", "Houthi":"Houthis",
+  "CENTCOM":"CENTCOM", "UKMTO":"UKMTO", "IRGC":"IRGC",
+  "EASA":"EASA", "IAEA":"IAEA", "NATO":"NATO",
+  "Blockade":"blockade", "blockade":"blockade"
+};
+var TERM_RE = /(^|[^A-Za-z])((?:UK Maritime Trade Operations|Strait of Hormuz|one-way attack drones|one-way attack drone|ballistic missiles|ballistic missile|carrier strike group|Houthis|Houthi|CENTCOM|UKMTO|IRGC|EASA|IAEA|NATO|Blockade|blockade))(?![A-Za-z])/g;
+function linkify(text){
+  return esc(text).replace(TERM_RE, function(m, pre, label){
+    return pre + "<button type='button' class='term' data-term='" + TERM_KEYS[label] + "'>" + label + "</button>";
+  });
+}
+
 var readSet = {};
 var sevFilter = "all";
+var statusFilter = "all";
 var theaterFilter = "all";
 var query = "";
 var showUnread = true;
@@ -1386,15 +1731,58 @@ var fmtCT = new Intl.DateTimeFormat("en-US",{timeZone:"America/Chicago",month:"s
 var fmtFull = new Intl.DateTimeFormat("en-US",{timeZone:"America/Chicago",weekday:"short",month:"short",day:"numeric",year:"numeric",hour:"numeric",minute:"2-digit",hour12:true,timeZoneName:"short"});
 function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
 
+function statusOf(r){ return r.status === "unverified" ? "unverified" : "verified"; }
+
+function cardHTML(r){
+  var st = statusOf(r);
+  var time = fmtCT.format(new Date(r.ts)) + " CT";
+  var catLabel = (THEATER_NAMES[r.theater] ? THEATER_NAMES[r.theater]+" · " : "") + r.category;
+  var h = "<article class='card"+(st==="unverified"?" is-unverified":"")+(readSet[r.id]?" read":"")+"' data-id='"+esc(r.id)+"'>";
+  h += "<span class='card-top'><span class='sev "+esc(r.severity)+"'>"+esc(r.severity)+"</span><span class='status-badge "+st+"'>"+(st==="unverified"?"Unverified":"Verified")+"</span><span class='cat'>"+esc(catLabel)+"</span>"+(showUnread?"<span class='unread' aria-hidden='true'></span>":"")+"</span>";
+  h += "<h4 class='pe-headline'>"+esc(r.headline || r.title)+"</h4>";
+  h += "<p class='card-subtitle'>"+esc(r.title)+"</p>";
+  h += "<div class='simple-box'><span class='sb-label'>In plain English</span><p>"+linkify(r.simple || r.summary)+"</p></div>";
+  h += "<button type='button' class='details-toggle' data-details='"+esc(r.id)+"' aria-expanded='false'>Click here for details — full brief <span class='dt-arrow' aria-hidden='true'>▾</span></button>";
+  h += "<div class='details-body' id='details-"+esc(r.id)+"' hidden>";
+  if(st==="unverified" && r.claimBy){
+    h += "<div class='claim-box'><p><b>Claimed by</b><span class='claim-text'>"+esc(r.claimBy)+"</span></p><p><b>The claim</b><span class='claim-text'>"+linkify(r.claimText || "")+"</span></p></div>";
+  }
+  h += "<div class='full-body'><p>"+linkify(r.summary)+"</p>";
+  if(r.sections){
+    r.sections.forEach(function(s){
+      h += "<h5>"+esc(s.h)+"</h5><ul>";
+      s.items.forEach(function(it){ h += "<li>"+linkify(it)+"</li>"; });
+      h += "</ul>";
+    });
+  }
+  h += "</div>";
+  if(st==="unverified" && r.whyUnverified){
+    h += "<div class='claim-box'><p><b>Why this is unverified</b>"+esc(r.whyUnverified)+"</p></div>";
+  }
+  if(r.flag){ h += "<span class='flag'>⚠ "+esc(r.flag)+"</span>"; }
+  if(r.confidence){ h += "<div class='conf'><b>Confidence</b><p>"+esc(r.confidence)+"</p></div>"; }
+  h += "<div class='sources'><span class='src-label'>Source"+(r.sources.length>1?"s":"")+"</span><ul class='src-list'>";
+  r.sources.forEach(function(s){
+    h += "<li><a href='"+esc(s.url)+"' target='_blank' rel='noopener'>"+esc(s.name)+" ↗</a><span class='pub'>"+esc(s.date)+"</span></li>";
+  });
+  h += "</ul>";
+  if(r.sourceNote){ h += "<p class='src-note'>"+esc(r.sourceNote)+"</p>"; }
+  h += "</div></div>";
+  h += "<span class='meta'><span>"+time+"</span><span>"+r.sources.length+" source"+(r.sources.length===1?"":"s")+"</span></span>";
+  h += "</article>";
+  return h;
+}
+
 function render(){
   var groupsEl = document.getElementById("groups");
   groupsEl.innerHTML = "";
   var order = [], byGroup = {};
-  REPORTS.forEach(function(r){
+  ALL_REPORTS.forEach(function(r){
     if(theaterFilter!=="all" && r.theater!==theaterFilter) return;
     if(sevFilter!=="all" && r.severity!==sevFilter) return;
+    if(statusFilter!=="all" && statusOf(r)!==statusFilter) return;
     if(query){
-      var hay = (r.title+" "+r.summary+" "+r.category+" "+r.confidence+" "+(THEATER_NAMES[r.theater]||"")).toLowerCase();
+      var hay = ((r.headline||"")+" "+r.title+" "+(r.simple||"")+" "+r.summary+" "+r.category+" "+r.confidence+" "+(THEATER_NAMES[r.theater]||"")).toLowerCase();
       if(hay.indexOf(query)===-1) return;
     }
     if(!byGroup[r.group]){ byGroup[r.group]=[]; order.push(r.group); }
@@ -1415,21 +1803,7 @@ function render(){
     });
     sec.appendChild(head);
     var cards = document.createElement("div"); cards.className = "cards";
-    byGroup[g].forEach(function(r){
-      var c = document.createElement("button");
-      c.type = "button";
-      c.className = "card" + (readSet[r.id] ? " read" : "");
-      var time = fmtCT.format(new Date(r.ts)) + " CT";
-      var catLabel = (THEATER_NAMES[r.theater] ? THEATER_NAMES[r.theater]+" · " : "") + r.category;
-      c.innerHTML =
-        "<span class='card-top'><span class='sev "+esc(r.severity)+"'>"+esc(r.severity)+"</span><span class='cat'>"+esc(catLabel)+"</span>"+(showUnread?"<span class='unread' aria-hidden='true'></span>":"")+"</span>"+
-        "<h4>"+esc(r.title)+"</h4>"+
-        "<p>"+esc(r.summary)+"</p>"+
-        (r.flag ? "<span class='flag'>⚠ "+esc(r.flag)+"</span>" : "")+
-        "<span class='meta'><span>"+time+"</span><span>"+r.sources.length+" source"+(r.sources.length===1?"":"s")+"</span><span>Tap for detail →</span></span>";
-      c.addEventListener("click", function(){ openDetail(r); });
-      cards.appendChild(c);
-    });
+    cards.innerHTML = byGroup[g].map(cardHTML).join("");
     sec.appendChild(cards);
     groupsEl.appendChild(sec);
   });
@@ -1443,8 +1817,9 @@ function render(){
     emptyEl.textContent = "No reports match that search and filter. Clear the search or pick a different severity.";
     emptyEl.style.display = shown===0 ? "block" : "none";
   }
-  document.getElementById("countLine").textContent = "Showing " + shown + " of " + REPORTS.length + " reports";
-  document.getElementById("statTotal").textContent = REPORTS.length;
+  document.getElementById("countLine").textContent = "Showing " + shown + " of " + ALL_REPORTS.length + " reports";
+  document.getElementById("statTotal").textContent = ALL_REPORTS.length;
+  if(typeof syncTilesUI === "function") syncTilesUI();
 }
 
 function openDetail(r){
@@ -1486,14 +1861,16 @@ var btnApplyFilters = document.getElementById("btnApplyFilters");
 function pendingSel(){
   var t = document.querySelector("input[name='f-theater']:checked");
   var s = document.querySelector("input[name='f-sev']:checked");
-  return { theater: t ? t.value : "all", sev: s ? s.value : "all" };
+  var st = document.querySelector("input[name='f-status']:checked");
+  return { theater: t ? t.value : "all", sev: s ? s.value : "all", status: st ? st.value : "all" };
 }
 function pendingCount(){
   var p = pendingSel();
   var n = 0;
-  REPORTS.forEach(function(r){
+  ALL_REPORTS.forEach(function(r){
     if(p.theater!=="all" && r.theater!==p.theater) return;
     if(p.sev!=="all" && r.severity!==p.sev) return;
+    if(p.status!=="all" && statusOf(r)!==p.status) return;
     if(query){
       var hay = (r.title+" "+r.summary+" "+r.category+" "+r.confidence+" "+(THEATER_NAMES[r.theater]||"")).toLowerCase();
       if(hay.indexOf(query)===-1) return;
@@ -1509,12 +1886,14 @@ function updateApplyLabel(){
 function syncFilterRadios(){
   document.querySelectorAll("input[name='f-theater']").forEach(function(r){ r.checked = r.value===theaterFilter; });
   document.querySelectorAll("input[name='f-sev']").forEach(function(r){ r.checked = r.value===sevFilter; });
+  document.querySelectorAll("input[name='f-status']").forEach(function(r){ r.checked = r.value===statusFilter; });
   updateApplyLabel();
 }
 function updateFiltersBtn(){
   var parts = [];
   if(theaterFilter!=="all") parts.push(THEATER_NAMES[theaterFilter]);
   if(sevFilter!=="all") parts.push(SEV_NAMES[sevFilter]);
+  if(statusFilter!=="all") parts.push(statusFilter==="unverified" ? "Unverified" : "Verified");
   filtersBtnLabel.textContent = parts.length ? parts.join(" · ") : "Filters";
   btnFilters.classList.toggle("has-filters", parts.length>0);
 }
@@ -1542,12 +1921,14 @@ fBackdrop.addEventListener("click", closeFilters);
 document.getElementById("btnClearFilters").addEventListener("click", function(){
   document.querySelectorAll("input[name='f-theater']").forEach(function(r){ r.checked = r.value==="all"; });
   document.querySelectorAll("input[name='f-sev']").forEach(function(r){ r.checked = r.value==="all"; });
+  document.querySelectorAll("input[name='f-status']").forEach(function(r){ r.checked = r.value==="all"; });
   updateApplyLabel();
 });
 btnApplyFilters.addEventListener("click", function(){
   var p = pendingSel();
   theaterFilter = p.theater;
   sevFilter = p.sev;
+  statusFilter = p.status;
   updateFiltersBtn();
   closeFilters();
   render();
@@ -1560,6 +1941,92 @@ updateFiltersBtn();
 document.getElementById("btnCloseDetail").addEventListener("click", closeDetail);
 document.getElementById("scrimDetail").addEventListener("click", function(e){ if(e.target===this) closeDetail(); });
 document.addEventListener("keydown", function(e){ if(e.key==="Escape"){ closeDetail(); } });
+
+/* Filter tiles + card details + term popups */
+var TILE_THEATERS = [
+  {id:"iran-gulf", name:"Iran / Gulf", sub:"Middle East"},
+  {id:"russia-ukraine", name:"Russia–Ukraine", sub:"Europe"},
+  {id:"china-taiwan", name:"China–Taiwan", sub:"Indo-Pacific"},
+  {id:"north-korea", name:"North Korea", sub:"Korean Peninsula"},
+  {id:"cyber-homeland", name:"Cyber / Homeland", sub:"Cyber & domestic threats"}
+];
+var tileGrid = document.getElementById("tileGrid");
+function countTheaterTile(id){ var n=0; ALL_REPORTS.forEach(function(r){ if(r.theater===id) n++; }); return n; }
+(function buildTiles(){
+  if(!tileGrid) return;
+  var h = "";
+  TILE_THEATERS.forEach(function(t){
+    h += "<button type='button' class='tile' data-tile-theater='"+t.id+"' aria-pressed='false'><span><span class='tile-name'>"+esc(t.name)+"</span><span class='tile-sub'>"+esc(t.sub)+" · tap to filter</span></span><span class='tile-count'>"+countTheaterTile(t.id)+"</span></button>";
+  });
+  var nU = 0; ALL_REPORTS.forEach(function(r){ if(statusOf(r)==="unverified") nU++; });
+  h += "<button type='button' class='tile tile-unverified' data-tile-status='unverified' aria-pressed='false'><span><span class='tile-name'>Unverified</span><span class='tile-sub'>Claims not yet confirmed · tap to filter</span></span><span class='tile-count'>"+nU+"</span></button>";
+  tileGrid.innerHTML = h;
+})();
+function syncTilesUI(){
+  if(!tileGrid) return;
+  tileGrid.querySelectorAll("[data-tile-theater]").forEach(function(b){
+    b.setAttribute("aria-pressed", b.getAttribute("data-tile-theater")===theaterFilter ? "true" : "false");
+  });
+  var u = tileGrid.querySelector("[data-tile-status]");
+  if(u) u.setAttribute("aria-pressed", statusFilter==="unverified" ? "true" : "false");
+}
+if(tileGrid){
+  tileGrid.addEventListener("click", function(e){
+    var t = e.target.closest("[data-tile-theater]");
+    if(t){
+      var id = t.getAttribute("data-tile-theater");
+      theaterFilter = theaterFilter===id ? "all" : id;
+      syncFilterRadios(); updateFiltersBtn(); render();
+      return;
+    }
+    var u = e.target.closest("[data-tile-status]");
+    if(u){
+      statusFilter = statusFilter==="unverified" ? "all" : "unverified";
+      syncFilterRadios(); updateFiltersBtn(); render();
+    }
+  });
+}
+document.getElementById("groups").addEventListener("click", function(e){
+  var term = e.target.closest(".term");
+  if(term){ openTerm(term.getAttribute("data-term"), term); return; }
+  var dt = e.target.closest(".details-toggle");
+  if(dt){
+    var body = document.getElementById("details-" + dt.getAttribute("data-details"));
+    if(body){
+      var open = body.hidden;
+      body.hidden = !open;
+      dt.setAttribute("aria-expanded", open ? "true" : "false");
+      if(open){
+        readSet[dt.getAttribute("data-details")] = true;
+        var card = dt.closest(".card");
+        if(card) card.classList.add("read");
+      }
+    }
+  }
+});
+var termPop = document.getElementById("termPop");
+var termScrim = document.getElementById("termScrim");
+var lastTermBtn = null;
+function openTerm(name, btn){
+  var def = GLOSSARY[name];
+  if(!def) return;
+  document.getElementById("termTitle").textContent = name;
+  document.getElementById("termDef").textContent = def;
+  termPop.hidden = false;
+  termScrim.hidden = false;
+  lastTermBtn = btn || null;
+  document.getElementById("termClose").focus({preventScroll:true});
+}
+function closeTerm(){
+  if(termPop.hidden) return;
+  termPop.hidden = true;
+  termScrim.hidden = true;
+  if(lastTermBtn){ lastTermBtn.focus({preventScroll:true}); lastTermBtn = null; }
+}
+document.getElementById("termClose").addEventListener("click", closeTerm);
+termScrim.addEventListener("click", closeTerm);
+document.addEventListener("keydown", function(e){ if(e.key==="Escape") closeTerm(); });
+syncTilesUI();
 
 /* Signup */
 document.getElementById("signupForm").addEventListener("submit", function(e){
