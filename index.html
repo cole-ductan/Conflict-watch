@@ -73,10 +73,30 @@
   .risk h3{margin:0 0 4px;font-size:14px;letter-spacing:.04em;text-transform:uppercase;color:#7fd6ab}
   .risk p{margin:0;color:#c4e6d2;font-size:14.5px}
 
-  /* Hourly scan — top-right rail, transparent green (same dashed/tinted treatment as the unverified amber) */
-  :root{--green-line:#2e7d57;--green-bg:rgba(63,174,122,.08);--green-ink:#8fe0b8}
-  .reports-top{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:20px;align-items:start}
-  .hourly-scan{margin-top:34px;border:1px dashed var(--green-line);background:var(--green-bg);border-radius:var(--radius);padding:13px 15px}
+  /* Hourly scan — full-width strip below the hero, transparent green (same dashed/tinted treatment as the unverified amber) */
+  :root{--green-line:#2e7d57;--green-bg:rgba(63,174,122,.08);--green-ink:#8fe0b8;--red-line:#c0453a;--red-bg:rgba(228,87,77,.13);--red-ink:#ffa198}
+  .hourly-scan{margin-top:20px;border:1px dashed var(--green-line);background:var(--green-bg);border-radius:var(--radius);padding:15px 17px}
+
+  /* Threat level indicator — red alert state driven by the latest day's briefs */
+  .threat{display:flex;align-items:center;gap:14px;border:1px solid var(--green-line);background:rgba(63,174,122,.10);border-radius:10px;padding:12px 15px;margin-bottom:14px}
+  .threat[data-level="high"],.threat[data-level="critical"]{border-color:var(--red-line);background:var(--red-bg);box-shadow:0 0 0 1px rgba(228,87,77,.22),0 0 24px rgba(228,87,77,.16)}
+  .threat-badge{position:relative;flex:0 0 46px;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:rgba(63,174,122,.14);border:1px solid var(--green-line)}
+  .threat[data-level="high"] .threat-badge,.threat[data-level="critical"] .threat-badge{background:rgba(228,87,77,.18);border-color:var(--red-line)}
+  .threat-badge svg{display:block}
+  .threat .ico-calm{display:none}
+  .threat[data-level="calm"] .ico-calm{display:block}
+  .threat[data-level="calm"] .ico-alert{display:none}
+  .threat-pulse{position:absolute;top:-3px;right:-3px;width:13px;height:13px;border-radius:50%;background:var(--green);border:2px solid var(--bg)}
+  .threat[data-level="high"] .threat-pulse,.threat[data-level="critical"] .threat-pulse{background:var(--red)}
+  .threat[data-level="high"] .threat-pulse::after,.threat[data-level="critical"] .threat-pulse::after{content:"";position:absolute;inset:-2px;border-radius:50%;border:2px solid var(--red);animation:threatPing 1.6s cubic-bezier(0,0,.2,1) infinite}
+  @keyframes threatPing{0%{transform:scale(.6);opacity:.9}80%,100%{transform:scale(1.9);opacity:0}}
+  @media (prefers-reduced-motion: reduce){.threat-pulse::after{animation:none;display:none}}
+  .threat-copy{min-width:0}
+  .threat-title{font-family:"Barlow Condensed",sans-serif;font-size:27px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1;margin:0}
+  .threat-title .threat-name{color:var(--green-ink)}
+  .threat[data-level="high"] .threat-title .threat-name,.threat[data-level="critical"] .threat-title .threat-name{color:var(--red-ink)}
+  .threat-sub{margin:3px 0 0;font-size:13.5px;line-height:1.45;color:var(--ink2)}
+  @media(max-width:760px){.threat{gap:11px;padding:11px 12px}.threat-title{font-size:23px}.threat-badge{flex-basis:40px;width:40px;height:40px}}
   .hs-head{display:flex;align-items:center;gap:8px 10px;flex-wrap:wrap;margin-bottom:8px}
   .hs-title-wrap{display:flex;align-items:center;gap:9px;flex-wrap:wrap;min-width:0}
   .hs-dot{width:9px;height:9px;border-radius:50%;background:var(--green);flex:0 0 9px}
@@ -84,9 +104,9 @@
   .hs-time{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink3);letter-spacing:.02em}
   .hs-meta{flex:1 1 100%;margin:0;font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.05em;color:var(--green-ink);display:flex;gap:8px;flex-wrap:wrap;align-items:center}
   .hs-meta .sep{color:var(--ink3)}
-  .hs-lede{margin:0 0 8px;font-size:14.5px;line-height:1.55;color:var(--ink2)}
+  .hs-lede{margin:0 0 8px;font-size:14.5px;line-height:1.55;color:var(--ink2);max-width:920px}
   .hs-lede strong{color:var(--ink)}
-  .hs-why{margin:0 0 11px;font-size:13.5px;line-height:1.5;color:var(--ink2)}
+  .hs-why{margin:0 0 11px;font-size:13.5px;line-height:1.5;color:var(--ink2);max-width:920px}
   .hs-why span{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:3px}
   .hs-links{border-top:1px solid var(--line);padding-top:10px;display:flex;gap:7px;flex-wrap:wrap;align-items:center}
   .hs-links-label{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-right:2px}
@@ -94,7 +114,7 @@
   .hs-link:hover{border-color:var(--blue);color:#fff}
   .hs-link .arr{color:var(--blue);font-size:12px}
   .card.scan-flash{outline:2px solid var(--amber);outline-offset:2px}
-  @media(max-width:920px){.reports-top{grid-template-columns:1fr}.hourly-scan{margin-top:0}}
+  @media(max-width:920px){.hourly-scan{margin-top:16px}}
   @media(max-width:760px){.hs-time{margin-left:0}}
 
   /* Controls */
@@ -486,11 +506,21 @@
   </section>
 
   <section class="hourly-scan" id="hourlyScan" aria-label="Hourly scan summary">
+    <div class="threat" id="threatLevel" data-level="high" role="alert" aria-label="Current threat level">
+      <span class="threat-badge" aria-hidden="true">
+        <svg class="ico-alert" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#e4574d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" fill="rgba(228,87,77,.25)"/><line x1="12" y1="9" x2="12" y2="13.5"/><circle cx="12" cy="17.2" r="0.6" fill="#e4574d"/></svg>
+        <svg class="ico-calm" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3fae7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2" fill="rgba(63,174,122,.18)"/><path d="m8.2 12.4 2.6 2.6 5-5.4"/></svg>
+        <span class="threat-pulse"></span>
+      </span>
+      <div class="threat-copy">
+        <p class="threat-title">Threat Level: <span class="threat-name" id="threatName">High</span></p>
+        <p class="threat-sub" id="threatSub">Substantial High brief active in the latest reporting — Bahrain threat alerts — alongside this morning's tanker attack near Hormuz and the Houthis taking Bab el-Mandeb. Posture stays elevated until the latest briefs clear.</p>
+      </div>
+    </div>
     <div class="hs-head">
       <div class="hs-title-wrap">
         <span class="hs-dot" aria-hidden="true"></span>
         <h3>Hourly Scan</h3>
-        <span class="status-badge verified">No new escalation</span>
       </div>
       <span class="hs-time">Last scan: Sun, Nov 15 · 8:51 AM CT</span>
       <p class="hs-meta"><span id="hsBriefCount">51 briefs</span><span class="sep" aria-hidden="true">·</span><span id="hsLatest">Latest 6:38 AM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">12 High</span></p>
@@ -2440,17 +2470,7 @@ render();
   move(".risk", "page-about");
   move("#methodology", "page-about");
 
-  /* Latest Reports top row: hero left, Hourly Scan top-right under the header actions */
-  var prEl = document.getElementById("page-reports");
-  var heroEl = prEl ? prEl.querySelector(".hero") : null;
-  var hsEl = document.getElementById("hourlyScan");
-  if(heroEl && hsEl){
-    var topRow = document.createElement("div");
-    topRow.className = "reports-top";
-    heroEl.parentNode.insertBefore(topRow, heroEl);
-    topRow.appendChild(heroEl);
-    topRow.appendChild(hsEl);
-  }
+  /* Latest Reports layout: hero full-width, Hourly Scan full-width directly below it, above search/filters (DOM order from the moves above already gives hero → scan → controls) */
 
   /* Archive stats folded into the Hourly Scan header, computed from the report data */
   if(typeof ALL_REPORTS !== "undefined"){
@@ -2468,6 +2488,43 @@ render();
     if(hsLatest && hsLatestTs){
       var hsTimeFmt = new Intl.DateTimeFormat("en-US",{timeZone:"America/Chicago",hour:"numeric",minute:"2-digit",hour12:true});
       hsLatest.textContent = "Latest " + hsTimeFmt.format(new Date(hsLatestTs)) + " CT";
+    }
+
+    /* Threat level: posture from the most severe brief(s) in the latest report group
+       (the dashboard's own day grouping). High/Critical -> red alert state;
+       Medium/Low only -> green "No new escalation". */
+    var threatEl = document.getElementById("threatLevel");
+    if(threatEl && hsLatestTs){
+      var latestGroup = null;
+      ALL_REPORTS.forEach(function(r){
+        if(new Date(r.ts).getTime() === hsLatestTs) latestGroup = r.group;
+      });
+      var sevRank = {low:0, medium:1, high:2, critical:3};
+      var topRank = -1, drivers = [];
+      ALL_REPORTS.forEach(function(r){
+        if(r.group !== latestGroup) return;
+        var rk = (r.severity in sevRank) ? sevRank[r.severity] : 0;
+        if(rk > topRank){ topRank = rk; drivers = (rk >= 2) ? [r] : []; }
+        else if(rk === topRank && rk >= 2){ drivers.push(r); }
+      });
+      var threatName = document.getElementById("threatName");
+      var threatSub = document.getElementById("threatSub");
+      if(topRank >= 2){
+        var lvl = topRank >= 3 ? "critical" : "high";
+        var lvlLabel = topRank >= 3 ? "Critical" : "High";
+        threatEl.setAttribute("data-level", lvl);
+        threatEl.setAttribute("aria-label", "Current threat level: " + lvlLabel);
+        if(threatName) threatName.textContent = lvlLabel;
+        if(threatSub && drivers.length){
+          var names = drivers.map(function(r){ return r.headline || r.title; });
+          threatSub.textContent = "Substantial " + lvlLabel + " brief" + (names.length > 1 ? "s" : "") + " active in the latest reporting — " + names.join(" · ") + ". Posture stays elevated until the latest briefs clear.";
+        }
+      } else {
+        threatEl.setAttribute("data-level", "calm");
+        threatEl.setAttribute("aria-label", "Current threat level: no new escalation");
+        if(threatName) threatName.textContent = "No New Escalation";
+        if(threatSub) threatSub.textContent = "No High or Critical briefs in the latest reporting — the dashboard is quiet and the posture is normal.";
+      }
     }
   }
 
