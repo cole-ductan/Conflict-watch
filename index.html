@@ -426,9 +426,9 @@
   </section>
 
   <section class="stats" aria-label="Archive summary">
-    <div class="stat"><b id="statTotal">40</b><span>Archived reports</span></div>
+    <div class="stat"><b id="statTotal">48</b><span>Archived reports</span></div>
     <div class="stat"><b style="font-size:21px;padding-top:5px" id="statLatest">Nov 14 · 10:30 AM CT</b><span>Latest report timestamp (Central Time)</span></div>
-    <div class="stat"><b><span class="crit">0</span> <span style="color:var(--ink3)">/</span> <span class="high">12</span></b><span>Critical / High severity</span></div>
+    <div class="stat"><b><span class="crit">0</span> <span style="color:var(--ink3)">/</span> <span class="high">13</span></b><span>Critical / High severity</span></div>
   </section>
 
   <section class="controls" aria-label="Search and filter">
@@ -450,25 +450,25 @@
           <div class="fgroup" role="radiogroup" aria-label="Theater">
             <h4>Theater</h4>
             <label class="fopt"><input type="radio" name="f-theater" value="all" checked><span>All theaters</span></label>
-            <label class="fopt"><input type="radio" name="f-theater" value="iran-gulf"><span>Iran / Gulf</span><span class="fopt-n">33</span></label>
+            <label class="fopt"><input type="radio" name="f-theater" value="iran-gulf"><span>Iran / Gulf</span><span class="fopt-n">34</span></label>
             <label class="fopt"><input type="radio" name="f-theater" value="russia-ukraine"><span>Russia–Ukraine</span><span class="fopt-n">2</span></label>
             <label class="fopt"><input type="radio" name="f-theater" value="china-taiwan"><span>China–Taiwan</span><span class="fopt-n">2</span></label>
             <label class="fopt"><input type="radio" name="f-theater" value="israel-gaza-lebanon"><span>Israel–Gaza–Lebanon</span><span class="fopt-n">0</span></label>
             <label class="fopt"><input type="radio" name="f-theater" value="north-korea"><span>North Korea</span><span class="fopt-n">1</span></label>
-            <label class="fopt"><input type="radio" name="f-theater" value="cyber-homeland"><span>Cyber / Homeland</span><span class="fopt-n">8</span></label>
+            <label class="fopt"><input type="radio" name="f-theater" value="cyber-homeland"><span>Cyber / Homeland</span><span class="fopt-n">9</span></label>
           </div>
           <div class="fgroup" role="radiogroup" aria-label="Severity">
             <h4>Severity</h4>
-            <label class="fopt"><input type="radio" name="f-sev" value="all" checked><span>All</span><span class="fopt-n">46</span></label>
+            <label class="fopt"><input type="radio" name="f-sev" value="all" checked><span>All</span><span class="fopt-n">48</span></label>
             <label class="fopt"><input type="radio" name="f-sev" value="critical"><span>Critical</span><span class="fopt-n">0</span></label>
-            <label class="fopt"><input type="radio" name="f-sev" value="high"><span>High</span><span class="fopt-n">12</span></label>
+            <label class="fopt"><input type="radio" name="f-sev" value="high"><span>High</span><span class="fopt-n">13</span></label>
             <label class="fopt"><input type="radio" name="f-sev" value="medium"><span>Medium</span><span class="fopt-n">32</span></label>
-            <label class="fopt"><input type="radio" name="f-sev" value="low"><span>Low</span><span class="fopt-n">2</span></label>
+            <label class="fopt"><input type="radio" name="f-sev" value="low"><span>Low</span><span class="fopt-n">3</span></label>
           </div>
           <div class="fgroup" role="radiogroup" aria-label="Status">
             <h4>Status</h4>
-            <label class="fopt"><input type="radio" name="f-status" value="all" checked><span>All reports</span><span class="fopt-n">46</span></label>
-            <label class="fopt"><input type="radio" name="f-status" value="verified"><span>Verified</span><span class="fopt-n">40</span></label>
+            <label class="fopt"><input type="radio" name="f-status" value="all" checked><span>All reports</span><span class="fopt-n">48</span></label>
+            <label class="fopt"><input type="radio" name="f-status" value="verified"><span>Verified</span><span class="fopt-n">42</span></label>
             <label class="fopt"><input type="radio" name="f-status" value="unverified"><span>Unverified</span><span class="fopt-n">6</span></label>
           </div>
           <div class="fsheet-foot">
@@ -477,7 +477,7 @@
           </div>
         </div>
       </div>
-      <p class="count-line" id="countLine">Showing 40 of 40 reports</p>
+      <p class="count-line" id="countLine">Showing 48 of 48 reports</p>
     </div>
     <div class="tile-grid" id="tileGrid" role="group" aria-label="Filter by conflict or status"></div>
     <p class="tip-line">Tip: tap any highlighted term — in the plain-English brief or the full brief — for a quick definition.</p>
@@ -890,6 +890,24 @@ var REPORTS = [
   sources:[
     {name:"Reuters via KWSN", date:"Nov 13, 2026", url:"https://kwsn.com/2026/11/13/yemens-houthis-say-they-fired-missiles-at-saudi-forces-in-jazan/"},
     {name:"Israel.com", date:"Nov 13, 2026", url:"https://www.israel.com/news/houthis-claim-two-ballistic-missiles-fired-at-saudi-forces-in-jazan"}
+  ]
+},
+{
+  id:"us-2026-11-13-peoria-bomb-threat",
+  ts:"2026-11-13T19:08:00Z",
+  group:"Friday, November 13, 2026",
+  theater:"cyber-homeland",
+  severity:"low",
+  category:"Homeland / Bomb threat — Illinois",
+  title:"Bomb threat and suspicious package at Peoria ethanol plant force evacuation of more than 5,000 people; package rendered safe, evacuation lifted Nov 14, FBI and ATF investigating",
+  headline:"Peoria bomb threat",
+  simple:"A bomb threat at an ethanol plant in Peoria, Illinois forced more than 5,000 people to evacuate on Friday while bomb teams dealt with a suspicious package. The evacuation was lifted Saturday, nobody was hurt, and the FBI is now investigating. The police chief has not confirmed the package was actually a bomb, and officials say there is no known link to terrorism.",
+  summary:"BioUrja Renewables' ethanol plant at 1 Edmund Street in Peoria, Illinois reported a bomb threat at about 1:08 p.m. CT on Friday, and a suspicious package was found at about 2 p.m. Police deemed it a “credible threat” at about 6:45 p.m. and set a one-mile blast radius; more than 5,000 residents and workers were evacuated across Peoria and East Peoria, and I-74 was shut down. Bomb technicians rendered the package safe at about 9:12 p.m. Friday. The evacuation order was lifted at about 1 p.m. CT on Saturday, November 14, after a full search found no additional devices; roads reopened, there were no injuries, and no arrests, suspects, or motive have been announced. The FBI's Springfield office is now leading the criminal investigation with ATF, and ATF says there is no known connection to terrorism. On what the package was: Police Chief Brad Dixon would not confirm it was a bomb or an explosive — he called it a “credible package/threat” and said determining its composition is part of the ongoing process. Mayor Rita Ali described it as a bomb, and CNN described it as an “explosive device”; the device type remains unconfirmed and no attribution has been made. This is reported as a homeland security incident with the evacuation resolved and the investigation ongoing — not as a confirmed bombing or a terror attack.",
+  confidence:"High that the threat, evacuation, and investigation occurred as reported (CNN; NPR Illinois). The nature of the package is unconfirmed — Police Chief Brad Dixon declined to confirm it was a bomb or explosive. No attribution: no arrests, suspects, or motive announced, and ATF says there is no known connection to terrorism.",
+  flag:"Device type unconfirmed — chief has not confirmed a bomb; no attribution, no known terrorism link",
+  sources:[
+    {name:"CNN", date:"Nov 14, 2026", url:"https://www.cnn.com/2026/11/14/us/peoria-bomb-threat-fbi-ethanol-plant-evacuations-hnk"},
+    {name:"NPR Illinois", date:"Nov 14, 2026", url:"https://www.nprillinois.org/illinois/2026-11-14/peoria-evacuation-order-lifted-after-bomb-search-finishes-at-biourja-plant"}
   ]
 },
 {
