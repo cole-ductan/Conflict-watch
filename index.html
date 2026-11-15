@@ -426,8 +426,8 @@
   </section>
 
   <section class="stats" aria-label="Archive summary">
-    <div class="stat"><b id="statTotal">48</b><span>Archived reports</span></div>
-    <div class="stat"><b style="font-size:21px;padding-top:5px" id="statLatest">Nov 14 · 10:30 AM CT</b><span>Latest report timestamp (Central Time)</span></div>
+    <div class="stat"><b id="statTotal">50</b><span>Archived reports</span></div>
+    <div class="stat"><b style="font-size:21px;padding-top:5px" id="statLatest">Nov 15 · 6:38 AM CT</b><span>Latest report timestamp (Central Time)</span></div>
     <div class="stat"><b><span class="crit">0</span> <span style="color:var(--ink3)">/</span> <span class="high">13</span></b><span>Critical / High severity</span></div>
   </section>
 
@@ -450,7 +450,7 @@
           <div class="fgroup" role="radiogroup" aria-label="Theater">
             <h4>Theater</h4>
             <label class="fopt"><input type="radio" name="f-theater" value="all" checked><span>All theaters</span></label>
-            <label class="fopt"><input type="radio" name="f-theater" value="iran-gulf"><span>Iran / Gulf</span><span class="fopt-n">34</span></label>
+            <label class="fopt"><input type="radio" name="f-theater" value="iran-gulf"><span>Iran / Gulf</span><span class="fopt-n">36</span></label>
             <label class="fopt"><input type="radio" name="f-theater" value="russia-ukraine"><span>Russia–Ukraine</span><span class="fopt-n">2</span></label>
             <label class="fopt"><input type="radio" name="f-theater" value="china-taiwan"><span>China–Taiwan</span><span class="fopt-n">2</span></label>
             <label class="fopt"><input type="radio" name="f-theater" value="israel-gaza-lebanon"><span>Israel–Gaza–Lebanon</span><span class="fopt-n">0</span></label>
@@ -459,16 +459,16 @@
           </div>
           <div class="fgroup" role="radiogroup" aria-label="Severity">
             <h4>Severity</h4>
-            <label class="fopt"><input type="radio" name="f-sev" value="all" checked><span>All</span><span class="fopt-n">48</span></label>
+            <label class="fopt"><input type="radio" name="f-sev" value="all" checked><span>All</span><span class="fopt-n">50</span></label>
             <label class="fopt"><input type="radio" name="f-sev" value="critical"><span>Critical</span><span class="fopt-n">0</span></label>
             <label class="fopt"><input type="radio" name="f-sev" value="high"><span>High</span><span class="fopt-n">13</span></label>
-            <label class="fopt"><input type="radio" name="f-sev" value="medium"><span>Medium</span><span class="fopt-n">32</span></label>
+            <label class="fopt"><input type="radio" name="f-sev" value="medium"><span>Medium</span><span class="fopt-n">34</span></label>
             <label class="fopt"><input type="radio" name="f-sev" value="low"><span>Low</span><span class="fopt-n">3</span></label>
           </div>
           <div class="fgroup" role="radiogroup" aria-label="Status">
             <h4>Status</h4>
-            <label class="fopt"><input type="radio" name="f-status" value="all" checked><span>All reports</span><span class="fopt-n">48</span></label>
-            <label class="fopt"><input type="radio" name="f-status" value="verified"><span>Verified</span><span class="fopt-n">42</span></label>
+            <label class="fopt"><input type="radio" name="f-status" value="all" checked><span>All reports</span><span class="fopt-n">50</span></label>
+            <label class="fopt"><input type="radio" name="f-status" value="verified"><span>Verified</span><span class="fopt-n">44</span></label>
             <label class="fopt"><input type="radio" name="f-status" value="unverified"><span>Unverified</span><span class="fopt-n">6</span></label>
           </div>
           <div class="fsheet-foot">
@@ -477,7 +477,7 @@
           </div>
         </div>
       </div>
-      <p class="count-line" id="countLine">Showing 48 of 48 reports</p>
+      <p class="count-line" id="countLine">Showing 50 of 50 reports</p>
     </div>
     <div class="tile-grid" id="tileGrid" role="group" aria-label="Filter by conflict or status"></div>
     <p class="tip-line">Tip: tap any highlighted term — in the plain-English brief or the full brief — for a quick definition.</p>
@@ -771,6 +771,41 @@ var THEATER_NAMES = {
 };
 var REPORTS = [
 {
+  id:"iran-2026-11-15-ukmto-tanker-attack",
+  ts:"2026-11-15T12:38:00Z",
+  group:"Sunday, November 15, 2026",
+  theater:"iran-gulf",
+  severity:"medium",
+  category:"Maritime attack — Strait of Hormuz",
+  title:"UKMTO reports tanker attacked before entering the Strait of Hormuz; crew safe, no attacker named",
+  headline:"Tanker attacked near Hormuz",
+  simple:"A merchant tanker was attacked while sailing through the Gulf toward the Strait of Hormuz, according to the UK Maritime Trade Operations center, which cited Indian shipping authorities. The crew is safe and no damage assessment has been published yet. No one has claimed the attack and no attacker has been named.",
+  summary:"UK Maritime Trade Operations (UKMTO) said Indian maritime authorities reported an attack on a tanker transiting the Arabian (Persian) Gulf heading east, before entering the Strait of Hormuz, on Sunday, Nov 15. UKMTO said the crew is 'located and safe' and that no assessment of damage or environmental impact was available yet, advising ships to transit with caution and report suspicious activity. The vessel was not named, the weapon was not specified in the UKMTO statement, and no party has claimed the attack. This is a separate incident from the tanker strikes UKMTO logged on Nov 10-11 (Warnings 201-26 to 204-26), including the engine-room fire on the tanker off Ras Al-Khaimah. It is also distinct from the IRGC Navy's unverified Nov 13-14 claims that tankers struck naval mines in the strait — those claims remain unverified, with no vessel names and no UKMTO confirmation, and are carried separately in the Unverified section.",
+  confidence:"High that UKMTO reported the attack — two outlets (Democrata and StockMarketWatch) independently cite the UKMTO statement and Indian shipping authorities, and the report is dated Nov 15. The attack itself is UKMTO's account of the Indian authorities' report; no independent verification of the vessel, weapon, or damage has been published, and no attacker has been identified — do not present it as an Iranian attack.",
+  flag:"UKMTO report only — vessel unnamed, attacker unidentified, damage unknown",
+  sources:[
+    {name:"Democrata (UKMTO statement)", date:"Nov 15, 2026", url:"https://www.democrata.es/en/international/attack-against-an-oil-tanker-in-the-strait-of-hormuz/"},
+    {name:"StockMarketWatch (UKMTO / Indian authorities)", date:"Nov 15, 2026", url:"https://www2.stockmarketwatch.com/stock-market-news/global-maritime-security-alert-tanker-and-cargo-vessel-attacks-surge-in-black-sea-and-gulf/74711/"}
+  ]
+},
+{
+  id:"iran-2026-11-15-houthis-bab-el-mandeb-control",
+  ts:"2026-11-15T08:46:00Z",
+  group:"Sunday, November 15, 2026",
+  theater:"iran-gulf",
+  severity:"medium",
+  category:"Territorial control — Bab el-Mandeb",
+  title:"Yemeni government forces pull out of Bab el-Mandeb area, leaving Houthis in control of the Red Sea chokepoint",
+  headline:"Houthis take Bab el-Mandeb",
+  simple:"Yemen's Saudi-backed government forces say they are pulling out of the area around the Bab el-Mandeb Strait, the narrow sea passage between Yemen and Africa that carries a large share of Asia-Europe shipping. The Iran-aligned Houthis are now in control of that area, giving them leverage over one of the world's busiest shipping routes at the same time Iran is squeezing traffic through the Strait of Hormuz.",
+  summary:"Yemeni forces fighting for the internationally recognised Saudi-backed government said on Sunday they were withdrawing from an area overlooking the strategic Bab el-Mandeb Strait, leaving the Iran-aligned Houthis in control. The Southern Armed Forces said in a statement they were redeploying from Dhubab Airport and the Bab el-Mandeb area, west of Taiz governorate, to secure the capital, Aden, and neighbouring governorates. The strait is one of the world's most important and busiest routes for seaborne goods, particularly from Asia to Europe via the Suez Canal. Reuters notes the retreat hands the Houthis greater leverage over the chokepoint while Iran continues to disrupt traffic through the Strait of Hormuz on the other side of the Arabian Peninsula — a dual squeeze that would further isolate Gulf oil producers from their main shipping routes. Government forces had launched a campaign in October to recapture the coastal areas after the Houthis pushed south in September toward Yemen's entire Red Sea coast. The Houthis have also intensified attacks on Saudi Arabia in recent days, including the ballistic-missile and drone attacks on Riyadh and the Eastern Province covered in a separate report on this dashboard.",
+  confidence:"High that the withdrawal was announced and the Houthis are in control of the area — Reuters original reporting the Southern Armed Forces' statement. The strategic implications (leverage over shipping, the dual squeeze with Hormuz) are Reuters' analysis, not a separate verified event. No US vessel or base was attacked in this development.",
+  flag:"Control change, not an attack — no US asset struck; shipping-route leverage is the threat",
+  sources:[
+    {name:"Reuters", date:"Nov 15, 2026", url:"https://www.reuters.com/world/middle-east/yemen-government-forces-withdraw-area-near-bab-el-mandeb-strait-houthis-control-2026-11-15/"}
+  ]
+},
+{
   id:"iran-2026-11-15-bahrain-alerts-irgc-claim",
   ts:"2026-11-15T04:25:00Z",
   group:"Sunday, November 15, 2026",
@@ -779,13 +814,15 @@ var REPORTS = [
   category:"Missiles / Drones — Bahrain",
   title:"Bahrain issues first threat alerts since September as IRGC claims six drones hit US radar at Al-Rifaa base",
   headline:"Bahrain threat alerts",
-  simple:"Bahrain has issued its first nationwide threat alerts since September, telling people to stay calm and move to a safe place. Iran's Revolutionary Guards claim they sent six drones at a US radar station at a helicopter base in Bahrain — but neither the US nor Bahrain has confirmed any attack, and no damage has been reported.",
-  summary:"Bahrain's Interior Ministry posted two alerts about potential threats on X on Sunday, its first such warnings since September, urging citizens and residents to remain calm and proceed to the nearest safe location. It gave no details on the threats. At the same time, Iran's Revolutionary Guards said they had attacked a US military base in Bahrain, with Iranian state media reporting six drones targeting a US air-defence radar at the Al-Rifaa helicopter base; the Guards described it as a second phase of retaliation for “hostile US actions.” There was no immediate confirmation from US or Bahraini authorities, and no damage or casualty report. Bahrain hosts the headquarters of the US Navy's Fifth Fleet. This follows the separate Nov 13 episode already on this dashboard, when the IRGC claimed it hit a US early-warning radar in Bahrain and CENTCOM said US forces shot down two Iranian drones with no injuries or damage. A claim carried by aggregators that Bahraini state television said Bahraini air defences intercepted and destroyed an Iranian drone on Sunday has not been independently confirmed. Explosions reported across Bahrain by an Iran-aligned Telegram channel are likewise unconfirmed.",
-  confidence:"High that Bahrain issued the two alerts (Reuters, citing the Interior Ministry's posts on X). High that the IRGC made the six-drone claim (Fars news agency and Press TV, via Reuters). Low that any strike on the radar occurred or caused damage — no US or Bahraini confirmation, no damage details, and no independent verification.",
-  flag:"IRGC strike is a claim only — no US or Bahraini confirmation",
+  simple:"Bahrain has issued its first nationwide threat alerts since September, telling people to stay calm and move to a safe place. Iran's Revolutionary Guards claim they sent six drones at a US radar station at a helicopter base in Bahrain. Bahrain's military says its air defenses intercepted the Iranian projectiles before they reached their targets, and blasts were heard in Manama. CENTCOM has not commented on this claim, and no damage has been reported.",
+  summary:"Bahrain's Interior Ministry posted two alerts about potential threats on X on Sunday, its first such warnings since September, urging citizens and residents to remain calm and proceed to the nearest safe location. It gave no details on the threats. At the same time, Iran's Revolutionary Guards said they had attacked a US military base in Bahrain, with Iranian state media reporting six drones targeting a US air-defence radar at the Al-Rifaa helicopter base; the Guards described it as a second phase of retaliation for “hostile US actions.” Bahrain's military says its air defenses intercepted the Iranian projectiles before they reached their targets, and blasts were heard in Manama. CENTCOM has not commented on this claim, and no damage or casualty report has been published. Bahrain hosts the headquarters of the US Navy's Fifth Fleet. This follows the separate Nov 13 episode already on this dashboard, when the IRGC claimed it hit a US early-warning radar in Bahrain and CENTCOM said US forces shot down two Iranian drones with no injuries or damage. Explosions reported across Bahrain by an Iran-aligned Telegram channel are likewise unconfirmed.",
+  confidence:"High that Bahrain issued the two alerts (Reuters, citing the Interior Ministry's posts on X). High that the IRGC made the six-drone claim (Fars news agency and Press TV, via Reuters). High that Bahrain's military claimed its air defenses intercepted the Iranian projectiles before they reached their targets (AP and WSJ agree). Low that any strike on the radar occurred or caused damage — CENTCOM has not commented, no damage details, and no independent verification of a strike or damage.",
+  flag:"IRGC strike is a claim only — Bahrain says it intercepted the projectiles; CENTCOM has not commented",
   sources:[
     {name:"Reuters", date:"Nov 15, 2026", url:"https://www.reuters.com/world/middle-east/bahrains-interior-ministry-issues-alerts-potential-threats-2026-11-15/"},
-    {name:"SRN News (Reuters)", date:"Nov 15, 2026", url:"https://srnnews.com/bahrains-interior-ministry-issues-alerts-of-potential-threats/"}
+    {name:"SRN News (Reuters)", date:"Nov 15, 2026", url:"https://srnnews.com/bahrains-interior-ministry-issues-alerts-of-potential-threats/"},
+    {name:"AP Mideast roundup", date:"Nov 15, 2026", url:"https://www.kcau9.com/news/international/ap-israel-says-it-killed-a-top-hamas-commander-and-other-mideast-news/"},
+    {name:"WSJ", date:"Nov 15, 2026", url:"https://www.wsj.com/world/middle-east/iran-attacks-bahrain-as-conflict-escalates-62ffd1b3"}
   ]
 },
 {
@@ -1745,6 +1782,7 @@ var UNVERIFIED = [
 var ALL_REPORTS = REPORTS.concat(UNVERIFIED);
 
 var GLOSSARY = {
+  "Bab el-Mandeb": "The narrow strait between Yemen and Djibouti/Eritrea linking the Red Sea to the Gulf of Aden. Much of Asia-Europe shipping passes through it on the way to the Suez Canal, so whoever controls its shores can threaten global trade.",
   "Strait of Hormuz": "The narrow waterway between Iran and Oman linking the Persian Gulf to the open sea. Roughly a fifth of the world's oil supply passes through it, which is why any fighting there moves global energy prices.",
   "Houthis": "An Iran-aligned armed movement that controls much of northern Yemen, including the capital, Sanaa. They have attacked Red Sea shipping and fired missiles and drones at Saudi Arabia.",
   "IRGC": "The Islamic Revolutionary Guard Corps — Iran's powerful parallel military force, separate from the regular army. It runs Iran's missile program and its Gulf naval forces, and is designated a terrorist organization by the US.",
@@ -1761,6 +1799,7 @@ var GLOSSARY = {
 
 var TERM_KEYS = {
   "UK Maritime Trade Operations":"UKMTO",
+  "Bab el-Mandeb":"Bab el-Mandeb",
   "Strait of Hormuz":"Strait of Hormuz",
   "one-way attack drones":"one-way attack drones",
   "one-way attack drone":"one-way attack drones",
@@ -1772,7 +1811,7 @@ var TERM_KEYS = {
   "EASA":"EASA", "IAEA":"IAEA", "NATO":"NATO",
   "Blockade":"blockade", "blockade":"blockade"
 };
-var TERM_RE = /(^|[^A-Za-z])((?:UK Maritime Trade Operations|Strait of Hormuz|one-way attack drones|one-way attack drone|ballistic missiles|ballistic missile|carrier strike group|Houthis|Houthi|CENTCOM|UKMTO|IRGC|EASA|IAEA|NATO|Blockade|blockade))(?![A-Za-z])/g;
+var TERM_RE = /(^|[^A-Za-z])((?:UK Maritime Trade Operations|Bab el-Mandeb|Strait of Hormuz|one-way attack drones|one-way attack drone|ballistic missiles|ballistic missile|carrier strike group|Houthis|Houthi|CENTCOM|UKMTO|IRGC|EASA|IAEA|NATO|Blockade|blockade))(?![A-Za-z])/g;
 function linkify(text){
   return esc(text).replace(TERM_RE, function(m, pre, label){
     return pre + "<button type='button' class='term' data-term='" + TERM_KEYS[label] + "'>" + label + "</button>";
