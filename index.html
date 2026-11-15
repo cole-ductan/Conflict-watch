@@ -73,6 +73,22 @@
   .risk h3{margin:0 0 4px;font-size:14px;letter-spacing:.04em;text-transform:uppercase;color:#7fd6ab}
   .risk p{margin:0;color:#c4e6d2;font-size:14.5px}
 
+  /* US snapshot — national figures on the About page */
+  .snapshot{margin-top:34px}
+  .snapshot .sect-head{margin-bottom:6px}
+  .snap-update{margin:0 0 14px;border:1px dashed var(--green-line);background:var(--green-bg);border-radius:8px;padding:10px 13px;color:var(--green-ink);font-size:13.5px;line-height:1.5;max-width:760px}
+  .snap-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .snap-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px}
+  .snap-card.wide{grid-column:1/-1}
+  .snap-label{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:6px}
+  .snap-value{font-family:"Barlow Condensed",sans-serif;font-size:36px;line-height:1;font-weight:700;color:var(--ink);display:block}
+  .snap-value small{font-family:"IBM Plex Sans",sans-serif;font-size:14px;font-weight:500;color:var(--ink2);letter-spacing:0}
+  .snap-card p{margin:9px 0 0;color:var(--ink2);font-size:14.5px;line-height:1.55}
+  .snap-card p b{color:var(--ink)}
+  .snap-source{margin-top:11px;padding-top:9px;border-top:1px solid var(--line);font-family:"IBM Plex Mono",monospace;font-size:11.5px;line-height:1.55;color:var(--ink3)}
+  .snap-source .next{color:var(--ink2)}
+  @media(max-width:760px){.snap-grid{grid-template-columns:1fr}.snap-card.wide{grid-column:auto}.snap-value{font-size:32px}}
+
   /* Hourly scan — full-width strip below the hero, transparent green (same dashed/tinted treatment as the unverified amber) */
   :root{--green-line:#2e7d57;--green-bg:rgba(63,174,122,.08);--green-ink:#8fe0b8;--red-line:#c0453a;--red-bg:rgba(228,87,77,.13);--red-ink:#ffa198}
   .hourly-scan{margin-top:20px;border:1px dashed var(--green-line);background:var(--green-bg);border-radius:var(--radius);padding:15px 17px}
@@ -638,15 +654,43 @@
     </div>
   </section>
 
-  <section class="risk acc" aria-label="US risk assessment">
-    <button class="acc-head acc-risk-head" type="button" aria-expanded="false"><span>US risk — Nov 11–14 assessment</span><span class="chev" aria-hidden="true">▾</span></button>
-    <div class="acc-body">
-    <div class="risk-row">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3fae7a" stroke-width="2"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
-    <div>
-      <p>No new verified attack on US territory, US infrastructure, or the US power grid was identified in these sources. The RAF Mildenhall aircraft dispersal and Treasury Secretary Bessent's move to a military base are precautionary protective moves, not attacks. On prices: no nationwide price shock was verified in these sources, and the USDA projects overall grocery prices will rise 2.3% in 2026. Existing risks from maritime disruption and renewed regional military operations remain elevated, but nothing here warrants changing household emergency preparations. Update Nov 13: the FAA ordered a nationwide ground stop after a telecommunications outage hit all 22 Air Route Traffic Control Centers; Homeland Security Secretary Mullin said there is no indication it was a threat to the United States, and its cause is under investigation (see the Nov 13 report above). Update Nov 14: President Trump's stated possible hold-off on further Iran strikes, barring new provocation from Tehran or the Houthis, is a de-escalation signal — conditional on no new provocation, not a decision to end the campaign. Russia's Nov 10 demands for a NATO rollback to 1997 are an opening negotiating position from the Abu Dhabi talks, not a military move. Neither development changes household emergency preparations. Update Nov 15: the FAA ground stop was lifted on Nov 13 at about 7:15 p.m. CT after about 4.5 hours, and the Microsoft 365 outage was fully restored on Nov 14; Microsoft says it was a network fault, not a cyberattack. Neither changes household emergency preparations.</p>
+  <section class="snapshot" id="usSnapshot" aria-label="US snapshot">
+    <div class="sect-head">
+      <h3>US snapshot</h3>
+      <p>The national backdrop behind the headlines — growth, prices, jobs, markets, and fuel for the US as a whole, each figure with its source and as-of date.</p>
     </div>
-    </div>
+    <p class="snap-update">This snapshot updates on the first hourly check after the stock market opens each weekday — that check re-verifies every figure below against its source, not just the market close.</p>
+    <div class="snap-grid">
+      <article class="snap-card">
+        <span class="snap-label">GDP — Q3 2026</span>
+        <span class="snap-value">+3.4% <small>annualized</small></span>
+        <p>Real GDP grew <b>3.4% annualized in Q3 2026</b>, up from 2.2% in Q2. Current-dollar GDP stood at <b>$33.01 trillion</b>.</p>
+        <div class="snap-source">Source: BEA advance estimate, Oct 29, 2026 · As of Q3 2026<br><span class="next">Next release: Nov 25, 2026</span></div>
+      </article>
+      <article class="snap-card">
+        <span class="snap-label">Unemployment — October 2026</span>
+        <span class="snap-value">4.1%</span>
+        <p><b>7.1 million unemployed</b>, with <b>165,000 jobs added</b> in October. The rate has held in a narrow <b>4.1–4.3% range since March</b>.</p>
+        <div class="snap-source">Source: BLS Employment Situation, released Nov 6, 2026 · As of October 2026<br><span class="next">Next release: November jobs, Dec 4, 2026</span></div>
+      </article>
+      <article class="snap-card wide">
+        <span class="snap-label">Inflation — October 2026</span>
+        <span class="snap-value">+0.4% <small>in October · core +0.3%</small></span>
+        <p>Consumer prices rose <b>0.4% in October 2026</b> (core +0.3%). <b>There is no official year-over-year rate for October:</b> most October 2025 prices were never collected during the 2025 federal shutdown, so BLS cannot publish a 12-month change for October. The last official yearly figure is <b>September's 3.7% headline rate</b>.</p>
+        <div class="snap-source">Source: BLS Consumer Price Index, released Nov 10, 2026 · As of October 2026<br><span class="next">Next release: November CPI, Dec 10, 2026</span></div>
+      </article>
+      <article class="snap-card">
+        <span class="snap-label">S&amp;P 500 — as of the Nov 13 close</span>
+        <span class="snap-value">7,561.67</span>
+        <p>At the <b>Friday, Nov 13 close</b>: down <b>0.40% on the day</b>, up <b>2.51% for the week</b>, and about <b>10% up year-to-date</b>.</p>
+        <div class="snap-source">Source: S&amp;P 500 close, Friday, Nov 13, 2026 · As of the Nov 13 close</div>
+      </article>
+      <article class="snap-card">
+        <span class="snap-label">Gas prices — US national average</span>
+        <span class="snap-value">$3.82 <small>/ gallon, regular</small></span>
+        <p>AAA's US national average for regular gasoline was <b>$3.82 a gallon</b> — down from about $4.33 a month earlier, and up from about $3.08 a year ago.</p>
+        <div class="snap-source">Source: AAA Fuel Prices, daily national average · As of Nov 15, 2026</div>
+      </article>
     </div>
   </section>
 
@@ -2513,7 +2557,7 @@ render();
   move("#briefing", "page-pricing");
   move("#pricing", "page-pricing");
   move(".scope", "page-about");
-  move(".risk", "page-about");
+  move("#usSnapshot", "page-about");
   move("#methodology", "page-about");
 
   /* Latest Reports layout: hero full-width, Hourly Scan full-width directly below it, above search/filters (DOM order from the moves above already gives hero → scan → controls) */
