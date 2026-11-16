@@ -195,6 +195,7 @@
   .sev.high{background:#3a2113;color:#f2b183;border:1px solid #6e4520}
   .sev.medium{background:#33300f;color:#e6d97a;border:1px solid #5c571f}
   .sev.low{background:#12283d;color:#93c2ee;border:1px solid #274a6e}
+  .sev.low-medium{background:#26331a;color:#cfe08a;border:1px solid #4a5c22}
   .cat{font-size:12px;color:var(--ink3);font-family:"IBM Plex Mono",monospace;letter-spacing:.04em}
   .unread{width:9px;height:9px;border-radius:50%;background:var(--amber);margin-left:auto;flex:0 0 9px}
   .card.read .unread{display:none}
@@ -577,13 +578,15 @@
         <span class="hs-dot" aria-hidden="true"></span>
         <h3>Hourly Scan</h3>
       </div>
-      <span class="hs-time">Last scan: Sun, Nov 15 · 6:51 PM CT</span>
-      <p class="hs-meta"><span id="hsBriefCount">51 briefs</span><span class="sep" aria-hidden="true">·</span><span id="hsLatest">Latest 6:38 AM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">12 High</span></p>
+      <span class="hs-time">Last scan: Sun, Nov 15 · 8:51 PM CT</span>
+      <p class="hs-meta"><span id="hsBriefCount">54 briefs</span><span class="sep" aria-hidden="true">·</span><span id="hsLatest">Latest 5:48 PM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">12 High</span></p>
     </div>
-    <p class="hs-lede"><strong>New verified development since 6:38 AM CT</strong> — the time of the previous latest brief. US intelligence now estimates Iran still holds 1,500–2,500 missiles despite months of strikes, and Iranian state TV warned Sunday that a modified Khorramshahr missile could reach the US-UK base at RAF Fairford.</p>
-    <p class="hs-why"><span>Why this matters for the US</span>Iran retains enough missiles to threaten US forces and allied targets across the region, and is now publicly naming a US-operated base in Europe — the finding is driving debate inside the administration over whether to resume strikes.</p>
+    <p class="hs-lede">Two late-caught developments from Sunday: a third US carrier strike group — the USS Theodore Roosevelt — has joined the two carriers already in the Middle East, the largest US naval presence there in years; and the Houthis claimed new November 15 strikes on Saudi targets in Riyadh and on the East-West oil pipeline, with Saudi Arabia reporting same-day interceptions near Mecca and Medina. Neither changes the picture in Bahrain, where the Sunday drone attack on the US radar base remains the day's most serious incident.</p>
+    <p class="hs-why"><span>Why this matters for the US</span>Three carriers in range of Iran plus Houthi pressure on Saudi oil routes keeps the US and its Gulf partners squeezed on both ends — even as Washington signals it may hold off on new strikes.</p>
     <div class="hs-links">
       <span class="hs-links-label">Latest briefs</span>
+      <a class="hs-link" href="#/reports" data-scan-target="iran-2026-11-15-roosevelt-third-carrier">Third US carrier arrives <span class="arr" aria-hidden="true">↓</span></a>
+      <a class="hs-link" href="#/reports" data-scan-target="iran-2026-11-15-houthi-saudi-claims-nov15">Houthis claim Saudi strikes <span class="arr" aria-hidden="true">↓</span></a>
       <a class="hs-link" href="#/reports" data-scan-target="iran-2026-11-15-missile-stockpile-fairford-threat">Iran's missile threat endures <span class="arr" aria-hidden="true">↓</span></a>
       <a class="hs-link" href="#/reports" data-scan-target="iran-2026-11-15-ukmto-tanker-attack">Tanker attacked near Hormuz <span class="arr" aria-hidden="true">↓</span></a>
       <a class="hs-link" href="#/reports" data-scan-target="iran-2026-11-15-houthis-bab-el-mandeb-control">Houthis take Bab el-Mandeb <span class="arr" aria-hidden="true">↓</span></a>
@@ -611,7 +614,7 @@
           <div class="fgroup" role="radiogroup" aria-label="Theater">
             <h4>Theater</h4>
             <label class="fopt"><input type="radio" name="f-theater" value="all" checked><span>All theaters</span></label>
-            <label class="fopt"><input type="radio" name="f-theater" value="iran-gulf"><span>Iran / Gulf</span><span class="fopt-n">36</span></label>
+            <label class="fopt"><input type="radio" name="f-theater" value="iran-gulf"><span>Iran / Gulf</span><span class="fopt-n">39</span></label>
             <label class="fopt"><input type="radio" name="f-theater" value="russia-ukraine"><span>Russia–Ukraine</span><span class="fopt-n">2</span></label>
             <label class="fopt"><input type="radio" name="f-theater" value="china-taiwan"><span>China–Taiwan</span><span class="fopt-n">2</span></label>
             <label class="fopt"><input type="radio" name="f-theater" value="israel-gaza-lebanon"><span>Israel–Gaza–Lebanon</span><span class="fopt-n">0</span></label>
@@ -620,16 +623,16 @@
           </div>
           <div class="fgroup" role="radiogroup" aria-label="Severity">
             <h4>Severity</h4>
-            <label class="fopt"><input type="radio" name="f-sev" value="all" checked><span>All</span><span class="fopt-n">51</span></label>
+            <label class="fopt"><input type="radio" name="f-sev" value="all" checked><span>All</span><span class="fopt-n">54</span></label>
             <label class="fopt"><input type="radio" name="f-sev" value="critical"><span>Critical</span><span class="fopt-n">0</span></label>
             <label class="fopt"><input type="radio" name="f-sev" value="high"><span>High</span><span class="fopt-n">12</span></label>
-            <label class="fopt"><input type="radio" name="f-sev" value="medium"><span>Medium</span><span class="fopt-n">34</span></label>
+            <label class="fopt"><input type="radio" name="f-sev" value="medium"><span>Medium</span><span class="fopt-n">36</span></label>
             <label class="fopt"><input type="radio" name="f-sev" value="low"><span>Low</span><span class="fopt-n">5</span></label>
           </div>
           <div class="fgroup" role="radiogroup" aria-label="Status">
             <h4>Status</h4>
-            <label class="fopt"><input type="radio" name="f-status" value="all" checked><span>All reports</span><span class="fopt-n">51</span></label>
-            <label class="fopt"><input type="radio" name="f-status" value="verified"><span>Verified</span><span class="fopt-n">45</span></label>
+            <label class="fopt"><input type="radio" name="f-status" value="all" checked><span>All reports</span><span class="fopt-n">54</span></label>
+            <label class="fopt"><input type="radio" name="f-status" value="verified"><span>Verified</span><span class="fopt-n">48</span></label>
             <label class="fopt"><input type="radio" name="f-status" value="unverified"><span>Unverified</span><span class="fopt-n">6</span></label>
           </div>
           <div class="fsheet-foot">
@@ -638,7 +641,7 @@
           </div>
         </div>
       </div>
-      <p class="count-line" id="countLine">Showing 51 of 51 reports</p>
+      <p class="count-line" id="countLine">Showing 54 of 54 reports</p>
     </div>
     <div class="tile-grid" id="tileGrid" role="group" aria-label="Filter by conflict or status"></div>
     <p class="tip-line">Tip: tap any highlighted term — in the plain-English brief or the full brief — for a quick definition.</p>
@@ -964,6 +967,41 @@ var THEATER_NAMES = {
   "cyber-homeland":"Cyber / Homeland"
 };
 var REPORTS = [
+{
+  id:"iran-2026-11-15-roosevelt-third-carrier",
+  ts:"2026-11-15T23:48:00Z",
+  group:"Sunday, November 15, 2026",
+  theater:"iran-gulf",
+  severity:"medium",
+  category:"Naval posture — US carriers",
+  title:"USS Theodore Roosevelt to join two US carriers in the Middle East within a day (New York Times, citing a US military official); Axios reports it entered CENTCOM's area Sunday",
+  headline:"Third US carrier arrives",
+  simple:"A third American aircraft carrier is now in the Middle East. The USS Theodore Roosevelt joined the USS George H.W. Bush and the USS George Washington, giving the United States three carrier strike groups in range of Iran — the largest US naval presence there in years — just as Iran has resumed drone attacks on US bases in Bahrain. The Pentagon has not publicly confirmed the move, and it is not yet clear whether the Roosevelt will stay alongside the other two carriers or replace one of them.",
+  summary:"The New York Times reported Sunday, November 15, citing a US military official, that the nuclear-powered carrier USS Theodore Roosevelt would enter US Central Command's area of responsibility within a day, joining the Japan-based USS George Washington and the Norfolk-based USS George H.W. Bush, both already operating in the Arabian Sea per the US Naval Institute's November 9 fleet tracker. Axios reporter Barak Ravid separately reported, citing a US official, that the Roosevelt had entered CENTCOM's area of responsibility earlier on Sunday, giving the United States three carrier strike groups in the theater. The Roosevelt left San Diego in late September and departed Singapore on November 9. President Donald Trump said on November 9 that another carrier was “sailing over and just arriving in the Middle East, so we have three,” and that the ships were “locked and loaded.” Why this matters for the US: Three carrier strike groups put the largest US naval force in the region in years within strike range of Iran — a signal Washington is keeping a major escalation option open even as Trump says he may hold off on new strikes.",
+  confidence:"High that the New York Times and Axios reports exist and cite US officials (corroborated by multiple outlets). Medium on the exact arrival timing and on whether three carriers will remain in the region — neither the Pentagon nor CENTCOM has publicly confirmed the schedule, and USNI News has said the Roosevelt was expected to relieve the George Washington, which entered the region in mid-August, so the three-carrier overlap may be brief.",
+  flag:"Not Pentagon-confirmed — whether Roosevelt stays or relieves George Washington is unresolved",
+  sources:[
+    {name:"Clash Report — Roosevelt to join two US carriers (citing NYT / Axios)", date:"Nov 15, 2026", url:"https://clashreport.com/defense/articles/uss-theodore-roosevelt-expected-to-join-two-u-s-carriers-in-middle-east-1c9xrbynmgf"},
+    {name:"Crisis Zone — Roosevelt due in Middle East (citing NYT / Axios)", date:"Nov 15, 2026", url:"https://crisis.zone/uss-theodore-roosevelt-reportedly-due-in-middle-east-as-bahrain-faces-new-drone-attacks/"}
+  ]
+},
+{
+  id:"iran-2026-11-15-houthi-saudi-claims-nov15",
+  ts:"2026-11-15T22:20:00Z",
+  group:"Sunday, November 15, 2026",
+  theater:"iran-gulf",
+  severity:"low-medium",
+  category:"Houthi claims — Saudi Arabia",
+  title:"Houthis claim November 15 strikes on Riyadh airport, financial center and East-West Pipeline pumping stations; Saudi reports interceptions near Mecca and Medina (ISW Iran Update, November 15, 2026)",
+  headline:"Houthis claim Saudi strikes",
+  simple:"The Houthis claimed new strikes on Saudi targets on Sunday — two ballistic missiles at Riyadh's King Khalid airport and a financial center, plus two drones at East-West oil pipeline pumping stations. Saudi Arabia said its air defenses intercepted drones near Mecca and Medina the same day, but those are not the places the Houthis claimed to hit, and no damage from the claimed strikes has been confirmed. The claims have not been independently verified.",
+  summary:"The Houthi movement claimed on November 15 that it launched two ballistic missiles at King Khalid International Airport and a “financial center” in Riyadh, and two drones at two East-West Pipeline pumping stations, as part of its campaign to compel Saudi Arabia to end military operations in Yemen. Saudi Joint Forces Command spokesperson Major General Turki al-Maliki announced on November 15 that Saudi forces intercepted two drones near Mecca and two drones near Medina; he had announced on November 14 that Saudi forces intercepted three drones in Eastern Province and two ballistic missiles over Riyadh — interceptions covered in a separate report on this dashboard. These November 15 claims are distinct from the Houthi claims of November 13 already on this dashboard, which named the same target set on a different day. Why this matters for the US: Saudi Arabia is a key US partner and the East-West Pipeline is an alternate oil route while Iran disrupts Hormuz; Houthi claims on Saudi critical infrastructure — verified or not — are part of the pressure campaign on the US and its Gulf partners.",
+  confidence:"High the Houthis made these claims (Houthi Telegram channel, reported by the Institute for the Study of War) and High that Saudi Arabia announced the November 15 interceptions near Mecca and Medina (Saudi Joint Forces Command spokesperson). Low that any claimed strike hit its target or caused damage — ISW states it cannot verify the Houthis' claims, and the Saudi interceptions announced on November 15 were near Mecca and Medina, not the claimed Riyadh airport, financial center, or pipeline targets. The Houthis deny targeting Mecca and Medina.",
+  flag:"Claimed strikes unverified — no damage confirmed at the claimed Riyadh or pipeline targets",
+  sources:[
+    {name:"ISW / Critical Threats Project — Iran Update, November 15, 2026", date:"Nov 15, 2026", url:"https://understandingwar.org/research/middle-east/iran-update-november-15-2026/"}
+  ]
+},
 {
   id:"iran-2026-11-15-missile-stockpile-fairford-threat",
   ts:"2026-11-15T19:12:00Z",
@@ -2025,6 +2063,7 @@ var GLOSSARY = {
   "ballistic missiles": "Missiles launched high into the air — partly out of the atmosphere — that then fall on their target under gravity. They are fast, hard to intercept, and can carry large warheads over long distances.",
   "one-way attack drones": "Cheap drones built to fly into a target and explode — sometimes called kamikaze or suicide drones. They are used in large numbers because they cost far less than the missiles used to shoot them down.",
   "carrier strike group": "A US Navy battle group built around an aircraft carrier, with escort warships and support vessels. Moving one toward a region is a visible show of force and a warning signal.",
+  "East-West Pipeline": "Saudi Arabia's Petroline — a crude-oil pipeline running about 1,200 km from the Abqaiq processing center in the Eastern Province to the Red Sea port of Yanbu. It can move roughly 5 million barrels a day and is Saudi Arabia's main bypass around the Strait of Hormuz, which is why its pumping stations are a strategic target.",
   "EASA": "The European Union Aviation Safety Agency. It issues conflict-zone advisories telling European airlines which airspace is unsafe to fly through.",
   "IAEA": "The International Atomic Energy Agency — the UN's nuclear watchdog. It inspects nuclear sites around the world to check countries are not building nuclear weapons.",
   "NATO": "The North Atlantic Treaty Organization — a military alliance of the US, Canada, and most of Europe. An attack on one member is treated as an attack on all.",
@@ -2041,13 +2080,16 @@ var TERM_KEYS = {
   "ballistic missiles":"ballistic missiles",
   "ballistic missile":"ballistic missiles",
   "carrier strike group":"carrier strike group",
+  "carrier strike groups":"carrier strike group",
+  "East-West Pipeline":"East-West Pipeline",
+  "East-West oil pipeline":"East-West Pipeline",
   "Houthis":"Houthis", "Houthi":"Houthis",
   "CENTCOM":"CENTCOM", "UKMTO":"UKMTO", "IRGC":"IRGC",
   "EASA":"EASA", "IAEA":"IAEA", "NATO":"NATO",
   "Blockade":"blockade", "blockade":"blockade",
   "Khorramshahr":"Khorramshahr", "RAF Fairford":"RAF Fairford"
 };
-var TERM_RE = /(^|[^A-Za-z])((?:UK Maritime Trade Operations|Bab el-Mandeb|Strait of Hormuz|one-way attack drones|one-way attack drone|ballistic missiles|ballistic missile|carrier strike group|Khorramshahr|RAF Fairford|Houthis|Houthi|CENTCOM|UKMTO|IRGC|EASA|IAEA|NATO|Blockade|blockade))(?![A-Za-z])/g;
+var TERM_RE = /(^|[^A-Za-z])((?:UK Maritime Trade Operations|Bab el-Mandeb|Strait of Hormuz|one-way attack drones|one-way attack drone|ballistic missiles|ballistic missile|carrier strike groups|carrier strike group|East-West oil pipeline|East-West Pipeline|Khorramshahr|RAF Fairford|Houthis|Houthi|CENTCOM|UKMTO|IRGC|EASA|IAEA|NATO|Blockade|blockade))(?![A-Za-z])/g;
 function linkify(text){
   return esc(text).replace(TERM_RE, function(m, pre, label){
     return pre + "<button type='button' class='term' data-term='" + TERM_KEYS[label] + "'>" + label + "</button>";
