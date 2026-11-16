@@ -834,7 +834,7 @@
           <li>Ad-free, always — no ads and no sponsored placements in Pro alerts, summaries, or the weekly brief</li>
           <li>Founding rate locked for the first 100 members — the price never rises for you</li>
         </ul>
-        <a class="btn amber" href="mailto:cole.ductan@gmail.com?subject=Conflict%20Ready%20USA%20Pro%20—%20founding%20member&body=I%20want%20a%20founding%20Pro%20spot%20at%20%245%2Fmo.%0A%0AName%3A%0AEmail%20for%20alerts%3A">Reserve a founding spot</a>
+        <button class="btn amber" type="button" data-checkout="monthly">Start Pro — $5 / month</button> <button class="btn" type="button" data-checkout="annual">Start Pro — $50 / year</button>
       </div>
     </div>
     <p class="signup-note" style="margin-top:10px">Founding members keep the $5/mo (or $50/yr) rate for as long as they stay subscribed.</p>
@@ -2479,6 +2479,33 @@ function crWireSignup(form, emailInput, okBox, errBox, dlBox){
     });
   });
 }
+/* Pro checkout — POSTs to the Conflict Ready Worker, redirects to Stripe Checkout */
+var CHECKOUT_API = "https://conflict-ready.conflict-ready-usa.workers.dev/api/checkout";
+function crWireCheckout(){
+  var btns = document.querySelectorAll("[data-checkout]");
+  btns.forEach(function(b){
+    b.addEventListener("click", function(){
+      var plan = b.getAttribute("data-checkout") === "annual" ? "annual" : "monthly";
+      b.disabled = true;
+      var old = b.textContent;
+      b.textContent = "Starting checkout\u2026";
+      fetch(CHECKOUT_API, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({price: plan})
+      }).then(function(res){ return res.json().catch(function(){ return null; }); }).then(function(data){
+        if(data && data.url){ window.location.href = data.url; return; }
+        b.disabled = false; b.textContent = old;
+        alert("Checkout could not start. Please try again.");
+      }).catch(function(){
+        b.disabled = false; b.textContent = old;
+        alert("Checkout could not start. Please try again.");
+      });
+    });
+  });
+}
+crWireCheckout();
+
 crWireSignup(
   document.getElementById("signupForm"),
   document.getElementById("signupEmail"),
