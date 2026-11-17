@@ -608,7 +608,7 @@
       </span>
       <div class="threat-copy">
         <p class="threat-title">Threat Level: <span class="threat-name" id="threatName">High</span></p>
-        <p class="threat-sub" id="threatSub">Substantial High briefs active in the latest reporting — Third Strike on Bahrain · Tanker Hit Twice. Posture stays elevated until the latest briefs clear.</p>
+        <p class="threat-sub" id="threatSub">Substantial High briefs active in the latest reporting — Third Strike on Bahrain · Tanker Hit Twice.</p>
       </div>
     </div>
     <div class="hs-head">
@@ -617,7 +617,7 @@
         <h3>Hourly Scan</h3>
       </div>
       <span class="hs-time">Updated Tue Nov 17, 2026, ~8:00 AM CT</span>
-      <p class="hs-meta"><span id="hsBriefCount">70 briefs</span><span class="sep" aria-hidden="true">·</span><span id="hsLatest">Latest 2:00 AM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">15 High</span></p>
+      <p class="hs-meta"><span id="hsLatest">Latest 2:00 AM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">15 High</span></p>
     </div>
     <p class="hs-lede">UKMTO Warning 209-26: an energy tanker was struck by an unknown projectile in the Gulf on Tuesday morning, all crew safe — the latest in a run of near-daily tanker attacks in and around the Strait of Hormuz, following Monday's two Hormuz strikes and Tuesday's third Iranian drone attack on Bahrain. <a href="#/reports" data-scan-target="ukmto-209-26-gulf-tanker-nov17">Read the Gulf Tanker Struck brief</a> Separately, explosions were reported on Qeshm Island and Iran claimed another US drone downing — both unverified and not added.</p>
     <p class="hs-why"><span>Why this matters for the US</span>Each new strike on Gulf shipping raises the odds of a miscalculation that pulls US forces in.</p>
@@ -3105,8 +3105,6 @@ render();
 
   /* Archive stats folded into the Hourly Scan header, computed from the report data */
   if(typeof ALL_REPORTS !== "undefined"){
-    var hsBriefCount = document.getElementById("hsBriefCount");
-    if(hsBriefCount) hsBriefCount.textContent = ALL_REPORTS.length + " briefs";
     var hsHighCount = 0, hsLatestTs = 0;
     ALL_REPORTS.forEach(function(r){
       if(r.severity === "high") hsHighCount++;
@@ -3149,7 +3147,7 @@ render();
         if(threatName) threatName.textContent = lvlLabel;
         if(threatSub && drivers.length){
           var names = drivers.map(function(r){ return r.headline || r.title; });
-          threatSub.textContent = "Substantial " + lvlLabel + " brief" + (names.length > 1 ? "s" : "") + " active in the latest reporting — " + names.join(" · ") + ". Posture stays elevated until the latest briefs clear.";
+          threatSub.textContent = "Substantial " + lvlLabel + " brief" + (names.length > 1 ? "s" : "") + " active in the latest reporting — " + names.join(" · ") + ".";
         }
       } else {
         threatEl.setAttribute("data-level", "calm");
