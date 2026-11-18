@@ -336,6 +336,21 @@
   .calc-notes p{margin:0 0 8px;color:var(--ink2);font-size:14px}
   .calc-notes p:last-child{margin-bottom:0}
   .calc-notes p b{color:var(--ink)}
+  .calc-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:16px 0 0}
+  .calc-export-note{font-size:13px;color:var(--ink3)}
+  #calcPrint{display:none}
+  @media print{
+    body>*:not(#calcPrint){display:none !important}
+    #calcPrint{display:block !important;color:#111;background:#fff;font-family:Georgia,"Times New Roman",serif;padding:0}
+    #calcPrint h2{font-size:22px;margin:0 0 4px;color:#111}
+    #calcPrint .cp-sub{font-size:14px;color:#444;margin:0 0 18px}
+    #calcPrint h3{font-size:16px;margin:18px 0 6px;border-bottom:1px solid #999;padding-bottom:3px;color:#111}
+    #calcPrint .cp-row{display:flex;justify-content:space-between;gap:16px;padding:5px 0;border-bottom:1px solid #ddd;font-size:13.5px}
+    #calcPrint .cp-row .cp-name{font-weight:700}
+    #calcPrint .cp-row .cp-detail{display:block;font-weight:400;font-size:12px;color:#555}
+    #calcPrint .cp-qty{font-weight:700;white-space:nowrap}
+    #calcPrint .cp-foot{margin-top:20px;font-size:12px;color:#555}
+  }
   @media(max-width:560px){.calc-row{flex-wrap:wrap}.calc-row .ci{flex:1 1 100%}.calc-row .cq{margin-right:auto}}
 
   footer{margin-top:44px;border-top:1px solid var(--line);padding-top:18px;color:var(--ink3);font-size:13.5px}
@@ -990,6 +1005,10 @@
         </div>
       </div>
       <p class="calc-summary" id="calcSummary" role="status"></p>
+      <div class="calc-actions">
+        <button type="button" class="btn amber" id="calcExport">Export / Print list</button>
+        <span class="calc-export-note">Prints your filled-out list — or save it as a PDF from the print dialog.</span>
+      </div>
       <div id="calcList"></div>
       <div class="calc-notes">
         <p><b>Adults vs. kids:</b> These quantities assume adults. Kids need less food, but they eat on schedule — plan snacks too.</p>
@@ -3500,11 +3519,15 @@ render();
       { name:"Cash in small bills", detail:"Enough for a few days of fuel and food for your household." }
     ]}
   ];
-  function renderCalc(){
+  function getP(){
     var p = parseInt(peopleEl.value, 10);
     if(isNaN(p)) p = 4;
     if(p < 1) p = 1;
     if(p > 20) p = 20;
+    return p;
+  }
+  function renderCalc(){
+    var p = getP();
     summaryEl.textContent = "Shopping list for " + p + (p === 1 ? " person" : " people") + " · " + days + " days";
     listEl.innerHTML = "";
     GROUPS.forEach(function(g){
@@ -3558,6 +3581,30 @@ render();
       renderCalc();
     });
   });
+  var exportBtn = document.getElementById("calcExport");
+  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  function buildPrintList(){
+    var printEl = document.getElementById("calcPrint");
+    if(!printEl) return;
+    var p = getP();
+    var dateStr = new Date().toLocaleDateString("en-US", { month:"long", day:"numeric", year:"numeric" });
+    var h = "<h2>Conflict Ready USA — Supply List</h2>";
+    h += "<p class='cp-sub'>Shopping list for " + p + (p === 1 ? " person" : " people") + " · " + days + " days · " + esc(dateStr) + "</p>";
+    GROUPS.forEach(function(g){
+      h += "<h3>" + esc(g.title) + "</h3>";
+      g.items.forEach(function(it){
+        var qty = it.q ? it.q(p, days) : null;
+        h += "<div class='cp-row'><span class='cp-name'>" + esc(it.name) + "<span class='cp-detail'>" + esc(it.detail) + "</span></span>";
+        h += qty !== null ? "<span class='cp-qty'>" + qty + " " + esc(qty === 1 ? it.unit[0] : it.unit[1]) + "</span>" : "<span class='cp-qty'>—</span>";
+        h += "</div>";
+      });
+    });
+    h += "<p class='cp-foot'>Quantities from the 90-Day Ready Guide at conflictreadyusa.com. Check the site for the latest version.</p>";
+    printEl.innerHTML = h;
+  }
+  if(exportBtn){
+    exportBtn.addEventListener("click", function(){ buildPrintList(); window.print(); });
+  }
   renderCalc();
 })();
 </script>
@@ -3726,5 +3773,6 @@ render();
   }
 })();
 </script>
+<div id="calcPrint" aria-hidden="true"></div>
 </body>
 </html>
