@@ -147,6 +147,26 @@
   .chip[aria-pressed="true"]{background:#e8eef7;color:#0a1220;border-color:#e8eef7}
   .chip .n{font-family:"IBM Plex Mono",monospace;font-size:11.5px;opacity:.75}
   .count-line{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink3);margin:0}
+  /* Calendar / List view toggle */
+  .view-toggle{display:inline-flex;gap:3px;background:var(--panel);border:1px solid var(--line2);border-radius:8px;padding:3px;margin-left:auto;flex:0 0 auto}
+  .view-toggle button{border:none;background:transparent;color:var(--ink2);border-radius:6px;padding:7px 14px;font:inherit;font-size:13.5px;font-weight:600;min-height:38px;display:inline-flex;align-items:center;gap:7px;cursor:pointer;white-space:nowrap}
+  .view-toggle button:hover{color:#fff}
+  .view-toggle button[aria-pressed="true"]{background:#e8eef7;color:#0a1220}
+  .view-toggle button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+  @media(max-width:760px){
+    .view-toggle{flex:1 1 100%;margin-left:0;order:3}
+    .view-toggle button{flex:1;justify-content:center;min-height:44px}
+  }
+  /* Quick-filter tiles live inside the Filters sheet now — hidden until opened */
+  .fsheet .tile-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
+  .fsheet .tile{padding:10px 11px;min-height:52px;background:var(--panel)}
+  .fsheet .tile .tile-count{font-size:17px}
+  @media(max-width:480px){.fsheet .tile-grid{grid-template-columns:1fr 1fr}}
+  /* List view — date groups with collapsible card stacks */
+  .list-wrap{margin-top:6px}
+  .list-wrap .group:first-child{margin-top:10px}
+  .group-head{cursor:pointer}
+  .group-head:hover h3{color:#fff}
 
   /* Filter bar + popup (bottom sheet on mobile, dropdown on desktop) */
   .filter-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:10px}
@@ -550,6 +570,80 @@
   .brief-pop .conf{margin-top:20px}
   .pop-foot{border-top:1px solid var(--line);margin-top:24px;padding-top:12px;display:flex;justify-content:space-between;gap:8px 14px;flex-wrap:wrap;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
 
+  /* Interactive reports calendar — replaces the stacked date accordion.
+     Days carry their headlines; opening a day shows its brief cards below. */
+  .cal-wrap{margin-top:20px;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel2);overflow:hidden}
+  .cal-toolbar{display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap;padding:16px 18px 14px}
+  .cal-titlebox{min-width:0}
+  .cal-month-title{font-family:"Barlow Condensed",sans-serif;font-size:32px;line-height:1;letter-spacing:.03em;margin:0;font-weight:700}
+  .cal-sub{margin:5px 0 0;font-size:13.5px;color:var(--ink3);line-height:1.45;max-width:520px}
+  .cal-nav{margin-left:auto;display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+  .cal-navbtn{border:1px solid var(--line2);background:var(--panel);color:var(--ink);border-radius:8px;padding:8px 13px;font-size:13.5px;font-weight:600;min-height:44px;display:inline-flex;align-items:center;gap:5px}
+  .cal-navbtn:hover{border-color:var(--blue);color:#fff}
+  .cal-navbtn.amber{background:#3a2a0d;border-color:#8a6420;color:#f5cf8a}
+  .cal-navbtn.amber:hover{border-color:var(--amber);color:#ffe1a8}
+  .cal-select{background:var(--panel);border:1px solid var(--line2);color:var(--ink);border-radius:8px;padding:8px 10px;font:inherit;font-size:13.5px;font-weight:600;min-height:44px;max-width:100%}
+  .cal-weekdays{display:grid;grid-template-columns:repeat(7,1fr);border-top:1px solid var(--line);background:var(--panel)}
+  .cal-weekdays span{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);text-align:center;padding:8px 2px}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--line);border-top:1px solid var(--line)}
+  .cal-cell{background:var(--panel2);min-height:122px;padding:8px;display:flex;flex-direction:column;gap:5px;min-width:0}
+  .cal-cell.muted{background:#0a1220}
+  .cal-cell.muted .cal-daynum{color:#41536e}
+  .cal-cell.has-reports{cursor:pointer}
+  .cal-cell.has-reports:hover{background:#111f38}
+  .cal-cell.is-selected{background:#16233c;box-shadow:inset 0 0 0 2px var(--amber)}
+  .cal-cell:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+  .cal-dayrow{display:flex;align-items:center;justify-content:space-between;gap:6px}
+  .cal-daynum{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:500;color:var(--ink2)}
+  .cal-cell.is-today .cal-daynum{color:var(--amber);font-weight:700}
+  .cal-cell.is-today .cal-daynum::after{content:" · today";font-size:9.5px;letter-spacing:.08em;text-transform:uppercase}
+  .cal-count{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--ink3);border:1px solid var(--line2);border-radius:999px;padding:1px 7px;line-height:1.5;white-space:nowrap}
+  .cal-cell.is-selected .cal-count{color:#f5cf8a;border-color:#8a6420}
+  .cal-events{display:flex;flex-direction:column;gap:4px}
+  .cal-event{display:flex;align-items:flex-start;gap:6px;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:5px 7px;font-size:12px;line-height:1.3;font-weight:600;color:var(--ink2);text-align:left;width:100%;min-height:0;cursor:pointer}
+  .cal-event:hover{border-color:var(--blue);color:#fff}
+  .cal-event .cal-etitle{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .cal-dot{width:7px;height:7px;border-radius:50%;flex:0 0 7px;margin-top:4px;background:var(--ink3)}
+  .cal-dot.critical{background:#ff9d94}.cal-dot.high{background:#f2b183}.cal-dot.medium{background:#e6d97a}.cal-dot.low{background:#93c2ee}.cal-dot.low-medium{background:#cfe08a}
+  .cal-more{background:none;border:none;color:var(--blue);font-size:12px;font-weight:600;text-align:left;padding:2px 2px;min-height:0;cursor:pointer}
+  .cal-more:hover{color:#9cc3f2;text-decoration:underline}
+  .cal-dots{display:none}
+  .cal-legend{display:flex;align-items:center;gap:7px 14px;flex-wrap:wrap;border-top:1px solid var(--line);padding:10px 18px;font-size:12.5px;color:var(--ink3)}
+  .cal-leg-label{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+  .cal-leg{display:inline-flex;align-items:center;gap:6px}
+  .cal-leg .cal-dot{margin-top:0}
+  .cal-leg-note{margin-left:auto;font-size:12.5px}
+  .cal-panel{margin-top:18px}
+  .cal-panel-head{display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+  .cal-panel-head h3{font-family:"Barlow Condensed",sans-serif;font-size:26px;letter-spacing:.04em;margin:0;line-height:1.05;font-weight:700}
+  .cal-panel-head p{margin:3px 0 0;font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink3)}
+  .cal-panel-close{margin-left:auto;border:1px solid var(--line2);background:var(--panel);color:var(--ink2);border-radius:8px;padding:8px 13px;font-size:13.5px;font-weight:600;min-height:44px}
+  .cal-panel-close:hover{border-color:var(--blue);color:#fff}
+  .cal-panel-empty{border:1px dashed var(--line2);border-radius:var(--radius);padding:20px 18px;color:var(--ink3);font-size:14.5px;text-align:center}
+  .cal-panel-empty p{margin:0}
+  .card.cal-focus{outline:2px solid var(--amber);outline-offset:2px}
+  @media(max-width:760px){
+    .cal-toolbar{padding:14px 14px 12px;flex-direction:column;align-items:stretch;flex-wrap:nowrap;gap:12px}
+    .cal-titlebox{width:100%;min-width:0}
+    .cal-month-title{font-size:27px}
+    .cal-sub{max-width:none}
+    .cal-nav{margin-left:0;width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;flex-wrap:nowrap;align-items:stretch}
+    .cal-select{grid-column:1/-1;width:100%;max-width:100%;min-width:0;flex:none}
+    .cal-navbtn{width:100%;min-width:0;justify-content:center;padding-left:8px;padding-right:8px;white-space:nowrap}
+    .cal-cell{min-height:62px;padding:6px 5px;gap:4px}
+    .cal-events{display:none}
+    .cal-dots{display:flex;gap:4px;flex-wrap:wrap;padding:0 1px}
+    .cal-dots .cal-dot{margin-top:0;width:8px;height:8px;flex-basis:8px}
+    .cal-count{display:none}
+    .cal-daynum{font-size:12.5px}
+    .cal-cell.is-today .cal-daynum::after{content:""}
+    .cal-leg-note{margin-left:0;flex:1 1 100%}
+    .cal-panel-head{flex-direction:column;align-items:stretch;gap:10px}
+    .cal-panel-head>div{min-width:0;max-width:100%}
+    .cal-panel-head h3{font-size:23px}
+    .cal-panel-close{margin-left:0;align-self:flex-end;max-width:100%;flex-shrink:0;white-space:nowrap}
+  }
+
   @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -616,11 +710,11 @@
         <span class="hs-dot" aria-hidden="true"></span>
         <h3>Hourly Scan</h3>
       </div>
-      <span class="hs-time">Updated Tue Nov 17, 2026, ~3:25 PM CT</span>
-      <p class="hs-meta"><span id="hsLatest">Latest 3:25 PM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">16 High</span></p>
+      <span class="hs-time">Updated Tue Nov 17, 2026, ~5:51 PM CT</span>
+      <p class="hs-meta"><span id="hsLatest">Latest 5:51 PM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">16 High</span></p>
     </div>
-    <p class="hs-lede">A US fighter jet struck an IRGC missile launch site on Qeshm Island on Tuesday, Nov 17, in self-defense — retaliation, the US said, for Iran targeting US personnel and assets, hours after Iran fired drones at a US radar installation at Sheikh Isa Air Base in Bahrain, its third attack on US targets there in five days; CENTCOM says the drones were intercepted with no damage to US equipment and no injuries. <a href="#/reports" data-scan-target="us-2026-11-17-qeshm-strike">Read the US Strikes Qeshm Again brief</a> The tanker campaign in and around the Strait of Hormuz also continued Tuesday: a tanker hit for a second time north of Khasab has a crew still unaccounted for, and another energy tanker was struck by an unknown projectile in the Gulf with all crew safe.</p>
-    <p class="hs-why"><span>Why this matters for the US</span>The US has resumed direct strikes on Iranian territory after the Nov 9 pause, striking back after the third Iranian attack on US forces in Bahrain in five days — a clear escalation that raises the risk to US personnel across the region with each exchange.</p>
+    <p class="hs-lede">Kuwait's army says its air defences are engaging hostile drones over the country, with Fars reporting sirens at US bases — no attacker named, no damage or casualties confirmed; the drones appeared hours after the US struck an IRGC missile site on Qeshm Island, the same day Iran fired drones at a US radar in Bahrain. <a href="#/reports" data-scan-target="kuwait-hostile-drones-nov17">Read the Drones Over Kuwait brief</a> The tanker campaign in and around the Strait of Hormuz also continued Tuesday: a tanker hit for a second time north of Khasab has a crew still unaccounted for, and another energy tanker was struck by an unknown projectile in the Gulf with all crew safe.</p>
+    <p class="hs-why"><span>Why this matters for the US</span>Kuwait hosts major US bases, and hostile drones over Kuwait hours after the US struck Qeshm extends the day's tit-for-tat to a third Gulf state — raising the risk to US personnel in Kuwait.</p>
     <div class="hs-links">
       <span class="hs-links-label">Latest briefs</span>
       <a class="hs-link" href="#/reports" data-scan-target="us-2026-11-17-qeshm-strike">US Strikes Qeshm Again <span class="arr" aria-hidden="true">↓</span></a>
@@ -661,7 +755,7 @@
           <div class="fgroup" role="radiogroup" aria-label="Theater">
             <h4>Theater</h4>
             <label class="fopt"><input type="radio" name="f-theater" value="all" checked><span>All theaters</span></label>
-            <label class="fopt"><input type="radio" name="f-theater" value="iran-gulf"><span>Iran / Gulf</span><span class="fopt-n">57</span></label>
+            <label class="fopt"><input type="radio" name="f-theater" value="iran-gulf"><span>Iran / Gulf</span><span class="fopt-n">58</span></label>
             <label class="fopt"><input type="radio" name="f-theater" value="russia-ukraine"><span>Russia–Ukraine</span><span class="fopt-n">2</span></label>
             <label class="fopt"><input type="radio" name="f-theater" value="china-taiwan"><span>China–Taiwan</span><span class="fopt-n">3</span></label>
             <label class="fopt"><input type="radio" name="f-theater" value="israel-gaza-lebanon"><span>Israel–Gaza–Lebanon</span><span class="fopt-n">0</span></label>
@@ -670,17 +764,21 @@
           </div>
           <div class="fgroup" role="radiogroup" aria-label="Severity">
             <h4>Severity</h4>
-            <label class="fopt"><input type="radio" name="f-sev" value="all" checked><span>All</span><span class="fopt-n">73</span></label>
+            <label class="fopt"><input type="radio" name="f-sev" value="all" checked><span>All</span><span class="fopt-n">74</span></label>
             <label class="fopt"><input type="radio" name="f-sev" value="critical"><span>Critical</span><span class="fopt-n">0</span></label>
             <label class="fopt"><input type="radio" name="f-sev" value="high"><span>High</span><span class="fopt-n">16</span></label>
-            <label class="fopt"><input type="radio" name="f-sev" value="medium"><span>Medium</span><span class="fopt-n">47</span></label>
+            <label class="fopt"><input type="radio" name="f-sev" value="medium"><span>Medium</span><span class="fopt-n">48</span></label>
             <label class="fopt"><input type="radio" name="f-sev" value="low"><span>Low</span><span class="fopt-n">7</span></label>
           </div>
           <div class="fgroup" role="radiogroup" aria-label="Status">
             <h4>Status</h4>
-            <label class="fopt"><input type="radio" name="f-status" value="all" checked><span>All reports</span><span class="fopt-n">73</span></label>
-            <label class="fopt"><input type="radio" name="f-status" value="verified"><span>Verified</span><span class="fopt-n">67</span></label>
+            <label class="fopt"><input type="radio" name="f-status" value="all" checked><span>All reports</span><span class="fopt-n">74</span></label>
+            <label class="fopt"><input type="radio" name="f-status" value="verified"><span>Verified</span><span class="fopt-n">68</span></label>
             <label class="fopt"><input type="radio" name="f-status" value="unverified"><span>Unverified</span><span class="fopt-n">6</span></label>
+          </div>
+          <div class="fgroup">
+            <h4>Quick filters — tap to apply</h4>
+            <div class="tile-grid" id="tileGrid" role="group" aria-label="Filter by conflict or status"></div>
           </div>
           <div class="fsheet-foot">
             <button class="btn-clear" id="btnClearFilters" type="button">Clear all</button>
@@ -688,9 +786,12 @@
           </div>
         </div>
       </div>
-      <p class="count-line" id="countLine">Showing 73 of 73 reports</p>
+      <p class="count-line" id="countLine">Showing 74 of 74 reports</p>
+      <div class="view-toggle" role="group" aria-label="Choose reports view">
+        <button type="button" id="viewCalBtn" aria-pressed="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.8v3.4M16 2.8v3.4"/></svg>Calendar</button>
+        <button type="button" id="viewListBtn" aria-pressed="false"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M8.5 6h12M8.5 12h12M8.5 18h12"/><path d="M3.8 6h.4M3.8 12h.4M3.8 18h.4" stroke-width="3"/></svg>List</button>
+      </div>
     </div>
-    <div class="tile-grid" id="tileGrid" role="group" aria-label="Filter by conflict or status"></div>
     <p class="tip-line">Tip: tap any highlighted term — in the plain-English brief or the full brief — for a quick definition.</p>
     <div class="fbackdrop" id="filterBackdrop" aria-hidden="true"></div>
     <p class="theater-empty-note" id="israelEmptyNote" hidden>No clean verified Nov 11–13 US-threat item was found, so this theater is intentionally empty.</p>
@@ -1060,6 +1161,25 @@ var THEATER_NAMES = {
   "cyber-homeland":"Cyber / Homeland"
 };
 var REPORTS = [
+{
+  id:"kuwait-hostile-drones-nov17",
+  ts:"2026-11-17T22:00:00Z",
+  group:"Tuesday, November 17, 2026",
+  theater:"iran-gulf",
+  severity:"medium",
+  category:"Kuwait / hostile drones",
+  title:"Kuwait says its air defences are engaging hostile drones (Times of Israel live blog, Nov 17, 2026)",
+  headline:"Drones Over Kuwait",
+  simple:"Kuwait's army said on Tuesday evening that its air defences were engaging hostile drones over the country. Iran's Fars news agency reported air-raid sirens sounding at US bases in Kuwait, but Kuwait has not said who launched the drones, and there is no confirmed damage or casualties. The drones appeared hours after the US struck an Iranian missile site on Qeshm Island.",
+  summary:"On Tuesday evening, Nov 17, 2026, Kuwait's General Staff of the Army announced that the country's air defence systems had been activated to counter 'hostile drone attacks' over Kuwait, according to the Times of Israel live blog and Israel's N12, both relaying the Kuwaiti military's statement. Al Hadath also reported that Kuwaiti air defences were countering hostile drone attacks. Iran's Fars news agency reported that air-raid sirens sounded at US bases in Kuwait. The drones appeared hours after US fighter aircraft struck an IRGC missile launch site on Qeshm Island, and on the same day Iran fired drones at a US radar installation in Bahrain. Kuwait's statement does not identify who launched the drones, and no number of drones, interception count, damage report, or casualty figure has been published. No statement from US Central Command about the Kuwait drones has surfaced. Why this matters for the US: Kuwait hosts major US bases — Ali Al Salem Air Base, Camp Arifjan, Camp Buehring, and the Port of Shuaiba, where six US soldiers were killed by an Iranian drone on March 1. Hostile drones over Kuwait hours after the US struck Qeshm extends the day's tit-for-tat to a third Gulf state and raises the risk to US personnel in Kuwait.",
+  confidence:"High that Kuwait's military announced its air defences were engaging hostile drones (Kuwaiti General Staff statement, relayed by the Times of Israel live blog and N12; Al Hadath also reported Kuwaiti defences countering hostile drones). Low that the drones came from Iran — only one outlet (News.co.il) attributes them to Iran, without citing a source, and Kuwait's statement names no attacker. Low to Medium that US bases were the target — Fars reported sirens at US bases, but neither the US nor Kuwait has confirmed that US installations were targeted or hit. No interception, damage, or casualty figures have been published.",
+  flag:"Attribution unconfirmed — Kuwait's statement names no attacker; only one outlet attributes the drones to Iran, without a source. Fars's claim of sirens at US bases is unconfirmed by the US or Kuwait.",
+  sources:[
+    {name:"Israel.com — Kuwait says its air defences are engaging hostile drones (relaying Times of Israel live blog and N12)", date:"Nov 17, 2026", url:"https://www.israel.com/news/kuwait-says-its-air-defences-are-engaging-hostile-drones"},
+    {name:"BizToc / Breaking the News — Kuwait's air defense responds to 'hostile' drone attacks", date:"Nov 17, 2026", url:"https://biztoc.com/x/b327cec45591c62c"},
+    {name:"ZeroHedge — US Bases In Kuwait Under Drone Attack (Fars sirens claim; Al Hadath)", date:"Nov 17, 2026", url:"https://www.zerohedge.com/geopolitical/pentagon-says-irgc-missiles-bahrain-airbase-intercepted-more-tankers-flames"}
+  ]
+},
 {
   id:"us-2026-11-17-qeshm-strike",
   ts:"2026-11-17T21:25:00Z",
@@ -2497,6 +2617,7 @@ var ALL_REPORTS = REPORTS.concat(UNVERIFIED);
 var GLOSSARY = {
   "Bab el-Mandeb": "The narrow strait between Yemen and Djibouti/Eritrea linking the Red Sea to the Gulf of Aden. Much of Asia-Europe shipping passes through it on the way to the Suez Canal, so whoever controls its shores can threaten global trade.",
   "Strait of Hormuz": "The narrow waterway between Iran and Oman linking the Persian Gulf to the open sea. Roughly a fifth of the world's oil supply passes through it, which is why any fighting there moves global energy prices.",
+  "Kuwait": "A small Gulf state at the northern tip of the Persian Gulf, across the water from Iran. It hosts major US bases — Ali Al Salem Air Base, Camp Arifjan, and Camp Buehring — and has been repeatedly targeted by Iranian drones and missiles since the war began on February 28, 2026.",
   "Houthis": "An Iran-aligned armed movement that controls much of northern Yemen, including the capital, Sanaa. They have attacked Red Sea shipping and fired missiles and drones at Saudi Arabia.",
   "IRGC": "The Islamic Revolutionary Guard Corps — Iran's powerful parallel military force, separate from the regular army. It runs Iran's missile program and its Gulf naval forces, and is designated a terrorist organization by the US.",
   "CENTCOM": "US Central Command — the US military headquarters responsible for the Middle East and Central Asia. Its statements are the US military's official account of events in the region.",
@@ -2545,7 +2666,7 @@ var TERM_KEYS = {
   "East-West Pipeline":"East-West Pipeline",
   "East-West oil pipeline":"East-West Pipeline",
   "Houthis":"Houthis", "Houthi":"Houthis",
-  "CENTCOM":"CENTCOM", "UKMTO":"UKMTO", "IRGC":"IRGC", "Qeshm Island":"Qeshm Island", "precision munitions":"precision munitions", "Precision munitions":"precision munitions",
+  "CENTCOM":"CENTCOM", "UKMTO":"UKMTO", "IRGC":"IRGC", "Qeshm Island":"Qeshm Island", "Kuwait":"Kuwait", "precision munitions":"precision munitions", "Precision munitions":"precision munitions",
   "EASA":"EASA", "IAEA":"IAEA", "NATO":"NATO",
   "Blockade":"blockade", "blockade":"blockade",
   "Khorramshahr":"Khorramshahr", "RAF Fairford":"RAF Fairford",
@@ -2566,7 +2687,7 @@ var TERM_KEYS = {
   "air defence identification zone":"ADIZ", "Air defence identification zone":"ADIZ", "ADIZ":"ADIZ",
   "Tsushima Strait":"Tsushima Strait"
 };
-var TERM_RE = /(^|[^A-Za-z])((?:UK Maritime Trade Operations|air defence identification zone|Air defence identification zone|chemical weapons|Chemical weapons|chemical weapon|Chemical weapon|dirty bombs|Dirty bomb|dirty bomb|dirty-bomb|precision munitions|Precision munitions|Bab el-Mandeb|Strait of Hormuz|Qeshm Island|Tsushima Strait|Arabian Gulf|non-NATO ally|Riffa Air Base|one-way attack drones|one-way attack drone|ballistic missiles|ballistic missile|carrier strike groups|carrier strike group|East-West oil pipeline|East-West Pipeline|PGSA blacklist|Conflict Zone|conflict zone|conflict-zone|Khorramshahr|RAF Fairford|Fifth Fleet|product tanker|Product tanker|Houthis|Houthi|CENTCOM|UKMTO|IRGC|EASA|CZIB|IAEA|NATO|ADIZ|STEP|JMIC|FIRs|FIR|PGSA|Blockade|blockade|projectiles|projectile|Projectile|waterline|Waterline))(?![A-Za-z])/g;
+var TERM_RE = /(^|[^A-Za-z])((?:UK Maritime Trade Operations|air defence identification zone|Air defence identification zone|chemical weapons|Chemical weapons|chemical weapon|Chemical weapon|dirty bombs|Dirty bomb|dirty bomb|dirty-bomb|precision munitions|Precision munitions|Bab el-Mandeb|Strait of Hormuz|Qeshm Island|Kuwait|Tsushima Strait|Arabian Gulf|non-NATO ally|Riffa Air Base|one-way attack drones|one-way attack drone|ballistic missiles|ballistic missile|carrier strike groups|carrier strike group|East-West oil pipeline|East-West Pipeline|PGSA blacklist|Conflict Zone|conflict zone|conflict-zone|Khorramshahr|RAF Fairford|Fifth Fleet|product tanker|Product tanker|Houthis|Houthi|CENTCOM|UKMTO|IRGC|EASA|CZIB|IAEA|NATO|ADIZ|STEP|JMIC|FIRs|FIR|PGSA|Blockade|blockade|projectiles|projectile|Projectile|waterline|Waterline))(?![A-Za-z])/g;
 function linkify(text){
   return esc(text).replace(TERM_RE, function(m, pre, label){
     return pre + "<button type='button' class='term' data-term='" + TERM_KEYS[label] + "'>" + label + "</button>";
@@ -2624,10 +2745,32 @@ function cardHTML(r){
   return h;
 }
 
-function render(){
-  var groupsEl = document.getElementById("groups");
-  groupsEl.innerHTML = "";
-  var order = [], byGroup = {};
+/* ===== Interactive reports calendar =====
+   Reports sit on the calendar under the same date as their group label —
+   the grouping the old stacked date list used — so nothing moves days.
+   Tapping a headline (or its day) opens that day's brief cards directly
+   below the calendar; tapping a card opens the full brief, as before. */
+var MONTH_IDX = {January:0,February:1,March:2,April:3,May:4,June:5,July:6,August:7,September:8,October:9,November:10,December:11};
+var MONTH_NAMES = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+var reportsView = "calendar"; /* "calendar" | "list" — reader's choice via the view toggle */
+var listOpen = {};            /* list view: date key -> expanded? (latest day open by default) */
+var calCursor = null;      /* {y, m} — month on screen */
+var calSelectedKey = null; /* "YYYY-MM-DD" whose brief cards are open below */
+var calHighlightId = null; /* report id to outline after its day opens */
+var calNavLock = false;    /* set by month nav so render keeps the browsed month */
+
+function reportDateKey(r){
+  var m = /([A-Za-z]+) (\d{1,2}), (\d{4})/.exec(r.group || "");
+  if(m && Object.prototype.hasOwnProperty.call(MONTH_IDX, m[1])){
+    return m[3] + "-" + String(MONTH_IDX[m[1]] + 1).padStart(2, "0") + "-" + String(+m[2]).padStart(2, "0");
+  }
+  var d = new Date(r.ts);
+  return d.getUTCFullYear() + "-" + String(d.getUTCMonth() + 1).padStart(2, "0") + "-" + String(d.getUTCDate()).padStart(2, "0");
+}
+function keyParts(key){ var p = key.split("-"); return {y:+p[0], m:+p[1]-1, d:+p[2]}; }
+function monthPrefixOf(y, m){ return y + "-" + String(m + 1).padStart(2, "0"); }
+function filteredReports(){
+  var out = [];
   ALL_REPORTS.forEach(function(r){
     if(theaterFilter!=="all" && r.theater!==theaterFilter) return;
     if(sevFilter!=="all" && r.severity!==sevFilter) return;
@@ -2636,28 +2779,281 @@ function render(){
       var hay = ((r.headline||"")+" "+r.title+" "+(r.simple||"")+" "+r.summary+" "+r.category+" "+r.confidence+" "+(THEATER_NAMES[r.theater]||"")).toLowerCase();
       if(hay.indexOf(query)===-1) return;
     }
-    if(!byGroup[r.group]){ byGroup[r.group]=[]; order.push(r.group); }
-    byGroup[r.group].push(r);
+    out.push(r);
   });
-  var shown = 0;
-  order.forEach(function(g, gi){
-    shown += byGroup[g].length;
-    var sec = document.createElement("section");
-    sec.className = "group" + (gi>0 ? " closed" : "");
-    var head = document.createElement("button");
-    head.type = "button"; head.className = "group-head";
-    head.setAttribute("aria-expanded", gi===0 ? "true" : "false");
-    head.innerHTML = "<h3>"+esc(g)+"</h3><span class='gcount'>"+byGroup[g].length+" report"+(byGroup[g].length===1?"":"s")+"</span><span class='chev' aria-hidden='true'>▾</span>";
-    head.addEventListener("click", function(){
-      sec.classList.toggle("closed");
-      head.setAttribute("aria-expanded", sec.classList.contains("closed") ? "false" : "true");
+  return out;
+}
+function selectCalDay(key, highlightId, scroll){
+  calSelectedKey = key;
+  calHighlightId = highlightId || null;
+  if(key){ var p = keyParts(key); calCursor = {y:p.y, m:p.m}; }
+  render();
+  if(scroll){
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var target = null;
+    if(highlightId) target = document.querySelector(".card[data-id='" + highlightId + "']");
+    if(!target) target = document.getElementById("calPanel");
+    if(target) target.scrollIntoView({behavior: reduce ? "auto" : "smooth", block: highlightId ? "center" : "start"});
+  }
+}
+function navCalMonth(y, m){
+  while(m < 0){ m += 12; y--; }
+  while(m > 11){ m -= 12; y++; }
+  calCursor = {y:y, m:m};
+  var best = null;
+  filteredReports().forEach(function(r){
+    var k = reportDateKey(r), p = keyParts(k);
+    if(p.y===y && p.m===m && (!best || k > best)) best = k;
+  });
+  calSelectedKey = best;
+  calHighlightId = null;
+  calNavLock = true;
+  render();
+}
+/* Used by the Hourly Scan links: jump the calendar to a report's day,
+   open its brief cards, and flash the card — clearing filters first if
+   they would hide it. */
+window.showReportOnCalendar = function(id){
+  var rep = null;
+  ALL_REPORTS.forEach(function(x){ if(x.id===id) rep = x; });
+  if(!rep) return;
+  var vis = false;
+  filteredReports().forEach(function(x){ if(x.id===id) vis = true; });
+  if(!vis){
+    theaterFilter = "all"; sevFilter = "all"; statusFilter = "all"; query = "";
+    var si = document.getElementById("search"); if(si) si.value = "";
+    if(typeof syncFilterRadios === "function") syncFilterRadios();
+    if(typeof updateFiltersBtn === "function") updateFiltersBtn();
+  }
+  if(reportsView==="list"){
+    listOpen[reportDateKey(rep)] = true;
+    calHighlightId = id;
+    render();
+    var lcard = document.querySelector(".card[data-id='" + id + "']");
+    if(lcard){
+      var lreduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      lcard.scrollIntoView({behavior: lreduce ? "auto" : "smooth", block: "center"});
+      lcard.classList.add("scan-flash");
+      window.setTimeout(function(){ lcard.classList.remove("scan-flash"); }, 2600);
+    }
+    return;
+  }
+  selectCalDay(reportDateKey(rep), id, true);
+  var card = document.querySelector(".card[data-id='" + id + "']");
+  if(card){ card.classList.add("scan-flash"); window.setTimeout(function(){ card.classList.remove("scan-flash"); }, 2600); }
+};
+
+/* List view — the original stacked date list: newest day first, each day a
+   collapsible group of the same brief cards. Latest day starts open. */
+function renderListView(groupsEl, byDate, groupLabel, keys){
+  var desc = keys.slice().sort().reverse();
+  if(calHighlightId){
+    desc.forEach(function(k){
+      if(byDate[k].some(function(r){ return r.id===calHighlightId; })) listOpen[k] = true;
     });
-    sec.appendChild(head);
-    var cards = document.createElement("div"); cards.className = "cards";
-    cards.innerHTML = byGroup[g].map(cardHTML).join("");
-    sec.appendChild(cards);
-    groupsEl.appendChild(sec);
+  }
+  var h = "<div class='list-wrap' aria-label='Reports list'>";
+  desc.forEach(function(k, idx){
+    var reps = byDate[k];
+    var open = Object.prototype.hasOwnProperty.call(listOpen, k) ? listOpen[k] : (idx===0);
+    h += "<section class='group" + (open ? "" : " closed") + "' data-list-group='" + k + "'>"
+      + "<button type='button' class='group-head' data-list-toggle='" + k + "' aria-expanded='" + (open ? "true" : "false") + "'>"
+      + "<h3>" + esc(groupLabel[k]) + "</h3>"
+      + "<span class='gcount'>" + reps.length + " report" + (reps.length===1 ? "" : "s") + "</span>"
+      + "<span class='chev' aria-hidden='true'>▾</span></button>"
+      + "<div class='cards'>" + reps.map(cardHTML).join("") + "</div>"
+      + "</section>";
   });
+  h += "</div>";
+  groupsEl.innerHTML = h;
+  if(calHighlightId){
+    var hl = groupsEl.querySelector(".card[data-id='" + calHighlightId + "']");
+    if(hl) hl.classList.add("cal-focus");
+  }
+  groupsEl.querySelectorAll("[data-list-toggle]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var k = btn.getAttribute("data-list-toggle");
+      var sec = btn.closest(".group");
+      if(!sec) return;
+      var nowClosed = sec.classList.toggle("closed");
+      listOpen[k] = !nowClosed;
+      btn.setAttribute("aria-expanded", nowClosed ? "false" : "true");
+    });
+  });
+}
+
+function render(){
+  var groupsEl = document.getElementById("groups");
+  var list = filteredReports();
+  var byDate = {}, groupLabel = {};
+  list.forEach(function(r){
+    var k = reportDateKey(r);
+    if(!byDate[k]){ byDate[k] = []; groupLabel[k] = r.group; }
+    byDate[k].push(r);
+  });
+  var keys = Object.keys(byDate).sort();
+  var shown = list.length;
+
+  if(reportsView==="list"){
+    renderListView(groupsEl, byDate, groupLabel, keys);
+    var lEmptyEl = document.getElementById("emptyState");
+    var lIsraelEl = document.getElementById("israelEmptyNote");
+    if(lIsraelEl){ lIsraelEl.hidden = theaterFilter!=="israel-gaza-lebanon"; }
+    if(shown===0 && theaterFilter==="israel-gaza-lebanon"){
+      lEmptyEl.textContent = "No clean verified Nov 11–13 US-threat item was found, so this theater is intentionally empty.";
+      lEmptyEl.style.display = "block";
+    } else {
+      lEmptyEl.textContent = "No reports match that search and filter. Clear the search or pick a different severity.";
+      lEmptyEl.style.display = shown===0 ? "block" : "none";
+    }
+    document.getElementById("countLine").textContent = "Showing " + shown + " of " + ALL_REPORTS.length + " reports";
+    if(typeof syncTilesUI === "function") syncTilesUI();
+    return;
+  }
+
+  if(!calNavLock){
+    if(!calSelectedKey || !byDate[calSelectedKey]){
+      calSelectedKey = keys.length ? keys[keys.length - 1] : null;
+      calHighlightId = null;
+    }
+    if(calSelectedKey){ var sp = keyParts(calSelectedKey); calCursor = {y:sp.y, m:sp.m}; }
+    else if(!calCursor && keys.length){ var lp = keyParts(keys[keys.length - 1]); calCursor = {y:lp.y, m:lp.m}; }
+  }
+  calNavLock = false;
+  if(!calCursor){ var now0 = new Date(); calCursor = {y:now0.getFullYear(), m:now0.getMonth()}; }
+
+  var y = calCursor.y, m = calCursor.m;
+  var prefix = monthPrefixOf(y, m);
+  var monthKeys = keys.filter(function(k){ return k.indexOf(prefix) === 0; });
+  var monthCount = 0;
+  monthKeys.forEach(function(k){ monthCount += byDate[k].length; });
+  var selInMonth = !!(calSelectedKey && byDate[calSelectedKey] && calSelectedKey.indexOf(prefix) === 0);
+  if(calHighlightId && !(selInMonth && byDate[calSelectedKey].some(function(r){ return r.id===calHighlightId; }))) calHighlightId = null;
+
+  var now = new Date();
+  var todayKey = now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0");
+
+  /* Month jump menu — every month the current filters leave reports in,
+     plus the month on screen so the menu always reflects it. */
+  var monthSet = {};
+  keys.forEach(function(k){ var p = keyParts(k); monthSet[monthPrefixOf(p.y, p.m)] = (monthSet[monthPrefixOf(p.y, p.m)] || 0) + byDate[k].length; });
+  if(!monthSet[prefix]) monthSet[prefix] = 0;
+  var monthOpts = Object.keys(monthSet).sort().reverse().map(function(pfx){
+    var pp = pfx.split("-");
+    var label = MONTH_NAMES[+pp[1] - 1] + " " + pp[0] + (monthSet[pfx] ? " · " + monthSet[pfx] : "");
+    return "<option value='" + pfx + "'" + (pfx===prefix ? " selected" : "") + ">" + esc(label) + "</option>";
+  }).join("");
+
+  var h = "<div class='cal-wrap' aria-label='Reports calendar'>";
+  h += "<div class='cal-toolbar'><div class='cal-titlebox'>"
+    + "<h3 class='cal-month-title'>" + MONTH_NAMES[m] + " " + y + "</h3>"
+    + "<p class='cal-sub'>" + (monthCount
+        ? monthCount + " report" + (monthCount===1?"":"s") + " across " + monthKeys.length + " day" + (monthKeys.length===1?"":"s") + " — tap a headline or a day to open its briefs below the calendar."
+        : "No reports in this month with the current search and filters.")
+    + "</p></div>"
+    + "<div class='cal-nav'>"
+    + "<select class='cal-select' id='calMonthSel' aria-label='Jump to a month'>" + monthOpts + "</select>"
+    + "<button type='button' class='cal-navbtn' id='calPrev' aria-label='Previous month'>‹ Prev</button>"
+    + "<button type='button' class='cal-navbtn amber' id='calLatest'>Latest</button>"
+    + "<button type='button' class='cal-navbtn' id='calNext' aria-label='Next month'>Next ›</button>"
+    + "</div></div>";
+  h += "<div class='cal-weekdays' aria-hidden='true'><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>";
+  h += "<div class='cal-grid' role='group' aria-label='" + MONTH_NAMES[m] + " " + y + "'>";
+  var firstDow = new Date(y, m, 1).getDay();
+  var dim = new Date(y, m + 1, 0).getDate();
+  var prevDim = new Date(y, m, 0).getDate();
+  var cellCount = 0;
+  for(var i = 0; i < firstDow; i++){
+    h += "<div class='cal-cell muted' aria-hidden='true'><div class='cal-dayrow'><span class='cal-daynum'>" + (prevDim - firstDow + 1 + i) + "</span></div></div>";
+    cellCount++;
+  }
+  for(var d = 1; d <= dim; d++){
+    var key = prefix + "-" + String(d).padStart(2, "0");
+    var reps = byDate[key];
+    var cls = "cal-cell" + (reps ? " has-reports" : "") + (selInMonth && key===calSelectedKey ? " is-selected" : "") + (key===todayKey ? " is-today" : "");
+    h += "<div class='" + cls + "'" + (reps ? " data-cal-day='" + key + "' tabindex='0' role='button' aria-label='" + esc(groupLabel[key]) + " — " + reps.length + " report" + (reps.length===1?"":"s") + ". Activate to open its briefs.'" : "") + ">";
+    h += "<div class='cal-dayrow'><span class='cal-daynum'>" + d + "</span>" + (reps ? "<span class='cal-count'>" + reps.length + " report" + (reps.length===1?"":"s") + "</span>" : "") + "</div>";
+    if(reps){
+      h += "<div class='cal-events'>";
+      reps.slice(0, 4).forEach(function(r){
+        h += "<button type='button' class='cal-event' data-cal-report='" + esc(r.id) + "' data-cal-day='" + key + "' title='" + esc(r.headline || r.title) + "'><span class='cal-dot " + esc(r.severity) + "' aria-hidden='true'></span><span class='cal-etitle'>" + esc(r.headline || r.title) + "</span></button>";
+      });
+      if(reps.length > 4) h += "<button type='button' class='cal-more' data-cal-day='" + key + "'>+ " + (reps.length - 4) + " more</button>";
+      h += "</div>";
+      h += "<div class='cal-dots' aria-hidden='true'>" + reps.slice(0, 6).map(function(r){ return "<span class='cal-dot " + esc(r.severity) + "'></span>"; }).join("") + "</div>";
+    }
+    h += "</div>";
+    cellCount++;
+  }
+  var trail = (7 - (cellCount % 7)) % 7;
+  for(var t = 1; t <= trail; t++){
+    h += "<div class='cal-cell muted' aria-hidden='true'><div class='cal-dayrow'><span class='cal-daynum'>" + t + "</span></div></div>";
+  }
+  h += "</div>";
+  h += "<div class='cal-legend'><span class='cal-leg-label'>Severity</span>"
+    + "<span class='cal-leg'><span class='cal-dot critical'></span>Critical</span>"
+    + "<span class='cal-leg'><span class='cal-dot high'></span>High</span>"
+    + "<span class='cal-leg'><span class='cal-dot medium'></span>Medium</span>"
+    + "<span class='cal-leg'><span class='cal-dot low'></span>Low</span>"
+    + "<span class='cal-leg-note'>Tap a brief card below for the full brief.</span></div>";
+  h += "</div>";
+
+  if(selInMonth){
+    var dayReps = byDate[calSelectedKey];
+    h += "<section class='cal-panel' id='calPanel' aria-label='Briefs for " + esc(groupLabel[calSelectedKey]) + "'>"
+      + "<div class='cal-panel-head'><div><h3>" + esc(groupLabel[calSelectedKey]) + "</h3>"
+      + "<p>" + dayReps.length + " report" + (dayReps.length===1?"":"s") + " · tap a brief for the full details</p></div>"
+      + "<button type='button' class='cal-panel-close' id='calPanelClose' aria-label='Close this day'>✕ Close day</button></div>"
+      + "<div class='cards'>" + dayReps.map(cardHTML).join("") + "</div>"
+      + "</section>";
+  } else if(shown > 0){
+    h += "<div class='cal-panel cal-panel-empty' id='calPanel'><p>"
+      + (monthCount
+          ? "Pick a day with reports in " + MONTH_NAMES[m] + " " + y + " to see its briefs here."
+          : "No reports in " + MONTH_NAMES[m] + " " + y + " with the current search and filters — use Prev / Next or the month menu to jump to a month with reports.")
+      + "</p></div>";
+  }
+  groupsEl.innerHTML = h;
+
+  if(calHighlightId){
+    var hl = groupsEl.querySelector(".card[data-id='" + calHighlightId + "']");
+    if(hl) hl.classList.add("cal-focus");
+  }
+
+  document.getElementById("calPrev").addEventListener("click", function(){ navCalMonth(y, m - 1); });
+  document.getElementById("calNext").addEventListener("click", function(){ navCalMonth(y, m + 1); });
+  document.getElementById("calLatest").addEventListener("click", function(){
+    calSelectedKey = null; calHighlightId = null; calNavLock = false; render();
+    var wrap = groupsEl.querySelector(".cal-wrap");
+    if(wrap) wrap.scrollIntoView({block:"start"});
+  });
+  document.getElementById("calMonthSel").addEventListener("change", function(e){
+    var p = e.target.value.split("-");
+    navCalMonth(+p[0], +p[1] - 1);
+  });
+  groupsEl.querySelectorAll("[data-cal-report]").forEach(function(b){
+    b.addEventListener("click", function(e){
+      e.stopPropagation();
+      selectCalDay(b.getAttribute("data-cal-day"), b.getAttribute("data-cal-report"), true);
+    });
+  });
+  groupsEl.querySelectorAll(".cal-more").forEach(function(b){
+    b.addEventListener("click", function(e){
+      e.stopPropagation();
+      selectCalDay(b.getAttribute("data-cal-day"), null, true);
+    });
+  });
+  groupsEl.querySelectorAll(".cal-cell.has-reports").forEach(function(cell){
+    cell.addEventListener("click", function(){ selectCalDay(cell.getAttribute("data-cal-day"), null, true); });
+    cell.addEventListener("keydown", function(e){
+      if(e.key==="Enter" || e.key===" "){ e.preventDefault(); selectCalDay(cell.getAttribute("data-cal-day"), null, true); }
+    });
+  });
+  var closeBtn = document.getElementById("calPanelClose");
+  if(closeBtn) closeBtn.addEventListener("click", function(){
+    calSelectedKey = null; calHighlightId = null; calNavLock = true; render();
+  });
+
   var emptyEl = document.getElementById("emptyState");
   var israelNoteEl = document.getElementById("israelEmptyNote");
   if(israelNoteEl){ israelNoteEl.hidden = theaterFilter!=="israel-gaza-lebanon"; }
@@ -2729,6 +3125,22 @@ function closeDetail(){
 
 /* Wiring */
 document.getElementById("search").addEventListener("input", function(e){ query = e.target.value.trim().toLowerCase(); render(); });
+/* Calendar / List view toggle */
+var viewCalBtn = document.getElementById("viewCalBtn");
+var viewListBtn = document.getElementById("viewListBtn");
+function syncViewToggle(){
+  if(viewCalBtn) viewCalBtn.setAttribute("aria-pressed", reportsView==="calendar" ? "true" : "false");
+  if(viewListBtn) viewListBtn.setAttribute("aria-pressed", reportsView==="list" ? "true" : "false");
+}
+function setReportsView(v){
+  reportsView = v;
+  calHighlightId = null;
+  syncViewToggle();
+  render();
+}
+if(viewCalBtn) viewCalBtn.addEventListener("click", function(){ setReportsView("calendar"); });
+if(viewListBtn) viewListBtn.addEventListener("click", function(){ setReportsView("list"); });
+syncViewToggle();
 /* Filter popup — pending selection applies only on "Show results" */
 var SEV_NAMES = {critical:"Critical", high:"High", medium:"Medium", low:"Low"};
 var btnFilters = document.getElementById("btnFilters");
@@ -2878,13 +3290,13 @@ if(tileGrid){
     if(t){
       var id = t.getAttribute("data-tile-theater");
       theaterFilter = theaterFilter===id ? "all" : id;
-      syncFilterRadios(); updateFiltersBtn(); render();
+      syncFilterRadios(); updateFiltersBtn(); closeFilters(); render();
       return;
     }
     var u = e.target.closest("[data-tile-status]");
     if(u){
       statusFilter = statusFilter==="unverified" ? "all" : "unverified";
-      syncFilterRadios(); updateFiltersBtn(); render();
+      syncFilterRadios(); updateFiltersBtn(); closeFilters(); render();
     }
   });
 }
@@ -3291,14 +3703,11 @@ render();
     a.addEventListener("click", function(e){
       e.preventDefault();
       var id = a.getAttribute("data-scan-target");
+      /* Reports now live on the calendar: jump to the report's day, open
+         its brief cards below the calendar, and flash the card. */
+      if(typeof window.showReportOnCalendar === "function"){ window.showReportOnCalendar(id); return; }
       var card = document.querySelector(".card[data-id='" + id + "']");
       if(!card) return;
-      var group = card.closest(".group");
-      if(group && group.classList.contains("closed")){
-        group.classList.remove("closed");
-        var gh = group.querySelector(".group-head");
-        if(gh) gh.setAttribute("aria-expanded", "true");
-      }
       var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       card.scrollIntoView({behavior: reduce ? "auto" : "smooth", block: "center"});
       card.classList.add("scan-flash");
