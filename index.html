@@ -702,7 +702,7 @@
       </span>
       <div class="threat-copy">
         <p class="threat-title">Threat Level: <span class="threat-name" id="threatName">High</span></p>
-        <p class="threat-sub" id="threatSub">Substantial High brief active in the latest reporting — US Base Hit in Kuwait.</p>
+        <p class="threat-sub" id="threatSub">Substantial High briefs active in the latest reporting — US Base Hit in Kuwait · Fourth Strike on Bahrain · US Strikes Qeshm Again.</p>
       </div>
     </div>
     <div class="hs-head">
@@ -710,11 +710,11 @@
         <span class="hs-dot" aria-hidden="true"></span>
         <h3>Hourly Scan</h3>
       </div>
-      <span class="hs-time">Updated Thu Nov 19, 2026, ~11:45 AM CT</span>
-      <p class="hs-meta"><span id="hsLatest">Latest 9:37 PM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">19 High</span></p>
+      <span class="hs-time">Updated Thu Nov 19, 2026, ~4:51 PM CT</span>
+      <p class="hs-meta"><span id="hsLatest">Latest 6:47 AM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">19 High</span></p>
     </div>
-    <p class="hs-lede"><a href="#/reports" data-scan-target="nk-yongbyon-enrichment-expansion-nov18">The UN nuclear watchdog says North Korea has finished the outside of a new extension to its uranium-enrichment plant at Yongbyon</a>, expanding its capacity to make weapons-grade material, while <a href="#/reports" data-scan-target="us-iran-secret-strikes-nbc-nov17">NBC News reveals the US and Iran have been trading strikes almost daily for two months, with most US strikes never publicly acknowledged by the Pentagon</a>. The NBC report also discloses that an Iranian missile hit a ship in the Strait of Hormuz on September 14, injuring eight US Marines — an attack the Pentagon never announced.</p>
-    <p class="hs-why"><span>Why this matters for the US</span> — North Korea is quietly gaining capacity for more nuclear weapons while the real tempo of the US–Iran war — near-daily strikes and unannounced US casualties — is far higher than the official record shows.</p>
+    <p class="hs-lede"><a href="#/reports" data-scan-target="tanker-loads-iranian-crude-nov19">A tanker is loading Iranian crude in the Gulf through a ship-to-ship transfer and could become the first to successfully export Iranian crude since the US reimposed its naval blockade in July, TankerTrackers.com told Reuters</a> — one day after CENTCOM widened the blockade to cover exactly these at-sea transfers. The vessel is not under US Treasury sanctions, which is how it entered the region without drawing scrutiny, and whether it gets past the blockade perimeter is still untested.</p>
+    <p class="hs-why"><span>Why this matters for the US</span> — If the tanker slips out, the blockade's grip on Iranian crude is weaker than claimed; if US forces stop it, the new rules get their first enforcement.</p>
     <div class="hs-links">
       <span class="hs-links-label">Latest briefs</span>
       <a class="hs-link" href="#/reports" data-scan-target="iran-2026-11-18-ali-al-salem-us-base">US Base Hit in Kuwait <span class="arr" aria-hidden="true">↓</span></a>
@@ -1161,6 +1161,23 @@ var THEATER_NAMES = {
   "cyber-homeland":"Cyber / Homeland"
 };
 var REPORTS = [
+{
+  id:"tanker-loads-iranian-crude-nov19",
+  ts:"2026-11-19T12:47:00Z",
+  group:"Thursday, November 19, 2026",
+  theater:"iran-gulf",
+  severity:"medium",
+  category:"Blockade evasion — Iranian crude",
+  title:"Oil tanker loads Iranian crude in Gulf, TankerTrackers.com says (Reuters, Nov 19, 2026)",
+  headline:"Tanker Loads Iranian Crude",
+  simple:"A tanker is loading Iranian crude oil in the Gulf, moving the oil from one ship to another at sea. If it gets out past the US naval blockade, it would be the first tanker to successfully export Iranian crude since the US reimposed the blockade in July. The ship monitoring service that spotted it, TankerTrackers.com, would not name the vessel, but said it is not under US Treasury sanctions — which is how it got into the area without drawing attention. It is not yet clear whether the tanker will make it out or be stopped.",
+  summary:"What happened — A tanker was loading Iranian crude oil in the Gulf via ship-to-ship transfer on Thursday, Nov 19, TankerTrackers.com told Reuters. If the tanker leaves the blockade perimeter, it would be the first successful export of seaborne Iranian crude since the United States reimposed its naval blockade in mid-July, Samir Madani, co-founder of TankerTrackers.com, told Reuters. Madani declined to identify the vessel but said it was not subject to US Treasury sanctions, allowing it to enter the region without attracting scrutiny. Context — The US naval blockade on Iran-related oil exports was first imposed April 13, lifted in June after a draft understanding with Tehran, and reimposed July 14 after the agreement collapsed. On Wednesday, Nov 18, CENTCOM widened the blockade to cover exactly this kind of at-sea transfer: any ship receiving cargo via ship-to-ship transfer from a vessel loaded at an Iranian port may be treated as evading the blockade and can be stopped, boarded, diverted, or captured. Visible Iranian crude exports have collapsed to near zero in recent months as a result of the blockade, though Reuters reported in October that Iran has still managed to export some liquefied petroleum gas and jet fuel since July. Why this matters for the US: This is the first test of the expanded blockade rules — a tanker loading Iranian crude at sea, one day after CENTCOM said such transfers can be treated as blockade evasion. If it slips out, the blockade's grip on Iranian crude is weaker than claimed; if US forces stop it, the new rules get their first enforcement. Either way, the standoff over Gulf shipping is now playing out ship by ship.",
+  confidence:"High that Reuters reported TankerTrackers.com's finding on Nov 19 (Reuters wire, quoting co-founder Samir Madani by name). The loading itself is TankerTrackers.com's attribution — a single source, and the vessel is unnamed, so the tanker has not been independently identified. Medium that this becomes the first successful crude export since July — that depends on whether the tanker leaves the blockade perimeter, which had not happened when Reuters reported it.",
+  flag:"Single-source attribution (TankerTrackers.com via Reuters); vessel unnamed; no confirmation yet that the tanker left the blockade perimeter or was intercepted.",
+  sources:[
+    {name:"Reuters — Oil tanker loads Iranian crude in Gulf, TankerTrackers.com says", date:"Nov 19, 2026", url:"https://www.reuters.com/business/energy/oil-tanker-loads-iranian-crude-gulf-tankertrackerscom-says-2026-11-19/"}
+  ]
+},
 {
   id:"saudi-coalition-cruise-intercept-south-nov18",
   ts:"2026-11-19T03:37:00Z",
@@ -2912,6 +2929,7 @@ var GLOSSARY = {
   "precision munitions": "Guided bombs and missiles that steer themselves onto a specific target using GPS, laser guidance, or other sensors, instead of falling or flying unguided. They let aircraft hit one chosen site while limiting damage to the area around it.",
   "UKMTO": "UK Maritime Trade Operations — a Royal Navy-run reporting center that logs attacks and suspicious activity reported by merchant ships in the Gulf, the Red Sea, and the Indian Ocean.",
   "blockade": "A naval blockade uses warships to stop ships reaching or leaving a country's ports. Here it means US naval forces intercepting shipping to and from Iran to enforce sanctions and pressure Tehran.",
+  "ship-to-ship transfer": "A transfer of cargo — here crude oil — from one vessel to another while both are at sea, rather than loading or unloading at a port. Under the expanded US blockade rules, a ship that takes cargo this way from a vessel loaded at an Iranian port can be treated as evading the blockade and stopped, boarded, diverted, or captured.",
   "ballistic missiles": "Missiles launched high into the air — partly out of the atmosphere — that then fall on their target under gravity. They are fast, hard to intercept, and can carry large warheads over long distances.",
   "one-way attack drones": "Cheap drones built to fly into a target and explode — sometimes called kamikaze or suicide drones. They are used in large numbers because they cost far less than the missiles used to shoot them down.",
   "carrier strike group": "A US Navy battle group built around an aircraft carrier, with escort warships and support vessels. Moving one toward a region is a visible show of force and a warning signal.",
@@ -2972,6 +2990,8 @@ var TERM_KEYS = {
   "plutonium":"plutonium", "Plutonium":"plutonium",
   "anti-ship cruise missiles":"anti-ship cruise missile", "Anti-ship cruise missiles":"anti-ship cruise missile", "anti-ship cruise missile":"anti-ship cruise missile", "Anti-ship cruise missile":"anti-ship cruise missile",
   "Blockade":"blockade", "blockade":"blockade",
+  "naval blockade":"blockade", "Naval blockade":"blockade",
+  "ship-to-ship transfers":"ship-to-ship transfer", "Ship-to-ship transfers":"ship-to-ship transfer", "ship-to-ship transfer":"ship-to-ship transfer", "Ship-to-ship transfer":"ship-to-ship transfer",
   "Khorramshahr":"Khorramshahr", "RAF Fairford":"RAF Fairford",
   "Fifth Fleet":"Fifth Fleet", "STEP":"STEP",
   "PGSA blacklist":"PGSA blacklist", "PGSA":"PGSA blacklist",
@@ -2996,7 +3016,7 @@ var TERM_KEYS = {
   "Patriot":"Patriot",
   "Tu-95s":"Tu-95", "Tu-95":"Tu-95"
 };
-var TERM_RE = /(^|[^A-Za-z])((?:anti-ship cruise missiles|Anti-ship cruise missiles|anti-ship cruise missile|Anti-ship cruise missile|uranium enrichment|Uranium enrichment|uranium-enrichment|Uranium-enrichment|centrifuges|Centrifuges|centrifuge|Centrifuge|plutonium|Plutonium|Yongbyon|UK Maritime Trade Operations|liquefied petroleum gas|Liquefied petroleum gas|air defence identification zone|Air defence identification zone|Ali Al Salem Air Base|chemical weapons|Chemical weapons|chemical weapon|Chemical weapon|dirty bombs|Dirty bomb|dirty bomb|dirty-bomb|precision munitions|Precision munitions|cruise missiles|Cruise missiles|cruise missile|Cruise missile|Bab el-Mandeb|Strait of Hormuz|Qeshm Island|Kuwait|Bahrain|Tsushima Strait|Arabian Gulf|non-NATO ally|Riffa Air Base|one-way attack drones|one-way attack drone|ballistic missiles|ballistic missile|carrier strike groups|carrier strike group|East-West oil pipeline|East-West Pipeline|PGSA blacklist|Conflict Zone|conflict zone|conflict-zone|Khorramshahr|RAF Fairford|Fifth Fleet|product tanker|Product tanker|Houthis|Houthi|CENTCOM|UKMTO|IRGC|EASA|CZIB|IAEA|NATO|ADNOC|Patriot|Tu-95s|Tu-95|LPG|ADIZ|STEP|JMIC|FIRs|FIR|PGSA|Blockade|blockade|projectiles|projectile|Projectile|waterline|Waterline))(?![A-Za-z0-9])/g;
+var TERM_RE = /(^|[^A-Za-z])((?:anti-ship cruise missiles|Anti-ship cruise missiles|anti-ship cruise missile|Anti-ship cruise missile|uranium enrichment|Uranium enrichment|uranium-enrichment|Uranium-enrichment|centrifuges|Centrifuges|centrifuge|Centrifuge|plutonium|Plutonium|Yongbyon|UK Maritime Trade Operations|liquefied petroleum gas|Liquefied petroleum gas|air defence identification zone|Air defence identification zone|Ali Al Salem Air Base|chemical weapons|Chemical weapons|chemical weapon|Chemical weapon|dirty bombs|Dirty bomb|dirty bomb|dirty-bomb|precision munitions|Precision munitions|cruise missiles|Cruise missiles|cruise missile|Cruise missile|Bab el-Mandeb|Strait of Hormuz|Qeshm Island|Kuwait|Bahrain|Tsushima Strait|Arabian Gulf|non-NATO ally|Riffa Air Base|one-way attack drones|one-way attack drone|ballistic missiles|ballistic missile|carrier strike groups|carrier strike group|East-West oil pipeline|East-West Pipeline|PGSA blacklist|Conflict Zone|conflict zone|conflict-zone|Khorramshahr|RAF Fairford|Fifth Fleet|product tanker|Product tanker|Houthis|Houthi|CENTCOM|UKMTO|IRGC|EASA|CZIB|IAEA|NATO|ADNOC|Patriot|Tu-95s|Tu-95|LPG|ADIZ|STEP|JMIC|FIRs|FIR|PGSA|ship-to-ship transfers|Ship-to-ship transfers|ship-to-ship transfer|Ship-to-ship transfer|naval blockade|Naval blockade|Blockade|blockade|projectiles|projectile|Projectile|waterline|Waterline))(?![A-Za-z0-9])/g;
 function linkify(text){
   return esc(text).replace(TERM_RE, function(m, pre, label){
     return pre + "<button type='button' class='term' data-term='" + TERM_KEYS[label] + "'>" + label + "</button>";
@@ -3912,19 +3932,19 @@ render();
       hsLatest.textContent = "Latest " + hsTimeFmt.format(new Date(hsLatestTs)) + " CT";
     }
 
-    /* Threat level: posture from the most severe brief(s) in the latest report group
-       (the dashboard's own day grouping). High/Critical -> red alert state;
-       Medium/Low only -> green "No new escalation". */
+    /* Threat level: posture from the most severe ACTIVE briefs — the briefs at the
+       top severity within 72 hours of the latest report. A quiet newest day does
+       not clear recent High/Critical briefs that are still active and un-cleared.
+       High/Critical -> red alert state; Medium/Low only -> green "No new escalation". */
     var threatEl = document.getElementById("threatLevel");
     if(threatEl && hsLatestTs){
-      var latestGroup = null;
-      ALL_REPORTS.forEach(function(r){
-        if(new Date(r.ts).getTime() === hsLatestTs) latestGroup = r.group;
-      });
-      var sevRank = {low:0, medium:1, high:2, critical:3};
+      var activeSince = hsLatestTs - 72 * 60 * 60 * 1000;
+      var sevRank = {low:0, "low-medium":0, medium:1, high:2, critical:3};
       var topRank = -1, drivers = [];
       ALL_REPORTS.forEach(function(r){
-        if(r.group !== latestGroup) return;
+        if(r.dateOnly) return;
+        var rt = new Date(r.ts).getTime();
+        if(!(rt >= activeSince && rt <= hsLatestTs)) return;
         var rk = (r.severity in sevRank) ? sevRank[r.severity] : 0;
         if(rk > topRank){ topRank = rk; drivers = (rk >= 2) ? [r] : []; }
         else if(rk === topRank && rk >= 2){ drivers.push(r); }
