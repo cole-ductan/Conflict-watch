@@ -710,11 +710,11 @@
         <span class="hs-dot" aria-hidden="true"></span>
         <h3>Hourly Scan</h3>
       </div>
-      <span class="hs-time">Updated Fri Nov 20, 2026, ~8:51 AM CT</span>
-      <p class="hs-meta"><span id="hsLatest">Latest 6:41 PM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">19 High</span></p>
+      <span class="hs-time">Updated Fri Nov 20, 2026, ~9:51 AM CT</span>
+      <p class="hs-meta"><span id="hsLatest">Latest 5:02 AM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">19 High</span></p>
     </div>
-    <p class="hs-lede">A <button type="button" class="term" data-term="Government Accountability Office">Government Accountability Office</button> <a href="#/reports" data-scan-target="gao-munitions-shortage-nov19">report released Thursday finds the Iran war has worsened a 'persistent' US munitions shortfall — and the Pentagon has no comprehensive plan to rebuild stocks</a> — while <a href="#/reports" data-scan-target="russia-poland-airspace-violation-nov20">Russia's massive overnight barrage on Kyiv sent three objects, likely two missiles and a drone, into Polish airspace, which Warsaw called a Russian 'provocation'</a>. The US snapshot was also refreshed: the S&amp;P 500 closed Thursday at 7,175.83, down 2.02% for a sixth straight loss, and AAA's national gas average is $3.72.</p>
-    <p class="hs-why"><span>Why this matters for the US</span> — The war is eating the advanced munitions the US needs to keep fighting, with no rebuild plan; and Russian weapons crossing into a <button type="button" class="term" data-term="NATO">NATO</button> ally's airspace is the kind of spillover that can pull the alliance in.</p>
+    <p class="hs-lede"><button type="button" class="term" data-term="UKMTO">UKMTO</button> says <a href="#/reports" data-scan-target="ukmto-213-26-gulf-of-aden-skiff-nov20">an armed skiff fired four shots at a bulk carrier</a> in the <button type="button" class="term" data-term="Gulf of Aden">Gulf of Aden</button> on Friday morning. The ship's armed security team returned warning shots, the skiff moved away, and the vessel continued its voyage with no injuries and no damage. The incident — Warning 213-26, logged as suspicious activity — comes two days after the Nov 18 tanker attack off Khasab, but no group has claimed it and the skiff's crew is unidentified.</p>
+    <p class="hs-why"><span>Why this matters for the US</span> — The <button type="button" class="term" data-term="Gulf of Aden">Gulf of Aden</button> carries a large share of US-bound trade and is patrolled by US naval forces; shots fired at a merchant ship there, even with no damage, are a direct threat to that route.</p>
     <div class="hs-links">
       <span class="hs-links-label">Latest briefs</span>
       <a class="hs-link" href="#/reports" data-scan-target="iran-2026-11-18-ali-al-salem-us-base">US Base Hit in Kuwait <span class="arr" aria-hidden="true">↓</span></a>
@@ -1161,6 +1161,23 @@ var THEATER_NAMES = {
   "cyber-homeland":"Cyber / Homeland"
 };
 var REPORTS = [
+{
+  id:"ukmto-213-26-gulf-of-aden-skiff-nov20",
+  ts:"2026-11-20T11:02:00Z",
+  group:"Friday, November 20, 2026",
+  theater:"iran-gulf",
+  severity:"low",
+  category:"Maritime security — Gulf of Aden",
+  title:"Armed skiff fires shots at bulk carrier off Yemen, UKMTO says (Safety4sea, Nov 20, 2026)",
+  headline:"Shots Fired Off Yemen",
+  simple:"A small boat carrying six armed men fired four shots at a large cargo ship in the Gulf of Aden, off Yemen, on Friday morning. The ship's own security team fired warning shots back, the small boat moved away, and the ship carried on with no one hurt and no damage. The British maritime agency UKMTO logged the incident as suspicious activity. Nobody has claimed responsibility, and the men in the boat have not been identified.",
+  summary:"What happened — A dark blue skiff carrying six unidentified armed individuals approached the port side of an eastbound bulk carrier in the Internationally Recommended Transit Corridor, about 95 nautical miles southwest of Al Mukalla, Yemen, at about 11:02 UTC on Friday, Nov 20 (5:02 AM CT), UKMTO said. Four shots were fired in quick succession from the skiff; the vessel's armed security team returned warning shots, the skiff moved away, and the bulk carrier continued its voyage. The master confirmed no crew members were injured and the vessel sustained no damage. UKMTO issued Warning 213-26 and classified the incident as suspicious activity. Context — The Gulf of Aden is the approach to the Bab el-Mandeb strait and the Red Sea, one of the world's busiest shipping lanes. The incident comes two days after the Nov 18 tanker attack off Khasab, but UKMTO has not linked it to any group, and no party has claimed it. Armed skiff approaches in these waters have historically included both piracy and Houthi harassment, and the two cannot be told apart from this report alone. Why this matters for the US: The Gulf of Aden carries a large share of US-bound trade and is patrolled by US and allied naval forces. Shots fired at a merchant ship there — even with no damage — are a direct threat to that trade route, and to the US forces tasked with keeping it open.",
+  confidence:"High that UKMTO reported the incident as described (UKMTO Warning 213-26, Nov 20, 2026, as relayed by Safety4sea, which quotes UKMTO's own post). Medium on the classification — UKMTO calls it suspicious activity, not a confirmed attack by a named actor. No attribution: the six armed individuals were not identified and no group has claimed the incident.",
+  flag:"No attribution — the skiff's crew is unidentified and no group has claimed the incident; vessel unnamed; no injuries or damage; UKMTO classifies it as suspicious activity.",
+  sources:[
+    {name:"Safety4sea — Armed skiff fires shots at bulk carrier off Yemen (quoting UKMTO Warning 213-26)", date:"Nov 20, 2026", url:"https://safety4sea.com/armed-skiff-fires-shots-at-bulk-carrier-off-yemen/"}
+  ]
+},
 {
   id:"russia-poland-airspace-violation-nov20",
   ts:"2026-11-20T00:41:00Z",
@@ -2988,6 +3005,7 @@ var GLOSSARY = {
   "conflict zone": "Airspace EASA or another regulator has formally flagged as dangerous for civil aviation because of armed conflict below \u2014 airlines are advised to avoid it or take special precautions.",
   "FIR": "A Flight Information Region \u2014 a defined block of airspace within which flight information and alerting services are provided. Each FIR is managed by a specific air navigation authority; the Gulf bulletin covers the Bahrain, Kuwait, Doha, Emirates and Muscat FIRs.",
   "Arabian Gulf": "The body of water between Iran and the Arabian Peninsula \u2014 the same waterway also called the Persian Gulf. UKMTO and the Gulf states commonly call it the Arabian Gulf.",
+  "Gulf of Aden": "The waterway between Yemen and the Horn of Africa, linking the Red Sea and the Bab el-Mandeb strait to the Arabian Sea. It is one of the world's busiest shipping lanes, carrying a large share of Asia\u2013Europe trade, and is patrolled by US and allied naval forces.",
   "non-NATO ally": "A major non-NATO ally is a country the US has formally designated as a close partner outside the NATO alliance. The designation gives the partner priority access to US military equipment, training and cooperation, but it is not a mutual-defense treaty — the US is not automatically obliged to go to war for it. Bahrain holds this designation.",
   "Riffa Air Base": "A Bahraini air base at Riffa, south of the capital Manama, that hosts air-defence radar covering the Gulf. The IRGC claimed it struck a US radar there with six drones on Sunday, November 15, 2026 — a claim that remains unconfirmed.",
   "projectile": "In UKMTO reporting, any object fired or launched at a vessel \u2014 a missile, drone, shell or other munition \u2014 when the exact weapon type has not been identified. \u201cUnknown projectile\u201d means something hit the ship but the weapon is unconfirmed.",
@@ -3037,6 +3055,7 @@ var TERM_KEYS = {
   "Conflict Zone":"conflict zone", "conflict zone":"conflict zone", "conflict-zone":"conflict zone",
   "FIRs":"FIR", "FIR":"FIR",
   "Arabian Gulf":"Arabian Gulf",
+  "Gulf of Aden":"Gulf of Aden",
   "non-NATO ally":"non-NATO ally",
   "Riffa Air Base":"Riffa Air Base",
   "projectiles":"projectile", "projectile":"projectile", "Projectile":"projectile",
@@ -3052,7 +3071,7 @@ var TERM_KEYS = {
   "Government Accountability Office":"Government Accountability Office",
   "Tu-95s":"Tu-95", "Tu-95":"Tu-95"
 };
-var TERM_RE = /(^|[^A-Za-z])((?:Government Accountability Office|anti-ship cruise missiles|Anti-ship cruise missiles|anti-ship cruise missile|Anti-ship cruise missile|uranium enrichment|Uranium enrichment|uranium-enrichment|Uranium-enrichment|centrifuges|Centrifuges|centrifuge|Centrifuge|plutonium|Plutonium|Yongbyon|UK Maritime Trade Operations|liquefied petroleum gas|Liquefied petroleum gas|air defence identification zone|Air defence identification zone|Ali Al Salem Air Base|chemical weapons|Chemical weapons|chemical weapon|Chemical weapon|dirty bombs|Dirty bomb|dirty bomb|dirty-bomb|precision munitions|Precision munitions|cruise missiles|Cruise missiles|cruise missile|Cruise missile|Bab el-Mandeb|Strait of Hormuz|Qeshm Island|Kuwait|Bahrain|Tsushima Strait|Arabian Gulf|non-NATO ally|Riffa Air Base|one-way attack drones|one-way attack drone|ballistic missiles|ballistic missile|carrier strike groups|carrier strike group|East-West oil pipeline|East-West Pipeline|PGSA blacklist|Conflict Zone|conflict zone|conflict-zone|Khorramshahr|RAF Fairford|Fifth Fleet|product tanker|Product tanker|Houthis|Houthi|CENTCOM|UKMTO|IRGC|EASA|CZIB|IAEA|NATO|ADNOC|Patriot|Tu-95s|Tu-95|LPG|ADIZ|STEP|JMIC|FIRs|FIR|PGSA|ship-to-ship transfers|Ship-to-ship transfers|ship-to-ship transfer|Ship-to-ship transfer|naval blockade|Naval blockade|Blockade|blockade|projectiles|projectile|Projectile|waterline|Waterline))(?![A-Za-z0-9])/g;
+var TERM_RE = /(^|[^A-Za-z])((?:Government Accountability Office|anti-ship cruise missiles|Anti-ship cruise missiles|anti-ship cruise missile|Anti-ship cruise missile|uranium enrichment|Uranium enrichment|uranium-enrichment|Uranium-enrichment|centrifuges|Centrifuges|centrifuge|Centrifuge|plutonium|Plutonium|Yongbyon|UK Maritime Trade Operations|liquefied petroleum gas|Liquefied petroleum gas|air defence identification zone|Air defence identification zone|Ali Al Salem Air Base|chemical weapons|Chemical weapons|chemical weapon|Chemical weapon|dirty bombs|Dirty bomb|dirty bomb|dirty-bomb|precision munitions|Precision munitions|cruise missiles|Cruise missiles|cruise missile|Cruise missile|Bab el-Mandeb|Strait of Hormuz|Qeshm Island|Kuwait|Bahrain|Tsushima Strait|Arabian Gulf|Gulf of Aden|non-NATO ally|Riffa Air Base|one-way attack drones|one-way attack drone|ballistic missiles|ballistic missile|carrier strike groups|carrier strike group|East-West oil pipeline|East-West Pipeline|PGSA blacklist|Conflict Zone|conflict zone|conflict-zone|Khorramshahr|RAF Fairford|Fifth Fleet|product tanker|Product tanker|Houthis|Houthi|CENTCOM|UKMTO|IRGC|EASA|CZIB|IAEA|NATO|ADNOC|Patriot|Tu-95s|Tu-95|LPG|ADIZ|STEP|JMIC|FIRs|FIR|PGSA|ship-to-ship transfers|Ship-to-ship transfers|ship-to-ship transfer|Ship-to-ship transfer|naval blockade|Naval blockade|Blockade|blockade|projectiles|projectile|Projectile|waterline|Waterline))(?![A-Za-z0-9])/g;
 function linkify(text){
   return esc(text).replace(TERM_RE, function(m, pre, label){
     return pre + "<button type='button' class='term' data-term='" + TERM_KEYS[label] + "'>" + label + "</button>";
