@@ -710,11 +710,11 @@
         <span class="hs-dot" aria-hidden="true"></span>
         <h3>Hourly Scan</h3>
       </div>
-      <span class="hs-time">Updated Fri Nov 20, 2026, ~9:51 AM CT</span>
-      <p class="hs-meta"><span id="hsLatest">Latest 5:02 AM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">19 High</span></p>
+      <span class="hs-time">Updated Fri Nov 20, 2026, ~10:51 AM CT</span>
+      <p class="hs-meta"><span id="hsLatest">Latest 9:00 AM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">19 High</span></p>
     </div>
-    <p class="hs-lede"><button type="button" class="term" data-term="UKMTO">UKMTO</button> says <a href="#/reports" data-scan-target="ukmto-213-26-gulf-of-aden-skiff-nov20">an armed skiff fired four shots at a bulk carrier</a> in the <button type="button" class="term" data-term="Gulf of Aden">Gulf of Aden</button> on Friday morning. The ship's armed security team returned warning shots, the skiff moved away, and the vessel continued its voyage with no injuries and no damage. The incident — Warning 213-26, logged as suspicious activity — comes two days after the Nov 18 tanker attack off Khasab, but no group has claimed it and the skiff's crew is unidentified.</p>
-    <p class="hs-why"><span>Why this matters for the US</span> — The <button type="button" class="term" data-term="Gulf of Aden">Gulf of Aden</button> carries a large share of US-bound trade and is patrolled by US naval forces; shots fired at a merchant ship there, even with no damage, are a direct threat to that route.</p>
+    <p class="hs-lede"><button type="button" class="term" data-term="UKMTO">UKMTO</button> says <a href="#/reports" data-scan-target="ukmto-214-26-khasab-tanker-nov20">a tanker on outbound transit</a> through the <button type="button" class="term" data-term="Strait of Hormuz">Strait of Hormuz</button> was struck on the port bow by an unknown projectile about 8 nautical miles north of Khasab, Oman, on Friday morning, starting a fire on board. No casualties and no environmental impact were reported. It is the third tanker struck north of Khasab since Monday and the eighth attack on shipping in the strait and the Arabian Gulf in the last week; UKMTO has named no vessel and no attacker.</p>
+    <p class="hs-why"><span>Why this matters for the US</span> — The <button type="button" class="term" data-term="Strait of Hormuz">Strait of Hormuz</button> is the chokepoint for Gulf oil and a US Navy operating area; a third tanker hit in four days in the same waters keeps the pressure on US and allied shipping and raises the chance of a miscalculation that pulls US forces in.</p>
     <div class="hs-links">
       <span class="hs-links-label">Latest briefs</span>
       <a class="hs-link" href="#/reports" data-scan-target="iran-2026-11-18-ali-al-salem-us-base">US Base Hit in Kuwait <span class="arr" aria-hidden="true">↓</span></a>
@@ -1161,6 +1161,24 @@ var THEATER_NAMES = {
   "cyber-homeland":"Cyber / Homeland"
 };
 var REPORTS = [
+{
+  id:"ukmto-214-26-khasab-tanker-nov20",
+  ts:"2026-11-20T15:00:00Z",
+  group:"Friday, November 20, 2026",
+  theater:"iran-gulf",
+  severity:"medium",
+  category:"Maritime attack — Strait of Hormuz",
+  title:"Fire reported on tanker after projectile strike off Oman, UKMTO says (Reuters, Nov 20, 2026)",
+  headline:"Tanker Struck Again",
+  simple:"A tanker sailing out of the Strait of Hormuz was hit by an unknown projectile on its port bow on Friday morning, about 8 nautical miles north of Khasab, Oman. A fire broke out on board, but no one was hurt and there was no environmental damage. UKMTO has not named the ship or said who fired — and no one has claimed the attack. It is the third tanker struck north of Khasab since Monday, and the eighth attack on shipping in the strait and the Arabian Gulf in the last week.",
+  summary:"What happened — UKMTO Warning 214-26: a tanker on outbound transit through the Strait of Hormuz was struck on the port bow by an unknown projectile at 15:00 UTC on Friday, Nov 20 (9:00 AM CT), about 8 nautical miles north of Khasab, Oman. The vessel's company security officer reported a fire on board. No casualties and no environmental impact were reported; authorities are investigating. UKMTO issued the warning at 16:03 UTC. Context — this is the third tanker struck north of Khasab since Monday, after the ADNOC vessel NAVIG8 MESSI (Nov 17, 13 NM north of Khasab, one crew member missing, 11 injured) and the Nov 18 engine-room strike (6 NM north of Khasab, Warning 212-26, crew safe). UKMTO has reported eight attacks on shipping in the strait and the Arabian Gulf in the last week. Contested claims — none attached to this incident: UKMTO says 'unknown projectile' and has not attributed the strike. Iran's separate claim that tankers hit naval mines is unverified and is not linked by any source to this incident; that claim family is tracked separately in the Unverified section. Why this matters for the US: The Strait of Hormuz is the chokepoint for Gulf oil and a US Navy operating area. A third tanker hit in four days in the same waters — even with no casualties — keeps the pressure on US and allied shipping, pushes up energy and insurance costs, and raises the chance of a miscalculation that pulls US forces in. The pattern, not any single hit, is the threat.",
+  confidence:"High for the UKMTO facts (warning number 214-26, 8 NM north of Khasab, unknown projectile on the port bow, fire on board, no casualties, no environmental impact — UKMTO's own warning, posted 16:03 UTC Nov 20 and reported by Reuters). Medium on the extent of the damage — UKMTO has not said how bad the fire is or whether the vessel can continue. No attribution — UKMTO has not said who fired and no group has claimed the attack.",
+  flag:"Attacker unidentified — vessel unnamed by UKMTO; no claim of responsibility.",
+  sources:[
+    {name:"Reuters — Fire reported on tanker after projectile strike off Oman, UKMTO says", date:"Nov 20, 2026", url:"https://www.reuters.com/world/middle-east/fire-reported-tanker-after-projectile-strike-off-oman-ukmto-says-2026-11-20/"},
+    {name:"Monitor the Situation — UKMTO 214-26: Tanker Struck by Projectile North of Khasab, Oman (tracking UKMTO's own post, 16:03 UTC)", date:"Nov 20, 2026", url:"https://monitor-the-situation.com/middle-east/ukmto-214-26-tanker-struck-by-12e6def1"}
+  ]
+},
 {
   id:"ukmto-213-26-gulf-of-aden-skiff-nov20",
   ts:"2026-11-20T11:02:00Z",
