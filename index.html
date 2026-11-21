@@ -710,11 +710,11 @@
         <span class="hs-dot" aria-hidden="true"></span>
         <h3>Hourly Scan</h3>
       </div>
-      <span class="hs-time">Updated Sat Nov 21, 2026, ~10:28 AM CT</span>
+      <span class="hs-time">Updated Sat Nov 21, 2026, ~2:40 PM CT</span>
       <p class="hs-meta"><span id="hsLatest">Latest 11:50 PM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">19 High</span></p>
     </div>
-    <p class="hs-lede">Two tankers were hit by unknown projectiles near Khasab, Oman, within an hour late Friday night — <a href="#/reports" data-scan-target="ukmto-215-26-khasab-tanker-nov21">one on its stern</a>, <a href="#/reports" data-scan-target="ukmto-216-26-khasab-tanker-nov21">the second in its engine room</a> — the fourth and fifth strikes near Khasab since Tuesday. No one was hurt in either attack, and UKMTO has not named the vessels or said who fired. Iran's navy claims a tanker hit a mine instead; Reuters could not verify that account.</p>
-    <p class="hs-why"><span>Why this matters for the US</span> — Two tankers hit in an hour in the chokepoint for Gulf oil keeps the pressure on US and allied shipping and raises the chance of a miscalculation that pulls US forces in.</p>
+    <p class="hs-lede">Bahrain reports an Iranian attack damaged a civilian industrial facility and started a fire — the fifth attack on Bahrain. CENTCOM denies Iran's claim of striking a US F-16.</p>
+    <p class="hs-why"><span>Why this matters for the US</span> — Bahrain hosts the US Navy's Fifth Fleet; a successful strike on Bahraini soil raises the risk of direct US-Iran retaliation.</p>
     <div class="hs-links">
       <span class="hs-links-label">Latest briefs</span>
       <a class="hs-link" href="#/reports" data-scan-target="iran-2026-11-18-ali-al-salem-us-base">US Base Hit in Kuwait <span class="arr" aria-hidden="true">↓</span></a>
@@ -1161,6 +1161,58 @@ var THEATER_NAMES = {
   "cyber-homeland":"Cyber / Homeland"
 };
 var REPORTS = [
+{
+  id:"bahrain-industrial-facility-strike-nov21",
+  ts:"2026-11-21T19:15:00Z",
+  group:"Saturday, November 21, 2026",
+  theater:"iran-gulf",
+  severity:"high",
+  category:"Bahrain strikes",
+  title:"Bahrain says Iranian attack causes fire at industrial facility",
+  headline:"Bahrain Facility Hit",
+  simple:"Bahrain says an Iranian attack damaged a civilian industrial facility and started a fire. No injuries were initially reported. It is the fifth Iranian attack on Bahrain in the current sequence.",
+  summary:"Bahrain's Interior Ministry announced on Saturday, November 21, 2026, that an Iranian attack damaged a civilian industrial facility and started a fire. Firefighters responded; preliminary reports indicated material damage only, with no injuries reported. The facility's identity and location have not been disclosed. Reuters published the report at 1:15 PM CST (19:15 UTC). Video footage shows a large fire at the facility. This is the fifth Iranian attack on Bahrain in the current sequence, following the fourth strike on November 18. Separately, Iranian media claims the Revolutionary Guards attacked two American military installations in Bahrain — that claim is unverified and is carried as a separate Unverified card, not as established fact.",
+  confidence:"High that Bahrain reported a damaging incident; moderate regarding Iranian responsibility; low regarding claimed damage to US military facilities.",
+  flag:"Bahrain hosts the US Navy's Fifth Fleet. Any verified strike against American military facilities could increase the risk of direct US-Iran retaliation.",
+  sources:[
+    {name:"Reuters", date:"November 21, 2026", url:"https://www.reuters.com/world/middle-east/bahrain-warns-residents-potential-threat-iran-conflict-persists-2026-11-21/"},
+    {name:"Al Jazeera", date:"November 21, 2026", url:"https://www.aljazeera.com/"}
+  ]
+},
+{
+  id:"centcom-denies-f16-claim-nov21",
+  ts:"2026-11-21T15:20:00Z",
+  group:"Saturday, November 21, 2026",
+  theater:"iran-gulf",
+  severity:"medium",
+  category:"US-Iran claims",
+  title:"CENTCOM denies Iranian claim of missile strike on US F-16",
+  headline:"F-16 Claim Denied",
+  simple:"Iran claimed its air defenses struck and damaged an American F-16 fighter jet over the Gulf, forcing an emergency landing. US Central Command explicitly denied the account: Iran did not attack a US F-16, and all American fighter jets in the region are accounted for.",
+  summary:"Iran claimed its air defenses struck and damaged an American F-16 fighter jet over the Gulf on Friday evening, November 20, forcing an emergency landing. US Central Command explicitly denied the account on Saturday, November 21: \"Iran did not attack a US F-16 fighter aircraft yesterday — at all,\" adding that all US military fighter jets in the Middle East are safe and accounted for. No independent evidence of aircraft damage or an emergency landing was established. Separately, a Qatari delegation held talks in Tehran on Friday night, November 20, while mediation efforts continued; Iranian Deputy Foreign Minister Kazem Gharibabadi told Tasnim that Qatari representatives met Iranian officials. No agreement or ceasefire was announced.",
+  confidence:"High that both governments issued conflicting accounts. Low that an F-16 was actually struck.",
+  flag:"A new claim of direct US-Iran combat received an explicit US military denial.",
+  sources:[
+    {name:"Reuters", date:"November 21, 2026", url:"https://www.reuters.com/"}
+  ]
+},
+{
+  id:"iran-dual-missile-launcher-nov21",
+  ts:"2026-11-21T15:09:00Z",
+  group:"Saturday, November 21, 2026",
+  theater:"iran-gulf",
+  severity:"medium",
+  category:"Iran military capability",
+  title:"Iran displays new dual-missile launching system",
+  headline:"New Missile Launcher Shown",
+  simple:"Iranian state television broadcast footage of an underground facility displaying a launcher reportedly capable of firing two liquid-fueled missiles. The footage aired; the system's operational readiness and capabilities remain unverified.",
+  summary:"Iranian state television broadcast footage of an underground facility displaying a launcher reportedly capable of firing two liquid-fueled missiles. IRGC Aerospace Force commander Seyyed Majid Mousavi claimed Iranian capabilities had expanded. The facility's location, operational readiness and whether the launcher represents a newly deployed system remain unverified. This is a military signaling development, not confirmation of a new missile launch against US or allied forces.",
+  confidence:"High that footage aired; limited on operational capabilities.",
+  flag:"A military signaling development, not a new attack.",
+  sources:[
+    {name:"Associated Press", date:"November 21, 2026", url:"https://apnews.com/"}
+  ]
+},
 {
   id:"ukmto-216-26-khasab-tanker-nov21",
   ts:"2026-11-21T05:50:00Z",
@@ -2936,6 +2988,57 @@ var REPORTS = [
 ];
 
 var UNVERIFIED = [
+  {
+    "id": "unverified-2026-11-21-bahrain-us-bases-claim",
+    "ts": "2026-11-21T19:15:00Z",
+    "group": "Saturday, November 21, 2026",
+    "theater": "iran-gulf",
+    "severity": "high",
+    "category": "Bahrain strikes",
+    "status": "unverified",
+    "title": "Iran claims attacks on two US bases in Bahrain",
+    "headline": "US Bases Claim",
+    "simple": "The IRGC attacked US bases at Sheikh Isa and Juffair in Bahrain.",
+    "claimBy": "Fars News Agency (IRGC) via Anadolu Agency",
+    "claimText": "The IRGC attacked US bases at Sheikh Isa and Juffair in Bahrain.",
+    "summary": "The IRGC attacked US bases at Sheikh Isa and Juffair in Bahrain. No CENTCOM or independent confirmation of damage to either American base. Reuters and Anadolu independently report Bahrain's government statement on the civilian facility, but both rely on the same official account — this is not independent physical verification of the base-attack claim.",
+    "whyUnverified": "No CENTCOM or independent confirmation of damage to either American base. Reuters and Anadolu independently report Bahrain's government statement on the civilian facility, but both rely on the same official account — this is not independent physical verification of the base-attack claim.",
+    "sources": [
+      {
+        "name": "Anadolu Agency",
+        "date": "November 21, 2026",
+        "url": "https://www.aa.com.tr/"
+      }
+    ]
+  },
+  {
+    "id": "unverified-2026-11-21-tanker-mine-claim",
+    "ts": "2026-11-21T15:09:00Z",
+    "group": "Saturday, November 21, 2026",
+    "theater": "iran-gulf",
+    "severity": "medium",
+    "category": "Maritime",
+    "status": "unverified",
+    "title": "Iran claims tanker struck naval mine east of Hormuz",
+    "headline": "Mine Strike Claim",
+    "simple": "A tanker struck a naval mine east of the Strait of Hormuz before noon local time Saturday and caught fire.",
+    "claimBy": "Iranian navy via state media",
+    "claimText": "A tanker struck a naval mine east of the Strait of Hormuz before noon local time Saturday and caught fire.",
+    "summary": "A tanker struck a naval mine east of the Strait of Hormuz before noon local time Saturday and caught fire. Not independently confirmed. Reuters could not verify the Iranian account nor establish whether it referred to either UKMTO incident reported Saturday (215-26 stern hit off Khasab, 216-26 engine room hit off Khasab). Al Jazeera notes it is unclear whether the burning tanker was involved in either UKMTO incident. A third distinct tanker attack is not established. This claim is part of the IRGC mine-claim family already tracked on the dashboard.",
+    "whyUnverified": "Not independently confirmed. Reuters could not verify the Iranian account nor establish whether it referred to either UKMTO incident reported Saturday (215-26 stern hit off Khasab, 216-26 engine room hit off Khasab). Al Jazeera notes it is unclear whether the burning tanker was involved in either UKMTO incident. A third distinct tanker attack is not established. This claim is part of the IRGC mine-claim family already tracked on the dashboard.",
+    "sources": [
+      {
+        "name": "Associated Press",
+        "date": "November 21, 2026",
+        "url": "https://apnews.com/"
+      },
+      {
+        "name": "Reuters",
+        "date": "November 21, 2026",
+        "url": "https://www.reuters.com/"
+      }
+    ]
+  },
   {
     "id": "unverified-2026-11-14-tanker-mines",
     "ts": "2026-11-14T18:45:00Z",
