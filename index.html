@@ -702,7 +702,7 @@
       </span>
       <div class="threat-copy">
         <p class="threat-title">Threat Level: <span class="threat-name" id="threatName">High</span></p>
-        <p class="threat-sub" id="threatSub">Substantial High briefs active in the latest reporting — US Base Hit in Kuwait · Fourth Strike on Bahrain · US Strikes Qeshm Again.</p>
+        <p class="threat-sub" id="threatSub">Substantial High briefs active in the latest reporting — US Base Hit in Kuwait · Fourth Strike on Bahrain.</p>
       </div>
     </div>
     <div class="hs-head">
@@ -710,11 +710,11 @@
         <span class="hs-dot" aria-hidden="true"></span>
         <h3>Hourly Scan</h3>
       </div>
-      <span class="hs-time">Updated Fri Nov 20, 2026, ~4:51 PM CT</span>
-      <p class="hs-meta"><span id="hsLatest">Latest 9:22 AM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">19 High</span></p>
+      <span class="hs-time">Updated Fri Nov 20, 2026, ~7:24 PM CT</span>
+      <p class="hs-meta"><span id="hsLatest">Latest 5:09 PM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">19 High</span></p>
     </div>
-    <p class="hs-lede">The Saudi-led coalition <a href="#/reports" data-scan-target="saudi-houthi-hodeidah-exchange-nov20">struck the Houthi-held port of Hodeidah</a> in Yemen on Friday, and the <button type="button" class="term" data-term="Houthis">Houthis</button> answered by targeting Riyadh and warning airlines to stay out of Saudi airspace. Mandiant also disclosed that a China-linked group has been <a href="#/reports" data-scan-target="cyber-vcenter-zero-day-armory-castle-nov20">exploiting a critical VMware vCenter flaw</a> since September to seize administrator access.</p>
-    <p class="hs-why"><span>Why this matters for the US</span> — The Houthis are threatening civilian air travel and Red Sea shipping out of a close US ally's ports a day after striking Riyadh's tallest tower, and a China-nexus group held a near-maximum-severity backdoor into the virtualization software US enterprises and government run on.</p>
+    <p class="hs-lede">Saudi Arabia issued <a href="#/reports" data-scan-target="houthi-riyadh-missiles-nov20">two air-threat alerts in Riyadh</a> on Friday evening and the <button type="button" class="term" data-term="Saudi-led coalition">Saudi-led coalition</button> said it intercepted three Houthi <button type="button" class="term" data-term="ballistic missiles">ballistic missiles</button> aimed at the capital — the second Houthi attack on Riyadh in two days, a day after the coalition struck Hodeidah port. No casualties or damage were reported, and civil defense said the danger had passed.</p>
+    <p class="hs-why"><span>Why this matters for the US</span> — The Houthi campaign against a key US ally is escalating, with the US Embassy and American personnel in Riyadh in the line of fire.</p>
     <div class="hs-links">
       <span class="hs-links-label">Latest briefs</span>
       <a class="hs-link" href="#/reports" data-scan-target="iran-2026-11-18-ali-al-salem-us-base">US Base Hit in Kuwait <span class="arr" aria-hidden="true">↓</span></a>
@@ -1161,6 +1161,24 @@ var THEATER_NAMES = {
   "cyber-homeland":"Cyber / Homeland"
 };
 var REPORTS = [
+{
+  id:"houthi-riyadh-missiles-nov20",
+  ts:"2026-11-20T23:09:00Z",
+  group:"Friday, November 20, 2026",
+  theater:"iran-gulf",
+  severity:"medium",
+  category:"Houthi missiles — Saudi Arabia",
+  title:"Saudi Arabia says it intercepts three Houthi missiles targeting Riyadh (Reuters, Nov 20, 2026)",
+  headline:"Riyadh Missiles Intercepted",
+  simple:"On Friday evening, Saudi Arabia issued two air-threat alerts in its capital, Riyadh — the first such alerts since a Houthi missile struck the city's tallest skyscraper on Thursday. A Reuters witness saw a projectile streak across the sky and heard a loud bang, and the Saudi-led coalition said its air defenses intercepted and destroyed three Houthi ballistic missiles fired toward the city. Civil defense later said the danger had passed; no casualties or damage were reported.",
+  summary:"What happened — Saudi Civil Defense issued two air-threat alerts in Riyadh on Friday evening, Nov 20, the first at 23:09 UTC (5:09 PM CT) — the first such alerts since a Houthi missile struck the city's tallest skyscraper on Thursday. A Reuters witness in the capital saw a projectile streak across the sky and heard a huge bang. The Saudi-led coalition said in a statement at 23:40 UTC (5:40 PM CT), reported by Reuters, that its air defenses intercepted and destroyed three ballistic missiles fired by the Houthis toward Riyadh. Civil Defense later said the danger had passed, and no casualties or damage were reported. Context — this is the second Houthi attack on the Saudi capital in two days, following Thursday's strike on Riyadh's tallest skyscraper, and it came hours after the coalition struck the Houthi-held port of Hodeidah in Yemen on Friday — both already on this dashboard. Contested claims — the exact number of missiles (three) and the interception outcome are the coalition's own account, not independently verified. The Houthis were reported on X as saying they were attacking targets across Saudi Arabia including Riyadh, but the Houthi military spokesman's Telegram channel carried no claim as of a late check. Why this matters for the US: Riyadh hosts the US Embassy and American personnel, and this is the second Houthi attack on the Saudi capital in two days — the Houthi campaign against a key US ally is escalating the day after the coalition struck Hodeidah port, raising the risk to US people and interests in the kingdom.",
+  confidence:"High — Reuters reported the Saudi Civil Defense alerts (the first at 23:09 UTC, 5:09 PM CT), its own witness saw a projectile streak across the Riyadh sky and heard a huge bang, and Reuters reported the Saudi-led coalition's statement (23:40 UTC, 5:40 PM CT) that it intercepted and destroyed three ballistic missiles fired by the Houthis toward Riyadh. The exact number (three) and the interception outcome are the coalition's own account, not independently verified. The Houthis were reported on X as saying they were attacking targets across Saudi Arabia including Riyadh; the Houthi military spokesman's Telegram channel carried no claim as of a late check.",
+  flag:"Missile count (three) and interception outcome are the coalition's account, not independently verified; Houthi claim reported on X only — nothing on the military spokesman's Telegram channel; no casualties or damage reported.",
+  sources:[
+    {name:"Reuters — Saudi Arabia issues two Riyadh alerts, says danger has passed", date:"Nov 20, 2026", url:"https://www.reuters.com/world/middle-east/saudi-arabia-issues-two-riyadh-alerts-says-danger-has-passed-2026-11-20/"},
+    {name:"Reuters — Saudi Arabia says it intercepts three Houthi missiles targeting Riyadh (coalition statement, as reported by Reuters)", date:"Nov 20, 2026", url:"https://www.reuters.com/world/middle-east/saudi-arabia-issues-two-riyadh-alerts-says-danger-has-passed-2026-11-20/"}
+  ]
+},
 {
   id:"saudi-houthi-hodeidah-exchange-nov20",
   ts:"2026-11-20T15:22:00Z",
@@ -3029,6 +3047,7 @@ var GLOSSARY = {
   "Kuwait": "A small Gulf state at the northern tip of the Persian Gulf, across the water from Iran. It hosts major US bases — Ali Al Salem Air Base, Camp Arifjan, and Camp Buehring — and has been repeatedly targeted by Iranian drones and missiles since the war began on February 28, 2026.",
   "Bahrain": "A small island kingdom in the Persian Gulf, across the water from Iran. It hosts the US Navy's Fifth Fleet headquarters at Naval Support Activity Bahrain in Manama and is a major non-NATO ally of the US, which is why attacks and threat alerts there directly concern US forces.",
   "Houthis": "An Iran-aligned armed movement that controls much of northern Yemen, including the capital, Sanaa. They have attacked Red Sea shipping and fired missiles and drones at Saudi Arabia.",
+  "Saudi-led coalition": "The military coalition led by Saudi Arabia that has fought the Houthis in Yemen since 2015. Saudi Arabia and the United Arab Emirates are its core members, and it operates with US intelligence, logistics and air-defence support — which is why its air-defence battles over Riyadh directly involve the systems defending US personnel in the kingdom.",
   "IRGC": "The Islamic Revolutionary Guard Corps — Iran's powerful parallel military force, separate from the regular army. It runs Iran's missile program and its Gulf naval forces, and is designated a terrorist organization by the US.",
   "CENTCOM": "US Central Command — the US military headquarters responsible for the Middle East and Central Asia. Its statements are the US military's official account of events in the region.",
   "Qeshm Island": "Iran's largest island, sitting in the Strait of Hormuz off the coast of Hormozgan province. Its position at the mouth of the Gulf makes it a key site for Iranian missile and naval forces positioned to watch — and threaten — shipping through the strait.",
@@ -3098,6 +3117,7 @@ var TERM_KEYS = {
   "East-West Pipeline":"East-West Pipeline",
   "East-West oil pipeline":"East-West Pipeline",
   "Houthis":"Houthis", "Houthi":"Houthis",
+  "Saudi-led coalition":"Saudi-led coalition", "saudi-led coalition":"Saudi-led coalition",
   "CENTCOM":"CENTCOM", "UKMTO":"UKMTO", "IRGC":"IRGC", "Qeshm Island":"Qeshm Island", "Kuwait":"Kuwait", "Bahrain":"Bahrain", "precision munitions":"precision munitions", "Precision munitions":"precision munitions",
   "EASA":"EASA", "IAEA":"IAEA", "NATO":"NATO",
   "uranium enrichment":"uranium enrichment", "Uranium enrichment":"uranium enrichment", "uranium-enrichment":"uranium enrichment", "Uranium-enrichment":"uranium enrichment",
@@ -3142,7 +3162,7 @@ var TERM_KEYS = {
   "CISA":"CISA",
   "Known Exploited Vulnerabilities":"KEV", "KEV":"KEV"
 };
-var TERM_RE = /(^|[^A-Za-z])((?:Government Accountability Office|Known Exploited Vulnerabilities|anti-ship cruise missiles|Anti-ship cruise missiles|anti-ship cruise missile|Anti-ship cruise missile|uranium enrichment|Uranium enrichment|uranium-enrichment|Uranium-enrichment|centrifuges|Centrifuges|centrifuge|Centrifuge|plutonium|Plutonium|Yongbyon|UK Maritime Trade Operations|liquefied petroleum gas|Liquefied petroleum gas|air defence identification zone|Air defence identification zone|Ali Al Salem Air Base|chemical weapons|Chemical weapons|chemical weapon|Chemical weapon|dirty bombs|Dirty bomb|dirty bomb|dirty-bomb|precision munitions|Precision munitions|cruise missiles|Cruise missiles|cruise missile|Cruise missile|Bab el-Mandeb|Strait of Hormuz|Qeshm Island|Kuwait|Bahrain|Tsushima Strait|Arabian Gulf|Gulf of Aden|non-NATO ally|Riffa Air Base|one-way attack drones|one-way attack drone|ballistic missiles|ballistic missile|carrier strike groups|carrier strike group|East-West oil pipeline|East-West Pipeline|PGSA blacklist|Conflict Zone|conflict zone|conflict-zone|Khorramshahr|RAF Fairford|Fifth Fleet|product tanker|Product tanker|Houthis|Houthi|Hodeidah|single-sign-on|zero-days|Zero-days|zero-day|Zero-day|vCenter|CVSS|SAML|CISA|SSO|KEV|CENTCOM|UKMTO|IRGC|EASA|CZIB|IAEA|NATO|ADNOC|Patriot|Tu-95s|Tu-95|LPG|ADIZ|STEP|JMIC|FIRs|FIR|PGSA|ship-to-ship transfers|Ship-to-ship transfers|ship-to-ship transfer|Ship-to-ship transfer|naval blockade|Naval blockade|Blockade|blockade|projectiles|projectile|Projectile|waterline|Waterline))(?![A-Za-z0-9])/g;
+var TERM_RE = /(^|[^A-Za-z])((?:Government Accountability Office|Known Exploited Vulnerabilities|anti-ship cruise missiles|Anti-ship cruise missiles|anti-ship cruise missile|Anti-ship cruise missile|uranium enrichment|Uranium enrichment|uranium-enrichment|Uranium-enrichment|centrifuges|Centrifuges|centrifuge|Centrifuge|plutonium|Plutonium|Yongbyon|UK Maritime Trade Operations|liquefied petroleum gas|Liquefied petroleum gas|air defence identification zone|Air defence identification zone|Ali Al Salem Air Base|chemical weapons|Chemical weapons|chemical weapon|Chemical weapon|dirty bombs|Dirty bomb|dirty bomb|dirty-bomb|precision munitions|Precision munitions|cruise missiles|Cruise missiles|cruise missile|Cruise missile|Bab el-Mandeb|Strait of Hormuz|Qeshm Island|Kuwait|Bahrain|Tsushima Strait|Arabian Gulf|Gulf of Aden|non-NATO ally|Riffa Air Base|one-way attack drones|one-way attack drone|ballistic missiles|ballistic missile|carrier strike groups|carrier strike group|East-West oil pipeline|East-West Pipeline|PGSA blacklist|Conflict Zone|conflict zone|conflict-zone|Khorramshahr|RAF Fairford|Fifth Fleet|product tanker|Product tanker|Saudi-led coalition|saudi-led coalition|Houthis|Houthi|Hodeidah|single-sign-on|zero-days|Zero-days|zero-day|Zero-day|vCenter|CVSS|SAML|CISA|SSO|KEV|CENTCOM|UKMTO|IRGC|EASA|CZIB|IAEA|NATO|ADNOC|Patriot|Tu-95s|Tu-95|LPG|ADIZ|STEP|JMIC|FIRs|FIR|PGSA|ship-to-ship transfers|Ship-to-ship transfers|ship-to-ship transfer|Ship-to-ship transfer|naval blockade|Naval blockade|Blockade|blockade|projectiles|projectile|Projectile|waterline|Waterline))(?![A-Za-z0-9])/g;
 function linkify(text){
   return esc(text).replace(TERM_RE, function(m, pre, label){
     return pre + "<button type='button' class='term' data-term='" + TERM_KEYS[label] + "'>" + label + "</button>";
