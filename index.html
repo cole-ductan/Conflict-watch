@@ -710,11 +710,11 @@
         <span class="hs-dot" aria-hidden="true"></span>
         <h3>Hourly Scan</h3>
       </div>
-      <span class="hs-time">Updated Fri Nov 20, 2026, ~10:51 AM CT</span>
-      <p class="hs-meta"><span id="hsLatest">Latest 9:00 AM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">19 High</span></p>
+      <span class="hs-time">Updated Fri Nov 20, 2026, ~4:51 PM CT</span>
+      <p class="hs-meta"><span id="hsLatest">Latest 9:22 AM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">19 High</span></p>
     </div>
-    <p class="hs-lede"><button type="button" class="term" data-term="UKMTO">UKMTO</button> says <a href="#/reports" data-scan-target="ukmto-214-26-khasab-tanker-nov20">a tanker on outbound transit</a> through the <button type="button" class="term" data-term="Strait of Hormuz">Strait of Hormuz</button> was struck on the port bow by an unknown projectile about 8 nautical miles north of Khasab, Oman, on Friday morning, starting a fire on board. No casualties and no environmental impact were reported. It is the third tanker struck north of Khasab since Monday and the eighth attack on shipping in the strait and the Arabian Gulf in the last week; UKMTO has named no vessel and no attacker.</p>
-    <p class="hs-why"><span>Why this matters for the US</span> — The <button type="button" class="term" data-term="Strait of Hormuz">Strait of Hormuz</button> is the chokepoint for Gulf oil and a US Navy operating area; a third tanker hit in four days in the same waters keeps the pressure on US and allied shipping and raises the chance of a miscalculation that pulls US forces in.</p>
+    <p class="hs-lede">The Saudi-led coalition <a href="#/reports" data-scan-target="saudi-houthi-hodeidah-exchange-nov20">struck the Houthi-held port of Hodeidah</a> in Yemen on Friday, and the <button type="button" class="term" data-term="Houthis">Houthis</button> answered by targeting Riyadh and warning airlines to stay out of Saudi airspace. Mandiant also disclosed that a China-linked group has been <a href="#/reports" data-scan-target="cyber-vcenter-zero-day-armory-castle-nov20">exploiting a critical VMware vCenter flaw</a> since September to seize administrator access.</p>
+    <p class="hs-why"><span>Why this matters for the US</span> — The Houthis are threatening civilian air travel and Red Sea shipping out of a close US ally's ports a day after striking Riyadh's tallest tower, and a China-nexus group held a near-maximum-severity backdoor into the virtualization software US enterprises and government run on.</p>
     <div class="hs-links">
       <span class="hs-links-label">Latest briefs</span>
       <a class="hs-link" href="#/reports" data-scan-target="iran-2026-11-18-ali-al-salem-us-base">US Base Hit in Kuwait <span class="arr" aria-hidden="true">↓</span></a>
@@ -1162,6 +1162,25 @@ var THEATER_NAMES = {
 };
 var REPORTS = [
 {
+  id:"saudi-houthi-hodeidah-exchange-nov20",
+  ts:"2026-11-20T15:22:00Z",
+  group:"Friday, November 20, 2026",
+  theater:"iran-gulf",
+  severity:"medium",
+  category:"Houthi missiles — Saudi Arabia",
+  title:"Saudi coalition strikes Hodeidah port as Houthis target Riyadh and warn airlines off Saudi airspace (Reuters/AP, Nov 20, 2026)",
+  headline:"Hodeidah Port Struck",
+  simple:"The Saudi-led coalition bombed the Houthi-held port of Hodeidah in Yemen on Friday, saying it was destroying sites used to smuggle weapons and ballistic missiles. The Houthis fired back at Saudi Arabia — the coalition says it shot down five drones and a ballistic missile on Friday morning, with Riyadh among the targets, and two more ballistic missiles toward Jazan later in the day. The Houthis told airlines to stay out of Saudi airspace and told shipping companies to pull their ships out of Saudi Red Sea ports. The Houthis say they hit a power station and a port in southern Saudi Arabia, but that has not been independently verified, and the coalition reported no damage.",
+  summary:"What happened — The Saudi-led coalition said on Friday, Nov 20, that it had struck the Red Sea port of Hodeidah in Yemen to destroy Houthi capabilities, after warning civilians to evacuate the area, Reuters reported. The coalition said it destroyed operational capabilities at the port used for smuggling weapons and transporting ballistic missiles; Yemen's Information Minister said the port remains fully operational and the flow of goods will continue. The coalition also said it carried out an operation in Yemen's capital, Sanaa, early Friday targeting ballistic missile and drone capabilities, claiming seven targets destroyed including six workshops used to make and assemble ballistic missile launchers and drones plus a supply depot, with operations in Saada and Taiz ongoing. The Associated Press reported the coalition intercepted five drones and one ballistic missile fired by the Houthis on Friday morning, with Riyadh among the targets. The coalition later said it intercepted and destroyed two more ballistic missiles toward the southern province of Jazan, with shrapnel falling in the Shuqaiq area. Houthi military spokesman Yahya Saree claimed the group attacked a port in Jazan and a power station in the Al-Shuqaiq area, and warned airlines to avoid Saudi airspace because it will be the scene of our operations in the coming hours, except near the Muslim holy cities of Mecca and Medina. He also warned workers near Saudi Red Sea ports to evacuate and urged shipping companies to evacuate their ships from those ports, threatening Jeddah and other Red Sea ports if the coalition attacked Hodeidah. Context — the exchange comes a day after the Houthis struck the tallest skyscraper in Riyadh, and is the fifth day of the renewed Saudi-Houthi exchange since the Nov 18 sequence already on this dashboard. Contested claims — the Houthis' claims of hitting the Shuqaiq power station and the Jazan port are unverified; the coalition acknowledged debris fell in Shuqaiq but reported no damage. The coalition's claim of seven targets destroyed in Sanaa, and its account of what the Hodeidah port facilities were used for, are its own statements and have not been independently verified. A Houthi television claim of a coalition air raid on a power station in Mocha is likewise unverified. Why this matters for the US: The Houthis are now threatening civilian air travel and Red Sea shipping out of the ports of a close US ally, a day after landing a strike on Riyadh's tallest tower — the fight is widening from probing Saudi defences to holding Saudi airspace, ports and the capital at risk, next to US personnel and facilities in the kingdom and on Red Sea trade routes.",
+  confidence:"High that the coalition struck Hodeidah port Friday and that the Houthis warned airlines and shipping companies (Reuters, Nov 20). High that the coalition intercepted five drones and one ballistic missile Friday morning with Riyadh among the targets, and two ballistic missiles toward Jazan later (AP/Reuters, Nov 20). Medium on the Sanaa operation's results — the coalition's claim of seven targets destroyed is its own statement. The Houthis' claims of hitting the Shuqaiq power station and the Jazan port are unverified; the coalition reported debris in Shuqaiq but no damage.",
+  flag:"Houthi claims of hitting the Shuqaiq power station and Jazan port are unverified; coalition's Sanaa damage claims are its own statement.",
+  sources:[
+    {name:"Reuters — Yemen's Houthis threaten to strike Saudi Red Sea ports", date:"Nov 20, 2026", url:"https://www.reuters.com/world/middle-east/yemens-houthis-threaten-strike-saudi-red-sea-ports-2026-11-20/"},
+    {name:"Reuters via gCaptain — Houthis Order Ships to Leave Saudi Red Sea Ports After Hodeidah Airstrikes", date:"Nov 20, 2026", url:"https://gcaptain.com/houthis-order-ships-to-leave-saudi-red-sea-ports-after-hodeidah-airstrikes/"},
+    {name:"AP via The Reflector — Trump says Iran wants a deal, Saudi Arabia and Yemen's Houthis exchange fire", date:"Nov 20, 2026", url:"https://www.reflector.com/news/national/trump-says-iran-wants-a-deal-saudi-arabia-and-yemens-houthis-exchange-fire-and-other/article_f35c26ea-1c7e-58ca-ab77-2d7a2f9ed51e.html"}
+  ]
+},
+{
   id:"ukmto-214-26-khasab-tanker-nov20",
   ts:"2026-11-20T15:00:00Z",
   group:"Friday, November 20, 2026",
@@ -1211,6 +1230,24 @@ var REPORTS = [
   flag:"Object types are the Polish minister's assessment ('likely'), not confirmed; no damage or casualties in Poland reported; Russia has not commented on the incursion in the wire.",
   sources:[
     {name:"Reuters — Eight killed in Ukraine as Russia hits back after Crimea bridge attacks (via SRN syndication)", date:"Nov 20, 2026", url:"https://srnnews.com/fire-broke-out-in-ukraines-kyiv-after-missile-strike-mayor-says/"}
+  ]
+},
+{
+  id:"cyber-vcenter-zero-day-armory-castle-nov20",
+  ts:"2026-11-20T00:26:25Z",
+  group:"Friday, November 20, 2026",
+  theater:"cyber-homeland",
+  severity:"medium",
+  category:"Cyber / Espionage",
+  title:"China-linked hackers exploited critical VMware vCenter zero-day in attacks since September (Mandiant/Broadcom, Nov 20, 2026)",
+  headline:"vCenter Zero-Day Exploited",
+  simple:"Security researchers say a China-linked hacking group has been exploiting a serious flaw in VMware vCenter — the software many companies use to run their virtual servers — since early September. The flaw lets an attacker log in as an administrator without a password. Broadcom released a fix on November 19. The group used it to take over a vCenter server inside a network it had already broken into, and to steal data.",
+  summary:"What happened — Mandiant and Google Threat Intelligence Group reported on Nov 20 that the suspected China-nexus espionage group Armory Castle (formerly UNC5221) exploited CVE-2026-123890, a CVSS 9.8 authentication bypass in VMware vCenter Server's Directory Service, in early September 2026. The flaw leaks a Secure Remote Password session key through the directory service's RPC interface, letting a remote unauthenticated attacker open a session as the built-in vCenter administrator. The attackers used a custom Go utility, BONESAW, to exfiltrate the directory database, hijack the SAML token service and create a new single-sign-on administrator account, and deployed web shells and backdoors (SLIMSAVAGE, CAGEMATCH, SAWSNAKE, LAZYBONES, BEARBONES). The vCenter exploitation was one stage of a longer intrusion that began with a BeyondTrust Remote Support zero-day (CVE-2026-102764, exploited since late August and added to CISA's Known Exploited Vulnerabilities catalog on Oct 16). Broadcom patched CVE-2026-123890 on Nov 19 in VMSA-2026-0009 (vCenter 8.0 U3m, 9.0.2.0200, 9.1.1.0200) but did not confirm in-the-wild exploitation in its own advisory. This is a disclosure of September activity, not a new incident, and no victim was named. Contested claims — Mandiant's BONESAW binary carries a July 13, 2026 build timestamp, suggesting the group may have known of the flaw before Broadcom's July 29 fix for the related CVE-2026-59309, but build metadata can be modified, so that date is not conclusive. Why this matters for the US: vCenter is the control plane for virtualized infrastructure across US enterprises and government; a China-nexus group holding a near-maximum-severity administrator bypass for two months means unpatched US systems were exposed to full takeover and data theft, and the same group chains zero-days across enterprise appliances.",
+  confidence:"High that Broadcom patched CVE-2026-123890 on Nov 19 (VMSA-2026-0009) and that Mandiant attributes exploitation since early September to Armory Castle (Mandiant/Google Threat Intelligence Group report, Nov 20; BleepingComputer, Nov 19). Medium on the exact victim count and scope — no victim was named. The July 13 BONESAW build timestamp is not conclusive evidence the group knew of the flaw before July 29. Broadcom has not confirmed exploitation in its own advisory.",
+  flag:"Retrospective disclosure of September 2026 exploitation — not a new incident; no victim named",
+  sources:[
+    {name:"BleepingComputer — VMware patches vCenter zero-day exploited in attacks since September", date:"Nov 19, 2026", url:"https://www.bleepingcomputer.com/news/security/vmware-patches-vcenter-zero-day-exploited-in-attacks-since-september/"},
+    {name:"The Hacker News — China-Linked Hackers Exploit Critical VMware vCenter Zero-Day to Gain Admin Access and Steal Data", date:"Nov 20, 2026", url:"https://thehackernews.com/2026/11/china-linked-hackers-exploit-critical.html"}
   ]
 },
 {
@@ -3037,7 +3074,15 @@ var GLOSSARY = {
   "cruise missile": "A missile that flies low and level like a small jet, steered onto its target, rather than arcing high like a ballistic missile. Cruise missiles are slower but harder for radar to spot at long range.",
   "Patriot": "The US Army's Patriot air-defence system — a surface-to-air missile battery used to shoot down aircraft, cruise missiles and ballistic missiles. US forces deploy Patriot batteries to defend bases across the Gulf.",
   "Government Accountability Office": "The independent, nonpartisan watchdog agency that reports to the US Congress and audits federal spending and programs.",
-  "Tu-95": "The Tupolev Tu-95 — NATO reporting name “Bear” — is a Russian long-range strategic bomber, a large four-engine turboprop aircraft in service since the 1950s. It can carry nuclear-capable cruise missiles, which is why its deployments near US allies draw attention."
+  "Tu-95": "The Tupolev Tu-95 — NATO reporting name “Bear” — is a Russian long-range strategic bomber, a large four-engine turboprop aircraft in service since the 1950s. It can carry nuclear-capable cruise missiles, which is why its deployments near US allies draw attention.",
+  "Hodeidah": "Yemen's main Red Sea port, in the city of Al Hudaydah on the country's west coast. Held by the Houthis, it handles most of Yemen's food and fuel imports — and the Saudi-led coalition says it is also used to smuggle in weapons and ballistic missiles, which is why it is repeatedly struck.",
+  "zero-day": "A software flaw that is exploited before the vendor has released a fix — defenders have had 'zero days' to patch it. Zero-day exploits are prized hacking tools because no patch exists yet when they are first used.",
+  "vCenter": "VMware vCenter Server — the central management console for VMware's virtualization platform, used by companies and governments to run and administer fleets of virtual servers. Whoever controls vCenter can control every virtual machine it manages, which makes it a top target.",
+  "CVSS": "The Common Vulnerability Scoring System — the standard 0-to-10 scale for rating how serious a software flaw is. A score of 9.8, near the maximum, means the flaw is remotely exploitable with little attacker effort and can give full control of the affected system.",
+  "SSO": "Single sign-on — the login system that lets one account unlock many connected services. In VMware vCenter, the SSO service issues the security tokens other components trust, so taking it over lets an attacker mint trusted administrator accounts.",
+  "SAML": "Security Assertion Markup Language — the standard format systems use to pass trusted login assertions (tokens) between an identity provider and a service. Hijacking a SAML token service lets an attacker forge logins that connected systems accept as genuine.",
+  "CISA": "The Cybersecurity and Infrastructure Security Agency — the US federal agency responsible for defending civilian government networks and critical infrastructure. It issues alerts and emergency directives, and maintains the Known Exploited Vulnerabilities (KEV) catalog.",
+  "KEV": "CISA's Known Exploited Vulnerabilities catalog — the US government's list of software flaws confirmed to be under active exploitation. Federal agencies must patch listed flaws by set deadlines, and the catalog is the standard priority list for defenders everywhere."
 };
 
 var TERM_KEYS = {
@@ -3087,9 +3132,17 @@ var TERM_KEYS = {
   "cruise missiles":"cruise missile", "Cruise missiles":"cruise missile", "cruise missile":"cruise missile", "Cruise missile":"cruise missile",
   "Patriot":"Patriot",
   "Government Accountability Office":"Government Accountability Office",
-  "Tu-95s":"Tu-95", "Tu-95":"Tu-95"
+  "Tu-95s":"Tu-95", "Tu-95":"Tu-95",
+  "Hodeidah":"Hodeidah",
+  "zero-days":"zero-day", "Zero-days":"zero-day", "zero-day":"zero-day", "Zero-day":"zero-day",
+  "vCenter":"vCenter",
+  "CVSS":"CVSS",
+  "single-sign-on":"SSO", "SSO":"SSO",
+  "SAML":"SAML",
+  "CISA":"CISA",
+  "Known Exploited Vulnerabilities":"KEV", "KEV":"KEV"
 };
-var TERM_RE = /(^|[^A-Za-z])((?:Government Accountability Office|anti-ship cruise missiles|Anti-ship cruise missiles|anti-ship cruise missile|Anti-ship cruise missile|uranium enrichment|Uranium enrichment|uranium-enrichment|Uranium-enrichment|centrifuges|Centrifuges|centrifuge|Centrifuge|plutonium|Plutonium|Yongbyon|UK Maritime Trade Operations|liquefied petroleum gas|Liquefied petroleum gas|air defence identification zone|Air defence identification zone|Ali Al Salem Air Base|chemical weapons|Chemical weapons|chemical weapon|Chemical weapon|dirty bombs|Dirty bomb|dirty bomb|dirty-bomb|precision munitions|Precision munitions|cruise missiles|Cruise missiles|cruise missile|Cruise missile|Bab el-Mandeb|Strait of Hormuz|Qeshm Island|Kuwait|Bahrain|Tsushima Strait|Arabian Gulf|Gulf of Aden|non-NATO ally|Riffa Air Base|one-way attack drones|one-way attack drone|ballistic missiles|ballistic missile|carrier strike groups|carrier strike group|East-West oil pipeline|East-West Pipeline|PGSA blacklist|Conflict Zone|conflict zone|conflict-zone|Khorramshahr|RAF Fairford|Fifth Fleet|product tanker|Product tanker|Houthis|Houthi|CENTCOM|UKMTO|IRGC|EASA|CZIB|IAEA|NATO|ADNOC|Patriot|Tu-95s|Tu-95|LPG|ADIZ|STEP|JMIC|FIRs|FIR|PGSA|ship-to-ship transfers|Ship-to-ship transfers|ship-to-ship transfer|Ship-to-ship transfer|naval blockade|Naval blockade|Blockade|blockade|projectiles|projectile|Projectile|waterline|Waterline))(?![A-Za-z0-9])/g;
+var TERM_RE = /(^|[^A-Za-z])((?:Government Accountability Office|Known Exploited Vulnerabilities|anti-ship cruise missiles|Anti-ship cruise missiles|anti-ship cruise missile|Anti-ship cruise missile|uranium enrichment|Uranium enrichment|uranium-enrichment|Uranium-enrichment|centrifuges|Centrifuges|centrifuge|Centrifuge|plutonium|Plutonium|Yongbyon|UK Maritime Trade Operations|liquefied petroleum gas|Liquefied petroleum gas|air defence identification zone|Air defence identification zone|Ali Al Salem Air Base|chemical weapons|Chemical weapons|chemical weapon|Chemical weapon|dirty bombs|Dirty bomb|dirty bomb|dirty-bomb|precision munitions|Precision munitions|cruise missiles|Cruise missiles|cruise missile|Cruise missile|Bab el-Mandeb|Strait of Hormuz|Qeshm Island|Kuwait|Bahrain|Tsushima Strait|Arabian Gulf|Gulf of Aden|non-NATO ally|Riffa Air Base|one-way attack drones|one-way attack drone|ballistic missiles|ballistic missile|carrier strike groups|carrier strike group|East-West oil pipeline|East-West Pipeline|PGSA blacklist|Conflict Zone|conflict zone|conflict-zone|Khorramshahr|RAF Fairford|Fifth Fleet|product tanker|Product tanker|Houthis|Houthi|Hodeidah|single-sign-on|zero-days|Zero-days|zero-day|Zero-day|vCenter|CVSS|SAML|CISA|SSO|KEV|CENTCOM|UKMTO|IRGC|EASA|CZIB|IAEA|NATO|ADNOC|Patriot|Tu-95s|Tu-95|LPG|ADIZ|STEP|JMIC|FIRs|FIR|PGSA|ship-to-ship transfers|Ship-to-ship transfers|ship-to-ship transfer|Ship-to-ship transfer|naval blockade|Naval blockade|Blockade|blockade|projectiles|projectile|Projectile|waterline|Waterline))(?![A-Za-z0-9])/g;
 function linkify(text){
   return esc(text).replace(TERM_RE, function(m, pre, label){
     return pre + "<button type='button' class='term' data-term='" + TERM_KEYS[label] + "'>" + label + "</button>";
