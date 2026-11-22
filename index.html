@@ -704,7 +704,7 @@
       </span>
       <div class="threat-copy">
         <p class="threat-title">Threat Level: <span class="threat-name" id="threatName">High</span></p>
-        <p class="threat-sub" id="threatSub">Substantial High briefs active in the latest reporting — US Base Hit in Kuwait · Fourth Strike on Bahrain.</p>
+        <p class="threat-sub" id="threatSub">Substantial High briefs active in the latest reporting — Tanker in Military Incident · Bahrain Facility Hit.</p>
       </div>
     </div>
     <div class="hs-head">
@@ -712,16 +712,16 @@
         <span class="hs-dot" aria-hidden="true"></span>
         <h3>Hourly Scan</h3>
       </div>
-      <span class="hs-time">Updated Sat Nov 21, 2026, ~11:51 PM CT</span>
-      <p class="hs-meta"><span id="hsLatest">Latest 1:15 PM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">21 High</span></p>
+      <span class="hs-time">Updated Sun Nov 22, 2026, ~3:30 PM CT</span>
+      <p class="hs-meta"><span id="hsLatest">Latest 8:25 AM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">22 High</span></p>
     </div>
-    <p class="hs-lede"><a href="#/reports" data-scan-target="cyber-2026-11-18-doj-russian-agent-indictment">Russian Agent Indicted</a> — the Justice Department has charged a Russian national with secretly working for Moscow, alleging he stalked employees of a US defense-technology company in California and photographed their laptop screens for his handlers. <a href="#/reports" data-scan-target="cyber-2026-11-18-ukraine-fbi-ransomware-arrests">Ransomware Gang Busted</a> — Ukrainian police working with the FBI arrested four key members of a ransomware network that extorted more than $40.5 million from at least 28 companies, including American firms.</p>
-    <p class="hs-why"><span>Why this matters for the US</span> — A Russian-directed operative was working on American soil against US defense workers, and a gang that extorted US companies has been taken down with the FBI's help.</p>
+    <p class="hs-lede"><a href="#/reports" data-scan-target="ukmto-chabahar-tanker-incident-nov22">Tanker in Military Incident</a> — UKMTO reported Sunday morning that a tanker was involved in an incident with military forces in the Gulf of Oman near Chabahar, Iran, at the edge of the US blockade line. UKMTO named no vessel, no forces, and no damage, and neither Washington nor Tehran has commented — while Iranian media separately claimed two supertankers hit mines east of the Strait of Hormuz, a claim that remains unverified.</p>
+    <p class="hs-why"><span>Why this matters for the US</span> — A military incident at the blockade line is the closest the standoff has come to a direct clash over a tanker, and Iran has threatened a fierce response to any US move against its tankers.</p>
     <div class="hs-links">
       <span class="hs-links-label">Latest briefs</span>
+      <a class="hs-link" href="#/reports" data-scan-target="ukmto-chabahar-tanker-incident-nov22">Tanker in Military Incident <span class="arr" aria-hidden="true">↓</span></a>
       <a class="hs-link" href="#/reports" data-scan-target="bahrain-industrial-facility-strike-nov21">Bahrain Facility Hit <span class="arr" aria-hidden="true">↓</span></a>
       <a class="hs-link" href="#/reports" data-scan-target="unverified-2026-11-21-bahrain-us-bases-claim">US Bases Claim <span class="arr" aria-hidden="true">↓</span></a>
-      <a class="hs-link" href="#/reports" data-scan-target="iran-2026-11-18-ali-al-salem-us-base">US Base Hit in Kuwait <span class="arr" aria-hidden="true">↓</span></a>
     </div>
   </section>
 
@@ -1163,6 +1163,24 @@ var THEATER_NAMES = {
   "cyber-homeland":"Cyber / Homeland"
 };
 var REPORTS = [
+{
+  id:"ukmto-chabahar-tanker-incident-nov22",
+  ts:"2026-11-22T14:25:00Z",
+  group:"Sunday, November 22, 2026",
+  theater:"iran-gulf",
+  severity:"high",
+  category:"Maritime incident — Gulf of Oman",
+  title:"UKMTO reports incident involving tanker and military forces in Gulf of Oman",
+  headline:"Tanker in Military Incident",
+  simple:"A tanker was involved in an incident with military forces in the Gulf of Oman, near the Iranian port of Chabahar, the UK Maritime Trade Operations agency (UKMTO) said on Sunday. UKMTO did not name the tanker, say which military forces were involved, or describe what happened. The incident was reported at 8:25 AM CT on Sunday, November 22, 2026.",
+  summary:"UKMTO said on Sunday, November 22, 2026, that a tanker was involved in an incident with military forces in the Gulf of Oman, east of the Strait of Hormuz near the Iranian port city of Chabahar. A company security officer alerted UKMTO at 14:25 GMT (8:25 AM CT); UKMTO said authorities are aware and investigations are ongoing, and advised vessels in the area to stay vigilant. UKMTO did not identify the tanker, its flag or owner, the military forces involved, the nature of the incident, or any damage or casualties. Euronews, which first reported the bulletin, notes the wording may indicate a US military action against a tanker and that the location is close to the US Navy blockade line — but neither the US military nor Iran has commented, and no source has confirmed American involvement, so that remains interpretation, not fact. The timing and location are consistent with where an Iranian tanker would be if it had sailed from Kharg Island on Sunday morning to challenge the blockade, though reports of such a departure conflict. Separately on Sunday, Iranian media quoting Iran's navy said two supertankers caught fire after hitting mines in a restricted area east of the Strait of Hormuz, north of Ghanam Island; that claim is unverified, and it is unclear whether it is connected to the UKMTO incident. Iran had threatened for several days that any US attempt to stop its tankers would draw a fierce military response.",
+  confidence:"High that UKMTO reported the incident as described. Low that US forces were involved — no confirmation from the US or Iran; the US-action reading is Euronews' interpretation of the wording, not a confirmed fact.",
+  flag:"A military incident at the blockade line is the closest the standoff has come to a direct clash over a tanker, and Iran has threatened a fierce response to any US move against its tankers.",
+  sources:[
+    {name:"Reuters", date:"November 22, 2026", url:"https://www.devdiscourse.com/article/international/4010574-ukmto-reports-incident-involving-tanker-and-military-forces-in-gulf-of-oman"},
+    {name:"Euronews", date:"November 22, 2026", url:"https://dailyguardian.eu/tanker-incident-involving-military-forces-reported-in-strait-of-hormuz/"}
+  ]
+},
 {
   id:"bahrain-industrial-facility-strike-nov21",
   ts:"2026-11-21T19:15:00Z",
