@@ -712,11 +712,11 @@
         <span class="hs-dot" aria-hidden="true"></span>
         <h3>Hourly Scan</h3>
       </div>
-      <span class="hs-time">Updated Mon Nov 23, 2026, ~4:51 PM CT</span>
-      <p class="hs-meta"><span id="hsLatest">Latest 11:51 AM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">23 High</span></p>
+      <span class="hs-time">Updated Mon Nov 23, 2026, ~6:51 PM CT</span>
+      <p class="hs-meta"><span id="hsLatest">Latest 5:20 PM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">23 High</span></p>
     </div>
-    <p class="hs-lede"><a href="#/reports" data-scan-target="nato-awacs-poland-nov23">NATO AWACS Forward Deployed</a> — NATO will send an AWACS early-warning radar plane to Poland after three Russian cruise missiles landed there on Friday, though where the plane will be based is contested, with one report saying Lithuania. The <a href="#/reports" data-scan-target="russia-nuclear-satellite-sputnik-s-nov23">nuclear-armed satellite warning</a> also stands: NATO intelligence services believe Russia is ready to launch the Sputnik-S satellite, reportedly carrying a nuclear weapon, into orbit before the end of the year.</p>
-    <p class="hs-why"><span>Why this matters for the US</span> — NATO is hardening the airspace over a treaty ally that hosts US forces after Russian missiles landed there, while a possible Russian nuclear-armed satellite threatens the GPS, banking and military communications the US runs on.</p>
+    <p class="hs-lede"><a href="#/reports" data-scan-target="poland-russian-uav-airspace-nov23">Russian Drone Enters Poland</a> — A Russian drone briefly crossed into Polish airspace during the overnight attack on western Ukraine, the second Russian violation in three days; Poland held fire after the drone turned back east. The <a href="#/reports" data-scan-target="nato-awacs-poland-nov23">NATO AWACS Forward Deployed</a> response also stands: NATO will send an early-warning radar plane after Friday's cruise-missile landings.</p>
+    <p class="hs-why"><span>Why this matters for the US</span> — Russian weapons have now crossed into the airspace of a NATO ally hosting US forces twice in three days, testing the defences the US is treaty-bound to help hold.</p>
     <div class="hs-links">
       <span class="hs-links-label">Latest briefs</span>
       <a class="hs-link" href="#/reports" data-scan-target="russia-nuclear-satellite-sputnik-s-nov23">Nuclear Satellite Readied <span class="arr" aria-hidden="true">↓</span></a>
@@ -1163,6 +1163,23 @@ var THEATER_NAMES = {
   "cyber-homeland":"Cyber / Homeland"
 };
 var REPORTS = [
+{
+  id:"poland-russian-uav-airspace-nov23",
+  ts:"2026-11-23T23:20:00Z",
+  group:"Monday, November 23, 2026",
+  theater:"russia-ukraine",
+  severity:"medium",
+  category:"NATO airspace — Poland",
+  title:"Russian unmanned aerial vehicle briefly violated Polish airspace, Polish armed forces say",
+  headline:"Russian Drone Enters Poland",
+  simple:"A Russian drone briefly crossed into Polish airspace during Russia's overnight attack on western Ukraine, Poland's armed forces said on Monday. Poland had permission to shoot it down but held fire after the drone turned back east, because shooting it down could have endangered civilians. It is the second Russian airspace violation over Poland in three days, after three cruise missiles landed there on Friday.",
+  summary:"What happened — During Russia's overnight aerial attack on targets in western Ukraine (the night of November 22–23, 2026), a Russian unmanned aerial vehicle briefly violated Polish airspace, Poland's Armed Forces Operational Command said on X on Monday, November 23 (Reuters, Nov 23; Liveuamap records the same Operational Command statement). Polish forces were authorised to shoot the object down, but after it changed course and headed east, commanders decided to refrain from using weapons, citing the potential threat to civilians and the possible consequences of shooting it down. Context — This is the second Russian airspace violation over Poland in three days: on Friday, November 20, three Russian Kh-101 cruise missiles landed in southeastern Poland during a massive Russian attack on Ukraine, and NATO responded on Monday by agreeing to deploy an AWACS early-warning aircraft. The overnight attack that produced this new violation involved 153 Russian strike drones, 134 of which Ukrainian air defences downed or suppressed, and killed at least 15 people in the Kyiv region and Zaporizhzhia. No injuries or damage were reported in Poland from the drone incursion. Why this matters for the US: Poland is a NATO treaty ally hosting US forces, and Russian weapons have now crossed into allied airspace twice in three days — a pattern of spillover that tests the air defences the US is committed to help defend.",
+  confidence:"High on the violation itself — Reuters wire quoting the Polish Armed Forces Operational Command's own statement on X, corroborated by Liveuamap's record of the same statement. Medium on which night's attack it accompanied — the Operational Command tied it to the overnight attack on western Ukraine, which matches the November 22–23 overnight wave (153 drones).",
+  flag:"No weapons were fired and no damage or injuries were reported in Poland; the drone turned east on its own and Polish forces held fire.",
+  sources:[
+    {name:"Reuters", date:"November 23, 2026", url:"https://www.reuters.com/business/aerospace-defense/russian-unmanned-aerial-vehicle-briefly-violated-polish-airspace-polish-armed-2026-11-23/"}
+  ]
+},
 {
   id:"nato-awacs-poland-nov23",
   ts:"2026-11-23T17:51:00Z",
@@ -3444,7 +3461,10 @@ var GLOSSARY = {
   "SSO": "Single sign-on — the login system that lets one account unlock many connected services. In VMware vCenter, the SSO service issues the security tokens other components trust, so taking it over lets an attacker mint trusted administrator accounts.",
   "SAML": "Security Assertion Markup Language — the standard format systems use to pass trusted login assertions (tokens) between an identity provider and a service. Hijacking a SAML token service lets an attacker forge logins that connected systems accept as genuine.",
   "CISA": "The Cybersecurity and Infrastructure Security Agency — the US federal agency responsible for defending civilian government networks and critical infrastructure. It issues alerts and emergency directives, and maintains the Known Exploited Vulnerabilities (KEV) catalog.",
-  "KEV": "CISA's Known Exploited Vulnerabilities catalog — the US government's list of software flaws confirmed to be under active exploitation. Federal agencies must patch listed flaws by set deadlines, and the catalog is the standard priority list for defenders everywhere."
+  "KEV": "CISA's Known Exploited Vulnerabilities catalog — the US government's list of software flaws confirmed to be under active exploitation. Federal agencies must patch listed flaws by set deadlines, and the catalog is the standard priority list for defenders everywhere.",
+  "AWACS": "Airborne Warning and Control System — a radar aircraft (NATO flies the E-3 Sentry) that watches airspace from the sky, tracking aircraft, drones and missiles far beyond the reach of ground radar, and directs friendly forces responding to them. Think of it as a flying radar station and command post.",
+  "Kh-101": "A Russian air-launched cruise missile, carried by Tu-95 and Tu-160 bombers. It flies low and slow like a small jet aircraft, has a range of several thousand kilometres, and is one of the main weapons Russia uses in its long-range strikes on Ukraine.",
+  "air defence": "The systems a country uses to detect and shoot down incoming aircraft, drones and missiles — radar networks, fighter jets on alert, and surface-to-air missile batteries, all coordinated to protect airspace and the people under it."
 };
 
 var TERM_KEYS = {
@@ -3507,9 +3527,12 @@ var TERM_KEYS = {
   "single-sign-on":"SSO", "SSO":"SSO",
   "SAML":"SAML",
   "CISA":"CISA",
-  "Known Exploited Vulnerabilities":"KEV", "KEV":"KEV"
+  "Known Exploited Vulnerabilities":"KEV", "KEV":"KEV",
+  "AWACS":"AWACS",
+  "Kh-101":"Kh-101",
+  "air defences":"air defence", "Air defences":"air defence", "air defence":"air defence", "Air defence":"air defence"
 };
-var TERM_RE = /(^|[^A-Za-z])((?:National Crime Information Center|Government Accountability Office|Known Exploited Vulnerabilities|Outer Space Treaty|low-Earth-orbit|Low-Earth-orbit|low Earth orbit|Low Earth orbit|anti-ship cruise missiles|Anti-ship cruise missiles|anti-ship cruise missile|Anti-ship cruise missile|uranium enrichment|Uranium enrichment|uranium-enrichment|Uranium-enrichment|centrifuges|Centrifuges|centrifuge|Centrifuge|plutonium|Plutonium|Yongbyon|UK Maritime Trade Operations|liquefied natural gas|Liquefied natural gas|liquefied petroleum gas|Liquefied petroleum gas|air defence identification zone|Air defence identification zone|Ali Al Salem Air Base|chemical weapons|Chemical weapons|chemical weapon|Chemical weapon|dirty bombs|Dirty bomb|dirty bomb|dirty-bomb|precision munitions|Precision munitions|cruise missiles|Cruise missiles|cruise missile|Cruise missile|Bab el-Mandeb|Strait of Hormuz|Qeshm Island|Kuwait|Bahrain|Tsushima Strait|Arabian Gulf|Gulf of Aden|non-NATO ally|Riffa Air Base|one-way attack drones|one-way attack drone|ballistic missiles|ballistic missile|carrier strike groups|carrier strike group|East-West oil pipeline|East-West Pipeline|PGSA blacklist|Conflict Zone|conflict zone|conflict-zone|Khorramshahr|RAF Fairford|Fifth Fleet|product tanker|Product tanker|Saudi-led coalition|saudi-led coalition|Houthis|Houthi|Hodeidah|single-sign-on|zero-days|Zero-days|zero-day|Zero-day|vCenter|CVSS|SAML|CISA|SSO|KEV|NCIC|CENTCOM|UKMTO|IRGC|EASA|CZIB|IAEA|NATO|ADNOC|Patriot|Tu-95s|Tu-95|LNG|LPG|ADIZ|STEP|JMIC|FIRs|FIR|PGSA|ship-to-ship transfers|Ship-to-ship transfers|ship-to-ship transfer|Ship-to-ship transfer|naval blockade|Naval blockade|Blockade|blockade|projectiles|projectile|Projectile|waterline|Waterline))(?![A-Za-z0-9])/g;
+var TERM_RE = /(^|[^A-Za-z])((?:National Crime Information Center|Government Accountability Office|Known Exploited Vulnerabilities|Outer Space Treaty|low-Earth-orbit|Low-Earth-orbit|low Earth orbit|Low Earth orbit|anti-ship cruise missiles|Anti-ship cruise missiles|anti-ship cruise missile|Anti-ship cruise missile|uranium enrichment|Uranium enrichment|uranium-enrichment|Uranium-enrichment|centrifuges|Centrifuges|centrifuge|Centrifuge|plutonium|Plutonium|Yongbyon|UK Maritime Trade Operations|liquefied natural gas|Liquefied natural gas|liquefied petroleum gas|Liquefied petroleum gas|air defence identification zone|Air defence identification zone|air defences|Air defences|air defence|Air defence|Ali Al Salem Air Base|chemical weapons|Chemical weapons|chemical weapon|Chemical weapon|dirty bombs|Dirty bomb|dirty bomb|dirty-bomb|precision munitions|Precision munitions|cruise missiles|Cruise missiles|cruise missile|Cruise missile|Bab el-Mandeb|Strait of Hormuz|Qeshm Island|Kuwait|Bahrain|Tsushima Strait|Arabian Gulf|Gulf of Aden|non-NATO ally|Riffa Air Base|one-way attack drones|one-way attack drone|ballistic missiles|ballistic missile|carrier strike groups|carrier strike group|East-West oil pipeline|East-West Pipeline|PGSA blacklist|Conflict Zone|conflict zone|conflict-zone|Khorramshahr|RAF Fairford|Fifth Fleet|product tanker|Product tanker|Saudi-led coalition|saudi-led coalition|Houthis|Houthi|Hodeidah|single-sign-on|zero-days|Zero-days|zero-day|Zero-day|vCenter|CVSS|SAML|CISA|SSO|KEV|NCIC|CENTCOM|UKMTO|IRGC|EASA|CZIB|IAEA|NATO|ADNOC|Patriot|Tu-95s|Tu-95|LNG|LPG|ADIZ|STEP|JMIC|FIRs|FIR|PGSA|AWACS|Kh-101|ship-to-ship transfers|Ship-to-ship transfers|ship-to-ship transfer|Ship-to-ship transfer|naval blockade|Naval blockade|Blockade|blockade|projectiles|projectile|Projectile|waterline|Waterline))(?![A-Za-z0-9])/g;
 function linkify(text){
   return esc(text).replace(TERM_RE, function(m, pre, label){
     return pre + "<button type='button' class='term' data-term='" + TERM_KEYS[label] + "'>" + label + "</button>";
