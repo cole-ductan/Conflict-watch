@@ -712,11 +712,11 @@
         <span class="hs-dot" aria-hidden="true"></span>
         <h3>Hourly Scan</h3>
       </div>
-      <span class="hs-time">Updated Tue Nov 24, 2026, ~10:24 AM CT</span>
-      <p class="hs-meta"><span id="hsLatest">Latest 9:20 AM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">25 High</span></p>
+      <span class="hs-time">Updated Tue Nov 24, 2026, 12:51 PM CT</span>
+      <p class="hs-meta"><span id="hsLatest">Latest 12:16 PM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">25 High</span></p>
     </div>
-    <p class="hs-lede"><a href="#/reports" data-scan-target="riyadh-financial-district-tower-attack-nov24">Riyadh Tower Attacked</a> — a tower in Riyadh's financial district was targeted in an attack on Tuesday, injuring 11 people, Saudi civil defence said. The Saudi-led coalition called it a "terrorist attack" but has not named who did it; regional reporting attributes it to the Houthis, an attribution Reuters has not confirmed. Two more reports landed this morning: <a href="#/reports" data-scan-target="ukmto-three-tankers-projectiles-nov23">Three Tankers Struck</a> — three crude tankers hit by projectiles in the Strait of Hormuz on Monday — and <a href="#/reports" data-scan-target="ukmto-cti-helen-dibba-nov22">Bulker Hit Off UAE</a>, a bulk carrier hit by a projectile while anchored off the UAE coast on Sunday.</p>
-    <p class="hs-why"><span>Why this matters for the US</span> — Houthi strikes on Riyadh's financial center and continued tanker attacks in the Strait of Hormuz keep pressure on a key US partner and Gulf shipping.</p>
+    <p class="hs-lede"><a href="#/reports" data-scan-target="iran-blacklists-26-tugboats-nov24">Iran Blacklists Tugboats</a> — Iran widened its Hormuz pressure campaign from tankers to the boats that rescue them, blacklisting 26 tugboats that tow and fight fires for tankers sailing without Tehran's permission — the non-compliance list now covers 266 vessels. The move targets the towing, firefighting and salvage help that US-protected tankers rely on when struck. No new tanker attack or US strike was reported in the last hour.</p>
+    <p class="hs-why"><span>Why this matters for the US</span> — Blacklisting the tugs raises the cost and risk of keeping oil moving through Hormuz under US protection.</p>
     <div class="hs-links">
       <span class="hs-links-label">Latest briefs</span>
       <a class="hs-link" href="#/reports" data-scan-target="ukmto-three-tankers-projectiles-nov23">Three Tankers Struck <span class="arr" aria-hidden="true">↓</span></a>
@@ -1163,6 +1163,25 @@ var THEATER_NAMES = {
   "cyber-homeland":"Cyber / Homeland"
 };
 var REPORTS = [
+{
+  id:"iran-blacklists-26-tugboats-nov24",
+  ts:"2026-11-24T18:16:00Z",
+  group:"Tuesday, November 24, 2026",
+  theater:"iran-gulf",
+  severity:"medium",
+  category:"Maritime pressure — Strait of Hormuz",
+  title:"Hormuz blacklists tugboats, pressuring tanker traffic",
+  headline:"Iran Blacklists Tugboats",
+  simple:"Iran's Strait authority has put 26 tugboats on its blacklist for helping tankers that sail through the Strait of Hormuz without Tehran's permission. The list now covers 266 vessels. Tugboats are the boats that tow damaged tankers to safety and fight fires at sea — blacklisting them is Iran's way of squeezing the rescue and salvage help that US-protected tanker traffic depends on.",
+  summary:"Iran's Persian Gulf Strait Authority (PGSA) said Tuesday it added 26 tugboats to its \"non-compliance list\" for providing services to vessels it considers offenders using the southern route through the Strait of Hormuz, according to the semi-official Tasnim news agency as reported by Bloomberg/Transport Topics. The tugs are registered in several countries, including the UAE, Singapore and India. The authority has now listed 266 vessels in total. The PGSA, established in May 2026, announced the move in a post on X on Nov 24. Maritime risk firm Orbital Risk Intelligence assesses Iran is likely trying to deny towage, firefighting and salvage services to the vessels it attacks. Context: tugboats have been crucial to keeping traffic moving — towing tankers damaged in Iranian attacks to safety — and several have been damaged in recent months, per the International Maritime Organization: a Panama-flagged tug was damaged earlier this month, a Netherlands-flagged vessel incident injured a seafarer, and in March four seafarers died and three were severely injured in a tug incident off the coast of Oman. Contested claims: none on the listing itself — the PGSA announced it directly. The \"deny salvage\" reading is Orbital Risk Intelligence's assessment, attributed to them, not a stated Iranian aim. Why this matters for the US: US-escorted tankers rely on tugboats for towing, firefighting and salvage when struck; blacklisting the tugs raises the cost and risk of keeping oil moving through Hormuz under US protection, and extends Iran's pressure from the tankers themselves to the safety net behind them.",
+  confidence:"High that the listing happened — the PGSA announced it directly in its own Nov 24 post on X (@PGSA_IRAN), reported by Bloomberg/Transport Topics via the semi-official Tasnim news agency and corroborated by Press TV. The \"deny salvage\" motive is Orbital Risk Intelligence's assessment, not a stated Iranian aim.",
+  flag:"No attack and no casualties — this is administrative pressure on the support ecosystem for US-protected shipping: blacklisting the tugs extends Iran's pressure from the tankers themselves to the safety net behind them.",
+  sources:[
+    {name:"Transport Topics (Bloomberg)", date:"Nov 24, 2026", url:"https://www.ttnews.com/articles/hormuz-blacklists-tugboats"},
+    {name:"Press TV", date:"Nov 24, 2026", url:"https://www.presstv.co.uk/Detail/2026/11/24/781508/iran-blacklists-26-tugboats-over-violations-of-hormuz-transit-arrangements"}
+  ],
+  sourceNote:"The PGSA announced the listing in its own post on X (@PGSA_IRAN) on Nov 24, 2026."
+},
 {
   id:"riyadh-financial-district-tower-attack-nov24",
   ts:"2026-11-24T15:20:00Z",
@@ -3626,6 +3645,7 @@ var TERM_KEYS = {
   "Khorramshahr":"Khorramshahr", "RAF Fairford":"RAF Fairford",
   "Fifth Fleet":"Fifth Fleet", "STEP":"STEP",
   "PGSA blacklist":"PGSA blacklist", "PGSA":"PGSA blacklist",
+  "blacklisting":"PGSA blacklist", "Blacklisting":"PGSA blacklist", "blacklisted":"PGSA blacklist", "Blacklisted":"PGSA blacklist", "blacklists":"PGSA blacklist", "Blacklists":"PGSA blacklist", "blacklist":"PGSA blacklist", "Blacklist":"PGSA blacklist",
   "product tanker":"product tanker", "Product tanker":"product tanker",
   "waterline":"waterline", "Waterline":"waterline",
   "JMIC":"JMIC",
@@ -3662,7 +3682,7 @@ var TERM_KEYS = {
   "Kh-101":"Kh-101",
   "air defences":"air defence", "Air defences":"air defence", "air defence":"air defence", "Air defence":"air defence"
 };
-var TERM_RE = /(^|[^A-Za-z])((?:National Crime Information Center|Government Accountability Office|Known Exploited Vulnerabilities|Outer Space Treaty|low-Earth-orbit|Low-Earth-orbit|low Earth orbit|Low Earth orbit|anti-ship cruise missiles|Anti-ship cruise missiles|anti-ship cruise missile|Anti-ship cruise missile|uranium enrichment|Uranium enrichment|uranium-enrichment|Uranium-enrichment|centrifuges|Centrifuges|centrifuge|Centrifuge|plutonium|Plutonium|Yongbyon|UK Maritime Trade Operations|liquefied natural gas|Liquefied natural gas|liquefied petroleum gas|Liquefied petroleum gas|air defence identification zone|Air defence identification zone|air defences|Air defences|air defence|Air defence|Ali Al Salem Air Base|chemical weapons|Chemical weapons|chemical weapon|Chemical weapon|dirty bombs|Dirty bomb|dirty bomb|dirty-bomb|precision munitions|Precision munitions|cruise missiles|Cruise missiles|cruise missile|Cruise missile|Bab el-Mandeb|Strait of Hormuz|Qeshm Island|Kuwait|Bahrain|Tsushima Strait|Arabian Gulf|Gulf of Aden|non-NATO ally|Riffa Air Base|one-way attack drones|one-way attack drone|ballistic missiles|ballistic missile|carrier strike groups|carrier strike group|East-West oil pipeline|East-West Pipeline|PGSA blacklist|Conflict Zone|conflict zone|conflict-zone|Khorramshahr|RAF Fairford|Fifth Fleet|product tanker|Product tanker|Saudi-led coalition|saudi-led coalition|Houthis|Houthi|Hodeidah|single-sign-on|zero-days|Zero-days|zero-day|Zero-day|vCenter|CVSS|SAML|CISA|SSO|KEV|NCIC|CENTCOM|UKMTO|IRGC|EASA|CZIB|IAEA|NATO|ADNOC|Patriot|Tu-95s|Tu-95|LNG|LPG|ADIZ|STEP|JMIC|FIRs|FIR|PGSA|AWACS|Kh-101|ship-to-ship transfers|Ship-to-ship transfers|ship-to-ship transfer|Ship-to-ship transfer|naval blockade|Naval blockade|Blockade|blockade|projectiles|projectile|Projectile|waterline|Waterline))(?![A-Za-z0-9])/g;
+var TERM_RE = /(^|[^A-Za-z])((?:National Crime Information Center|Government Accountability Office|Known Exploited Vulnerabilities|Outer Space Treaty|low-Earth-orbit|Low-Earth-orbit|low Earth orbit|Low Earth orbit|anti-ship cruise missiles|Anti-ship cruise missiles|anti-ship cruise missile|Anti-ship cruise missile|uranium enrichment|Uranium enrichment|uranium-enrichment|Uranium-enrichment|centrifuges|Centrifuges|centrifuge|Centrifuge|plutonium|Plutonium|Yongbyon|UK Maritime Trade Operations|liquefied natural gas|Liquefied natural gas|liquefied petroleum gas|Liquefied petroleum gas|air defence identification zone|Air defence identification zone|air defences|Air defences|air defence|Air defence|Ali Al Salem Air Base|chemical weapons|Chemical weapons|chemical weapon|Chemical weapon|dirty bombs|Dirty bomb|dirty bomb|dirty-bomb|precision munitions|Precision munitions|cruise missiles|Cruise missiles|cruise missile|Cruise missile|Bab el-Mandeb|Strait of Hormuz|Qeshm Island|Kuwait|Bahrain|Tsushima Strait|Arabian Gulf|Gulf of Aden|non-NATO ally|Riffa Air Base|one-way attack drones|one-way attack drone|ballistic missiles|ballistic missile|carrier strike groups|carrier strike group|East-West oil pipeline|East-West Pipeline|PGSA blacklist|blacklisting|Blacklisting|blacklisted|Blacklisted|blacklists|Blacklists|blacklist|Blacklist|Conflict Zone|conflict zone|conflict-zone|Khorramshahr|RAF Fairford|Fifth Fleet|product tanker|Product tanker|Saudi-led coalition|saudi-led coalition|Houthis|Houthi|Hodeidah|single-sign-on|zero-days|Zero-days|zero-day|Zero-day|vCenter|CVSS|SAML|CISA|SSO|KEV|NCIC|CENTCOM|UKMTO|IRGC|EASA|CZIB|IAEA|NATO|ADNOC|Patriot|Tu-95s|Tu-95|LNG|LPG|ADIZ|STEP|JMIC|FIRs|FIR|PGSA|AWACS|Kh-101|ship-to-ship transfers|Ship-to-ship transfers|ship-to-ship transfer|Ship-to-ship transfer|naval blockade|Naval blockade|Blockade|blockade|projectiles|projectile|Projectile|waterline|Waterline))(?![A-Za-z0-9])/g;
 function linkify(text){
   return esc(text).replace(TERM_RE, function(m, pre, label){
     return pre + "<button type='button' class='term' data-term='" + TERM_KEYS[label] + "'>" + label + "</button>";
