@@ -712,11 +712,11 @@
         <span class="hs-dot" aria-hidden="true"></span>
         <h3>Hourly Scan</h3>
       </div>
-      <span class="hs-time">Updated Tue Nov 24, 2026, 12:51 PM CT</span>
-      <p class="hs-meta"><span id="hsLatest">Latest 12:16 PM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">25 High</span></p>
+      <span class="hs-time">Updated Tue Nov 24, 2026, 3:51 PM CT</span>
+      <p class="hs-meta"><span id="hsLatest">Latest 1:52 PM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">25 High</span></p>
     </div>
-    <p class="hs-lede"><a href="#/reports" data-scan-target="iran-blacklists-26-tugboats-nov24">Iran Blacklists Tugboats</a> — Iran widened its Hormuz pressure campaign from tankers to the boats that rescue them, blacklisting 26 tugboats that tow and fight fires for tankers sailing without Tehran's permission — the non-compliance list now covers 266 vessels. The move targets the towing, firefighting and salvage help that US-protected tankers rely on when struck. No new tanker attack or US strike was reported in the last hour.</p>
-    <p class="hs-why"><span>Why this matters for the US</span> — Blacklisting the tugs raises the cost and risk of keeping oil moving through Hormuz under US protection.</p>
+    <p class="hs-lede"><a href="#/reports" data-scan-target="cia-odni-osint-breach-nov24">CIA Network Breached</a> — Hackers broke into a CIA and ODNI network used to analyse publicly available information, exposing some unclassified data; officials say no classified systems were affected and no one has said who did it. The breach is the latest in a string of federal cyber incidents, after the FBI's crime database and the Agriculture Department's payment systems were hit. No new tanker attack or US strike on Iran was reported in the last hour.</p>
+    <p class="hs-why"><span>Why this matters for the US</span> — The breach reached the intelligence community's own networks, and it lands amid a run of intrusions into federal systems.</p>
     <div class="hs-links">
       <span class="hs-links-label">Latest briefs</span>
       <a class="hs-link" href="#/reports" data-scan-target="ukmto-three-tankers-projectiles-nov23">Three Tankers Struck <span class="arr" aria-hidden="true">↓</span></a>
@@ -1163,6 +1163,24 @@ var THEATER_NAMES = {
   "cyber-homeland":"Cyber / Homeland"
 };
 var REPORTS = [
+{
+  id:"cia-odni-osint-breach-nov24",
+  ts:"2026-11-24T19:52:00Z",
+  group:"Tuesday, November 24, 2026",
+  theater:"cyber-homeland",
+  severity:"medium",
+  category:"Cyber / CIA & ODNI",
+  title:"US CIA, ODNI suffer cybersecurity breach of some unclassified information, NYT reports",
+  headline:"CIA Network Breached",
+  simple:"Hackers broke into a computer network the CIA and the Office of the Director of National Intelligence use to study publicly available information, exposing some unclassified data, the New York Times reported Tuesday. Officials say no classified information was affected, and no one has said who did it or exactly what was taken.",
+  summary:"The CIA and the Office of the Director of National Intelligence recently discovered a breach of a network used to look for intelligence insights in public, unclassified material, the New York Times reported Tuesday, citing people familiar with the matter. CNN confirmed the intrusion with four sources, and the Associated Press confirmed it with a person familiar with the incident, who said the issue has been resolved. The network handles open-source intelligence — the collection and analysis of publicly available data from the internet and commercial databases. An ODNI official said there have been 'no disruptions to critical capabilities or classified systems,' and the CIA declined to comment. It is not clear who was responsible or exactly what unclassified material was exposed; the Times reported information held by other government agencies was also believed to have been exposed. Two CNN sources said the incident does not appear related to the apparent hack of the FBI's National Crime Information Center database reported Friday. It is the latest in a string of federal cybersecurity incidents, which also hit the Agriculture Department's payment systems, and it comes as DNI Jay Clayton serves as interim national cyber director. The incidents have coincided with unrelated high-profile tech outages affecting banks, the National Security Agency and the FAA's air-traffic control system. Contested / unverified: who is responsible (no attribution has been made), exactly what data was exposed (not disclosed), and whether other agencies' data was exposed (reported as believed, not confirmed). Why this matters for the US: the breach reached the US intelligence community's own networks — even unclassified systems carry sensitive analytical work and other agencies' data — and it lands amid a run of intrusions into federal systems, showing US government networks remain exposed.",
+  confidence:"High — the breach is confirmed by the New York Times, Reuters, CNN (four sources) and the Associated Press, with an on-record ODNI statement that no classified systems were disrupted; the attacker and the exact data exposed are unknown.",
+  flag:"Attacker unidentified — no attribution has been made; exactly what unclassified material was exposed has not been disclosed; other agencies' data believed exposed but not confirmed.",
+  sources:[
+    {name:"Reuters — US CIA, ODNI suffer cybersecurity breach of some unclassified information, NYT reports", date:"Nov 24, 2026", url:"https://www.reuters.com/world/us-cia-odni-suffer-cybersecurity-breach-some-unclassified-information-nyt-2026-11-24/"},
+    {name:"CNN — CIA hit by hack impacting unclassified information", date:"Nov 24, 2026", url:"https://www.cnn.com/2026/11/24/politics/cia-odni-hack-unclassified-information?cid=external-feeds_iluminar_meta"}
+  ]
+},
 {
   id:"iran-blacklists-26-tugboats-nov24",
   ts:"2026-11-24T18:16:00Z",
@@ -3613,7 +3631,9 @@ var GLOSSARY = {
   "KEV": "CISA's Known Exploited Vulnerabilities catalog — the US government's list of software flaws confirmed to be under active exploitation. Federal agencies must patch listed flaws by set deadlines, and the catalog is the standard priority list for defenders everywhere.",
   "AWACS": "Airborne Warning and Control System — a radar aircraft (NATO flies the E-3 Sentry) that watches airspace from the sky, tracking aircraft, drones and missiles far beyond the reach of ground radar, and directs friendly forces responding to them. Think of it as a flying radar station and command post.",
   "Kh-101": "A Russian air-launched cruise missile, carried by Tu-95 and Tu-160 bombers. It flies low and slow like a small jet aircraft, has a range of several thousand kilometres, and is one of the main weapons Russia uses in its long-range strikes on Ukraine.",
-  "air defence": "The systems a country uses to detect and shoot down incoming aircraft, drones and missiles — radar networks, fighter jets on alert, and surface-to-air missile batteries, all coordinated to protect airspace and the people under it."
+  "air defence": "The systems a country uses to detect and shoot down incoming aircraft, drones and missiles — radar networks, fighter jets on alert, and surface-to-air missile batteries, all coordinated to protect airspace and the people under it.",
+  "ODNI": "Office of the Director of National Intelligence — oversees all 17 US intelligence agencies, including the CIA.",
+  "OSINT": "Open-source intelligence — intelligence gathered from publicly available sources, such as websites and commercial databases."
 };
 
 var TERM_KEYS = {
@@ -3680,9 +3700,11 @@ var TERM_KEYS = {
   "Known Exploited Vulnerabilities":"KEV", "KEV":"KEV",
   "AWACS":"AWACS",
   "Kh-101":"Kh-101",
-  "air defences":"air defence", "Air defences":"air defence", "air defence":"air defence", "Air defence":"air defence"
+  "air defences":"air defence", "Air defences":"air defence", "air defence":"air defence", "Air defence":"air defence",
+  "Office of the Director of National Intelligence":"ODNI", "ODNI":"ODNI",
+  "open-source intelligence":"OSINT", "Open-source intelligence":"OSINT", "OSINT":"OSINT"
 };
-var TERM_RE = /(^|[^A-Za-z])((?:National Crime Information Center|Government Accountability Office|Known Exploited Vulnerabilities|Outer Space Treaty|low-Earth-orbit|Low-Earth-orbit|low Earth orbit|Low Earth orbit|anti-ship cruise missiles|Anti-ship cruise missiles|anti-ship cruise missile|Anti-ship cruise missile|uranium enrichment|Uranium enrichment|uranium-enrichment|Uranium-enrichment|centrifuges|Centrifuges|centrifuge|Centrifuge|plutonium|Plutonium|Yongbyon|UK Maritime Trade Operations|liquefied natural gas|Liquefied natural gas|liquefied petroleum gas|Liquefied petroleum gas|air defence identification zone|Air defence identification zone|air defences|Air defences|air defence|Air defence|Ali Al Salem Air Base|chemical weapons|Chemical weapons|chemical weapon|Chemical weapon|dirty bombs|Dirty bomb|dirty bomb|dirty-bomb|precision munitions|Precision munitions|cruise missiles|Cruise missiles|cruise missile|Cruise missile|Bab el-Mandeb|Strait of Hormuz|Qeshm Island|Kuwait|Bahrain|Tsushima Strait|Arabian Gulf|Gulf of Aden|non-NATO ally|Riffa Air Base|one-way attack drones|one-way attack drone|ballistic missiles|ballistic missile|carrier strike groups|carrier strike group|East-West oil pipeline|East-West Pipeline|PGSA blacklist|blacklisting|Blacklisting|blacklisted|Blacklisted|blacklists|Blacklists|blacklist|Blacklist|Conflict Zone|conflict zone|conflict-zone|Khorramshahr|RAF Fairford|Fifth Fleet|product tanker|Product tanker|Saudi-led coalition|saudi-led coalition|Houthis|Houthi|Hodeidah|single-sign-on|zero-days|Zero-days|zero-day|Zero-day|vCenter|CVSS|SAML|CISA|SSO|KEV|NCIC|CENTCOM|UKMTO|IRGC|EASA|CZIB|IAEA|NATO|ADNOC|Patriot|Tu-95s|Tu-95|LNG|LPG|ADIZ|STEP|JMIC|FIRs|FIR|PGSA|AWACS|Kh-101|ship-to-ship transfers|Ship-to-ship transfers|ship-to-ship transfer|Ship-to-ship transfer|naval blockade|Naval blockade|Blockade|blockade|projectiles|projectile|Projectile|waterline|Waterline))(?![A-Za-z0-9])/g;
+var TERM_RE = /(^|[^A-Za-z])((?:Office of the Director of National Intelligence|open-source intelligence|Open-source intelligence|National Crime Information Center|Government Accountability Office|Known Exploited Vulnerabilities|Outer Space Treaty|low-Earth-orbit|Low-Earth-orbit|low Earth orbit|Low Earth orbit|anti-ship cruise missiles|Anti-ship cruise missiles|anti-ship cruise missile|Anti-ship cruise missile|uranium enrichment|Uranium enrichment|uranium-enrichment|Uranium-enrichment|centrifuges|Centrifuges|centrifuge|Centrifuge|plutonium|Plutonium|Yongbyon|UK Maritime Trade Operations|liquefied natural gas|Liquefied natural gas|liquefied petroleum gas|Liquefied petroleum gas|air defence identification zone|Air defence identification zone|air defences|Air defences|air defence|Air defence|Ali Al Salem Air Base|chemical weapons|Chemical weapons|chemical weapon|Chemical weapon|dirty bombs|Dirty bomb|dirty bomb|dirty-bomb|precision munitions|Precision munitions|cruise missiles|Cruise missiles|cruise missile|Cruise missile|Bab el-Mandeb|Strait of Hormuz|Qeshm Island|Kuwait|Bahrain|Tsushima Strait|Arabian Gulf|Gulf of Aden|non-NATO ally|Riffa Air Base|one-way attack drones|one-way attack drone|ballistic missiles|ballistic missile|carrier strike groups|carrier strike group|East-West oil pipeline|East-West Pipeline|PGSA blacklist|blacklisting|Blacklisting|blacklisted|Blacklisted|blacklists|Blacklists|blacklist|Blacklist|Conflict Zone|conflict zone|conflict-zone|Khorramshahr|RAF Fairford|Fifth Fleet|product tanker|Product tanker|Saudi-led coalition|saudi-led coalition|Houthis|Houthi|Hodeidah|single-sign-on|zero-days|Zero-days|zero-day|Zero-day|vCenter|CVSS|SAML|CISA|SSO|KEV|NCIC|CENTCOM|UKMTO|IRGC|EASA|CZIB|IAEA|NATO|ADNOC|ODNI|OSINT|Patriot|Tu-95s|Tu-95|LNG|LPG|ADIZ|STEP|JMIC|FIRs|FIR|PGSA|AWACS|Kh-101|ship-to-ship transfers|Ship-to-ship transfers|ship-to-ship transfer|Ship-to-ship transfer|naval blockade|Naval blockade|Blockade|blockade|projectiles|projectile|Projectile|waterline|Waterline))(?![A-Za-z0-9])/g;
 function linkify(text){
   return esc(text).replace(TERM_RE, function(m, pre, label){
     return pre + "<button type='button' class='term' data-term='" + TERM_KEYS[label] + "'>" + label + "</button>";
