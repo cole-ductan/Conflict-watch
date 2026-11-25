@@ -712,11 +712,11 @@
         <span class="hs-dot" aria-hidden="true"></span>
         <h3>Hourly Scan</h3>
       </div>
-      <span class="hs-time">Updated Wed Nov 25, 2026, 10:47 AM CT</span>
-      <p class="hs-meta"><span id="hsLatest">Latest 5:00 AM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">25 High</span></p>
+      <span class="hs-time">Updated Wed Nov 25, 2026, 10:51 AM CT</span>
+      <p class="hs-meta"><span id="hsLatest">Latest 8:46 PM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">25 High</span></p>
     </div>
-    <p class="hs-lede"><a href="#/reports" data-scan-target="fincen-cyber-breach-nov24">FinCEN Systems Breached</a> is the newest verified report — the Treasury Department's financial-crimes bureau says hackers got into some of its systems and it has taken some offline as a precaution; it holds banks' suspicious activity reports, and no one has said who did it or what was taken. Two new Iranian claims sit in the Unverified section: the IRGC Navy says <a href="#/reports" data-scan-target="unverified-2026-11-25-two-tankers-mine-claim">Two Tankers Hit Mines</a> in the Strait of Hormuz early Wednesday, and the Iranian Army says it shot down <a href="#/reports" data-scan-target="unverified-2026-11-24-two-us-drones-downed-claim">Two US Drones Downed</a> over the strait on Tuesday night — neither claim is independently confirmed.</p>
-    <p class="hs-why"><span>Why this matters for the US</span> — The Strait of Hormuz carries about a fifth of the world's oil, so mine and drone claims there — confirmed or not — raise shipping risk and the chance of a US naval incident, while the FinCEN breach shows US government systems remain exposed at home.</p>
+    <p class="hs-lede"><a href="#/reports" data-scan-target="hodeidah-port-strike-nov25">Hodeidah Port Struck</a> is the newest verified report — the Saudi-led coalition bombed Yemen's Hodeidah port overnight after its evacuation warning, hitting port facilities and targets in two northern provinces, and the Houthis answered by threatening Jeddah and every Saudi Red Sea port. Earlier Tuesday, Saudi air defences downed four drones over Ras Tanura — <a href="#/reports" data-scan-target="ras-tanura-four-drones-intercept-nov25">Drones Downed at Ras Tanura</a> — home to the kingdom's largest refinery and a giant oil export terminal; debris fell with no injuries, and the Houthi claim to have hit the refinery is unconfirmed.</p>
+    <p class="hs-why"><span>Why this matters for the US</span> — The Red Sea and the Gulf are the region's two oil and trade chokepoints, and a widening Saudi–Houthi exchange — port strikes at Hodeidah, drones over the Ras Tanura export terminal — puts the shipping and energy flows US forces in the region help protect in the line of fire.</p>
     <div class="hs-links">
       <span class="hs-links-label">Latest briefs</span>
       <a class="hs-link" href="#/reports" data-scan-target="ukmto-three-tankers-projectiles-nov23">Three Tankers Struck <span class="arr" aria-hidden="true">↓</span></a>
@@ -1164,6 +1164,24 @@ var THEATER_NAMES = {
 };
 var REPORTS = [
 {
+  id:"hodeidah-port-strike-nov25",
+  ts:"2026-11-25T02:46:00Z",
+  group:"Tuesday, November 24, 2026",
+  theater:"iran-gulf",
+  severity:"medium",
+  category:"Coalition airstrikes — Yemen / Red Sea",
+  title:"Yemen's Houthis threaten to target Jeddah and other Saudi Red Sea ports",
+  headline:"Hodeidah Port Struck",
+  simple:"The Saudi-led coalition bombed Yemen's Hodeidah port overnight after warning civilians to evacuate, hitting port facilities and targets in two northern provinces. The Houthis answered by threatening Jeddah and every Saudi Red Sea port. No casualties were reported.",
+  summary:"What happened — After Houthi spokesman Yahya Saree said Jeddah and all Saudi Red Sea ports would be targeted if the coalition struck Hodeidah, the Saudi-led coalition said it targeted operational capabilities at Hodeidah port and destroyed a number of targets in the Yemeni governorates of Saada and Amran (Reuters, coalition statement, Wednesday Nov 25). Maritime security firm Vanguard Tech counted at least six airstrikes on Hodeidah on 25 November, following the coalition's evacuation warning to civilians (Seatrade Maritime News). The extent of damage to port infrastructure, the impact on vessels alongside, and the operational status of the port remain unclear. Contested / unverified: Houthi media claimed the Hodeidah airport was also hit — unverified, attributed only, no confirmation. Context — this follows the coalition's second evacuation warning for the port in four days, already on this dashboard. Why this matters for the US: Hodeidah sits on the Red Sea shipping chokepoint and the exchange puts Saudi Red Sea ports — and the trade routes US forces in the region help protect — in the line of fire, days after a Houthi strike injured 11 in Riyadh.",
+  confidence:"High on the strikes and the threats (Reuters + coalition statement + Vanguard Tech); the airport-hit claim is unverified.",
+  flag:"Damage to port infrastructure and the port's operational status remain unclear; the Houthi-media claim that Hodeidah airport was also hit is unverified — attributed only, no confirmation.",
+  sources:[
+    {name:"Reuters — Yemen's Houthis threaten to target Jeddah and other Saudi Red Sea ports", date:"Nov 25, 2026", url:"https://www.reuters.com/world/middle-east/yemens-houthis-threaten-target-jeddah-other-saudi-red-sea-ports-2026-11-25/"},
+    {name:"Seatrade Maritime News — Houthis threaten Saudi ports as four ships attacked near Hormuz", date:"Nov 25, 2026", url:"https://www.seatrade-maritime.com/security/houthis-threaten-saudi-ports-as-four-ships-attacked-near-hormuz"}
+  ]
+},
+{
   id:"fincen-cyber-breach-nov24",
   ts:"2026-11-25T01:00:00Z",
   group:"Tuesday, November 24, 2026",
@@ -1196,6 +1214,24 @@ var REPORTS = [
   flag:"No damage or casualties reported; the drone's intended target was not stated.",
   sources:[
     {name:"Saudi Press Agency — Coalition: UAV Launched by Terrorist Houthi Militia toward Southern Region Intercepted, Destroyed", date:"Nov 24, 2026", url:"https://www.spa.gov.sa/en/N2734759"}
+  ]
+},
+{
+  id:"ras-tanura-four-drones-intercept-nov25",
+  ts:"2026-11-24T22:48:00Z",
+  group:"Tuesday, November 24, 2026",
+  theater:"iran-gulf",
+  severity:"low",
+  category:"Houthi drones — Saudi Arabia",
+  title:"Yemen's Houthis say they attacked Saudi oil refinery and Riyadh financial district",
+  headline:"Drones Downed at Ras Tanura",
+  simple:"Saudi air defences shot down four drones over Ras Tanura, home to the kingdom's largest refinery and a giant oil export terminal. Debris fell but nobody was hurt. The Houthis claimed they hit the refinery — the coalition did not confirm that.",
+  summary:"What happened — The Saudi-led coalition said air defences intercepted and destroyed four drones over Ras Tanura in Saudi Arabia's Eastern Province on Wednesday morning; coalition spokesman Turki al-Malki said fragments fell from the interceptions with no injuries in an initial assessment (Reuters; OilPrice). Contested / unverified: the Houthis claimed the strike on the Ras Tanura refinery was \"accurate and direct\" and caused fires — unverified and contested: the coalition did not say the refinery had been struck. The Houthis also claimed a separate attack on Riyadh's King Abdullah Financial District — unverified, no confirmation, and distinct from the Nov 24 PIF Tower attack already on this dashboard. Why this matters for the US: Ras Tanura is one of the world's largest crude export terminals, and a successful hit there would jolt oil markets — Brent rose over 2% on the claim — and threaten the energy flows US forces in the Gulf help protect.",
+  confidence:"High on the intercept (coalition statement via Reuters); Low on the Houthi refinery-hit and Riyadh claims.",
+  flag:"The Houthi claims — a direct hit on the Ras Tanura refinery causing fires, and a separate attack on Riyadh's King Abdullah Financial District — are unverified; the coalition confirmed only the interceptions, with debris and no injuries.",
+  sources:[
+    {name:"Reuters — Yemen's Houthis say they attacked Saudi oil refinery and Riyadh financial district", date:"Nov 25, 2026", url:"https://www.reuters.com/world/middle-east/yemens-houthis-say-they-attacked-saudi-oil-refinery-riyadh-financial-district-2026-11-25/"},
+    {name:"OilPrice — Oil Jumps Over 2% as Saudi Arabia Downs Drones Over Ras Tanura", date:"Nov 25, 2026", url:"https://oilprice.com/Latest-Energy-News/World-News/Oil-Jumps-Over-2-as-Saudi-Arabia-Downs-Drones-Over-Ras-Tanura.html"}
   ]
 },
 {
@@ -3726,6 +3762,7 @@ var GLOSSARY = {
   "Tu-95": "The Tupolev Tu-95 — NATO reporting name “Bear” — is a Russian long-range strategic bomber, a large four-engine turboprop aircraft in service since the 1950s. It can carry nuclear-capable cruise missiles, which is why its deployments near US allies draw attention.",
   "Hodeidah": "Yemen's main Red Sea port, in the city of Al Hudaydah on the country's west coast. Held by the Houthis, it handles most of Yemen's food and fuel imports — and the Saudi-led coalition says it is also used to smuggle in weapons and ballistic missiles, which is why it is repeatedly struck.",
   "Red Sea": "The sea between northeastern Africa and the Arabian Peninsula, running from the Suez Canal in the north to the Bab el-Mandeb strait and the Gulf of Aden in the south. A large share of Asia–Europe trade passes through it, which is why Houthi attacks on shipping and threats against its ports — including Saudi Arabia's Jeddah — matter to the US and its allies.",
+  "Ras Tanura": "A port city on Saudi Arabia's Gulf coast in the Eastern Province, home to Saudi Aramco's largest oil refinery and one of the world's biggest crude-oil export terminals. A successful strike there would jolt global oil markets, which is why drone attacks over it matter to the US.",
   "zero-day": "A software flaw that is exploited before the vendor has released a fix — defenders have had 'zero days' to patch it. Zero-day exploits are prized hacking tools because no patch exists yet when they are first used.",
   "vCenter": "VMware vCenter Server — the central management console for VMware's virtualization platform, used by companies and governments to run and administer fleets of virtual servers. Whoever controls vCenter can control every virtual machine it manages, which makes it a top target.",
   "CVSS": "The Common Vulnerability Scoring System — the standard 0-to-10 scale for rating how serious a software flaw is. A score of 9.8, near the maximum, means the flaw is remotely exploitable with little attacker effort and can give full control of the affected system.",
@@ -3799,6 +3836,7 @@ var TERM_KEYS = {
   "Tu-95s":"Tu-95", "Tu-95":"Tu-95",
   "Hodeidah":"Hodeidah",
   "Red Sea":"Red Sea",
+  "Ras Tanura":"Ras Tanura",
   "zero-days":"zero-day", "Zero-days":"zero-day", "zero-day":"zero-day", "Zero-day":"zero-day",
   "vCenter":"vCenter",
   "CVSS":"CVSS",
@@ -3815,7 +3853,7 @@ var TERM_KEYS = {
   "suspicious activity reports":"suspicious activity report", "Suspicious activity reports":"suspicious activity report", "suspicious activity report":"suspicious activity report", "Suspicious activity report":"suspicious activity report",
   "Bank Secrecy Act":"Bank Secrecy Act"
 };
-var TERM_RE = /(^|[^A-Za-z])((?:suspicious activity reports|Suspicious activity reports|suspicious activity report|Suspicious activity report|Bank Secrecy Act|Office of the Director of National Intelligence|open-source intelligence|Open-source intelligence|National Crime Information Center|Government Accountability Office|Known Exploited Vulnerabilities|Outer Space Treaty|low-Earth-orbit|Low-Earth-orbit|low Earth orbit|Low Earth orbit|anti-ship cruise missiles|Anti-ship cruise missiles|anti-ship cruise missile|Anti-ship cruise missile|uranium enrichment|Uranium enrichment|uranium-enrichment|Uranium-enrichment|centrifuges|Centrifuges|centrifuge|Centrifuge|plutonium|Plutonium|Yongbyon|UK Maritime Trade Operations|liquefied natural gas|Liquefied natural gas|liquefied petroleum gas|Liquefied petroleum gas|air defence identification zone|Air defence identification zone|air defences|Air defences|air defence|Air defence|Ali Al Salem Air Base|chemical weapons|Chemical weapons|chemical weapon|Chemical weapon|dirty bombs|Dirty bomb|dirty bomb|dirty-bomb|precision munitions|Precision munitions|cruise missiles|Cruise missiles|cruise missile|Cruise missile|Bab el-Mandeb|Strait of Hormuz|Qeshm Island|Kuwait|Bahrain|Tsushima Strait|Red Sea|Arabian Gulf|Gulf of Aden|non-NATO ally|Riffa Air Base|one-way attack drones|one-way attack drone|ballistic missiles|ballistic missile|carrier strike groups|carrier strike group|East-West oil pipeline|East-West Pipeline|PGSA blacklist|blacklisting|Blacklisting|blacklisted|Blacklisted|blacklists|Blacklists|blacklist|Blacklist|Conflict Zone|conflict zone|conflict-zone|Khorramshahr|RAF Fairford|Fifth Fleet|product tanker|Product tanker|Saudi-led coalition|saudi-led coalition|Houthis|Houthi|Hodeidah|single-sign-on|zero-days|Zero-days|zero-day|Zero-day|vCenter|CVSS|SAML|CISA|SSO|KEV|NCIC|CENTCOM|UKMTO|IRGC|EASA|CZIB|IAEA|NATO|ADNOC|ODNI|OSINT|FinCEN|Patriot|Tu-95s|Tu-95|LNG|LPG|ADIZ|STEP|JMIC|FIRs|FIR|PGSA|AWACS|Kh-101|ship-to-ship transfers|Ship-to-ship transfers|ship-to-ship transfer|Ship-to-ship transfer|naval blockade|Naval blockade|Blockade|blockade|projectiles|projectile|Projectile|waterline|Waterline))(?![A-Za-z0-9])/g;
+var TERM_RE = /(^|[^A-Za-z])((?:suspicious activity reports|Suspicious activity reports|suspicious activity report|Suspicious activity report|Bank Secrecy Act|Office of the Director of National Intelligence|open-source intelligence|Open-source intelligence|National Crime Information Center|Government Accountability Office|Known Exploited Vulnerabilities|Outer Space Treaty|low-Earth-orbit|Low-Earth-orbit|low Earth orbit|Low Earth orbit|anti-ship cruise missiles|Anti-ship cruise missiles|anti-ship cruise missile|Anti-ship cruise missile|uranium enrichment|Uranium enrichment|uranium-enrichment|Uranium-enrichment|centrifuges|Centrifuges|centrifuge|Centrifuge|plutonium|Plutonium|Yongbyon|UK Maritime Trade Operations|liquefied natural gas|Liquefied natural gas|liquefied petroleum gas|Liquefied petroleum gas|air defence identification zone|Air defence identification zone|air defences|Air defences|air defence|Air defence|Ali Al Salem Air Base|chemical weapons|Chemical weapons|chemical weapon|Chemical weapon|dirty bombs|Dirty bomb|dirty bomb|dirty-bomb|precision munitions|Precision munitions|cruise missiles|Cruise missiles|cruise missile|Cruise missile|Bab el-Mandeb|Strait of Hormuz|Qeshm Island|Kuwait|Bahrain|Tsushima Strait|Red Sea|Ras Tanura|Arabian Gulf|Gulf of Aden|non-NATO ally|Riffa Air Base|one-way attack drones|one-way attack drone|ballistic missiles|ballistic missile|carrier strike groups|carrier strike group|East-West oil pipeline|East-West Pipeline|PGSA blacklist|blacklisting|Blacklisting|blacklisted|Blacklisted|blacklists|Blacklists|blacklist|Blacklist|Conflict Zone|conflict zone|conflict-zone|Khorramshahr|RAF Fairford|Fifth Fleet|product tanker|Product tanker|Saudi-led coalition|saudi-led coalition|Houthis|Houthi|Hodeidah|single-sign-on|zero-days|Zero-days|zero-day|Zero-day|vCenter|CVSS|SAML|CISA|SSO|KEV|NCIC|CENTCOM|UKMTO|IRGC|EASA|CZIB|IAEA|NATO|ADNOC|ODNI|OSINT|FinCEN|Patriot|Tu-95s|Tu-95|LNG|LPG|ADIZ|STEP|JMIC|FIRs|FIR|PGSA|AWACS|Kh-101|ship-to-ship transfers|Ship-to-ship transfers|ship-to-ship transfer|Ship-to-ship transfer|naval blockade|Naval blockade|Blockade|blockade|projectiles|projectile|Projectile|waterline|Waterline))(?![A-Za-z0-9])/g;
 function linkify(text){
   return esc(text).replace(TERM_RE, function(m, pre, label){
     return pre + "<button type='button' class='term' data-term='" + TERM_KEYS[label] + "'>" + label + "</button>";
@@ -4716,19 +4754,23 @@ render();
 
   /* Archive stats folded into the Hourly Scan header, computed from the report data */
   if(typeof ALL_REPORTS !== "undefined"){
-    var hsHighCount = 0, hsLatestTs = 0;
+    var hsHighCount = 0, hsLatestTs = 0, hsLatestVerifiedTs = 0;
     ALL_REPORTS.forEach(function(r){
       if(r.severity === "high") hsHighCount++;
       if(r.dateOnly) return;
       var t = new Date(r.ts).getTime();
       if(t > hsLatestTs) hsLatestTs = t;
+      /* The header's "Latest" tracks the newest verified report in the main
+         feed — unverified claims carry their own timestamps in their section
+         and do not set the scan's latest time. */
+      if(statusOf(r) !== "unverified" && t > hsLatestVerifiedTs) hsLatestVerifiedTs = t;
     });
     var hsHigh = document.getElementById("hsHigh");
     if(hsHigh) hsHigh.textContent = hsHighCount + " High";
     var hsLatest = document.getElementById("hsLatest");
-    if(hsLatest && hsLatestTs){
+    if(hsLatest && hsLatestVerifiedTs){
       var hsTimeFmt = new Intl.DateTimeFormat("en-US",{timeZone:"America/Chicago",hour:"numeric",minute:"2-digit",hour12:true});
-      hsLatest.textContent = "Latest " + hsTimeFmt.format(new Date(hsLatestTs)) + " CT";
+      hsLatest.textContent = "Latest " + hsTimeFmt.format(new Date(hsLatestVerifiedTs)) + " CT";
     }
 
     /* Threat level: posture from the most severe ACTIVE briefs — the briefs at the
