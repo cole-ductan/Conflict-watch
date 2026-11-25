@@ -712,11 +712,11 @@
         <span class="hs-dot" aria-hidden="true"></span>
         <h3>Hourly Scan</h3>
       </div>
-      <span class="hs-time">Updated Tue Nov 24, 2026, 5:51 PM CT</span>
-      <p class="hs-meta"><span id="hsLatest">Latest 4:55 PM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">25 High</span></p>
+      <span class="hs-time">Updated Wed Nov 25, 2026, 12:51 AM CT</span>
+      <p class="hs-meta"><span id="hsLatest">Latest 7:00 PM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">25 High</span></p>
     </div>
-    <p class="hs-lede"><a href="#/reports" data-scan-target="hodeidah-evacuation-warning-nov24">Hodeidah Evacuation Warning</a> — The Saudi-led coalition told civilians to leave Yemen's Hodeidah port ahead of a possible strike, and the Houthis answered by threatening Jeddah and every Saudi Red Sea port; Houthi media say the port has already been hit, which is not independently confirmed. <a href="#/reports" data-scan-target="coalition-southern-uav-intercept-nov24">Southern Drone Intercepted</a> — Saudi defences also shot down a Houthi drone over the kingdom's southern region, with no damage reported.</p>
-    <p class="hs-why"><span>Why this matters for the US</span> — The Houthis are now threatening the Red Sea ports of a close US ally, putting a major trade route and US personnel in the kingdom at risk.</p>
+    <p class="hs-lede"><a href="#/reports" data-scan-target="fincen-cyber-breach-nov24">FinCEN Systems Breached</a> — The Treasury Department's financial-crimes bureau says hackers got into some of its systems and it has taken some offline as a precaution; it holds banks' suspicious activity reports, and no one has said who did it or what was taken. It is the second federal breach disclosed in a single day, after the CIA/ODNI breach already on the dashboard.</p>
+    <p class="hs-why"><span>Why this matters for the US</span> — FinCEN holds Americans' financial transaction data and banks' suspicious-activity reports, so a breach there risks sensitive financial intelligence — and two federal breaches in one day shows US government systems remain exposed.</p>
     <div class="hs-links">
       <span class="hs-links-label">Latest briefs</span>
       <a class="hs-link" href="#/reports" data-scan-target="ukmto-three-tankers-projectiles-nov23">Three Tankers Struck <span class="arr" aria-hidden="true">↓</span></a>
@@ -1163,6 +1163,24 @@ var THEATER_NAMES = {
   "cyber-homeland":"Cyber / Homeland"
 };
 var REPORTS = [
+{
+  id:"fincen-cyber-breach-nov24",
+  ts:"2026-11-25T01:00:00Z",
+  group:"Tuesday, November 24, 2026",
+  theater:"cyber-homeland",
+  severity:"medium",
+  category:"Cyber / FinCEN breach",
+  title:"US financial crimes bureau discloses 'cybersecurity incident'",
+  headline:"FinCEN Systems Breached",
+  simple:"The Treasury Department's financial-crimes bureau, FinCEN, says hackers got into some of its computer systems, and it has taken some systems offline as a precaution. FinCEN holds the suspicious activity reports banks file about possible money laundering and terrorist financing. Officials have not said who did it, what was taken, or when it happened — and the bureau's filing website is still running.",
+  summary:"What happened — The Financial Crimes Enforcement Network (FinCEN), the Treasury Department bureau that collects banks' suspicious activity reports, disclosed on Tuesday, Nov 24 that it is investigating a cybersecurity incident that 'resulted in unauthorized access to a limited subset of its systems,' according to an alert on its Bank Secrecy Act E-Filing site first reported by The Verge. FinCEN has taken some systems offline as a precaution; the BSA E-Filing website itself remains operational, though some services may be temporarily unavailable. The same day, FinCEN issued Order FIN-2026-R002, granting temporary relief because a 'service disruption' is hindering filings — Bank Secrecy Act reports and beneficial ownership reports due between Nov 18 and Dec 29, 2026 can now be filed by Dec 30, 2026. The relief reaches back to submissions due from Nov 18, six days before the alert; FinCEN has not said when the intrusion began. The Financial Institutions Hotline (1-866-556-3974) is not affected. Context — FinCEN's job is to safeguard the financial system from illicit activity by collecting, analyzing and sharing financial intelligence, including suspicious activity reports and beneficial ownership information. The disclosure came hours after the New York Times reported a breach of the CIA and ODNI open-source intelligence network (already on this dashboard). Contested / unverified: who is responsible (no attribution has been made), whether any data was taken (FinCEN has not said), which systems were reached, and whether the incident is related to the CIA/ODNI breach (FinCEN has not linked it to any other incident, and The Verge says it is unclear whether they are related). Claims of a department-wide Treasury compromise are not supported — the alert refers only to a limited subset of FinCEN systems. Why this matters for the US: FinCEN holds Americans' financial transaction data and the suspicious activity reports banks file on possible money laundering and terrorist financing — a breach there risks sensitive financial intelligence reaching the wrong hands — and it is the second federal breach disclosed the same day, showing US government systems remain exposed.",
+  confidence:"High that FinCEN disclosed a breach and took systems offline — FinCEN's own alert on its BSA E-Filing site, reported by The Verge, corroborated by its same-day relief order FIN-2026-R002; the attacker, the data taken, and any link to the CIA/ODNI breach are unknown.",
+  flag:"Attacker unidentified — no attribution has been made; FinCEN has not said whether any data was taken or which systems were reached; no confirmed link to the CIA/ODNI breach.",
+  sources:[
+    {name:"FinCEN — BSA E-Filing alert (first reported by The Verge)", date:"Nov 24, 2026", url:"https://bsaefiling.fincen.gov/"},
+    {name:"FinCEN Order FIN-2026-R002 — temporary, limited exceptive relief", date:"Nov 24, 2026", url:"https://www.fincen.gov/sites/default/files/100/ORDER-FIN-2026-R002.pdf"}
+  ]
+},
 {
   id:"coalition-southern-uav-intercept-nov24",
   ts:"2026-11-24T22:55:00Z",
@@ -3669,7 +3687,10 @@ var GLOSSARY = {
   "Kh-101": "A Russian air-launched cruise missile, carried by Tu-95 and Tu-160 bombers. It flies low and slow like a small jet aircraft, has a range of several thousand kilometres, and is one of the main weapons Russia uses in its long-range strikes on Ukraine.",
   "air defence": "The systems a country uses to detect and shoot down incoming aircraft, drones and missiles — radar networks, fighter jets on alert, and surface-to-air missile batteries, all coordinated to protect airspace and the people under it.",
   "ODNI": "Office of the Director of National Intelligence — oversees all 17 US intelligence agencies, including the CIA.",
-  "OSINT": "Open-source intelligence — intelligence gathered from publicly available sources, such as websites and commercial databases."
+  "OSINT": "Open-source intelligence — intelligence gathered from publicly available sources, such as websites and commercial databases.",
+  "FinCEN": "The Financial Crimes Enforcement Network, the Treasury Department bureau that collects banks' suspicious activity reports and other financial intelligence to fight money laundering and terrorist financing.",
+  "suspicious activity report": "A report banks and other financial institutions file with FinCEN when they spot transactions that may involve money laundering, fraud, or terrorist financing.",
+  "Bank Secrecy Act": "The US law that requires banks to keep records and file reports — including suspicious activity reports — to help the government detect money laundering and terrorist financing."
 };
 
 var TERM_KEYS = {
@@ -3739,9 +3760,12 @@ var TERM_KEYS = {
   "Kh-101":"Kh-101",
   "air defences":"air defence", "Air defences":"air defence", "air defence":"air defence", "Air defence":"air defence",
   "Office of the Director of National Intelligence":"ODNI", "ODNI":"ODNI",
-  "open-source intelligence":"OSINT", "Open-source intelligence":"OSINT", "OSINT":"OSINT"
+  "open-source intelligence":"OSINT", "Open-source intelligence":"OSINT", "OSINT":"OSINT",
+  "FinCEN":"FinCEN",
+  "suspicious activity reports":"suspicious activity report", "Suspicious activity reports":"suspicious activity report", "suspicious activity report":"suspicious activity report", "Suspicious activity report":"suspicious activity report",
+  "Bank Secrecy Act":"Bank Secrecy Act"
 };
-var TERM_RE = /(^|[^A-Za-z])((?:Office of the Director of National Intelligence|open-source intelligence|Open-source intelligence|National Crime Information Center|Government Accountability Office|Known Exploited Vulnerabilities|Outer Space Treaty|low-Earth-orbit|Low-Earth-orbit|low Earth orbit|Low Earth orbit|anti-ship cruise missiles|Anti-ship cruise missiles|anti-ship cruise missile|Anti-ship cruise missile|uranium enrichment|Uranium enrichment|uranium-enrichment|Uranium-enrichment|centrifuges|Centrifuges|centrifuge|Centrifuge|plutonium|Plutonium|Yongbyon|UK Maritime Trade Operations|liquefied natural gas|Liquefied natural gas|liquefied petroleum gas|Liquefied petroleum gas|air defence identification zone|Air defence identification zone|air defences|Air defences|air defence|Air defence|Ali Al Salem Air Base|chemical weapons|Chemical weapons|chemical weapon|Chemical weapon|dirty bombs|Dirty bomb|dirty bomb|dirty-bomb|precision munitions|Precision munitions|cruise missiles|Cruise missiles|cruise missile|Cruise missile|Bab el-Mandeb|Strait of Hormuz|Qeshm Island|Kuwait|Bahrain|Tsushima Strait|Red Sea|Arabian Gulf|Gulf of Aden|non-NATO ally|Riffa Air Base|one-way attack drones|one-way attack drone|ballistic missiles|ballistic missile|carrier strike groups|carrier strike group|East-West oil pipeline|East-West Pipeline|PGSA blacklist|blacklisting|Blacklisting|blacklisted|Blacklisted|blacklists|Blacklists|blacklist|Blacklist|Conflict Zone|conflict zone|conflict-zone|Khorramshahr|RAF Fairford|Fifth Fleet|product tanker|Product tanker|Saudi-led coalition|saudi-led coalition|Houthis|Houthi|Hodeidah|single-sign-on|zero-days|Zero-days|zero-day|Zero-day|vCenter|CVSS|SAML|CISA|SSO|KEV|NCIC|CENTCOM|UKMTO|IRGC|EASA|CZIB|IAEA|NATO|ADNOC|ODNI|OSINT|Patriot|Tu-95s|Tu-95|LNG|LPG|ADIZ|STEP|JMIC|FIRs|FIR|PGSA|AWACS|Kh-101|ship-to-ship transfers|Ship-to-ship transfers|ship-to-ship transfer|Ship-to-ship transfer|naval blockade|Naval blockade|Blockade|blockade|projectiles|projectile|Projectile|waterline|Waterline))(?![A-Za-z0-9])/g;
+var TERM_RE = /(^|[^A-Za-z])((?:suspicious activity reports|Suspicious activity reports|suspicious activity report|Suspicious activity report|Bank Secrecy Act|Office of the Director of National Intelligence|open-source intelligence|Open-source intelligence|National Crime Information Center|Government Accountability Office|Known Exploited Vulnerabilities|Outer Space Treaty|low-Earth-orbit|Low-Earth-orbit|low Earth orbit|Low Earth orbit|anti-ship cruise missiles|Anti-ship cruise missiles|anti-ship cruise missile|Anti-ship cruise missile|uranium enrichment|Uranium enrichment|uranium-enrichment|Uranium-enrichment|centrifuges|Centrifuges|centrifuge|Centrifuge|plutonium|Plutonium|Yongbyon|UK Maritime Trade Operations|liquefied natural gas|Liquefied natural gas|liquefied petroleum gas|Liquefied petroleum gas|air defence identification zone|Air defence identification zone|air defences|Air defences|air defence|Air defence|Ali Al Salem Air Base|chemical weapons|Chemical weapons|chemical weapon|Chemical weapon|dirty bombs|Dirty bomb|dirty bomb|dirty-bomb|precision munitions|Precision munitions|cruise missiles|Cruise missiles|cruise missile|Cruise missile|Bab el-Mandeb|Strait of Hormuz|Qeshm Island|Kuwait|Bahrain|Tsushima Strait|Red Sea|Arabian Gulf|Gulf of Aden|non-NATO ally|Riffa Air Base|one-way attack drones|one-way attack drone|ballistic missiles|ballistic missile|carrier strike groups|carrier strike group|East-West oil pipeline|East-West Pipeline|PGSA blacklist|blacklisting|Blacklisting|blacklisted|Blacklisted|blacklists|Blacklists|blacklist|Blacklist|Conflict Zone|conflict zone|conflict-zone|Khorramshahr|RAF Fairford|Fifth Fleet|product tanker|Product tanker|Saudi-led coalition|saudi-led coalition|Houthis|Houthi|Hodeidah|single-sign-on|zero-days|Zero-days|zero-day|Zero-day|vCenter|CVSS|SAML|CISA|SSO|KEV|NCIC|CENTCOM|UKMTO|IRGC|EASA|CZIB|IAEA|NATO|ADNOC|ODNI|OSINT|FinCEN|Patriot|Tu-95s|Tu-95|LNG|LPG|ADIZ|STEP|JMIC|FIRs|FIR|PGSA|AWACS|Kh-101|ship-to-ship transfers|Ship-to-ship transfers|ship-to-ship transfer|Ship-to-ship transfer|naval blockade|Naval blockade|Blockade|blockade|projectiles|projectile|Projectile|waterline|Waterline))(?![A-Za-z0-9])/g;
 function linkify(text){
   return esc(text).replace(TERM_RE, function(m, pre, label){
     return pre + "<button type='button' class='term' data-term='" + TERM_KEYS[label] + "'>" + label + "</button>";
