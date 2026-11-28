@@ -433,6 +433,8 @@
   .details-toggle:hover{border-color:var(--blue);color:#9cc3f2}
   .details-toggle .dt-arrow{font-size:12px;transition:transform .15s ease}
   .details-toggle[aria-expanded="true"] .dt-arrow{transform:rotate(180deg)}
+  .report-page-link{display:inline-flex;align-items:center;gap:6px;background:transparent;color:var(--amber);border:1px solid var(--line2);border-radius:8px;padding:8px 14px;font-size:14px;font-weight:600;text-decoration:none;min-height:44px;margin-left:8px;vertical-align:top}
+  .report-page-link:hover{border-color:var(--amber);color:#ffe1a8}
   .details-body{margin-top:12px}
   .details-body[hidden]{display:none}
   .full-body p{margin:0 0 10px;font-size:14.5px;line-height:1.6;color:var(--ink2)}
@@ -715,13 +717,13 @@
       <span class="hs-time">Updated Fri Nov 27, 2026, 9:22 PM CT</span>
       <p class="hs-meta"><span id="hsLatest">Latest 11:00 AM CT</span><span class="sep" aria-hidden="true">·</span><span id="hsHigh">26 High</span></p>
     </div>
-    <p class="hs-lede"><a href="#/reports" data-scan-target="pentagon-bahrain-base-future-nov27">Pentagon Rethinks Bahrain Base</a> — the Navy has only recently begun weighing whether its Iran-damaged Fifth Fleet headquarters in Bahrain will ever return to prewar operations, with damage over $400 million and only a fraction of its 8,000 personnel still there. <a href="#/reports" data-scan-target="nk-mdl-crossings-40-oct-nov27">NK Troops Cross Border</a> — North Korean troops crossed the inter-Korean border about 40 times in October and November, even after a North Korean mine blast wounded three South Korean soldiers in September.</p>
+    <p class="hs-lede"><a href="https://conflictreadyusa.com/reports/pentagon-bahrain-base-future-nov27/">Pentagon Rethinks Bahrain Base</a> — the Navy has only recently begun weighing whether its Iran-damaged Fifth Fleet headquarters in Bahrain will ever return to prewar operations, with damage over $400 million and only a fraction of its 8,000 personnel still there. <a href="https://conflictreadyusa.com/reports/nk-mdl-crossings-40-oct-nov27/">NK Troops Cross Border</a> — North Korean troops crossed the inter-Korean border about 40 times in October and November, even after a North Korean mine blast wounded three South Korean soldiers in September.</p>
     <p class="hs-why"><span>Why this matters for the US</span> — the Pentagon is openly unsure whether its main Gulf naval hub can be rebuilt while North Korea keeps testing the border of a treaty ally that hosts U.S. troops, so the strain on American posture is growing on two fronts at once.</p>
     <div class="hs-links">
       <span class="hs-links-label">Latest briefs</span>
-      <a class="hs-link" href="#/reports" data-scan-target="kuwait-iranian-drone-attack-nov26">Two Killed in Kuwait <span class="arr" aria-hidden="true">↓</span></a>
-      <a class="hs-link" href="#/reports" data-scan-target="ukmto-three-tankers-projectiles-nov23">Three Tankers Struck <span class="arr" aria-hidden="true">↓</span></a>
-      <a class="hs-link" href="#/reports" data-scan-target="russia-nuclear-satellite-sputnik-s-nov23">Nuclear Satellite Readied <span class="arr" aria-hidden="true">↓</span></a>
+      <a class="hs-link" href="https://conflictreadyusa.com/reports/kuwait-iranian-drone-attack-nov26/">Two Killed in Kuwait <span class="arr" aria-hidden="true">↓</span></a>
+      <a class="hs-link" href="https://conflictreadyusa.com/reports/ukmto-three-tankers-projectiles-nov23/">Three Tankers Struck <span class="arr" aria-hidden="true">↓</span></a>
+      <a class="hs-link" href="https://conflictreadyusa.com/reports/russia-nuclear-satellite-sputnik-s-nov23/">Nuclear Satellite Readied <span class="arr" aria-hidden="true">↓</span></a>
     </div>
   </section>
 
@@ -4219,9 +4221,10 @@ function cardHTML(r){
   h += "<p class='card-subtitle'>"+esc(r.title)+"</p>";
   h += "<div class='simple-box'><span class='sb-label'>In plain English</span><p>"+linkify(r.simple || r.summary)+"</p></div>";
   h += "<button type='button' class='details-toggle' data-details='"+esc(r.id)+"' aria-haspopup='dialog'>Click here for details — full brief <span class='dt-arrow' aria-hidden='true'>↗</span></button>";
+  if(st !== "unverified"){ h += "<a class='report-page-link' href='https://conflictreadyusa.com/reports/"+esc(r.id)+"/'>View full report →</a>"; }
   h += "<div class='meta'><span>"+(r.dateOnly ? esc(fmtDateOnly.format(new Date(r.ts)))+" · time not stated by the source" : esc(fmtCT.format(new Date(r.ts)).replace(", "," at ")+" CT"))+"</span><span>"+r.sources.length+" source"+(r.sources.length===1?"":"s")+"</span></div>";
   var shareText = (r.headline || r.title) + " — via Conflict Ready USA";
-  var shareUrl = "https://conflictreadyusa.com/";
+  var shareUrl = st !== "unverified" ? "https://conflictreadyusa.com/reports/" + r.id + "/" : "https://conflictreadyusa.com/";
   var xHref = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(shareText) + "&url=" + encodeURIComponent(shareUrl);
   var fbHref = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(shareUrl) + "&quote=" + encodeURIComponent(shareText);
   h += "<div class='card-share'><span class='share-label'>Share</span>"
@@ -4791,6 +4794,9 @@ document.getElementById("groups").addEventListener("click", function(e){
   /* Share buttons: let the link open the share dialog in a new tab —
      never fall through to the card's full-brief popup. */
   if(e.target.closest(".card-share")) return;
+  /* Full-report page link: let it navigate to the report's own page —
+     never fall through to the card's full-brief popup. */
+  if(e.target.closest(".report-page-link")) return;
   /* Glossary term first: it opens the term explainer and must never fall
      through to the card's full-brief popup. */
   var term = e.target.closest(".term");
